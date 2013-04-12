@@ -11,7 +11,7 @@ Table of Contents
 Colors
 -------------
 
-## Backgrounds
+### Backgrounds
 
 ###### White
 
@@ -28,7 +28,7 @@ A slightly darker shade of white is used as background for code blocks, search f
 R `244` G `241` B `237`  
 HTML `#F4F1ED`
 
-## Global Colours
+### Global Colours
 
 ###### Dark Gray
 
@@ -51,7 +51,7 @@ This color is used for horizontal rules and other less relevant applications.
 R `229` G `227` B `223`  
 HTML `#E5E3DF1`
 
-## Project Colours
+### Project Colours
 
 ###### Prime
 
@@ -69,14 +69,14 @@ HTML `#bb191d`
 
 ###### MooFx
 
-MooFx main color is red purple.
+MooFx main color is reddish purple.
 
 R `141` G `46` B `133`  
 HTML `#8d2e85`
 
 ###### Agent
 
-Prime main color is indigo purple.
+Agent main color is bluish purple.
 
 R `71` G `56` B `138`  
 HTML `#47388a`
