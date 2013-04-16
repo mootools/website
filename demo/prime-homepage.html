@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+
+	<title>Prime | MooTools</title>
+
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic,700italic" />
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700" />
+	<link rel="stylesheet" href="assets/css/global.css" />
+
+	<link rel="shortcut icon" href="assets/icons/favicon.ico" />
+	<link rel="icon" type="image/png" href="assets/icons/favicon.png" />
+</head>
+
+<body class="prime">
+
+<div id="global-bar" class="clearfix wrapper">
+	<div id="logo">
+		<p><a href="#"><img src="assets/images/mootools-logo.png" alt="MooTools" /></a></p>
+	</div>
+	<form id="search" role="search" method="get" action="/">
+		<label for="search-field">
+			<span aria-hidden="true" class="icon search"></span>
+			<input id="search-field" type="search" placeholder="Search in the site" />
+		</label>
+	</form>
+</div>
+
+<hr />
+
+<header id="header" role="banner">
+	<div class="clearfix wrapper">
+		<div>
+			<h1><img src="assets/images/prime.png" alt="Prime" /></h1>
+			<nav role="navigation">
+				<h2 class="visually-hidden">Menu</h2>
+				<ul>
+					<li class="selected"><a href="#"><span>Overview</span><span aria-hidden="true" class="slider"></span></a></li>
+					<li><a href="#"><span>Documentation</span></a></li>
+					<li><a href="#"><span>Tutorials</span></a></li>
+					<li><a href="#"><span>Download</span></a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<main id="main" role="main" class="clearfix">
+	<div class="overview clearfix wrapper">
+		<p class="summary">Prime is an Object Oriented JavaScript library.<br />It helps you with prototypal inheritance<br />and contains generic utilities for every-day JavaScripting.</p>
+		<p class="description lighter">No Native JavaScript Objects were harmed in the making of this library.</p>
+		<div class="use">
+			<pre class="npm">npm install prime</pre>
+			<ul class="clearfix">
+				<li><a href="#" class="button highlighted"><span>Download <span class="version">Development Ver.</span><span aria-hidden="true" class="icon download"></span></span></a></li>
+				<li><a href="#" class="button git"><span>GitHub<br />Repository<span aria-hidden="true" class="icon github"></span></span></a></li>
+			</ul>
+		</div>
+		<p class="license">Prime is released under the Open Source MIT License</p>
+		<div class="big-icon"><img src="assets/images/prime-icon.png" alt="" /></div>
+	</div>
+
+	<hr />
+
+	<div class="modules clearfix wrapper">
+		<section>
+			<h2>Modules Overview</h2>
+			<div>
+				<h3><span class="command">prime</span></h3>
+				<p>The function to create new primes.</p>
+				<pre>var prime = require(<span class="string">"prime"</span>)
+
+var Animal = prime({
+	say: function(){
+	    return <span class="string">"!!"</span>
+	}
+})
+
+var Cat = prime({
+	inherits: Animal,
+	say: function(){
+	    return <span class="string">"meaow"</span> + Cat.parent.say.call(this)
+	}
+})
+				</pre>
+			</div>
+			<div>
+				<h3><span class="command">prime/shell</span></h3>
+				<p>The base shell. As you require more shells, the base shell will be augmented. Requiring specific shells gives you access to generic methods as well.</p>
+				<pre>var array = require("prime/shell/array")
+
+array.indexOf([1,2,3], 3) // 3
+
+var _ = require("prime/shell")
+
+_([1,2,3]).remove(1).each(function(number){
+    console.log(number)
+})
+				</pre>
+			</div>
+			<p class="docs"><a href="#"><span class="arrow">Full Documentation</span></a></p>
+		</section>
+	</div>
+
+	<hr />
+
+	<div class="features clearfix wrapper">
+		<section>
+			<a href="#">
+				<h2>Learn</h2>
+				<p class="darker">Check out the complete documentation and start using Prime today.</p>
+				<p class="color">Documentation<span aria-hidden="true" class="arrow"></span></p>
+			</a>
+		</section>
+	
+		<section>
+			<a href="#">
+				<h2>Try</h2>
+				<p class="darker">Want to know how to use it? See prime in action and discover how powerful it is.</p>
+				<p class="color">Tutorials<span aria-hidden="true" class="arrow"></span></p>
+			</a>
+		</section>
+	
+		<section>
+			<a href="#">
+				<h2>Contribute</h2>
+				<p class="darker">Report bugs issues or help us to extend our documentation.</p>
+				<p class="color">GitHub Repository<span aria-hidden="true" class="arrow"></span></p>
+			</a>
+		</section>
+	</div>
+
+</main>
+
+<hr />
+
+<nav id="menu" role="navigation" class="clearfix wrapper">
+	<h2 class="visually-hidden">Products</h2>
+	<ul>
+		<li class="prime"><a href="#"><img src="assets/images/prime.png" alt="Prime" /></a></li>
+		<li class="elements"><a href="#"><img src="assets/images/elements.png" alt="Elements" /></a></li>
+		<li class="moofx"><a href="#"><img src="assets/images/moofx.png" alt="MooFx" /></a></li>
+		<li class="agent"><a href="#"><img src="assets/images/agent.png" alt="Agent" /></a></li>
+	</ul>
+</nav>
+
+<hr />
+
+<footer id="footer" class="clearfix wrapper">
+	<nav id="sitemap" role="navigation">
+		<div>
+			<h3>About<span aria-hidden="true" class="slider"></span></h3>
+			<ul>
+				<li><a href="#">Blog</a></li>
+				<li><a href="#">Books</a></li>
+				<li><a href="#">Developers</a></li>
+				<li><a href="#">Merchandising</a></li>
+			</ul>
+		</div>
+		<div>
+			<h3>Support<span aria-hidden="true" class="slider"></span></h3>
+			<ul>
+				<li><a href="#">IRC Channel</a></li>
+				<li><a href="#">User Group</a></li>
+				<li><a href="#">The MooTorial</a></li>
+			</ul>
+		</div>
+		<div>
+			<h3>Connect with us<span aria-hidden="true" class="slider"></span></h3>
+			<ul>
+				<li><a href="#"><span aria-hidden="true" class="icon github"></span>GitHub</a></li>
+				<li><a href="#"><span aria-hidden="true" class="icon twitter"></span>Twitter</a></li>
+				<li><a href="#"><span aria-hidden="true" class="icon facebook"></span>Facebook</a></li>
+				<li><a href="#"><span aria-hidden="true" class="icon googleplus"></span>Google+</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div id="credits" role="contentinfo">
+		<p><img src="assets/images/mootools-logo.png" alt="MooTools" /></p>
+		<p>Copyright &copy; 2006-2013<br />Valerio Proietti & MooTools Developers</p>
+	</div>
+</footer>
+
+</body>
+</html>
