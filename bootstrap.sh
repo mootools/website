@@ -21,6 +21,6 @@ npm install
 
 cp /vagrant/init/* /etc/init.d
 
-/etc/init.d/prime start
-/etc/init.d/elements start
+./node_modules/.bin/forever start prime-website
+# /etc/init.d/elements start
 

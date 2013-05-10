@@ -1,0 +1,3 @@
+[submodule "prime-website"]
+	path = prime-website
+	url = git@github.com:arian/prime-website2.git
