@@ -1,3 +1,6 @@
 [submodule "prime-website"]
 	path = prime-website
 	url = git@github.com:arian/prime-website2.git
+[submodule "mootools-microsite"]
+	path = mootools-microsite
+	url = git@github.com:arian/mootools-microsite.git
