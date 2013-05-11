@@ -1,6 +1,6 @@
 [submodule "prime-website"]
 	path = prime-website
-	url = git://github.com/arian/prime-website.git
+	url = git://github.com/arian/prime-website2.git
 [submodule "elements-website"]
 	path = elements-website
 	url = git://github.com/arian/elements-website.git
