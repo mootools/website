@@ -5,6 +5,7 @@
 apt-get update
 apt-get install -y nginx python-software-properties python g++ make
 
+# adding nodejs ppa just once
 if [ ! -e "/etc/apt/sources.list.d/chris-lea-node_js-precise.list" ]
 then
 	add-apt-repository ppa:chris-lea/node.js
@@ -13,14 +14,19 @@ fi
 apt-get update
 apt-get install -y nodejs
 
-# run node apps
+# disable default nginx settings
+rm -f /etc/nginx/sites-enabled/default
+# use the mootools instead
+cp /vagrant/nginx/mootools /etc/nginx/sites-enabled
 
 cd /vagrant
 
-npm install
+# give www-data permissions to /vagrant
+chown -R www-data:vagrant .
 
-cp /vagrant/init/* /etc/init.d
+# run node apps
+npm install forever -g
 
-./node_modules/.bin/forever start prime-website
+forever start prime-website
 # /etc/init.d/elements start
 
