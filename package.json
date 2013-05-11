@@ -23,7 +23,6 @@
   "readmeFilename": "README.md",
   "dependencies": {
     "forever": "0.10",
-    "mootools-microsite": "0.0.x",
     "express": "~3.2.4",
     "jade": "~0.30.0"
   }
