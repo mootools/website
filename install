@@ -6,15 +6,12 @@ npm install
 cd ../prime-website
 echo "Setting up prime-website"
 npm install
-sudo npm link ../mootools-microsite
 node docs/build
 cd ../elements-website
 echo "Setting up elements-website"
 npm install
-sudo npm link ../mootools-microsite
 node docs/build
 cd ..
 npm install
-sudo npm link ./mootools-microsite
 
 echo "now run 'node index'"

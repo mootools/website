@@ -23,15 +23,12 @@ Or you can do the steps manually:
 ~/website/mootools-microsite$ npm install
 ~/website/mootools-microsite$ cd ../prime-website
 ~/website/prime-website$ npm install
-~/website/prime-website$ sudo npm link ../mootools-microsite
 ~/website/prime-website$ node docs/build
 ~/website/prime-website$ cd ../elements-website
 ~/website/elements-website$ npm install
-~/website/elements-website$ sudo npm link ../mootools-microsite
 ~/website/elements-website$ node docs/build
 ~/website/elements-website$ cd ..
 ~/website$ npm install
-~/website$ sudo npm link ./mootools-microsite
 ~/website$ node index
 ```
 
