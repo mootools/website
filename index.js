@@ -1,6 +1,6 @@
 
 var application = require('mootools-microsite');
-var express = app.express;
+var express = application.express;
 
 var routes = function(app){
 
