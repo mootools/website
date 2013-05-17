@@ -29,4 +29,4 @@ cd /vagrant
 # chown -R www-data:vagrant .
 
 # run node app
-PORT=3001 forever start index.js
+forever start index.js
