@@ -9,7 +9,7 @@ Now there is something implemented already too. To start hacking follow the step
 To install everything you need to clone the repository and submodules (for the docs), install dependencies, build the documentation and run the server:
 
 ```bash
-~$ git clone git://github.com/arian/website.git
+~$ git clone git://github.com/mootools/website.git
 ~$ cd website
 ~/website$ git submodule update --init
 ~/website$ npm install
@@ -42,8 +42,8 @@ automatically. The website should then be running on `http://localhost:5001`.
 * Like to work with cool techniques like node, express, jade and stylus?
 * We also need great content and documentation.
 * All pages and navigation need to be fixed
-* Homepage needs to be transformed into html/css according to [the design](https://github.com/mootools/website/tree/master/drafts)
-* Styling for different projects according [designs](https://github.com/mootools/website)
+* Homepage needs to be transformed into html/css according to [the design](https://github.com/mootools/website/tree/master/design)
+* Styling for different projects according [designs](https://github.com/mootools/website/tree/master/design)
 * Adding sites for other projects: wrapup, moofx, agent
 * Integrate the wrapup-webbuilder better
 * Search (Lucene with node?)
