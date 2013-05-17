@@ -1,0 +1,18 @@
+extends ../layouts/docs
+
+block header-logo
+	include partials/header
+
+block header-menu
+	include partials/header-menu
+
+block content
+	ul.versions
+		each ver in versions
+			li: a(href="/prime/docs/#{ver}")
+				| #{ver}
+
+	div.toc
+		| !{toc}
+	div.content
+		| !{content}

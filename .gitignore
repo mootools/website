@@ -1,2 +1,6 @@
 node_modules/
 .vagrant/
+prime/docs/*.html
+prime/docs/*.json
+elements/docs/*.html
+elements/docs/*.json

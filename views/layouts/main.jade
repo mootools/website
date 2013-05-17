@@ -1,0 +1,50 @@
+doctype 5
+html
+	head
+		title= title
+
+		link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic,700italic")
+		link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700")
+		link(rel='stylesheet', href='/css/style.css')
+
+		link(rel="shortcut icon", href="/images/favicon.ico")
+		link(rel="icon", type="image/png", href="/images/favicon.png")
+
+		script(src='/js/main.js')
+
+	body.prime
+
+		include ../partials/header
+
+		hr
+
+		header#header(role='banner')
+			.clearfix.wrapper
+				div
+					h1
+						block header-logo
+
+					nav(role='navigation')
+						h2.visually-hidden Menu
+						block header-menu
+
+		main#main.clearfix(role='main')
+			block main
+
+		hr
+
+		nav#menu.clearfix.wrapper(role='navigation')
+			include ../partials/projects
+
+		hr
+
+		footer#footer.clearfix.wrapper
+			nav#sitemap(role='navigation')
+				include ../partials/footer-navigation
+
+			#credits(role='contentinfo')
+				p: img(src='/images/mootools-logo.png', alt='MooTools')
+				p
+					| Copyright © 2006-2013
+					br
+					| Valerio Proietti & MooTools Developers

@@ -1,9 +1,9 @@
-[submodule "prime-website"]
-	path = prime-website
-	url = git://github.com/arian/prime-website2.git
-[submodule "elements-website"]
-	path = elements-website
-	url = git://github.com/arian/elements-website.git
-[submodule "mootools-microsite"]
-	path = mootools-microsite
-	url = git://github.com/arian/mootools-microsite.git
+[submodule "prime/docs/prime-v0.1.0"]
+	path = docs/prime-v0.1.0
+	url = git://github.com/mootools/prime.git
+[submodule "prime/docs/prime-v0.0.6"]
+	path = docs/prime-v0.0.6
+	url = git://github.com/mootools/prime.git
+[submodule "elements/docs/elements-v0.1.0"]
+	path = elements/docs/elements-v0.1.0
+	url = git://github.com/mootools/elements.git

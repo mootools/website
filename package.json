@@ -23,7 +23,17 @@
   "readmeFilename": "README.md",
   "dependencies": {
     "forever": "0.10",
-    "express": "~3.2.4",
-    "jade": "~0.30.0"
+    "express": "3.2.0",
+    "jade": "~0.29.0",
+    "stylus": "~0.32.1",
+    "wrapup-middleware": "0.0.3",
+    "wrapup": "0.11",
+    "send": "0.1",
+    "fs-extra": "~0.6.0",
+    "async": "~0.2.7",
+    "highlight.js": "~7.3.0",
+    "semver": "~1.1.4",
+    "robotskirt": "~2.7.1",
+    "slug": "~0.2.2"
   }
 }
