@@ -27,6 +27,7 @@ module.exports = function(req, res){
 	if (!docs[version]) version = latest;
 
 	res.render('prime/docs', {
+		page: "/prime/docs",
 		title: "Prime Documentation",
 		content: docs[version].content,
 		toc: docs[version].toc,

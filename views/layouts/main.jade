@@ -1,3 +1,16 @@
+mixin menu(items, selected)
+	ul
+		each item, i in items
+			if item.url == selected
+				li.selected
+					a(href=item.url)
+						span=item.text
+						span.slider(aria-hidden='true')
+			else
+				li
+					a(href=item.url)
+						span=item.text
+
 doctype 5
 html
 	head
