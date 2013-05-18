@@ -3,16 +3,37 @@ div
 	h3
 		span.command prime
 	p The function to create new primes.
-	pre
-		| hi
+	:highlight(lang=js)
+		var prime = require("prime")
+
+		var Animal = prime({
+			say: function(){
+				return "!!"
+			}
+		})
+
+		var Cat = prime({
+			inherits: Animal,
+			say: function(){
+				return "meaow" + Cat.parent.say.call(this)
+			}
+		})
 
 div
 	h3
 		span.command prime/shell
 	p
 		| The base shell. As you require more shells, the base shell will be augmented. Requiring specific shells gives you access to generic methods as well.
-	pre
-		| hi
+	:highlight(lang=js)
+		var array = require("prime/shell/array")
+
+		array.indexOf([1,2,3], 3) // 3
+
+		var _ = require("prime/shell")
+
+		_([1,2,3]).remove(1).each(function(number){
+			console.log(number)
+		})
 
 p.docs
 	a(href='#')

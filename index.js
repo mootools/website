@@ -3,12 +3,16 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
+var jade = require('jade');
+
+jade.filters.highlight = require('./lib/jade-highlight');
 
 var app = express();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
+app.engine('jade', jade.__express);
 app.set('view engine', 'jade');
 app.set('view cache', true);
 app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
