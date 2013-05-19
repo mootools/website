@@ -1,6 +1,7 @@
 "use strict";
 
 var docs = require('./docs');
+var guides = require('./guides');
 
 module.exports = function(app){
 
@@ -13,5 +14,8 @@ module.exports = function(app){
 
 	app.get('/prime/docs', docs);
 	app.get('/prime/docs/:version', docs);
+
+	app.get('/prime/guides', guides.index);
+	app.get('/prime/guide/:guide', guides.article);
 
 };
