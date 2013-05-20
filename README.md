@@ -15,6 +15,8 @@ To install everything you need to clone the repository and submodules (for the d
 ~/website$ npm install
 ~/website$ node build/docs.js prime
 ~/website$ node build/docs.js elements
+~/website$ node build/guides.js prime
+~/website$ node build/guides.js elements
 ~/website$ node index
 ```
 

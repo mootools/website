@@ -4,6 +4,3 @@
 [submodule "prime/docs/prime-v0.0.6"]
 	path = docs/prime-v0.0.6
 	url = git://github.com/mootools/prime.git
-[submodule "elements/docs/elements-v0.1.0"]
-	path = elements/docs/elements-v0.1.0
-	url = git://github.com/mootools/elements.git

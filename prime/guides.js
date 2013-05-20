@@ -9,10 +9,9 @@ try {
 	guides = require('./guides/guides.json');
 } catch(e){
 	console.error(__dirname + "/guides/guides.json does not exist\n" +
-		" did you build the markdown files with 'node build/guides prime'");
+		" did you build the markdown files with 'node build/guides prime'?");
 	throw e;
 }
-
 
 object.each(guides, function(guide){
 	guide.content = fs.readFileSync(__dirname + '/guides/' + guide.htmlFile);
