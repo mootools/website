@@ -27,6 +27,7 @@ module.exports = function(req, res){
 	if (!docs[version]) version = latest;
 
 	res.render('elements/docs', {
+		page: "/elements/docs",
 		title: "Elements Documentation",
 		content: docs[version].content,
 		toc: docs[version].toc,

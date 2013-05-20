@@ -1,14 +1,6 @@
-ul
-	li.selected
-		a(href='/elements')
-			span Overview
-			span.slider(aria-hidden='true')
-	li
-		a(href='/elements/docs')
-			span Documentation
-	li
-		a(href='#')
-			span Tutorials
-	li
-		a(href='/builder')
-			span Download
+menu_elements = {text: "Overview", url: "/elements"}
+menu_docs = {text: "Documentation", url: "/elements/docs"}
+menu_guides = {text: "Guides", url: "/elements/guides"}
+menu_download = {text: "Download", url: "#"}
+
+mixin menu([menu_elements, menu_docs, menu_guides, menu_download], page)
