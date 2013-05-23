@@ -267,8 +267,8 @@ pre {
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	font-family: "Source Code Pro", "Lucida Console", "Monaco", "Courier New", monospace;
-	font-size: 0.8em;
-	font-weight: 400;
+	font-size: 1em;
+	font-weight: 500;
 	padding: 1em;
 }
 
@@ -280,6 +280,7 @@ pre span.string {
 input, textarea, select {
 	-webkit-appearance: none;
 	background: #F4F1ED;
+	border: transparent 1px solid;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -289,6 +290,7 @@ input, textarea, select {
 
 input:focus, textarea:focus, select:focus {
 	outline: none;
+	border: #e5e3df 1px solid;
 }
 
 /* Classes */
@@ -432,6 +434,7 @@ a:active .icon, a:focus .icon {
 }
 
 .search:after {
+	color: #acaaa7;
 	content: "\1F50D";
 	font-family: "Entypo";
 }
@@ -462,8 +465,12 @@ a:active .icon, a:focus .icon {
 }
 
 #search input {
+	background: transparent;
+	border-color: #e5e3df;
+	display: block;
 	font-size: 0.8em;
-	padding: 0.3em 1em;
+	font-weight: 400;
+	padding: 0.3em 0.5em;
 }
 
 #header {
@@ -472,6 +479,7 @@ a:active .icon, a:focus .icon {
 
 #header a {
 	color: #acaaa7;
+	font-size: 1.125em;
 }
 
 #header a:active, #header a:focus {
@@ -480,9 +488,9 @@ a:active .icon, a:focus .icon {
 
 #header a:active span, #header a:focus span {
 	background: #777571;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 }
 
 
@@ -574,6 +582,219 @@ a:active .icon, a:focus .icon {
 	height: 2em;
 	margin: 0 0 1em;
 }
+
+
+
+
+
+
+/* D O C S * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.docs {
+	padding: 0 0 2em;
+}
+
+.docs .versions {
+	background: #F4F1ED;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	color: #acaaa7;
+	margin: 0 0 2em;
+	padding: 0.5em 1em;
+}
+
+.docs .versions h3 {
+	float: left;
+}
+
+.docs .versions ul {
+	float: right;
+}
+
+.docs .versions ul li {
+	font-weight: 400;
+	float: left;
+	margin: 0 0 0 0.5em;
+}
+
+.docs .versions a {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border: #e5e3df 1px solid;
+	color: #acaaa7 !important;
+	font-size: 0.85em;
+	padding: 0.25em 0.5em;
+}
+
+.docs .toc {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: #e5e3df 1px solid;
+	font-size: 0.9em;
+	padding: 0.5em 1em;
+}
+
+.docs .toc h3 {
+	color: #f4f1ed;
+	font-size: 2em;
+}
+
+.docs .toc a {
+	color: #777571 !important;
+	display: block;
+	margin: 0.15em 0 0;
+}
+
+.docs .toc a:active, .docs .toc a:focus {
+	color: #ffffff !important;
+}
+
+.docs .toc a.top {
+	font-size: 1.2em;
+	margin: 1em 0 0;
+}
+
+.docs .toc a.top:after {
+	color: #acaaa7;
+	content: "";
+	float: right;
+	font-family: "Entypo";
+	font-size: 140%;
+}
+
+.docs .content {
+	margin: 0 0 2em;
+}
+
+.docs .content h1 {
+	border-top: 1px solid #e5e3df;
+	margin: 3em 0 0;
+	padding: 1.5em 0 0;
+}
+
+.docs .content h1:first-child {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.docs .content h2 {
+	background: #777571;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin: 2em 0 0.5em;
+	padding: 0.15em 0.5em 0.25em;
+}
+
+.docs .content h2 a {
+	color: #ffffff !important;
+}
+
+.docs .content h3 {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: #e5e3df 1px solid;
+	font-weight: 400;
+	margin: 1.5em 0 0;
+	padding: 0.15em 0.5em 0.25em;
+}
+
+.docs .content h4 {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: #f4f1ed 1px solid;
+	color: #acaaa7;
+	font-size: 1.125em;
+	font-weight: 400;
+	margin: 1.5em 0 0.5em;
+	padding: 0.15em 0.5em 0.25em;
+}
+
+.docs .content h5 {
+	color: #acaaa7;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 1.5em 0 0;
+}
+
+.docs .content p {
+	margin: 0.5em 0;
+}
+
+.docs .content ol {
+	counter-reset: li; /* Initiate a counter */
+	list-style: none; /* Remove default numbering */
+	*list-style: decimal; /* Keep using default numbering for IE6/7 */
+	position: relative;
+}
+
+.docs .content ol li {
+	margin: 0.5em 0 0 1.5em;
+}
+
+.docs .content ol li:before{
+	background: #f4f1ed;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	content: counter(li);
+	counter-increment: li;
+	font-size: 0.75em;
+	font-weight: 600;
+	left: 0;
+	padding: 0.15em 0.5em;
+	position: absolute;
+}
+
+.docs .content ul li {
+	margin: 0.5em 0 0;
+}
+
+.docs .content ul li :after {
+	content: "";
+	float: left;
+	font-family: "Entypo";
+	font-size: 160%;
+	margin: 0 0.25em 0 0;
+}
+
+.docs .content pre {
+	margin: 0.5em 0 0;
+}
+
+.docs .content code {
+	background: #f4f1ed;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	display: inline;
+	padding: 0.25em 0.5em;
+	vertical-align: baseline;
+}
+
+.docs .content pre span.keyword {
+	color: #b05098;
+}
+
+.docs .content pre span.number {
+	color: #429bc1;
+}
+
+.docs .content pre span.string {
+	color: #83a440;
+}
+
+.docs .content pre span.comment {
+	color: #bcb9b3;
+}
+
+
 
 
 /* M O B I L E * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -823,6 +1044,16 @@ a:active .icon, a:focus .icon {
 		margin-top: 1em;
 	}
 
+	.docs .toc {
+		float: left;
+		width: 23%;
+	}
+	
+	.docs .content {
+		float: right;
+		width: 70%;
+	}
+
 	#header .wrapper div {
 		position: relative;
 	}
@@ -969,3 +1200,6 @@ a:active .icon, a:focus .icon {
 	color: #ffffff !important;
 }
 
+.docs .toc a.top {
+	color: #eb6f14 !important;
+}
