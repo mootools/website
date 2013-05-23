@@ -1,0 +1,9 @@
+each section in toc
+    ul.section
+        li
+            a.top(href="#" + section.link) #{section.text}
+            if section.links
+                ul
+                    each link in section.links
+                        li
+                            a(href="#" + link.link) #{link.text}
