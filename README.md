@@ -20,6 +20,10 @@ To install everything you need to clone the repository and submodules (for the d
 ~/website$ node index
 ```
 
+### Notes:
+
+- Some dependencies use native C code which requires some compiler. For Mac users this means that Xcode (Command Line Tools) should be installed.
+
 ## Run it
 
 To run it, you can either use node directly, use forever or use supervisor.
