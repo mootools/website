@@ -5,8 +5,4 @@ mixin anchor(link, text)
         !{text}
 
 htag = "h" + level
-
-if level <= 3
-    #{htag}: !{text}
-else
-    #{htag}: +anchor(link, text)
+#{htag}: +anchor(link, text)
