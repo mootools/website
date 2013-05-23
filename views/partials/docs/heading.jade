@@ -4,16 +4,9 @@ mixin anchor(link, text)
     else
         !{text}
 
-case level
-    when 6
-        h6: !{text}
-    when 5
-        h5: !{text}
-    when 4
-        h4: !{text}
-    when 3
-        h3: +anchor(link, text)
-    when 2
-        h2: +anchor(link, text)
-    default
-        h1: +anchor(link, text)
+htag = "h" + level
+
+if level <= 3
+    #{htag}: !{text}
+else
+    #{htag}: +anchor(link, text)
