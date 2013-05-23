@@ -1,0 +1,10 @@
+mixin anchor(link, text)
+    a(href="#" + link) #{text}
+
+case level
+    when 3
+        h3: +anchor(link, text)
+    when 2
+        h2: +anchor(link, text)
+    default
+        h1: +anchor(link, text)
