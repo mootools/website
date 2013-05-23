@@ -1,5 +1,8 @@
 mixin anchor(link, text)
-    a(href="#" + link) #{text}
+    if link
+        a(href="#" + link, name=link) !{text}
+    else
+        !{text}
 
 case level
     when 3
