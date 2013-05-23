@@ -50,7 +50,7 @@ function build(project, docsdir){
 				var html = compile(md);
 				var version = file.slice(project.length + 1);
 				async.parallel([
-					async.apply(fs.writeFile, docsdir + '/' + 'toc-' + version + '.html', html.toc),
+					async.apply(fs.writeFile, docsdir + '/' + 'toc-' + version + '.json', JSON.stringify(html.toc, null, 2)),
 					async.apply(fs.writeFile, docsdir + '/' + 'content-' + version + '.html', html.content)
 				], cb);
 			}, callback);

@@ -17,7 +17,7 @@ var docs = {};
 versions.forEach(function(version){
 	docs[version] = {
 		content: fs.readFileSync(__dirname + '/docs/content-' + version + '.html'),
-		toc: fs.readFileSync(__dirname + '/docs/toc-' + version + '.html')
+		toc: require(__dirname + '/docs/toc-' + version + '.json')
 	};
 });
 
