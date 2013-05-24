@@ -12,7 +12,10 @@ block content
 			| Versions
 		ul
 			each ver in versions
-				li: a(href="/prime/docs/#{ver}")
+				if version == ver
+					classList = 'selected'
+
+				li: a(href="/prime/docs/#{ver}", class=classList)
 					| #{ver}
 
 	div.toc
