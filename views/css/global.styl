@@ -611,7 +611,7 @@ a:active .icon, a:focus .icon {
 /* D O C S * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 .docs {
-	padding: 0 0 2em;
+	padding-bottom: 2em;
 }
 
 .docs .versions {
@@ -639,13 +639,40 @@ a:active .icon, a:focus .icon {
 }
 
 .docs .versions a {
+	background: #ffffff;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	border: #e5e3df 1px solid;
-	color: #acaaa7 !important;
+	color: #ccc7c1 !important;
 	font-size: 0.85em;
 	padding: 0.25em 0.5em;
+}
+
+.docs .versions a.selected {
+	background: #ffffff;
+	color: #777571 !important;
+}
+
+.docs .versions a.selected:after {
+	background: #ffffff;
+	bottom: -4px;
+	content: "";
+	display: block;
+	height: 6px;
+	left: 50%;
+	margin-left: -3px;
+	position: absolute;
+	-webkit-transform-origin: center;
+	-moz-transform-origin: center;
+	-ms-transform-origin: center;
+	-o-transform-origin: center;
+	transform-origin: center;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	width: 6px;
 }
 
 .docs .toc {
@@ -654,27 +681,26 @@ a:active .icon, a:focus .icon {
 	border-radius: 5px;
 	border: #e5e3df 1px solid;
 	font-size: 0.9em;
-	padding: 0.5em 1em;
+	padding: 1em 1em;
 }
 
-.docs .toc h3 {
-	color: #f4f1ed;
-	font-size: 2em;
-}
-
-.docs .toc a {
+.docs .toc ul a {
 	color: #777571 !important;
 	display: block;
 	margin: 0.15em 0 0;
 }
 
-.docs .toc a:active, .docs .toc a:focus {
+.docs .toc ul a:active, .docs .toc ul a:focus {
 	color: #ffffff !important;
 }
 
-.docs .toc a.top {
+.docs .toc ul a.top {
 	font-size: 1.2em;
 	margin: 1em 0 0;
+}
+
+.docs .toc ul:first-child a.top {
+	margin-top: 0;
 }
 
 .docs .toc a.top:after {
@@ -884,6 +910,14 @@ a:active .icon, a:focus .icon {
 		margin-top: 0.5em;
 	}
 
+	.docs .content {
+		margin-top: 2em;
+	}
+
+	.docs .toc ul ul {
+		display: none; /* Simulate JS slider behaviour. It has to be replaced with JS. */
+	}
+
 	#header .wrapper {
 		padding: 0;
 	}
@@ -893,7 +927,11 @@ a:active .icon, a:focus .icon {
 	}
 
 	#header ul li a {
-		display: block; padding: 0.5em 4%; border-top: 1px solid #e5e3df; cursor: pointer; display: none;
+		border-top: 1px solid #e5e3df;
+		cursor: pointer;
+		display: block;
+		display: none; /* Simulate JS slider behaviour. It has to be replaced with JS. */
+		padding: 0.5em 4%;
 	}
 
 	#header ul li.selected a {
@@ -933,7 +971,7 @@ a:active .icon, a:focus .icon {
 	}
 
 	#sitemap div ul {
-		display: none;
+		display: none; /* Simulate JS slider behaviour. It has to be replaced with JS. */
 	}
 
 	#credits {
