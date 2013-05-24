@@ -43,7 +43,7 @@ function build(project, docsdir){
 					docsdir + '/' + file + '/README.md'
 				], fs.exists, function(results){
 					if (results[0]) fs.readFile(results[0], "utf-8", cb);
-					else callback(new Error("Could not find documentation file"));
+					else cb(new Error("Could not find documentation file"));
 				});
 			}, callback);
 		}],
