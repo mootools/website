@@ -7,18 +7,4 @@ block header-menu
 	include partials/header-menu
 
 block content
-	div.versions.clearfix
-		h3
-			| Versions
-		ul
-			each ver in versions
-				if version == ver
-					classList = 'selected'
-
-				li: a(href="/elements/docs/#{ver}", class=classList)
-					| #{ver}
-
-	div.toc
-		include ../partials/docs/toc
-	div.content
-		| !{content}
+	mixin doc-versions(versions, "/elements/docs/")

@@ -1,7 +1,26 @@
 extends main
 
+mixin doc-versions(versions, path)
+	div.versions.clearfix
+		h3
+			| Versions
+		ul
+			each ver in versions
+				li
+					if version == ver
+						a(href="#{path}#{ver}", class='selected')
+							| #{ver}
+					else
+						a(href="#{path}#{ver}")
+							| #{ver}
+
 block main
 
 	.docs.overview.clearfix.wrapper
 		block content
+
+		div.toc
+			include ../partials/docs/toc
+		div.content
+			| !{content}
 
