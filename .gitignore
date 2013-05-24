@@ -4,3 +4,4 @@ prime/docs/*.html
 prime/docs/*.json
 elements/docs/*.html
 elements/docs/*.json
+*.DS_Store

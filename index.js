@@ -34,7 +34,8 @@ if (app.get('env') == 'development'){
 
 app.get('/', function(req, res){
 	res.render('index', {
-		title: 'MooTools'
+		title: 'MooTools',
+    site: 'elements'
 	});
 });
 

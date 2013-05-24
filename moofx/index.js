@@ -8,7 +8,8 @@ module.exports = function(app){
 	app.get('/moofx', function(req, res){
 		res.render('moofx/index', {
 			page: "/moofx",
-			title: "MooTools Fx"
+			title: "MooTools Fx",
+      site: 'moofx'
 		});
 	});
 
