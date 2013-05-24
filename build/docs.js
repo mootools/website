@@ -38,8 +38,13 @@ function build(project, docsdir){
 
 		doc: ['readdir', function(callback, res){
 			async.map(res.readdir, function(file, cb){
-				file = docsdir + '/' + file + '/doc/' + project + '.md';
-				fs.readFile(file, "utf-8", cb);
+				async.filter([
+					docsdir + '/' + file + '/doc/' + project + '.md',
+					docsdir + '/' + file + '/README.md'
+				], fs.exists, function(results){
+					if (results[0]) fs.readFile(results[0], "utf-8", cb);
+					else callback(new Error("Could not find documentation file"));
+				});
 			}, callback);
 		}],
 
