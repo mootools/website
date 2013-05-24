@@ -1,0 +1,15 @@
+extends ../layouts/main
+
+block header-logo
+	include partials/header
+
+block header-menu
+	include partials/header-menu
+
+block main
+	.guides.overview.clearfix.wrapper
+		each guide in guides
+			.guide
+				h3
+					a(href="/moofx/guide/" + guide.slug)= guide.title
+				| !{guide.author}

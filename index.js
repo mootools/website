@@ -47,6 +47,7 @@ app.use(express.static(__dirname + '/public'));
 
 require('./prime')(app);
 require('./elements')(app);
+require('./moofx')(app);
 
 app.use(app.router);
 
