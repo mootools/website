@@ -266,14 +266,34 @@ pre {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+	display: block;
 	font-family: "Source Code Pro", "Lucida Console", "Monaco", "Courier New", monospace;
-	font-size: 1em;
-	font-weight: 500;
+	font-size: 0.85em;
+	font-weight: 400;
 	padding: 1em;
 }
 
-pre span.string {
-	color: green;
+code {
+	background: #f4f1ed;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	display: inline;
+	font-family: "Source Code Pro", "Lucida Console", "Monaco", "Courier New", monospace;
+	font-size: 0.75em;
+	font-weight: 600;
+	padding: 0.25em 0.5em;
+	vertical-align: baseline;
+}
+
+pre code {
+	background: transparent;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	font-size: 1em;
+	font-weight: 400;
+	padding: 0;
 }
 
 /* Forms */
