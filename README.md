@@ -13,10 +13,7 @@ To install everything you need to clone the repository and submodules (for the d
 ~$ cd website
 ~/website$ git submodule update --init
 ~/website$ npm install
-~/website$ node build/docs.js prime
-~/website$ node build/docs.js elements
-~/website$ node build/guides.js prime
-~/website$ node build/guides.js elements
+~/website$ node build/all
 ~/website$ node index
 ```
 
@@ -26,7 +23,7 @@ To install everything you need to clone the repository and submodules (for the d
 
 ## Run it
 
-To run it, you can either use node directly, use forever or use supervisor.
+To run it, you can either use node directly, use `forever` or use `supervisor`.
 
 ```bash
 node index
@@ -50,7 +47,7 @@ automatically. The website should then be running on `http://localhost:5001`.
 * All pages and navigation need to be fixed
 * Homepage needs to be transformed into html/css according to [the design](https://github.com/mootools/website/tree/master/design)
 * Styling for different projects according [designs](https://github.com/mootools/website/tree/master/design)
-* Adding sites for other projects: wrapup, moofx, agent
+* <del>Adding sites for other projects: wrapup, moofx, agent</del>
 * Integrate the wrapup-webbuilder better
 * Search (Lucene with node?)
 * Overall polish
