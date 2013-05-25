@@ -61,21 +61,27 @@ button, input, select, textarea {
 	vertical-align: baseline;
 }
 
-button, html input[type="button"], input[type="reset"], input[type="submit"] {
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
 	-webkit-appearance: button;
 	cursor: pointer;
 }
 
-button::-moz-focus-inner, input::-moz-focus-inner {
+button::-moz-focus-inner,
+input::-moz-focus-inner {
 	border: 0;
 	padding: 0;
 }
 
-button[disabled], html input[disabled] {
+button[disabled],
+html input[disabled] {
 	cursor: default;
 }
 
-input[type="checkbox"], input[type="radio"] {
+input[type="checkbox"],
+input[type="radio"] {
 	box-sizing: border-box;
 	padding: 0;
 }
@@ -87,7 +93,8 @@ input[type="search"] {
 	box-sizing: content-box;
 }
 
-input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
 	-webkit-appearance: none;
 }
 
@@ -111,7 +118,8 @@ html {
 	vertical-align: baseline;
 }
 
-sub, sup {
+sub,
+sup {
 	font-size: 75%;
 	line-height: 0;
 	position: relative;
@@ -132,11 +140,15 @@ pre {
 	word-wrap: break-word;
 }
 
-blockquote, q {
+blockquote,
+q {
 	quotes: none;
 }
 
-blockquote:before, blockquote:after, q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: "";
 	content: none;
 }
@@ -183,7 +195,8 @@ body {
 
 /* Clearfix */
 
-.clearfix:before, .clearfix:after {
+.clearfix:before,
+.clearfix:after {
 	content: " ";
 	display: table;
 }
@@ -226,17 +239,21 @@ body {
 
 /* Links Style & Focus */
 
-a, .grey-link.grey-link-override a {
+a,
+.grey-link.grey-link-override a {
 	color: #777571;
 	display: inline-block;
 	text-decoration: none;
 }
 
-a:hover, .grey-link.grey-link-override a:hover{
+a:hover,
+.grey-link.grey-link-override a:hover{
 	color: #777571;
 }
 
-a:active, a:focus, .grey-link.grey-link-override a:focus, 
+a:active,
+a:focus,
+.grey-link.grey-link-override a:focus,
 .grey-link.grey-link-override a:hover {
 	background: #777571;
 	-webkit-border-radius: 3px;
@@ -258,7 +275,8 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 200;
 }
 
-b, strong {
+b,
+strong {
 	font-weight: 400;
 }
 
@@ -298,7 +316,9 @@ pre code {
 }
 
 /* Forms */
-input, textarea, select {
+input,
+textarea,
+select {
 	-webkit-appearance: none;
 	background: #F4F1ED;
 	border: transparent 1px solid;
@@ -309,7 +329,9 @@ input, textarea, select {
 	cursor: pointer;
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
 	outline: none;
 	border: #e5e3df 1px solid;
 }
@@ -364,7 +386,8 @@ input:focus, textarea:focus, select:focus {
 	color: #acaaa7;
 }
 
-a:active .lighter, a:focus .lighter {
+a:active .lighter,
+a:focus .lighter {
 	color: #ffffff;
 }
 
@@ -372,7 +395,8 @@ a:active .lighter, a:focus .lighter {
 	color: #777571;
 }
 
-a:active .darker, a:focus .darker {
+a:active .darker,
+a:focus .darker {
 	color: #ffffff;
 }
 
@@ -418,7 +442,8 @@ a:active .darker, a:focus .darker {
 	vertical-align: baseline;
 }
 
-a:active .icon, a:focus .icon {
+a:active .icon,
+a:focus .icon {
 	color: #ffffff;
 }
 
@@ -503,7 +528,8 @@ a:active .icon, a:focus .icon {
 	font-size: 1.125em;
 }
 
-#header a:active, #header a:focus {
+#header a:active,
+#header a:focus {
 	background: transparent;
 }
 
@@ -552,11 +578,11 @@ a:active .icon, a:focus .icon {
 }
 
 .overview.home-page{
-    min-height: 22.5em;
+	min-height: 22.5em;
 }
 
 .overview .big-link{
-    font-size: 1.313em;
+	font-size: 1.313em;
 }
 
 .features a {
@@ -578,7 +604,8 @@ a:active .icon, a:focus .icon {
 	text-align: center;
 }
 
-#menu a:active, #menu a:focus {
+#menu a:active,
+#menu a:focus {
 	border-color: #e5e3df;
 }
 
@@ -699,7 +726,8 @@ a:active .icon, a:focus .icon {
 	margin: 0.15em 0 0;
 }
 
-.docs .toc ul a:active, .docs .toc ul a:focus {
+.docs .toc ul a:active,
+.docs .toc ul a:focus {
 	color: #ffffff !important;
 }
 
@@ -828,7 +856,7 @@ a:active .icon, a:focus .icon {
 
 /* M O B I L E * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-@media only screen and (max-width: 47.999em) {  /* Less than 600 pixels */
+@media only screen and (max-width: 47.999em) { /* Less than 600 pixels */
 
 	.arrow:after {
 		font-size: 200%;
@@ -992,7 +1020,7 @@ a:active .icon, a:focus .icon {
 
 /* T A B L E T * & * D E S K T O P * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-@media only screen and (min-width: 48em) {  /* More or equal to 768 pixels */
+@media only screen and (min-width: 48em) { /* More or equal to 768 pixels */
 
 	.arrow:after {
 		font-size: 160%;
