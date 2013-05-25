@@ -29,7 +29,6 @@ exports.index = function(req, res){
 	res.render('agent/guides', {
 		page: "/agent/guides",
 		title: "agent Guides",
-    site: 'agent',
 		guides: sorted
 	});
 
@@ -46,8 +45,7 @@ exports.article = function(req, res, next){
 	res.render('agent/guide', {
 		page: "/agent/guides",
 		title: "agent Guide: " + guide.title,
-		guide: guide,
-    site: 'agent'
+		guide: guide
 	});
 
 };

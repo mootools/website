@@ -5,18 +5,22 @@ var guides = require('./guides');
 
 module.exports = function(app){
 
-	app.get('/prime', function(req, res){
+	var prime = function(req, res, next){
+		res.locals.site = 'prime';
+		next();
+	};
+
+	app.get('/prime', prime, function(req, res){
 		res.render('prime/index', {
 			page: "/prime",
-			title: "MooTools Prime",
-      site: 'prime'
+			title: "MooTools Prime"
 		});
 	});
 
-	app.get('/prime/docs', docs);
-	app.get('/prime/docs/:version', docs);
+	app.get('/prime/docs', prime, docs);
+	app.get('/prime/docs/:version', prime, docs);
 
-	app.get('/prime/guides', guides.index);
-	app.get('/prime/guide/:guide', guides.article);
+	app.get('/prime/guides', prime, guides.index);
+	app.get('/prime/guide/:guide', prime, guides.article);
 
 };

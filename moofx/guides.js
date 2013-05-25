@@ -29,7 +29,6 @@ exports.index = function(req, res){
 	res.render('moofx/guides', {
 		page: "/moofx/guides",
 		title: "MooFx Guides",
-    site: 'moofx',
 		guides: sorted
 	});
 
@@ -46,8 +45,7 @@ exports.article = function(req, res, next){
 	res.render('moofx/guide', {
 		page: "/moofx/guides",
 		title: "MooFx Guide: " + guide.title,
-		guide: guide,
-    site: 'moofx'
+		guide: guide
 	});
 
 };

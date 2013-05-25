@@ -29,8 +29,7 @@ exports.index = function(req, res){
 	res.render('prime/guides', {
 		page: "/prime/guides",
 		title: "Prime Guides",
-		guides: sorted,
-    site: 'prime'
+		guides: sorted
 	});
 
 };
@@ -47,8 +46,7 @@ exports.article = function(req, res, next){
 	res.render('prime/guide', {
 		page: "/prime/guides",
 		title: "Prime Guide: " + guide.title,
-		guide: guide,
-    site: 'prime'
+		guide: guide
 	});
 
 };
