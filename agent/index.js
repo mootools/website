@@ -1,6 +1,9 @@
 "use strict";
 
-var docs = require('./docs');
+var docs = require('../middleware/docs')('agent', {
+	title: "MooTools Agent Documentation"
+});
+
 var guides = require('../middleware/guides')('agent', {
 	title: "MooTools Agent Guides"
 });
@@ -19,8 +22,8 @@ module.exports = function(app){
 		});
 	});
 
-	//app.get('/agent/docs', agent, docs);
-	//app.get('/agent/docs/:version', agent, docs);
+	app.get('/agent/docs', agent, docs);
+	app.get('/agent/docs/:version', agent, docs);
 
 	app.get('/agent/guides', agent, guides.index);
 	app.get('/agent/guide/:guide', agent, guides.article);

@@ -1,6 +1,9 @@
 "use strict";
 
-var docs = require('./docs');
+var docs = require('../middleware/docs')('moofx', {
+	title: "MooTools MooFx Documentation"
+});
+
 var guides = require('../middleware/guides')('moofx', {
 	title: "MooTools MooFx Guides"
 });
@@ -19,8 +22,8 @@ module.exports = function(app){
 		});
 	});
 
-	//app.get('/moofx/docs', moofx, docs);
-	//app.get('/moofx/docs/:version', moofx, docs);
+	app.get('/moofx/docs', moofx, docs);
+	app.get('/moofx/docs/:version', moofx, docs);
 
 	app.get('/moofx/guides', moofx, guides.index);
 	app.get('/moofx/guide/:guide', moofx, guides.article);

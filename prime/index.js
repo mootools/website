@@ -1,6 +1,9 @@
 "use strict";
 
-var docs = require('./docs');
+var docs = require('../middleware/docs')('prime', {
+	title: "MooTools Prime Documentation"
+});
+
 var guides = require('../middleware/guides')('prime', {
 	title: "MooTools Prime Guides"
 });

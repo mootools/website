@@ -1,6 +1,8 @@
 "use strict";
 
-var docs = require('./docs');
+var docs = require('../middleware/docs')('elements', {
+	title: "MooTools Elements Documentation"
+});
 
 module.exports = function(app){
 

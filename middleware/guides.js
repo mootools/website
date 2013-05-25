@@ -15,7 +15,8 @@ module.exports = function(project, options){
 
 	var guides;
 
-	var JSONPath = path.normalize(__dirname + '/../' + project + '/guides/guides.json');
+	var dir = path.normalize(__dirname + '/../' + project + '/guides');
+	var JSONPath = dir + '/guides.json';
 
 	try {
 		guides = require(JSONPath);
@@ -26,7 +27,7 @@ module.exports = function(project, options){
 	}
 
 	object.each(guides, function(guide){
-		guide.content = fs.readFileSync(__dirname + '/../' + project + '/guides/' + guide.htmlFile);
+		guide.content = fs.readFileSync(dir + '/' + guide.htmlFile);
 	});
 
 	var sorted = object.values(guides).map(function(guide){
