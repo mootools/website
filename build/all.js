@@ -16,7 +16,8 @@ var cmds = [
 
 async.each(cmds, function(cmd, callback){
 	var node = spawn('node', cmd, {
-		stdio: 'inherit'
+		stdio: 'inherit',
+		cwd: __dirname
 	});
 	node.on('close', callback);
 });
