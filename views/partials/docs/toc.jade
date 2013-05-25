@@ -1,8 +1,10 @@
 each section in toc
     ul.section
         li
-            a.top(href="#" + section.link) #{section.text}
-            if section.links
+            if section.link
+                a.top(href="#" + section.link) #{section.text}
+
+            if section.links && section.links.length
                 ul
                     each link in section.links
                         li
