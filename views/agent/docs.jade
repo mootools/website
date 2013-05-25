@@ -1,0 +1,21 @@
+extends ../layouts/docs
+
+block header-logo
+	include partials/header
+
+block header-menu
+	include partials/header-menu
+
+block content
+	div.versions.clearfix
+		h3
+			| Versions
+		ul
+			each ver in versions
+				li: a(href="/agent/docs/#{ver}")
+					| #{ver}
+
+	div.toc
+		include ../partials/docs/toc
+	div.content
+		| !{content}

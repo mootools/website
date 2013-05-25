@@ -34,7 +34,8 @@ if (app.get('env') == 'development'){
 
 app.get('/', function(req, res){
 	res.render('index', {
-		title: 'MooTools'
+		title: 'MooTools',
+    site: 'elements'
 	});
 });
 
@@ -47,6 +48,8 @@ app.use(express.static(__dirname + '/public'));
 
 require('./prime')(app);
 require('./elements')(app);
+require('./moofx')(app);
+require('./agent')(app);
 
 app.use(app.router);
 

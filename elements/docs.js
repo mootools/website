@@ -32,7 +32,8 @@ module.exports = function(req, res){
 		content: docs[version].content,
 		toc: docs[version].toc,
 		version: version,
-		versions: versions
+		versions: versions,
+    site: 'elements'
 	});
 
 };

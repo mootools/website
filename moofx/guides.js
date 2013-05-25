@@ -9,7 +9,7 @@ try {
 	guides = require('./guides/guides.json');
 } catch(e){
 	console.error(__dirname + "/guides/guides.json does not exist\n" +
-		" did you build the markdown files with 'node build/guides prime'?");
+		" did you build the markdown files with 'node build/guides moofx'?");
 	throw e;
 }
 
@@ -26,17 +26,16 @@ var sorted = object.values(guides).map(function(guide){
 
 exports.index = function(req, res){
 
-	res.render('prime/guides', {
-		page: "/prime/guides",
-		title: "Prime Guides",
-		guides: sorted,
-    site: 'prime'
+	res.render('moofx/guides', {
+		page: "/moofx/guides",
+		title: "MooFx Guides",
+    site: 'moofx',
+		guides: sorted
 	});
 
 };
 
 exports.article = function(req, res, next){
-
 	var guide;
 
 	if (req.params.guide) guide = guides[req.params.guide];
@@ -44,11 +43,11 @@ exports.article = function(req, res, next){
 
 	if (!guide) return next();
 
-	res.render('prime/guide', {
-		page: "/prime/guides",
-		title: "Prime Guide: " + guide.title,
+	res.render('moofx/guide', {
+		page: "/moofx/guides",
+		title: "MooFx Guide: " + guide.title,
 		guide: guide,
-    site: 'prime'
+    site: 'moofx'
 	});
 
 };

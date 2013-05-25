@@ -7,7 +7,8 @@ module.exports = function(app){
 	app.get('/elements', function(req, res){
 		res.render('elements/index', {
 			page: "/elements",
-			title: "MooTools Elements"
+			title: "MooTools Elements",
+      site: 'elements'
 		});
 	});
 
