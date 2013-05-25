@@ -1,8 +1,8 @@
 mixin anchor(link, text)
-    if link
-        a(href="#" + link, name=link) !{text}
-    else
-        !{text}
+	if link
+		a(href="#" + link, name=link) !{text}
+	else
+		!{text}
 
 htag = "h" + level
 #{htag}: +anchor(link, text)
