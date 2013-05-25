@@ -1,7 +1,9 @@
 "use strict";
 
 var docs = require('./docs');
-var guides = require('./guides');
+var guides = require('../middleware/guides')('moofx', {
+	title: "MooTools MooFx Guides"
+});
 
 module.exports = function(app){
 

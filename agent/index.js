@@ -1,7 +1,9 @@
 "use strict";
 
 var docs = require('./docs');
-var guides = require('./guides');
+var guides = require('../middleware/guides')('agent', {
+	title: "MooTools Agent Guides"
+});
 
 module.exports = function(app){
 
