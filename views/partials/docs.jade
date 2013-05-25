@@ -1,5 +1,3 @@
-extends main
-
 mixin doc-versions(versions, path)
 	div.versions.clearfix
 		h3
@@ -14,13 +12,12 @@ mixin doc-versions(versions, path)
 						a(href="#{path}#{ver}")
 							| #{ver}
 
-block main
-
+mixin docs(content, versions, path)
 	.docs.overview.clearfix.wrapper
-		block content
+		doc-versions(versions, path)
 
 		div.toc
-			include ../partials/docs/toc
+			include ./docs/toc
 		div.content
 			| !{content}
 

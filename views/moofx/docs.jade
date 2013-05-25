@@ -1,10 +1,5 @@
-extends ../layouts/docs
+extends page
 
-block header-logo
-	include partials/header
-
-block header-menu
-	include partials/header-menu
-
-block content
-	mixin doc-versions(versions, "/moofx/docs/")
+block main
+	include ../partials/docs
+	mixin docs(content, versions, "/moofx/docs/")
