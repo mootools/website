@@ -1,14 +1,16 @@
 h2.visually-hidden Products
+
+mixin project-link(project, alt)
+	mixin image
+		img(src="/images/logo/#{project}.png", alt=alt)
+	li(class=project)
+		if project == site
+			a.selected(href="/#{project}"): mixin image
+		else
+			a(href="/#{project}"): mixin image
+
 ul
-	li.prime
-		a(href='/prime')
-			img(src='/images/logo/prime.png', alt='Prime')
-	li.elements
-		a(href='/elements')
-			img(src='/images/logo/elements.png', alt='Elements')
-	li.moofx
-		a(href='/moofx')
-			img(src='/images/logo/moofx.png', alt='MooFx')
-	li.agent
-		a(href='/agent')
-			img(src='/images/logo/agent.png', alt='Agent')
+	mixin project-link('prime', 'Prime')
+	mixin project-link('elements', 'Elements')
+	mixin project-link('moofx', 'MooFx')
+	mixin project-link('agent', 'Agent')
