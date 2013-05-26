@@ -1,15 +1,7 @@
-
 site_overrides(site, color)
-	.{site} .color
-		color: color
-
-	.{site} .button.highlighted
-		background-color: color
-
 
 	.{site} #header
 		border-color: color
-
 
 	.{site} #header nav ul li.selected a
 		color: color;
@@ -17,17 +9,28 @@ site_overrides(site, color)
 	.{site} #header nav ul li.selected a:after
 		border-color: color color transparent transparent
 
-	.{site} h2
+	.{site} #main .color
+		color: color
+
+	.{site} #main .button.highlighted
+		background-color: color
+
+	.{site} #main h2
 		color: color;
 
-	.{site} a
+	.{site} #main a
 		color: color;
 
-	.{site} a:active, .site a:focus
+	.{site} #main a:active,
+	.{site} #main a:focus
 		color: #ffffff !important;
 
-	.{site} a:active h2, .site a:focus h2
+	.{site} #main a:active h2,
+	.{site} #main a:focus h2
 		color: #ffffff !important;
 
-	.{site} .docs .toc a.top
+	.{site} #main .docs .toc a.top
 		color: color !important;
+
+	.{site} #menu .selected
+		border-color: color
