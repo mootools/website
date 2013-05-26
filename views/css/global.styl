@@ -729,13 +729,27 @@ a:focus .icon {
 	border-radius: 5px;
 	border: #e5e3df 1px solid;
 	font-size: 0.9em;
+	line-height: 1em;
+}
+
+.docs .toc ul {
+	border-top: #e5e3df 1px solid;
 	padding: 1em 1em;
+}
+
+.docs .toc ul:first-child {
+	border-top: none;
+}
+
+.docs .toc ul li ul {
+	border-top: none;
+	padding: 0;
 }
 
 .docs .toc ul a {
 	color: #777571 !important;
 	display: block;
-	margin: 0.15em 0 0;
+	margin: 0.5em 0 0;
 }
 
 .docs .toc ul a:active,
@@ -745,11 +759,7 @@ a:focus .icon {
 
 .docs .toc ul a.top {
 	font-size: 1.2em;
-	margin: 1em 0 0;
-}
-
-.docs .toc ul:first-child a.top {
-	margin-top: 0;
+	margin: 0 0 1em;
 }
 
 .docs .toc a.top:after {
@@ -963,6 +973,10 @@ a:focus .icon {
 		margin-top: 2em;
 	}
 
+	.docs .toc ul a.top {
+		margin-bottom: 0;
+	}
+
 	.docs .toc ul ul {
 		display: none; /* Simulate JS slider behaviour. It has to be replaced with JS. */
 	}
@@ -976,7 +990,7 @@ a:focus .icon {
 	}
 
 	#header ul li a {
-		border-top: 1px solid #e5e3df;
+		border-top: #e5e3df 1px solid;
 		cursor: pointer;
 		display: block;
 		display: none; /* Simulate JS slider behaviour. It has to be replaced with JS. */
@@ -1127,7 +1141,7 @@ a:focus .icon {
 
 	.docs .toc {
 		float: left;
-		width: 23%;
+		width: 26%;
 	}
 
 	.docs .content {
