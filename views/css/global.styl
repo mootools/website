@@ -415,9 +415,14 @@ a:focus .darker {
 }
 
 .command {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: #e5e3df 1px solid;
 	display: block;
 	font-weight: 400;
-	margin-bottom: 0.25em;
+	margin-bottom: 0.5em;
+	padding: 0.15em 0.5em 0.25em;
 }
 
 .wrapper {
@@ -480,7 +485,7 @@ a:focus .icon {
 }
 
 .search:after {
-	color: #acaaa7;
+	color: #e5e3df;
 	content: "\1F50D";
 	font-family: "Entypo";
 }
@@ -517,6 +522,10 @@ a:focus .icon {
 	font-size: 0.8em;
 	font-weight: 400;
 	padding: 0.3em 0.5em;
+}
+
+#search input:focus {
+	border-color: #acaaa7;
 }
 
 #header {
@@ -618,7 +627,7 @@ a:focus .icon {
 }
 
 #sitemap h3 {
-	color: #e5e3df;
+	color: #cfcecb;
 	font-weight: 400;
 }
 
