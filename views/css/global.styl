@@ -50,9 +50,9 @@ ol, ul {
 button, input, select, textarea {
 	-webkit-appearance: none;
 	border: 0;
-	-moz-box-sizing: content-box;
-	-webkit-box-sizing: content-box;
-	box-sizing: content-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 	font-size: 100%;
 	line-height: normal;
 	margin: 0;
@@ -88,9 +88,9 @@ input[type="radio"] {
 
 input[type="search"] {
 	-webkit-appearance: textfield;
-	-moz-box-sizing: content-box;
-	-webkit-box-sizing: content-box;
-	box-sizing: content-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 input[type="search"]::-webkit-search-cancel-button,
@@ -519,7 +519,7 @@ a:focus .icon {
 #search {
 	bottom: 0;
 	position: absolute;
-	right: 0;
+	right: 4%;
 }
 
 #search label {
@@ -903,13 +903,14 @@ a:focus .icon {
 
 @media only screen and (max-width: 47.999em) { /* Less than 600 pixels */
 
+/*
 	.arrow:after {
 		font-size: 200%;
 		margin-top: -0.15em;
 		position: absolute;
 		right: 0;
 		top: 0;
-	}
+	}*/
 
 	.slider:after {
 		content: "";
@@ -1002,6 +1003,28 @@ a:focus .icon {
 
 	.docs .toc ul ul {
 		display: none; /* Simulate JS slider behaviour. It has to be replaced with JS. */
+	}
+
+	#logo {
+		float: none;
+	}
+
+	#logo h1 {
+		text-align: center;
+	}
+	
+	.home-page {
+		text-align: center;
+	}
+
+	body.mootools #search {
+		float: none;
+		margin: 0 4%;
+		position: static;
+	}
+	
+	body.mootools #search input {
+		width: 100%;
 	}
 
 	#header .wrapper {
