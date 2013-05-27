@@ -903,14 +903,17 @@ a:focus .icon {
 
 @media only screen and (max-width: 47.999em) { /* Less than 600 pixels */
 
-/*
 	.arrow:after {
-		font-size: 200%;
-		margin-top: -0.15em;
-		position: absolute;
-		right: 0;
-		top: 0;
-	}*/
+		font-size: 160%;
+		margin-left: 0.25em;
+		position: relative;
+		top: 0.10em;
+		vertical-align: baseline;
+	}
+	
+	.home-page .arrow:after {
+		top: 0.08em;
+	}
 
 	.slider:after {
 		content: "";
@@ -982,11 +985,6 @@ a:focus .icon {
 
 	.features section p {
 		max-width: 80%;
-	}
-
-	.features section .arrow:after {
-		font-size: 400%;
-		margin-top: 0.05em;
 	}
 
 	.features section a p {
