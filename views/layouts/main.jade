@@ -27,10 +27,14 @@ html
 
 	body(class=site)
 
-		include ../partials/header
+		if site == 'mootools'
+			header#header(role='banner')
+				include ../partials/header
+		else
+			include ../partials/header
+			
+			hr
 
-		hr
-		if site != 'mootools'
 			header#header(role='banner')
 				.clearfix.wrapper
 					div
@@ -44,10 +48,11 @@ html
 		main.main.clearfix(role='main')
 			block main
 
-		hr
+		if site != 'mootools'
+			hr
 
-		nav#menu.clearfix.wrapper(role='navigation')
-			include ../partials/projects
+			nav#menu.clearfix.wrapper(role='navigation')
+				include ../partials/projects
 
 		hr
 
