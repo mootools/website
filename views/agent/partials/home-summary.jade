@@ -1,12 +1,14 @@
 section.main
-	include header
-
-	p.summary
-		| Send super requests
-
-	p.description.lighter xxxx
-
-	p.color.big-link
-		a(href='/agent', class='arrow') Discover Agent
-
-	include big-icon
+	a(href='/agent/')
+		include header
+		
+		p.summary
+			| Send super requests
+		
+		p.description.lighter xxxx
+		
+		p.color.big-link
+			span.arrow
+				| Discover Agent
+		
+		include big-icon

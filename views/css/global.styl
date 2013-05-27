@@ -494,20 +494,35 @@ a:focus .icon {
 /* H E A D E R * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #global-bar {
-	padding-top: 1em;
-	padding-bottom: 1em;
+	padding: 1em 0;
+	-webkit-box-shadow: #e5e3df 0px 0px 30px;
+	box-shadow: #e5e3df 0px 0px 30px;
+}
+
+#global-bar div {
+	position: relative;
 }
 
 #logo {
 	float: left;
 }
 
-#logo img {
+#logo h1 {
+	margin: 1em 0;
+}
+
+#logo h1 img {
+	height: 90px;
+}
+
+#logo p img {
 	height: 24px;
 }
 
 #search {
-	float: right;
+	bottom: 0;
+	position: absolute;
+	right: 0;
 }
 
 #search label {
@@ -591,8 +606,13 @@ a:focus .icon {
 	height: 3em;
 }
 
-.overview.home-page{
-	min-height: 22.5em;
+.overview.home-page a {
+	margin-bottom: 2em;
+}
+
+.overview.home-page img {
+	height: 90px;
+	width: auto;
 }
 
 .overview .big-link{

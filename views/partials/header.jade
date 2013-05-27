@@ -1,13 +1,20 @@
-#global-bar.clearfix.wrapper
-	#logo
-		p
-			a(href='/')
-				img(src='/images/logo/mootools.png', alt='MooTools')
-				span.visually-hidden
-					| Home
-
-	form#search(role='search', method='get', action='/')
-		label(for='search-field')
-			span.icon.search(aria-hidden='true')
-			input#search-field(type='search', placeholder='Search in the site')
-
+#global-bar.clearfix
+	div.clearfix.wrapper
+		#logo
+			if site == 'mootools'
+				h1
+					a(href='/')
+						img(src='/images/logo/mootools-payoff.png', alt='MooTools')
+						span.visually-hidden
+							| MooTools
+			else
+				p
+					a(href='/')
+						img(src='/images/logo/mootools.png', alt='MooTools')
+						span.visually-hidden
+							| MooTools Home
+	
+		form#search(role='search', method='get', action='/')
+			label(for='search-field')
+				span.icon.search(aria-hidden='true')
+				input#search-field(type='search', placeholder='Search in the site')

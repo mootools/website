@@ -1,12 +1,14 @@
 section.main
-	include header
-
-	p.summary
-		| Animate somet cool *ish
-
-	p.description.lighter Yeah, css3 baby
-
-	p.color.big-link
-		a(href='/moofx', class='arrow') Discover MooFx
-
-	include big-icon
+	a(href='/moofx/')
+		include header
+	
+		p.summary
+			| Animate somet cool *ish
+	
+		p.description.lighter Yeah, css3 baby
+	
+		p.color.big-link
+			span.arrow
+				| Discover MooFx
+	
+		include big-icon

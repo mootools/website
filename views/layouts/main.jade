@@ -30,16 +30,16 @@ html
 		include ../partials/header
 
 		hr
-
-		header#header(role='banner')
-			.clearfix.wrapper
-				div
-					h1
-						block header-logo
-
-					nav(role='navigation')
-						h2.visually-hidden Menu
-						block header-menu
+		if site != 'mootools'
+			header#header(role='banner')
+				.clearfix.wrapper
+					div
+						h1
+							block header-logo
+		
+						nav(role='navigation')
+							h2.visually-hidden Menu
+							block header-menu
 
 		main.main.clearfix(role='main')
 			block main
