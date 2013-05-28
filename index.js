@@ -15,7 +15,7 @@ app.set('views', __dirname + '/views');
 app.engine('jade', jade.__express);
 app.set('view engine', 'jade');
 app.set('view cache', true);
-app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
+app.use(express.favicon(__dirname + '/public/images/favicon/mootools.ico'));
 app.use(express.bodyParser());
 
 // important to be before express.router
