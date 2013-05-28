@@ -1,3 +1,5 @@
+@import 'nib'
+
 /* F O N T S * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 @font-face {
@@ -48,10 +50,8 @@ ol, ul {
 /* Forms */
 
 button, input, select, textarea {
-	-webkit-appearance: none;
+	appearance: none;
 	border: 0;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	font-size: 100%;
 	line-height: normal;
@@ -65,7 +65,7 @@ button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	-webkit-appearance: button;
+	appearance: button;
 	cursor: pointer;
 }
 
@@ -87,15 +87,13 @@ input[type="radio"] {
 }
 
 input[type="search"] {
-	-webkit-appearance: textfield;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
+	appearance: textfield;
 	box-sizing: border-box;
 }
 
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
-	-webkit-appearance: none;
+	appearance: none;
 }
 
 legend {
@@ -113,8 +111,7 @@ textarea {
 
 html {
 	font-size: 100%;
-	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%;
+	text-size-adjust: 100%;
 	vertical-align: baseline;
 }
 
@@ -256,8 +253,6 @@ a:focus,
 .grey-link.grey-link-override a:active,
 .grey-link.grey-link-override a:focus {
 	background: #777571;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
 	border-radius: 3px;
 	color: #ffffff !important;
 	outline: none;
@@ -282,8 +277,6 @@ strong {
 
 pre {
 	background: #f4f1ed;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 	border-radius: 5px;
 	display: block;
 	font-family: "Source Code Pro", "Lucida Console", "Monaco", "Courier New", monospace;
@@ -294,8 +287,6 @@ pre {
 
 code {
 	background: #f4f1ed;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
 	border-radius: 3px;
 	display: inline;
 	font-family: "Source Code Pro", "Lucida Console", "Monaco", "Courier New", monospace;
@@ -307,8 +298,6 @@ code {
 
 pre code {
 	background: transparent;
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
 	border-radius: 0px;
 	font-size: 1em;
 	font-weight: 400;
@@ -319,11 +308,9 @@ pre code {
 input,
 textarea,
 select {
-	-webkit-appearance: none;
+	appearance: none;
 	background: #F4F1ED;
 	border: transparent 1px solid;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 	border-radius: 5px;
 	color: #777571;
 	cursor: pointer;
@@ -340,8 +327,6 @@ select:focus {
 
 .button {
 	background: #F4F1ED;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 	border-radius: 5px;
 	color: #777571 !important;
 	display: block;
@@ -415,8 +400,6 @@ a:focus .darker {
 }
 
 .command {
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 	border-radius: 5px;
 	border: #e5e3df 1px solid;
 	display: block;
@@ -504,7 +487,6 @@ a:focus .icon {
 /* H E A D E R * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #global-bar {
-	-webkit-box-shadow: #e5e3df 0px 0px 30px;
 	box-shadow: #e5e3df 0px 0px 30px;
 	padding-bottom: 1em;
 	padding-top: 1em;
@@ -620,8 +602,6 @@ body.mootools #global-bar h1 {
 
 #header a:active span, #header a:focus span {
 	background: #777571;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
 	border-radius: 3px;
 }
 
@@ -832,8 +812,6 @@ Try smaller texts on homepage
 }
 
 #menu a {
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 	border-radius: 5px;
 	border: #e5e3df 1px solid;
 	display: block;
@@ -892,8 +870,6 @@ Try smaller texts on homepage
 
 .docs .versions {
 	background: #F4F1ED;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 	border-radius: 5px;
 	color: #acaaa7;
 	margin: 0 0 2em;
@@ -916,8 +892,6 @@ Try smaller texts on homepage
 
 .docs .versions a {
 	background: #ffffff;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
 	border-radius: 3px;
 	color: #ccc7c1 !important;
 	font-size: 0.85em;
@@ -938,22 +912,12 @@ Try smaller texts on homepage
 	left: 50%;
 	margin-left: -3px;
 	position: absolute;
-	-webkit-transform-origin: center;
-	-moz-transform-origin: center;
-	-ms-transform-origin: center;
-	-o-transform-origin: center;
 	transform-origin: center;
-	-webkit-transform: rotate(-45deg);
-	-moz-transform: rotate(-45deg);
-	-ms-transform: rotate(-45deg);
-	-o-transform: rotate(-45deg);
 	transform: rotate(-45deg);
 	width: 6px;
 }
 
 .docs .toc {
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 	border-radius: 5px;
 	border: #e5e3df 1px solid;
 	font-size: 0.9em;
@@ -1016,8 +980,6 @@ Try smaller texts on homepage
 
 .docs .content h2 {
 	background: #777571;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 	border-radius: 5px;
 	margin: 2em 0 0.5em;
 	padding: 0.15em 0.5em 0.25em;
@@ -1028,8 +990,6 @@ Try smaller texts on homepage
 }
 
 .docs .content h3 {
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 	border-radius: 5px;
 	border: #e5e3df 1px solid;
 	font-weight: 400;
@@ -1038,8 +998,6 @@ Try smaller texts on homepage
 }
 
 .docs .content h4 {
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 	border-radius: 5px;
 	border: #f4f1ed 1px solid;
 	color: #acaaa7;
@@ -1073,8 +1031,6 @@ Try smaller texts on homepage
 
 .docs .content ol li:before{
 	background: #f4f1ed;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
 	border-radius: 3px;
 	content: counter(li);
 	counter-increment: li;
@@ -1540,15 +1496,7 @@ a.back-to-top {
 		left: 50%;
 		margin-left: -5px;
 		position: absolute;
-		-webkit-transform-origin: center;
-		-moz-transform-origin: center;
-		-ms-transform-origin: center;
-		-o-transform-origin: center;
 		transform-origin: center;
-		-webkit-transform: rotate(-45deg);
-		-moz-transform: rotate(-45deg);
-		-ms-transform: rotate(-45deg);
-		-o-transform: rotate(-45deg);
 		transform: rotate(-45deg);
 		width: 10px;
 	}

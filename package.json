@@ -27,6 +27,7 @@
     "express": "3.2.0",
     "jade": "~0.29.0",
     "stylus": "~0.32.1",
+    "nib": "~0.9.1",
     "wrapup-middleware": "0.0.3",
     "wrapup": "0.11",
     "send": "0.1",
