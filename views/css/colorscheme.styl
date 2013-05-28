@@ -1,15 +1,9 @@
-pre span.keyword {
-	color: #b05098;
-}
+color_scheme(str, color)
+    &.{str}
+        color: color
 
-pre span.number {
-	color: #429bc1;
-}
-
-pre span.string {
-	color: #83a440;
-}
-
-pre span.comment {
-	color: #bcb9b3;
-}
+pre span 
+    color_scheme('keyword', #b05098)
+    color_scheme('number', #429bc1)
+    color_scheme('string', #83a440)
+    color_scheme('comment', #bcb9b3)
