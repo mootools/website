@@ -45,7 +45,7 @@ automatically. The website should then be running on `http://localhost:5001`.
 * Like to work with cool techniques like node, express, jade and stylus?
 * We also need great content and documentation.
 * All pages and navigation need to be fixed
-* Homepage needs to be transformed into html/css according to [the design](https://github.com/mootools/website/tree/master/design)
+* <del>Homepage needs to be transformed into html/css according to [the design](https://github.com/mootools/website/tree/master/design)</del>
 * Styling for different projects according [designs](https://github.com/mootools/website/tree/master/design)
 * <del>Adding sites for other projects: wrapup, moofx, agent</del>
 * Integrate the wrapup-webbuilder better
