@@ -6,3 +6,6 @@ mixin anchor(link, text)
 
 htag = "h" + level
 #{htag}: +anchor(link, text)
+
+if level < 3
+	a(href="#top") to top
