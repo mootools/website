@@ -32,7 +32,7 @@ html
 				include ../partials/header
 		else
 			include ../partials/header
-			
+
 			hr
 
 			header#header(role='banner')
@@ -40,24 +40,14 @@ html
 					div
 						h1
 							block header-logo
-		
+
 						nav(role='navigation')
 							h2.visually-hidden Menu
 							block header-menu
 
-		main.main.clearfix(role='main')
-			if site == 'mootools'
-				block about
-
-				hr
-
+		.main.clearfix(role='main')
 			block main
 
-		if site == 'mootools'
-			hr
-
-			block updates
-		else
 			hr
 
 			nav#menu.clearfix.wrapper(role='navigation')

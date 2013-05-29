@@ -12,47 +12,54 @@ block about
 				h2
 					| Open Source License
 				p
-					| MooTools libraries are released under the 
+					| MooTools libraries are released under the
 					a(href='http://opensource.org/licenses/MIT')
 						Open Source MIT license
 					|  which gives you the possibility to use them and modify them in every circumstance.
 
-block main
-	div.prime.overview.home-page.clearfix.wrapper
-		include prime/partials/home-summary.jade
-	hr
-		
-	div.elements.overview.home-page.clearfix.wrapper
-		include elements/partials/home-summary.jade
-	hr
-	
-	div.moofx.overview.home-page.clearfix.wrapper
-		include moofx/partials/home-summary.jade
-	hr
-	
-	div.agent.overview.home-page.clearfix.wrapper
-		include agent/partials/home-summary.jade
 
 block updates
 	div.updates
 		div.clearfix.wrapper
 			section
 				div.box
-					h3
-						| Blog Entries
-					p
-						Sample Text
-			
+					h3 Blog Entries
+					p Sample Text
+
 			section.box
 				div.box
-					h3
-						| GitHub Commits
-					p
-						Sample Text
-			
+					h3 GitHub Commits
+					p Sample Text
+
 			section.box
 				div.box
-					h3
-						| Latest Tweets
-					p
-						Sample Text
+					h3 Latest Tweets
+					p Sample Text
+
+block main
+
+	block about
+
+	hr
+
+	div.prime.overview.home-page.clearfix.wrapper
+		include prime/partials/home-summary.jade
+
+	hr
+
+	div.elements.overview.home-page.clearfix.wrapper
+		include elements/partials/home-summary.jade
+
+	hr
+
+	div.moofx.overview.home-page.clearfix.wrapper
+		include moofx/partials/home-summary.jade
+
+	hr
+
+	div.agent.overview.home-page.clearfix.wrapper
+		include agent/partials/home-summary.jade
+
+	hr
+
+	block updates
