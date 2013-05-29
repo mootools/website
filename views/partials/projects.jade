@@ -1,16 +1,13 @@
 h2.visually-hidden Products
 
 mixin project-link(project, alt)
-	mixin image
-		if project == site
-			img(src="/images/logo/#{project}-negative.png", alt=alt)
-		else
-			img(src="/images/logo/#{project}.png", alt=alt)
 	li(class=project)
 		if project == site
-			a.selected(href="/#{project}"): mixin image
+			a.selected(href="/#{project}")
+				img(src="/images/logo/#{project}-negative.png", alt=alt)
 		else
-			a(href="/#{project}"): mixin image
+			a(href="/#{project}")
+				img(src="/images/logo/#{project}.png", alt=alt)
 
 ul
 	mixin project-link('prime', 'Prime')
