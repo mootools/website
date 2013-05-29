@@ -1,0 +1,10 @@
+mixin postedUnder(tags)
+	space = ""
+	if tags.length > 0
+		|  – Posted under #{space}
+		each tag, i in tags
+			a(href="/blog/category/#{tag.toLowerCase()}")
+				| #{tag}
+			if i != tags.length - 1
+				| , #{space}
+

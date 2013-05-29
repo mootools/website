@@ -44,6 +44,8 @@ function build(dir){
 					'/' + pad(date.getDate()) + '/' + data.slug;
 				data.file = file.file;
 				data.htmlFile = file.file.replace(/\.md$/, '.html');
+				if (typeof data.tags == 'string') data.tags = [data.tags];
+				if (!data.tags || !Array.isArray(data.tags)) data.tags = [];
 				var md = parts[1];
 				var moreIndex = md.indexOf('<!--more-->');
 				data.summary = compile(moreIndex == -1 ? parts[1] : md.slice(0, moreIndex)).content;

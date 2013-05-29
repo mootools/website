@@ -1,12 +1,16 @@
 extends ../layouts/main
 
+include ./partials/postedUnder
+
 block main
 	.clearfix.wrapper.blog
 		h2
 			| #{post.title}
 
 		small
+			space = ""
 			| Written by #{post.author} on #{dateable(post.date, "D MMMM YYYY")}
+			mixin postedUnder(post.tags)
 
 		.post
 			| !{content}

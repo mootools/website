@@ -18,40 +18,55 @@ var content = posts.map(function(post){
 });
 
 var postsByURL = {};
+var tags = {};
 
 posts.forEach(function(post, i){
 	post.date = new Date(post.date);
 	postsByURL[post.url] = i;
+	if (post.tags && Array.isArray(post.tags)) post.tags.forEach(function(tag){
+		tag = tag.toLowerCase();
+		(tags[tag] || (tags[tag] = [])).push(i);
+	});
 });
 
 var perPage = 2;
-var pages = Math.ceil(posts.length / perPage);
 
 module.exports = function(app){
 
 	var index = function(req, res, next){
 		var page = req.params.page ? parseInt(req.params.page, 10) : 1;
+		var tag = req.params.tag;
+
+		// posts with this tag do not exist
+		if (tag && !tags[tag]) return next();
+
+		var postsInTag = tag ? tags[tag] : posts;
+		var pages = Math.ceil(postsInTag.length / perPage);
 
 		// page with posts does not exit
 		if (page < 1 || page > pages) return next();
 
-		var count = page == pages ? (posts.length - (pages - 1) * perPage) : perPage;
-		var _posts = new Array(count);
+		var count = page == pages ? (postsInTag.length - (pages - 1) * perPage) : perPage;
+		var postsOnPage = new Array(count);
 		for (var i = 0; i < count; i++){
-			_posts[i] = posts[i + (page - 1) * perPage];
+			var post = postsInTag[i + (page - 1) * perPage];
+			postsOnPage[i] = tag ? posts[post] : post;
 		}
 
 		res.render('blog/index', {
 			title: "MooTools Blog",
-			posts: _posts,
+			posts: postsOnPage,
 			nextPage: page < pages && page + 1,
-			previousPage: page > 1 && page - 1
+			previousPage: page > 1 && page - 1,
+			tag: tag
 		});
 
 	};
 
 	app.get('/blog', index);
 	app.get('/blog/page/:page', index);
+	app.get('/blog/category/:tag', index);
+	app.get('/blog/category/:tag/page/:page', index);
 
 	app.get('/blog/:year/:month/:day/:title', function(req, res, next){
 		var url = req.params.year + '/' + req.params.month + '/' +

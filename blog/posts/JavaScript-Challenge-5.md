@@ -2,7 +2,8 @@
 	"title": "JavaScript Challenge #5 (Cows never forget)",
 	"author": "Christopher Pitt",
 	"date": "2012-08-22",
-	"slug": "javascript-challenge-5"
+	"slug": "javascript-challenge-5",
+	"tags": ["Challenges", "All"]
 }
 ---
 The other day I was playing <a href="http://en.wikipedia.org/wiki/Fez_(video_game)">Fez</a> when I was reminded of an old memory game I used to play where a sequence of colours are shown and the player has to repeat the sequence correctly to proceed. Players are shown increasingly long sequences or colours, stretching their memory to its limits!

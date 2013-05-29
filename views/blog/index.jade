@@ -1,5 +1,7 @@
 extends ../layouts/main
 
+include ./partials/postedUnder
+
 block main
 	.clearfix.wrapper.blog
 
@@ -12,6 +14,7 @@ block main
 				space = ""
 				| Written by #{post.author} on #{dateable(post.date, "D MMMM YYYY")} – #{space}
 				a(href="/blog/#{post.url}#disqus_thread") Comments
+				mixin postedUnder(post.tags)
 
 			.post.short
 				| !{post.summary}
@@ -19,9 +22,15 @@ block main
 			hr
 
 		if nextPage
-			a(href="/blog/page/#{nextPage}") Older Entries
+			if tag
+				a(href="/blog/category/#{tag}/page/#{nextPage}") Older Entries
+			else
+				a(href="/blog/page/#{nextPage}") Older Entries
 
 		if previousPage
-			a(href="/blog/page/#{previousPage}") Newer Entries
+			if tag
+				a(href="/blog/category/#{tag}/page/#{previousPage}") Newer Entries
+			else
+				a(href="/blog/page/#{previousPage}") Newer Entries
 
 	include ../partials/disqus_count

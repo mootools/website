@@ -1,7 +1,8 @@
 {
 	"title": "Contributing to MooTools",
 	"date": "2013-03-18",
-	"author": "Arian Stolwijk"
+	"author": "Arian Stolwijk",
+	"tags": ["All"]
 }
 ---
 Sometimes we get requests from people that want to contribute to MooTools. In this post I would like to give some pointers how one could help, but first I'll tell how I got involved in the MooTools project.
