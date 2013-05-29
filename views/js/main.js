@@ -10,15 +10,18 @@ if (window.matchMedia){
 		var navigation = document.querySelector('#header ul');
 		var selected = document.querySelector('#header ul li.selected');
 
-		var opened = false;
-		selected.addEventListener('click', function(event){
-			var match = window.matchMedia('only screen and (max-width: 47.999em)');
-			if (match.matches){
-				event.preventDefault();
-				navigation.classList.toggle('opened');
-				opened = !opened;
-			}
-		}, false);
+		if (navigation && selected){
+
+			var opened = false;
+			selected.addEventListener('click', function(event){
+				var match = window.matchMedia('only screen and (max-width: 47.999em)');
+				if (match.matches){
+					event.preventDefault();
+					navigation.classList.toggle('opened');
+					opened = !opened;
+				}
+			}, false);
+		}
 
 	}, false);
 
