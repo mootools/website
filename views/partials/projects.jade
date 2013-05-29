@@ -2,7 +2,10 @@ h2.visually-hidden Products
 
 mixin project-link(project, alt)
 	mixin image
-		img(src="/images/logo/#{project}.png", alt=alt)
+		if project == site
+			img(src="/images/logo/#{project}-negative.png", alt=alt)
+		else
+			img(src="/images/logo/#{project}.png", alt=alt)
 	li(class=project)
 		if project == site
 			a.selected(href="/#{project}"): mixin image
