@@ -58,7 +58,8 @@ module.exports = function(app){
 			posts: postsOnPage,
 			nextPage: page < pages && page + 1,
 			previousPage: page > 1 && page - 1,
-			tag: tag
+			tag: tag,
+			page: 'blog'
 		});
 
 	};
@@ -79,7 +80,8 @@ module.exports = function(app){
 		res.render('blog/post', {
 			title: "MooTools Blog: " + post.title,
 			post: post,
-			content: content[postIndex]
+			content: content[postIndex],
+			page: 'blog'
 		});
 
 	});

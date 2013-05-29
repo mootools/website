@@ -14,16 +14,19 @@
 						img(src='/images/logo/mootools.png', alt='MooTools Home')
 
 		div.right.clearfix
+
+			mixin menu-item(link, text, selected)
+				mixin link
+					a(href=link) #{text}
+				if selected
+					li.selected: mixin link
+				else
+					li: mixin link
+
 			ul
-				li
-					a(href='/blog')
-						| Blog
-				li
-					a(href='#')
-						| Contribute
-				li
-					a(href='/forge')
-						| Forge
+				mixin menu-item('/blog', 'Blog', page == 'blog')
+				mixin menu-item("http://github.com/mootools", 'Contribute')
+				mixin menu-item('/forge', 'Forge')
 
 			form#search(role='search', method='get', action='/')
 				label(for='search-field')

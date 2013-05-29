@@ -48,6 +48,7 @@ if (app.get('env') == 'development'){
 }
 
 app.locals.site = 'mootools';
+app.locals.page = '';
 app.locals.dateable = require('dateable');
 
 app.get('/', function(req, res){
