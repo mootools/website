@@ -1278,16 +1278,32 @@ a.back-to-top {
 		padding: 0.5em 4%;
 	}
 
-	#header ul li a {
-		border-top: #e5e3df 1px solid;
-		cursor: pointer;
-		display: block;
-		display: none; /* Simulate JS slider behaviour. It has to be replaced with JS. */
-		padding: 0.5em 4%;
-	}
+	#header ul {
 
-	#header ul li.selected a {
-		display: block;
+		li {
+
+			overflow: hidden;
+			height: 0;
+			opacity: 0;
+
+			-webkit-transition: all 0.4s ease;
+			-moz-transition: all 0.4s ease;
+			transition: all 0.4s ease;
+
+			a {
+				border-top: #e5e3df 1px solid;
+				cursor: pointer;
+				display: block;
+				padding: 0.5em 4%;
+			}
+
+		}
+
+		&.opened li,
+		li.selected {
+			height: 2.6em
+			opacity: 1
+		}
 	}
 
 	#menu li {
