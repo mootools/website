@@ -21,16 +21,17 @@ block main
 
 			hr
 
-		if nextPage
-			if tag
-				a(href="/blog/category/#{tag}/page/#{nextPage}") Older Entries
-			else
-				a(href="/blog/page/#{nextPage}") Older Entries
+		small.pagination.clearfix
+			if nextPage
+				if tag
+					a.next(href="/blog/category/#{tag}/page/#{nextPage}") Older Entries
+				else
+					a.next(href="/blog/page/#{nextPage}") Older Entries
 
-		if previousPage
-			if tag
-				a(href="/blog/category/#{tag}/page/#{previousPage}") Newer Entries
-			else
-				a(href="/blog/page/#{previousPage}") Newer Entries
+			if previousPage
+				if tag
+					a.previous(href="/blog/category/#{tag}/page/#{previousPage}") Newer Entries
+				else
+					a.previous(href="/blog/page/#{previousPage}") Newer Entries
 
 	include ../partials/disqus_count
