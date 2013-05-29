@@ -9,7 +9,9 @@ block main
 					| #{post.title}
 
 			small
-				| Written by #{post.author} on #{dateable(post.date, "D MMMM YYYY")}
+				space = ""
+				| Written by #{post.author} on #{dateable(post.date, "D MMMM YYYY")} – #{space}
+				a(href="/blog/#{post.url}#disqus_thread") Comments
 
 			.post.short
 				| !{post.summary}
@@ -22,4 +24,4 @@ block main
 		if previousPage
 			a(href="/blog/page/#{previousPage}") Newer Entries
 
-
+	include ../partials/disqus_count
