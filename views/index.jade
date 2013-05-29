@@ -18,20 +18,25 @@ block about
 					|  which gives you the possibility to use them and modify them in every circumstance.
 
 block main
-	div.prime.overview.home-page.clearfix.wrapper
-		include prime/partials/home-summary.jade
-	hr
+	div.clearfix.wrapper
+		//div.prime.overview.home-page.clearfix.wrapper
+		div.prime.overview.home-page
+			include prime/partials/home-summary.jade
+		//hr
+			
+		//div.elements.overview.home-page.clearfix.wrapper
+		div.elements.overview.home-page
+			include elements/partials/home-summary.jade
+		//hr
 		
-	div.elements.overview.home-page.clearfix.wrapper
-		include elements/partials/home-summary.jade
-	hr
-	
-	div.moofx.overview.home-page.clearfix.wrapper
-		include moofx/partials/home-summary.jade
-	hr
-	
-	div.agent.overview.home-page.clearfix.wrapper
-		include agent/partials/home-summary.jade
+		//div.moofx.overview.home-page.clearfix.wrapper
+		div.moofx.overview.home-page
+			include moofx/partials/home-summary.jade
+		//hr
+		
+		//div.agent.overview.home-page.clearfix.wrapper
+		div.agent.overview.home-page
+			include agent/partials/home-summary.jade
 
 block updates
 	div.updates
