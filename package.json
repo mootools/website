@@ -34,6 +34,7 @@
     "highlight.js": "~7.3.0",
     "semver": "~1.1.4",
     "robotskirt": "~2.7.1",
-    "slug": "~0.2.2"
+    "slug": "~0.2.2",
+    "dateable": "~0.3.1"
   }
 }

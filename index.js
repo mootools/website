@@ -32,10 +32,12 @@ if (app.get('env') == 'development'){
 
 }
 
+app.locals.site = 'mootools';
+app.locals.dateable = require('dateable');
+
 app.get('/', function(req, res){
 	res.render('index', {
-		title: 'MooTools',
-		site: 'mootools'
+		title: 'MooTools'
 	});
 });
 
@@ -50,6 +52,8 @@ require('./prime')(app);
 require('./elements')(app);
 require('./moofx')(app);
 require('./agent')(app);
+
+require('./blog')(app);
 
 app.use(app.router);
 

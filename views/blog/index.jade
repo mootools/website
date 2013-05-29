@@ -1,0 +1,25 @@
+extends ../layouts/main
+
+block main
+	.clearfix.wrapper.blog
+
+		each post in posts
+			a(href="/blog/#{post.url}")
+				h3
+					| #{post.title}
+
+			small
+				| Written by #{post.author} on #{dateable(post.date, "D MMMM YYYY")}
+
+			.post.short
+				| !{post.summary}
+
+			hr
+
+		if nextPage
+			a(href="/blog/page/#{nextPage}") Older Entries
+
+		if previousPage
+			a(href="/blog/page/#{previousPage}") Newer Entries
+
+

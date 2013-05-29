@@ -1,0 +1,12 @@
+extends ../layouts/main
+
+block main
+	.clearfix.wrapper.blog
+		h2
+			| #{post.title}
+
+		small
+			| Written by #{post.author} on #{dateable(post.date, "D MMMM YYYY")}
+
+		.post
+			| !{content}

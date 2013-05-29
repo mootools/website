@@ -11,7 +11,8 @@ var cmds = [
 	["guides", "prime"],
 //	["guides", "elements"],
 	["guides", "moofx"],
-	["guides", "agent"]
+	["guides", "agent"],
+	["blog"]
 ];
 
 async.each(cmds, function(cmd, callback){
