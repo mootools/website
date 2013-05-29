@@ -498,6 +498,8 @@ a:focus .icon {
 	box-shadow: #e5e3df 0px 0px 30px;
 	padding-bottom: 1em;
 	padding-top: 1em;
+	position: relative;
+	z-index: 100;
 }
 
 body.mootools #global-bar {
@@ -612,19 +614,51 @@ body.mootools #global-bar h1 {
 
 .about {
 	background: #F4F1ED;
+	padding-top: 0em;
+	padding-bottom: 1em;
 }
 
-.updates .box {
+.about .introduction p {
+	font-size: 1.4em;
+	margin: 1em 0;
+}
+
+.about .license {
+	background: #acaaa7;
+	border: #e5e3df 1px solid;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	color: #ffffff;
+	margin: 1.5em 0 0;
+	padding: 1em;
+}
+
+.about .license h2 {
+	margin-bottom: 0.5em;
+}
+
+.about .license a {
+	color: #ffffff;
+	text-decoration: underline;
+}
+
+.updates {
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.updates div.box {
 	background: #F4F1ED;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	float: left;
-	margin-left: 2em;
+	padding: 1em;
 }
 
-.updates .box {
-
+.updates h3 {
+	font-weight: 400;
+	margin-bottom: 1em;
 }
 
 .blog {
@@ -1019,6 +1053,7 @@ body.mootools #global-bar h1 {
 		top: 0.08em;
 	}
 
+
 	.slider:after {
 		content: "";
 		float: right;
@@ -1105,6 +1140,14 @@ body.mootools #global-bar h1 {
 
 	.docs .toc ul ul {
 		display: none; /* Simulate JS slider behaviour. It has to be replaced with JS. */
+	}
+
+	.updates section {
+		margin-top: 1em;
+	}
+
+	.updates section:nth-of-type(1) {
+		margin-top: 0;
 	}
 
 	#logo {
@@ -1305,6 +1348,43 @@ body.mootools #global-bar h1 {
 	.docs .content {
 		float: right;
 		width: 70%;
+	}
+
+	.about {
+		padding-top: 2em;
+		padding-bottom: 2em;
+	}
+
+	.about .introduction {
+		float: left;
+		width: 70%;
+	}
+	
+	.about .license {
+		float: right;
+		width: 25%;
+	}
+
+	.updates {
+		padding-top: 2em;
+		padding-bottom: 2em;
+	}
+
+	.updates section {
+		float: left;
+		width: 33.333%;
+	}
+	
+	.updates section:nth-of-type(1) div.box {
+		margin: 0 1.75em 0 0;
+	}
+	
+	.updates section:nth-of-type(2) div.box {
+		margin: 0 1.25em 0;
+	}
+	
+	.updates section:nth-of-type(3) div.box {
+		margin: 0 0 0 1.75em;
 	}
 
 	#header .wrapper div {
