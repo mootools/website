@@ -12,8 +12,17 @@
 				p
 					a(href='/')
 						img(src='/images/logo/mootools.png', alt='MooTools Home')
-	
-		form#search(role='search', method='get', action='/')
-			label(for='search-field')
-				span.icon.search(aria-hidden='true')
-				input#search-field(type='search', placeholder='Search in the site')
+
+		div.right.clearfix
+			ul
+				li
+					a(href='/blog')
+						| Blog
+				li
+					a(href='#')
+						| Contribute
+
+			form#search(role='search', method='get', action='/')
+				label(for='search-field')
+					span.icon.search(aria-hidden='true')
+					input#search-field(type='search', placeholder='Search in the site')
