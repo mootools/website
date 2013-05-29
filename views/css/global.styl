@@ -452,6 +452,16 @@ a:focus .icon {
 	color: #ffffff;
 }
 
+.previous:after {
+	content: "";
+	font-family: "Entypo";
+}
+
+.next:after {
+	content: "";
+	font-family: "Entypo";
+}
+
 .download:after {
 	content: "";
 	font-family: "Entypo";
@@ -713,6 +723,10 @@ Try smaller texts on homepage
 	}
 }
 
+.blog small .comments {
+	float: right;
+}
+
 .blog h3 {
 	font-size: 2.5em;
 }
@@ -729,8 +743,30 @@ Try smaller texts on homepage
 }
 
 .blog .pagination {
-	.previous {
-		float right
+	a {
+		background: #F4F1ED
+		border-radius: 5px
+		padding: 1em
+		width: 46%
+	}
+	a .icon {
+		font-size: 320%;
+	}
+	.older {
+		float: left
+		text-align: right
+	}
+	.newer {
+		float: right
+		text-align: left
+	}
+	.icon.previous {
+		float: left;
+		margin-right: 0.5em
+	}
+	.icon.next {
+		float: right;
+		margin-left: 0.5em
 	}
 }
 
@@ -788,6 +824,12 @@ Try smaller texts on homepage
 
 
 /* F O O T E R * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#menu {
+	-webkit-box-shadow: #e5e3df 0px 0px 30px;
+	box-shadow: #e5e3df 0px 0px 30px;
+	padding: 0 0 1em;
+}
 
 #menu a {
 	-webkit-border-radius: 5px;
@@ -1232,10 +1274,6 @@ Try smaller texts on homepage
 		display: block;
 	}
 
-	#menu {
-		margin-bottom: 1em;
-	}
-
 	#menu li {
 		float: left;
 		width: 50%;
@@ -1259,6 +1297,7 @@ Try smaller texts on homepage
 	}
 
 	#sitemap div h3 {
+		background: #ffffff;
 		color: #acaaa7;
 		cursor: pointer;
 		padding: 0.5em 4%;
@@ -1483,8 +1522,7 @@ Try smaller texts on homepage
 	}
 
 	#menu {
-		margin-top: 1em;
-		margin-bottom: 1em;
+		padding-top: 1em;
 	}
 
 	#menu li {

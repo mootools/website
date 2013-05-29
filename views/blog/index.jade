@@ -12,26 +12,35 @@ block main
 
 			small
 				space = ""
-				| Written by #{post.author} on #{dateable(post.date, "D MMMM YYYY")} – #{space}
-				a(href="/blog/#{post.url}#disqus_thread") Comments
+				| Written by #{post.author} on #{dateable(post.date, "D MMMM YYYY")}
 				mixin postedUnder(post.tags)
+				a(href="/blog/#{post.url}#disqus_thread").comments
+					| Comments
 
 			.post.short
 				| !{post.summary}
 
 			hr
 
-		small.pagination.clearfix
+		div.pagination.clearfix
 			if nextPage
 				if tag
-					a.next(href="/blog/category/#{tag}/page/#{nextPage}") Older Entries
+					a.older(href="/blog/category/#{tag}/page/#{nextPage}")
+						span.icon.previous
+						| Older Entries
 				else
-					a.next(href="/blog/page/#{nextPage}") Older Entries
+					a.older(href="/blog/page/#{nextPage}")
+						span.icon.previous
+						|Older Entries
 
 			if previousPage
 				if tag
-					a.previous(href="/blog/category/#{tag}/page/#{previousPage}") Newer Entries
+					a.newer(href="/blog/category/#{tag}/page/#{previousPage}")
+						span.icon.next
+						| Newer Entries
 				else
-					a.previous(href="/blog/page/#{previousPage}") Newer Entries
+					a.newer(href="/blog/page/#{previousPage}")
+						span.icon.next
+						| Newer Entries
 
 	include ../partials/disqus_count
