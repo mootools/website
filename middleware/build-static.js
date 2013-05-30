@@ -7,8 +7,8 @@ var fs = require('fs');
 var compileCSS = function(str, path) {
 	return stylus(str)
 		.set('filename', path)
-		.use(nib())
-}
+		.use(nib());
+};
 
 module.exports = function(app, options) {
 
@@ -31,7 +31,7 @@ module.exports = function(app, options) {
 			dest: options.dirname + '/public',
 			compile: function(str, path) {
 				return compileCSS(str, path)
-					.set('linenos', true)
+					.set('linenos', true);
 			}
 		}));
 
@@ -54,6 +54,7 @@ module.exports = function(app, options) {
 		var str = fs.readFileSync(stylFile, 'utf8');
 
 		compileCSS(str, stylFile)
+			.set('compress', true)
 			.render(function(err, css) {
 				if (err) console.error(err);
 				else {
