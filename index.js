@@ -15,7 +15,8 @@ parseArguments: while (args.length){
 	var arg = args.shift();
 
 	switch (arg){
-		case '=p':
+		case '-p':
+		case '--port':
 			app.set('port', args.shift());
 			break;
 
