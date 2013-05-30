@@ -1,15 +1,22 @@
 "use strict";
 
 var stylus = require('stylus');
+var nib = require('nib');
 var fs = require('fs');
 
-module.exports = function(app, options){
+var compileCSS = function(str, path) {
+	return stylus(str)
+		.set('filename', path)
+		.use(nib())
+}
+
+module.exports = function(app, options) {
 
 	if (!options) options = {};
 	if (!options.path) options.path = '/';
 
 	// development only
-	if ('development' == app.get('env')){
+	if ('development' == app.get('env')) {
 
 		// wrapup middleware
 		var wrapup = require('wrapup-middleware');
@@ -22,7 +29,10 @@ module.exports = function(app, options){
 		app.use(options.path, stylus.middleware({
 			src: options.dirname + '/views',
 			dest: options.dirname + '/public',
-			linenos: true
+			compile: function(str, path) {
+				return compileCSS(str, path)
+					.set('linenos', true)
+			}
 		}));
 
 	} else {
@@ -34,7 +44,7 @@ module.exports = function(app, options){
 				output: options.dirname + '/public/js/main.js',
 				compress: true
 			})
-			.up(function(err){
+			.up(function(err) {
 				if (err) console.error(err);
 				else console.log("built public/js/main.js");
 			});
@@ -42,16 +52,16 @@ module.exports = function(app, options){
 		// compile css
 		var stylFile = options.dirname + '/views/css/style.styl';
 		var str = fs.readFileSync(stylFile, 'utf8');
-		stylus(str)
-			.set('filename', stylFile)
-			.set('compress', true)
-			.render(function(err, css){
+
+		compileCSS(str, stylFile)
+			.render(function(err, css) {
 				if (err) console.error(err);
 				else {
 					fs.writeFile(options.dirname + '/public/css/style.css', css);
 					console.log("built public/css/style.js");
 				}
-			});
+			}
+		);
 	}
 
 };
