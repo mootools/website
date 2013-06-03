@@ -29,8 +29,9 @@ block updates
 
 			section.box
 				div.box
-					h3 GitHub Commits
-					p Sample Text
+					h3 GitHub Activity
+					include ./partials/GitHubEvents
+					mixin GitHubEvents(githubEvents, 5)
 
 			section.box
 				div.box

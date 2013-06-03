@@ -1,0 +1,48 @@
+mixin GitHubEvents(events, max)
+
+	space = ""
+
+	mixin PushEvent(event)
+		a(href="https://github.com/#{event.actor.login}") #{event.actor.login}
+		|  pushed #{space}
+		if event.payload.size == 1
+			a(href="https://github.com/#{event.repo.name}/commit/#{event.payload.head}")
+				| #{event.payload.size} commit
+		else
+			a(href="https://github.com/#{event.repo.name}/compare/#{event.payload.before}...#{event.payload.head}")
+				| #{event.payload.size} commits
+		|  to #{space}
+		a(href="https://github.com/#{event.repo.name}") #{event.repo.name}
+
+	mixin CommitCommentEvent(event)
+		a(href="https://github.com/#{event.actor.login}") #{event.actor.login}
+		|  commented on #{space}
+		a(href="#{event.payload.comment.html_url}") #{event.repo.name}@#{event.payload.comment.commit_id.slice(0, 6)}
+
+	mixin IssuesEvent(event)
+		a(href="https://github.com/#{event.actor.login}") #{event.actor.login}
+		|  #{event.payload.action} issue #{space}
+		a(href="#{event.payload.issue.html_url}") #{event.repo.name}##{event.payload.issue.number}
+
+	mixin PullRequestEvent(event)
+		a(href="https://github.com/#{event.actor.login}") #{event.actor.login}
+		|  #{event.payload.action} pull request #{space}
+		a(href="#{event.payload.pull_request.html_url}") #{event.repo.name}##{event.payload.pull_request.number}
+
+	if events.length == 0
+		p No recent activity
+
+	else
+
+		count = 0
+
+		each event in events
+
+			if event.type == 'PushEvent' && count++ < max
+				p: mixin PushEvent(event)
+			else if event.type == 'CommitCommentEvent' && count++ < max
+				p: mixin CommitCommentEvent(event)
+			else if event.type == 'IssuesEvent' && count++ < max
+				p: mixin IssuesEvent(event)
+			else if event.type == 'PullRequestEvent' && count++ < max
+				p: mixin PullRequestEvent(event)

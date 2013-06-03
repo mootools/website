@@ -52,18 +52,23 @@ app.locals.site = 'mootools';
 app.locals.page = '';
 app.locals.dateable = require('dateable');
 
-app.get('/', function(req, res){
-	res.render('index', {
-		title: 'MooTools'
-	});
-});
-
 // stuff to build static files (css/js)
 require('./middleware/build-static')(app, {
 	dirname: __dirname
 });
 
 app.use(express.static(__dirname + '/public'));
+
+var githubEvents = require('./middleware/githubEvents')({
+	org: 'mootools',
+	variable: 'githubEvents'
+});
+
+app.get('/', githubEvents, function(req, res){
+	res.render('index', {
+		title: 'MooTools'
+	});
+});
 
 require('./prime')(app);
 require('./elements')(app);
