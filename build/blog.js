@@ -2,7 +2,7 @@
 
 var fs = require('fs');
 var async = require('async');
-var slug = require('slug');
+var slug = require('slugify');
 var compile = require('../lib/compile-md');
 var splitMetaData = require('../lib/splitMarkdownMetaData');
 
