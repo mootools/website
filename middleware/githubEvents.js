@@ -58,6 +58,7 @@ module.exports = function(options){
 					clearInterval(timer);
 				}
 			} else {
+				console.log('recieved GitHub events data');
 				errors = 0;
 				events = data;
 			}
