@@ -19,7 +19,9 @@ To install everything you need to clone the repository and submodules (for the d
 
 ### Notes:
 
-- Some dependencies use native C code which requires some compiler. For Mac users this means that Xcode (Command Line Tools) should be installed.
+- Some dependencies use native C code which requires some compiler.
+  - For **Mac** users this means that Xcode (Command Line Tools) should be installed.
+  - For **Windows** you need *python* (2.7, and don't forget to add it you your `%PATH%`) and a C++ compiler like [Visual Studio Express](http://www.microsoft.com/visualstudio/eng/downloads#d-express-windows-desktop)
 
 ## Run it
 
