@@ -19,7 +19,11 @@ parseArguments: while (args.length){
 		case '--port':
 			app.set('port', args.shift());
 			break;
-
+		case '--webfonts':
+		case '--webfonts=false':
+		case '--webfonts=true':
+			app.set('webfonts', arg != '--webfonts=false');
+			break;
 		default:
 			break parseArguments;
 	}
@@ -51,6 +55,7 @@ if (app.get('env') == 'development'){
 app.locals.site = 'mootools';
 app.locals.page = '';
 app.locals.dateable = require('dateable');
+app.locals.webfonts = app.get('webfonts');
 
 // stuff to build static files (css/js)
 require('./middleware/build-static')(app, {
