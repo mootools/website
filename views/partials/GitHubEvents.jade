@@ -29,7 +29,7 @@ mixin GitHubEvents(events, max)
 		|  #{event.payload.action} pull request #{space}
 		a(href="#{event.payload.pull_request.html_url}") #{event.repo.name}##{event.payload.pull_request.number}
 
-	if events.length == 0
+	if !events || events.length == 0
 		p No recent activity
 
 	else
