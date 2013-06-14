@@ -1,18 +1,49 @@
 h2 Modules Overview
 div
 	h3
-		span.command prime
-	p The function to create new primes.
-	pre
-		| hi
+		span.command elements
+	p
+		| Select an element and do basic DOM operations. Important to import
+		| the required small modules.
+	:highlight(lang=js)
+		var $ = require('elements/traversal')
+		require('elements/attributes')
+		require('elements/events')
+		require('elements/insertion')
+
+		$('#wrapper')
+			.addClass('moo')
+			.on('click', function(event){
+				this.remove()
+			})
 
 div
 	h3
-		span.command prime/shell
+		span.command elements/delegation
 	p
-		| The base shell. As you require more shells, the base shell will be augmented. Requiring specific shells gives you access to generic methods as well.
-	pre
-		| hi
+		| Event Delegation is backed into elements. Delegation is a powerful
+		| pattern where the parent element listens to events on the children.
+	:highlight(lang=js)
+		var $ = require('elements/delegation')
+		require('elements/attributes')
+		$('ul').delegate('click', 'li a', function(event, a){
+			a.text('moooo!')
+		})
+
+	h3
+		span.command elements/zen
+
+	p
+		| zen is a powerful function to create multiple elements in an
+		| expressive way with CSS selectors
+	:highlight(lang=js)
+		var zen = require('elements/zen')
+		zen('div a#link.menu.big[href="test.html"] + div.elements')
+		// creates:
+		//   <div>
+		//     <a id="link" class="menu big" href="test.html"></a>
+		//   </div>
+		//   <div class="elements"></div>
 
 p.docs
 	a(href='/elements/docs')
