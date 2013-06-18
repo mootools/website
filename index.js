@@ -9,6 +9,11 @@ jade.filters.highlight = require('./lib/jade-highlight');
 
 var app = express();
 
+// default config
+app.set('port', process.env.PORT || 3000);
+app.set('webfonts', true);
+
+// override those config if they're passed as arguments
 var args = process.argv.splice(2);
 
 parseArguments: while (args.length){
@@ -30,7 +35,6 @@ parseArguments: while (args.length){
 }
 
 // all environments
-if (!app.get('port')) app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.engine('jade', jade.__express);
 app.set('view engine', 'jade');
