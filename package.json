@@ -4,7 +4,7 @@
   "description": "Website for MooTools",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node tests/run.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,6 @@
   ],
   "author": "Arian Stolwijk",
   "license": "MIT",
-  "gitHead": "dbf8ba0ef11dd33d95604d9e003b72f0d14e8964",
   "readmeFilename": "README.md",
   "dependencies": {
     "prime": "0.1",
@@ -38,5 +37,9 @@
     "dateable": "~0.3.1",
     "github": "~0.1.8",
     "slugify": "~0.1.0"
+  },
+  "devDependencies": {
+    "mocha": "1.11",
+    "expect.js": "0.2"
   }
 }
