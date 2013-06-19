@@ -85,6 +85,7 @@ require('./moofx')(app);
 require('./agent')(app);
 
 require('./blog')(app);
+require('./builder')(app);
 
 app.use(app.router);
 

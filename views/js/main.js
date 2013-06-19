@@ -26,3 +26,11 @@ if (window.matchMedia){
 	}, false);
 
 }
+
+var editor = require('wrapup-webbuilder/views/js/editor');
+
+require('elements/domready')(function(){
+	editor({
+		theme: 'mootools'
+	});
+});

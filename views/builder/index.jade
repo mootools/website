@@ -1,0 +1,58 @@
+extends ../layouts/main
+
+block scripts
+	script var snippets = !{JSON.stringify(snippets)};
+	script(src="/builder/js/codemirror/lib/codemirror.js")
+	script(src="/builder/js/codemirror/mode/javascript/javascript.js")
+	link(href="/builder/js/codemirror/lib/codemirror.css", rel="stylesheet")
+	link(href="/builder/js/codemirror/theme/monokai.css", rel="stylesheet")
+
+block main
+	.clearfix.wrapper.builder
+
+		h1 Download your customized version
+
+		form(method="post", action="/builder")
+
+			.aside
+				.load
+					label
+						| Upload your previous main.js:
+						input(type="file", name="load", size=15)
+
+				p
+					| click the package you want to include and which version of
+					| the package you'd like to use.
+
+				ul.snippets
+					each code, name in snippets
+						li
+							select(name="version-#{name}")
+								each version, i in modules[name]
+									if (i + 1) == modules[name].length
+										option(selected)= version
+									else
+										option= version
+
+							a(href="##{name}")
+								| #{name}
+
+			.editor
+				textarea#editor(name="setup")
+
+			.save
+
+				label
+					input(type="checkbox", name="compress", value="1")
+					| Compress the output JS
+
+				label
+					input(type="checkbox", name="zip", value="1")
+					| Download zip with everything included
+
+				label
+					input(type="submit", name="wrup", value="Download your wrapup'd version");
+
+				label
+					input(type="submit", name="editor", value="Just download the code in the editor");
+
