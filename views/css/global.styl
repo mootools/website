@@ -68,6 +68,11 @@ input[type="reset"],
 input[type="submit"]
 	appearance: button;
 	cursor: pointer;
+	padding 0.2em 0.3em
+
+	&:hover
+		background #777571
+		color #f4f1ed
 
 button::-moz-focus-inner,
 input::-moz-focus-inner
@@ -82,6 +87,15 @@ input[type="checkbox"],
 input[type="radio"]
 	box-sizing: border-box;
 	padding: 0;
+
+input[type="checkbox"]
+	width 0.7em
+	height 0.7em
+	margin 0.15em
+	border-radius 3px
+
+	&:checked
+		background #777571
 
 input[type="search"]
 	appearance: textfield;

@@ -18,7 +18,8 @@ module.exports = function(app){
 
 	app.get('/builder', builder.index, function(req, res){
 		res.render('builder/index', {
-			title: 'MooTools Builder'
+			title: 'MooTools Builder',
+			page: 'builder'
 		});
 	});
 
