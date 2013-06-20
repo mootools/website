@@ -1,23 +1,122 @@
 
 .builder
 
-	margin-top: 2em;
-	margin-bottom: 2em;
+	margin-top: 2em
+	margin-bottom: 2em
+
+	.CodeMirror
+		border-radius: 5px
+
+	.header
+		h1
+			float: left
+		p.wrapup
+			float: right
+		
+			img
+				height: 2em
+				margin-left: 0.6em
+				width: auto
+
+	.load
+		input
+			margin-top: 1em
+			width: 100%
 
 	.snippets
 		li
-			padding 0.1em 0
+			margin-top: 1em
+			position: relative
 
 			select
-				width 5em
-				margin-right 0.4em
+				position: absolute
+				right: 4.2em
+				top: 0
+				width 7em
+
+			a
+				background: #f4f1ed
+				border: solid #f4f1ed 1px
+				border-radius: 3px
+				position: absolute
+				padding: 0.3em 0.4em 0.3em 0.5em
+				right: 0
+				
+			a:focus
+				background: transparent !important
+
+			a:before
+				color: #acaaa7
+				content: ""
+				font-family: "Entypo"
+				font-size: 200%
+				line-height: 0.7
+				position: absolute
+				right: 2.3em
+				z-index: 100
+
+			img
+				height: 2em
+				width: auto
+
+			.add span
+				font-size: 0.8em
+				font-weight: 400
+		
+			.add span.icon:after
+				content: "⊞"
+				font-family: "Entypo"
+				font-size: 260%
+				line-height: 0
+				margin-left: 0.2em
+				position: relative
+				top: 2px
+
+
 
 	.save
-		clear left
+		clear: both
 
 		label
 			display block
-			padding 0.1em 0
+			margin-top: 1em
+			position: relative
+		
+		input[type="submit"]
+			margin-top: 0.5em
+			padding: 0.5em
+			width: 100%
+			text-align: left
+			
+		.icon.download
+			position: absolute
+			right: 0.25em
+			top: 0
+			line-height: 1em
+
+	.number
+		background: #acaaa7
+		border-radius: 10px
+		color: #ffffff
+		display: inline-block
+		font-weight: 400
+		height: 1.4em
+		margin-right: 0.5em
+		text-align: center
+		width: 1.4em
+
+	form
+		margin-top: 1em
+
+	.step
+		clear: both
+		color: #acaaa7
+		font-weight: 400
+		margin-top: 1em
+
+	.editor
+		margin-top 1em
+
 
 @media only screen and (min-width: 48em) /* More or equal to 768 pixels */
 
@@ -27,11 +126,29 @@
 			float left
 
 		.aside
-			width 30%
+			width 35%
 
 		.editor
 			margin-left 5%
-			width 65%
+			margin-top: 0
+			width 60%
 
+		.save
+			width 35%
+			float: left
+
+		.snippets
+			li
+				select
+					width: 4.4em
+
+
+@media only screen and (min-width: 60em) /* More or equal to 960 pixels */
+
+	.builder
+		.snippets
+			li
+				select
+					width: 7em
 
 

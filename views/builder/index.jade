@@ -10,37 +10,56 @@ block scripts
 block main
 	.clearfix.wrapper.builder
 
-		h1 Download your customized version
+		div.header.clearfix
+			h1 Download your customized version
+			p.wrapup
+				a(href="https://github.com/mootools/wrapup")
+					| Powered by
+					img(src="/images/logo/wrapup.png", alt="WrapUp")
 
 		form(method="post", action="/builder")
 
 			.aside
-				.load
+				.load.step
 					label
+						span(aria-hidden="true").number
+							| 1
 						| Upload your previous main.js:
 						input(type="file", name="load", size=15)
 
-				p
-					| click the package you want to include and which version of
+				p.step
+					span(aria-hidden="true").number
+						| 2
+					| Click the package you want to include and which version of
 					| the package you'd like to use.
 
 				ul.snippets
 					each code, name in snippets
 						li
+							img(src="/images/logo/#{name}.png", alt=#{name})
+
 							select(name="version-#{name}")
 								each version, i in modules[name]
 									if (i + 1) == modules[name].length
 										option(selected)= version
 									else
 										option= version
+							
+							a(href="##{name}").add
+								span
+									| Add
+								span(aria-hidden="true").icon
 
-							a(href="##{name}")
-								| #{name}
+
 
 			.editor
 				textarea#editor(name="setup")
 
 			.save
+				p.step
+					span(aria-hidden="true").number
+						| 3
+					| Select your options & download!
 
 				label
 					input(type="checkbox", name="compress", value="1")
@@ -51,8 +70,10 @@ block main
 					| Download zip with everything included
 
 				label
-					input(type="submit", name="wrup", value="Download your wrapup'd version");
+					input(type="submit", name="wrup", value="Download your wrapup'd version")
+					span(aria-hidden="true").icon.download
 
 				label
-					input(type="submit", name="editor", value="Just download the code in the editor");
+					input(type="submit", name="editor", value="Just download the code in the editor")
+					span(aria-hidden="true").icon.download
 

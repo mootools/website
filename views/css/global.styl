@@ -279,15 +279,61 @@ input,
 textarea,
 select
 	appearance: none;
-	background: #F4F1ED;
-	border: solid transparent 1px;
-	border-radius: 5px;
+	border: solid #e5e3df 1px;
+	border-radius: 3px;
 	color: #777571;
 	cursor: pointer;
+	font-weight: 400;
+	padding: 0.3em 0.5em;
 
 	&:focus
 		outline: none;
 		border: solid #e5e3df 1px;
+
+label
+	cursor: pointer
+
+select:after
+	content: "stocazzo";
+
+input[type="checkbox"]
+	height: 1em;
+	position: relative;
+	width: 1em;
+
+input[type="checkbox"]:after
+	content: "✓";
+	font-family: "Entypo";
+	font-size: 200%;
+	line-height: 0;
+
+input[type="submit"]
+	background: #F4F1ED;
+	border-radius: 5px;
+	color: #777571 !important;
+	display: block;
+	font-size: 1.1em;
+	font-weight: 300
+
+input[type="submit"]:hover
+	color: #ffffff !important
+
+/*	background: #F4F1ED;
+	border: solid transparent 1px;
+	border-radius: 3px;
+	color: #777571;
+	cursor: pointer;*/
+/*
+select
+		background: transparent;
+		border-color: #e5e3df;
+		display: block;
+		font-size: 0.8em;
+		font-weight: 400;
+		padding: 0.3em 0.5em;
+		&:focus
+			border-color: #acaaa7;*/
+
 
 /* Classes */
 
