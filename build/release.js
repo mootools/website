@@ -35,7 +35,7 @@ var versions = projects[project].versions;
 var builderv = builder.modules[project];
 
 if (versions.indexOf(version) == -1) versions.push(version);
-if (builderv.indexOf(version) == -1) builderv.push(version.slice(1));
+if (builderv.indexOf(version) == -1) builderv.push(version);
 
 fs.writeFile(pkgFile, JSON.stringify(pkg, null, 2), function(err){
 	if (err) throw err;

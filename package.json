@@ -26,20 +26,20 @@
     "forever": "0.10",
     "colors": "0.6",
     "express": "3.2",
-    "jade": "~0.29.0",
-    "stylus": "~0.32.1",
-    "nib": "~0.9.1",
-    "wrapup-middleware": "0.0.3",
+    "jade": "0.31",
+    "stylus": "0.32",
+    "nib": "0.9",
+    "wrapup-middleware": "0.0.x",
     "wrapup-webbuilder": "0.1",
     "wrapup": "0.12",
     "send": "0.1",
-    "async": "~0.2.7",
-    "highlight.js": "~7.3.0",
-    "semver": "~1.1.4",
-    "robotskirt": "~2.7.1",
-    "dateable": "~0.3.1",
-    "github": "~0.1.8",
-    "slugify": "~0.1.0",
+    "async": "0.2",
+    "highlight.js": "7.3",
+    "semver": "2.0",
+    "robotskirt": "2.7",
+    "dateable": "0.3",
+    "github": "0.1",
+    "slugify": "0.1",
     "fs-extra": "0.6"
   },
   "devDependencies": {
@@ -78,28 +78,28 @@
   "_wrapupWebbuilderConfig": {
     "modules": {
       "prime": [
-        "0.0.4-alpha",
-        "0.0.5-alpha",
-        "0.0.6",
-        "0.1.0"
+        "v0.0.4-alpha",
+        "v0.0.5-alpha",
+        "v0.0.6",
+        "v0.1.0"
       ],
       "elements": [
-        "0.0.6-alpha",
-        "0.0.7-alpha",
-        "0.0.8",
-        "0.0.9",
-        "0.1.0"
+        "v0.0.6-alpha",
+        "v0.0.7-alpha",
+        "v0.0.8",
+        "v0.0.9",
+        "v0.1.0"
       ],
       "moofx": [
-        "3.0.10",
-        "3.0.11",
-        "3.0.12",
-        "3.1.0"
+        "v3.0.10",
+        "v3.0.11",
+        "v3.0.12",
+        "v3.1.0"
       ],
       "slick": [
-        "1.9.0-alpha",
-        "1.9.1-alpha",
-        "1.10.0"
+        "v1.9.0-alpha",
+        "v1.9.1-alpha",
+        "v1.10.0"
       ]
     },
     "dir": "./cache/modules",
