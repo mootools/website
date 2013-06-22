@@ -39,12 +39,14 @@
     "robotskirt": "~2.7.1",
     "dateable": "~0.3.1",
     "github": "~0.1.8",
-    "slugify": "~0.1.0"
+    "slugify": "~0.1.0",
+    "fs-extra": "0.6"
   },
   "devDependencies": {
     "mocha": "1.11",
     "expect.js": "0.2"
   },
+  "_buildOutput": "cache",
   "_projects": {
     "prime": {
       "repository": "https://github.com/mootools/prime.git",
@@ -100,7 +102,7 @@
         "1.10.0"
       ]
     },
-    "dir": "./builder/modules",
+    "dir": "./cache/modules",
     "snippetsdir": "./builder/snippets"
   }
 }

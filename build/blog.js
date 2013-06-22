@@ -1,33 +1,40 @@
 "use strict";
 
-var fs = require('fs');
+var fs = require('fs-extra');
+var path = require('path');
 var async = require('async');
 var slug = require('slugify');
 var compile = require('../lib/compile-md');
 var splitMetaData = require('../lib/splitMarkdownMetaData');
+var pkg = require('../package.json');
 
-build(__dirname + "/../blog/posts");
+var srcdir = path.join(__dirname, "/../blog/posts");
+var destdir = path.join(__dirname, "../", pkg._buildOutput, "blog/posts");
+
+build(srcdir, destdir);
 
 var pad = function(n){
 	return (n < 10 ? '0' : '') + n;
 };
 
-function build(dir){
+function build(srcdir, destdir){
 
 	async.auto({
 
-		readdir: function(callback){
-			fs.readdir(dir, function(err, files){
+		mkdir: async.apply(fs.mkdirs, destdir),
+
+		readdir: ['mkdir', function(callback){
+			fs.readdir(srcdir, function(err, files){
 				if (err) return callback(err);
 				callback(null, files.filter(function(file){
 					return (/\.md$/).test(file);
 				}));
 			});
-		},
+		}],
 
 		readfiles: ['readdir', function(callback, res){
 			async.map(res.readdir, function(file, cb){
-				fs.readFile(dir + '/' + file, "utf-8", function(err, data){
+				fs.readFile(srcdir + '/' + file, "utf-8", function(err, data){
 					if (err) return cb(err);
 					cb(null, {file: file, md: data});
 				});
@@ -58,7 +65,7 @@ function build(dir){
 			async.map(res.compile.map(function(file, i){
 				return {
 					html: file[1],
-					file: dir + '/' + file[0].htmlFile
+					file: destdir + '/' + file[0].htmlFile
 				};
 			}), function(file, cb){
 				fs.writeFile(file.file, file.html, cb);
@@ -71,7 +78,7 @@ function build(dir){
 			}).sort(function(a, b){
 				return b.date - a.date;
 			});
-			fs.writeFile(dir + '/posts.json', JSON.stringify(posts, null, 2), callback);
+			fs.writeFile(destdir + '/posts.json', JSON.stringify(posts, null, 2), callback);
 		}]
 
 	}, function(err, res){

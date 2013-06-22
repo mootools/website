@@ -3,6 +3,7 @@
 var fs = require('fs');
 var path = require('path');
 var object = require('prime/shell/object');
+var pkg = require('../package.json');
 
 module.exports = function(project, options){
 
@@ -15,7 +16,7 @@ module.exports = function(project, options){
 
 	var guides;
 
-	var dir = path.normalize(__dirname + '/../' + project + '/guides');
+	var dir = path.join(__dirname, '../', pkg._buildOutput, project, 'guides');
 	var JSONPath = dir + '/guides.json';
 
 	try {

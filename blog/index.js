@@ -1,9 +1,13 @@
 "use strict";
 
 var fs = require('fs');
+var path = require('path');
+var pkg = require('../package.json');
+
+var dir = path.join(__dirname, '../', pkg._buildOutput, 'blog/posts');
 
 var posts;
-var JSONPath = './posts/posts.json';
+var JSONPath = dir + '/posts.json';
 
 try {
 	posts = require(JSONPath);
@@ -14,7 +18,7 @@ try {
 }
 
 var content = posts.map(function(post){
-	return fs.readFileSync(__dirname + '/posts/' + post.htmlFile);
+	return fs.readFileSync(dir + '/' + post.htmlFile);
 });
 
 var postsByURL = {};

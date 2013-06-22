@@ -5,6 +5,7 @@ var async = require('async');
 var path = require('path');
 var semver = require('semver');
 var compile = require('../lib/compile-md');
+var pkg = require('../package.json');
 
 var args = process.argv;
 
@@ -15,7 +16,7 @@ if (args.length < 3){
 
 var project = args[2];
 
-var docsdir = __dirname + "/../" + project + "/docs";
+var docsdir = path.join(__dirname, "../", pkg._buildOutput, project, "docs");
 
 build(project, docsdir);
 

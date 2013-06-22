@@ -44,7 +44,7 @@ function cloneAndCheckoutAll(versions, callback){
 
 var cloneNonExisting = async.compose(cloneAndCheckoutAll, findNonExisting);
 
-var pkg = require(__dirname + '/../package.json');
+var pkg = require('../package.json');
 var projects = pkg._projects;
 
 var versions = [];
@@ -52,7 +52,7 @@ var versions = [];
 prime.each(projects, function(project, name){
 	project.versions.forEach(function(version){
 		versions.push({
-			dir: path.join(__dirname, '/../' + name + '/docs/' + name + '-' + version),
+			dir: path.join(__dirname, '../', pkg._buildOutput, name, 'docs', name + '-' + version),
 			repository: project.repository,
 			version: version
 		});

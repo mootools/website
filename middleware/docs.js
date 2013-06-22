@@ -2,6 +2,7 @@
 
 var fs = require('fs');
 var path = require('path');
+var pkg = require('../package.json');
 
 module.exports = function(project, options){
 
@@ -14,7 +15,7 @@ module.exports = function(project, options){
 
 	var versions;
 
-	var dir = path.normalize(__dirname + '/../' + project + '/docs');
+	var dir = path.join(__dirname, '../', pkg._buildOutput, project, 'docs');
 	var JSONPath = dir + '/versions.json';
 
 	try {
