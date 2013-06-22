@@ -24,6 +24,7 @@
     "prime": "0.1",
     "elements": "0.1",
     "forever": "0.10",
+    "colors": "0.6",
     "express": "3.2",
     "jade": "~0.29.0",
     "stylus": "~0.32.1",
@@ -43,6 +44,34 @@
   "devDependencies": {
     "mocha": "1.11",
     "expect.js": "0.2"
+  },
+  "_projects": {
+    "prime": {
+      "repository": "https://github.com/mootools/prime.git",
+      "versions": [
+        "v0.1.0",
+        "v0.0.6"
+      ]
+    },
+    "elements": {
+      "repository": "https://github.com/mootools/elements.git",
+      "versions": [
+        "v0.1.0",
+        "v0.0.9"
+      ]
+    },
+    "moofx": {
+      "repository": "https://github.com/kamicane/moofx.git",
+      "versions": [
+        "v3.1.0"
+      ]
+    },
+    "agent": {
+      "repository": "https://github.com/kamicane/agent.git",
+      "versions": [
+        "v0.0.4"
+      ]
+    }
   },
   "_wrapupWebbuilderConfig": {
     "modules": {

@@ -1,11 +1,3 @@
 node_modules/
 *.DS_Store
 .vagrant/
-prime/docs/*.html
-prime/docs/*.json
-elements/docs/*.html
-elements/docs/*.json
-agent/docs/*.html
-agent/docs/*.json
-moofx/docs/*.html
-moofx/docs/*.json

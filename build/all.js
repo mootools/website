@@ -16,10 +16,14 @@ var cmds = [
 	["node_modules/.bin/wrapup-webbuilder-init"]
 ];
 
-async.each(cmds, function(cmd, callback){
-	var node = spawn('node', cmd, {
+function spawnCmd(cmd, callback){
+	spawn('node', cmd, {
 		stdio: 'inherit',
 		cwd: __dirname + '/..'
-	});
-	node.on('close', callback);
-});
+	}).on('close', callback);
+}
+
+async.series([
+	async.apply(spawnCmd, ["build/repositories"]),
+	async.apply(async.each, cmds, spawnCmd)
+]);

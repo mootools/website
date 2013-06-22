@@ -11,7 +11,6 @@ To install everything you need to clone the repository and submodules (for the d
 ```bash
 ~$ git clone git://github.com/mootools/website.git
 ~$ cd website
-~/website$ git submodule update --init
 ~/website$ npm install
 ~/website$ node build/all
 ~/website$ node index
@@ -55,3 +54,11 @@ automatically. The website should then be running on `http://localhost:5001`.
 * Overall polish
 * So fork and send pull requests!
 
+## Adding new release of project
+
+```bash
+node build/release [project] [tag]
+```
+
+this command should update the `package.json` configuration fields. After that
+doing as `node build/all` will clone the repository and build docs etc.
