@@ -1,9 +1,7 @@
 "use strict";
 
 var async = require('async');
-var cp = require('child_process');
-var spawn = cp.spawn;
-var exec = cp.exec;
+var spawn = require('child_process').spawn;
 
 var cmds = [
 	["build/docs", "prime"],
