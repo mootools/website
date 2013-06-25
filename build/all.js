@@ -1,7 +1,9 @@
 "use strict";
 
 var async = require('async');
-var spawn = require('child_process').spawn;
+var cp = require('child_process');
+var spawn = cp.spawn;
+var exec = cp.exec;
 
 var cmds = [
 	["build/docs", "prime"],
@@ -13,14 +15,18 @@ var cmds = [
 	["build/guides", "moofx"],
 	["build/guides", "agent"],
 	["build/blog"],
-	["node_modules/.bin/wrapup-webbuilder-init"]
+	["node_modules/wrapup-webbuilder/bin/createBaseModules"]
 ];
 
 function spawnCmd(cmd, callback){
-	spawn('node', cmd, {
+	spawn("node", cmd, {
 		stdio: 'inherit',
 		cwd: __dirname + '/..'
-	}).on('close', callback);
+	})
+		.on('close', callback)
+		.on('error', function(err){
+			throw err;
+		});
 }
 
 async.series([
