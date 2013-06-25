@@ -2,7 +2,7 @@
 
 var prime = require('prime');
 var async = require('async');
-var fs = require('fs');
+var fs = require('fs-extra');
 var path = require('path');
 var spawn = require('child_process').spawn;
 require('colors');
@@ -36,7 +36,13 @@ function checkout(vers, callback){
 	});
 }
 
-var cloneAndCheckout = async.compose(checkout, clone);
+function mkdirs(vers, callback){
+	fs.mkdirs(vers.dir, function(err){
+		callback(err, vers);
+	});
+}
+
+var cloneAndCheckout = async.compose(checkout, clone, mkdirs);
 
 function cloneAndCheckoutAll(versions, callback){
 	async.map(versions, cloneAndCheckout, callback);
