@@ -2,6 +2,7 @@
   "node": true,
   "browser": true,
   "eqnull": true,
+  "boss": true,
   "predef": [
     "describe",
     "it"

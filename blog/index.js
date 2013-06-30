@@ -1,45 +1,24 @@
 "use strict";
 
-var fs = require('fs');
-var path = require('path');
-var pkg = require('../package.json');
-
-var dir = path.join(__dirname, '../', pkg._buildOutput, 'blog/posts');
-
-var posts;
-var JSONPath = dir + '/posts.json';
-
-try {
-	posts = require(JSONPath);
-} catch (e){
-	console.error(JSONPath + " doesn not exist. \n" +
-		"Did you build the blog with 'node build/blog'?");
-	throw e;
-}
-
-var content = posts.map(function(post){
-	return fs.readFileSync(dir + '/' + post.htmlFile);
-});
-
-var postsByURL = {};
-var tags = {};
-
-posts.forEach(function(post, i){
-	post.date = new Date(post.date);
-	postsByURL[post.permalink] = i;
-	if (post.tags && Array.isArray(post.tags)) post.tags.forEach(function(tag){
-		tag = tag.toLowerCase();
-		(tags[tag] || (tags[tag] = [])).push(i);
-	});
-});
+var data = require('./data');
 
 var perPage = 2;
+
+function getData(req, res, next){
+	data.get(function(err, posts){
+		if (err) return next(err);
+		res.locals._posts = posts;
+		next();
+	});
+}
 
 module.exports = function(app){
 
 	var index = function(req, res, next){
 		var page = req.params.page ? parseInt(req.params.page, 10) : 1;
 		var tag = req.params.tag;
+		var posts = res.locals._posts.posts;
+		var tags = res.locals._posts.tags;
 
 		// posts with this tag do not exist
 		if (tag && !tags[tag]) return next();
@@ -68,22 +47,24 @@ module.exports = function(app){
 
 	};
 
-	app.get('/blog', index);
-	app.get('/blog/page/:page', index);
-	app.get('/blog/category/:tag', index);
-	app.get('/blog/category/:tag/page/:page', index);
+	app.get('/blog', getData, index);
+	app.get('/blog/page/:page', getData, index);
+	app.get('/blog/category/:tag', getData, index);
+	app.get('/blog/category/:tag/page/:page', getData, index);
 
-	app.get(/\/blog\/(.+)/, function(req, res, next){
+	app.get(/\/blog\/(.+)/, getData, function(req, res, next){
 		var url = req.params[0];
+		var posts = res.locals._posts.posts;
+		var urls  = res.locals._posts.urls;
 
-		var postIndex = postsByURL[url];
+		var postIndex = urls[url];
 		var post = postIndex != null && posts[postIndex];
 		if (!post) return next();
 
 		res.render('blog/post', {
 			title: "MooTools Blog: " + post.title,
 			post: post,
-			content: content[postIndex],
+			content: post.content,
 			page: 'blog'
 		});
 
