@@ -7,8 +7,7 @@ block main
 
 		each post in posts
 			a(href="/blog/#{post.permalink}")
-				h3
-					| #{post.title}
+				h3 #{post.title}
 
 			small
 				space = ""

@@ -1,0 +1,26 @@
+extends ../layouts/main
+
+block main
+
+	space = ""
+
+	.clearfix.wrapper.search
+
+		h2 Search Results
+
+		if results.hits.total
+
+			each result in results.hits.hits
+				a(href="#{result._source.url}")
+					h3 #{result._source.title}
+
+				hr
+
+		else
+
+			p.no-results
+				| Your search #{space}
+				strong #{q}
+				|  didn't have any results
+
+

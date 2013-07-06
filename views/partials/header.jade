@@ -45,7 +45,7 @@
 				mixin menu-item('/blog', 'Blog', page == 'blog')
 				mixin menu-item("http://github.com/mootools", 'Contribute')
 
-			form#search(role='search', method='get', action='/')
+			form#search(role='search', method='get', action='/search')
 				label(for='search-field')
 					span.icon.search(aria-hidden='true')
-					input#search-field(type='search', placeholder='Search in the site')
+					input#search-field(name='q', type='search', placeholder='Search in the site')
