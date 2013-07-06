@@ -32,6 +32,9 @@ node index
 
 Now the website is running on `http://localhost:3000`.
 
+`supervisor` watches all files, while wrapup/stylus write to the `public`
+folder. It is advised to use `supervisor --ignore public index`.
+
 ## Vagrant
 
 If you don't want to install all node.js dependencies (and maybe later nginx),
