@@ -57,6 +57,22 @@ automatically. The website should then be running on `http://localhost:5001`.
 * Overall polish
 * So fork and send pull requests!
 
+## Folder structure
+
+- `/index.js`, is the main file, you can find everything from there
+- `/views` is where all the views and uncompiled js/css is
+- `/public` is where compiled css/js is saved. Also contains other things like
+  images or fonts
+- `/{prime,elements,agent,moofx}` is where the routes of those projects are
+  defined also the source files (markdown) of the guides/tutorials
+- `/blog` is where the routes and blogposts are stored
+- `/{middleware,lib}` are some library/helper modules
+- `/tests` is where some unit tests for some modules are located
+- `/design` contains some .ai files and other design specifications
+- `/builder` is for the wrapup web UI front-end
+- `/build` contains build scripts for the blog/guides and more
+- `/cache` is where the output of the build scripts is stored
+
 ## Adding new release of project
 
 ```bash
