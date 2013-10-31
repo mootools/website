@@ -9,7 +9,7 @@ var cmds = [
 	["build/docs", "moofx"],
 	["build/docs", "agent"],
 	["build/guides", "prime"],
-//	["build/guides", "elements"],
+	["build/guides", "elements"],
 	["build/guides", "moofx"],
 	["build/guides", "agent"],
 	["build/blog"],
