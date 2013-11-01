@@ -1,0 +1,12 @@
+extends page
+
+block main
+	.guides.overview.clearfix.wrapper
+		h2= guide.title
+		p
+			space = " "
+			strong= "Author: "
+			| #{guide.author} #{space}
+			strong= "Date: "
+			| #{guide.date}
+		| !{guide.content}
