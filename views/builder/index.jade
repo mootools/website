@@ -44,7 +44,7 @@ block main
 										option(selected)= version
 									else
 										option= version
-							
+
 							a(href="##{name}").add
 								span
 									| Add
@@ -77,3 +77,7 @@ block main
 					input(type="submit", name="editor", value="Just download the code in the editor")
 					span(aria-hidden="true").icon.download
 
+	.clearfix.wrapper.builder
+		div.header.clearfix
+			h2
+				a(href="#") Dowload older versions of Mootools

@@ -508,6 +508,24 @@ a:focus .icon
 				border-color: #777571;
 				color: #ffffff
 
+		li.dropdown
+			position:relative;
+
+			ul
+				display:none;
+				background: #f4f1ed;
+				border-radius: 3px;
+
+		li.dropdown:hover ul
+			position:absolute;
+			display:block;
+
+			li
+				width:8em;
+
+			li:hover a
+				color:#111111;
+
 
 body.mootools #global-bar
 	padding-bottom: 2em;
@@ -1002,6 +1020,9 @@ a.back-to-top
 			a p
 				margin-top: 0.5em;
 
+	.guides
+		padding-top: 1em;
+		padding-bottom: 1em;
 
 	.docs .content
 		margin-top: 2em;
@@ -1170,6 +1191,10 @@ a.back-to-top
 
 			a p
 				margin-top: 1em;
+
+	.guides
+		padding-top: 2em;
+		padding-bottom: 2em;
 
 	.docs
 		.toc
