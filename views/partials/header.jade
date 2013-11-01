@@ -24,19 +24,19 @@
 					li: mixin link
 
 			ul
-				li 
+				li.dropdown 
 					a Documentation
-					ul.dropdown
+					ul
 						li
-							a prime
+							a(href='/prime/docs') prime
 						li
-							a elements
+							a(href='/elements/docs') elements
 						li
-							a moofx
+							a(href='/moofx/docs') moofx
 						li
-							a agent
+							a(href='/agent/docs') agent
 						li
-							a Older versions
+							a(href='#') Older versions
 				mixin menu-item('/builder', 'Download', page == 'builder')
 				mixin menu-item('/forge', 'Forge')
 				mixin menu-item('/blog', 'Blog', page == 'blog')

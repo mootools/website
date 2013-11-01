@@ -508,7 +508,26 @@ a:focus .icon
 				border-color: #777571;
 				color: #ffffff
 
-
+		li.dropdown
+			position:relative;
+			
+			
+			ul
+				display:none;
+				background: #f4f1ed;
+				border-radius: 3px;
+		
+		li.dropdown:hover ul
+			position:absolute;
+			display:block;
+			
+			li
+				width:8em;
+				
+			li:hover a
+				color:#111111;
+		
+		
 body.mootools #global-bar
 	padding-bottom: 2em;
 	padding-top: 2em;
@@ -556,8 +575,7 @@ body.mootools #global-bar
 				background: #777571;
 				border-radius: 3px;
 
-	ul.dropdown
-		display:none;
+	
 
 /* M A I N * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
