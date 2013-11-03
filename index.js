@@ -83,7 +83,7 @@ require('./prime')(app);
 require('./elements')(app);
 require('./moofx')(app);
 require('./agent')(app);
-
+require('./slick')(app);
 require('./blog')(app);
 require('./builder')(app);
 require('./developers')(app);

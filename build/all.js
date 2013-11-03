@@ -8,10 +8,12 @@ var cmds = [
 	["build/docs", "elements"],
 	["build/docs", "moofx"],
 	["build/docs", "agent"],
+	["build/docs", "slick"],
 	["build/guides", "prime"],
 	["build/guides", "elements"],
 	["build/guides", "moofx"],
 	["build/guides", "agent"],
+	["build/guides", "slick"],
 	["build/blog"],
 	["node_modules/wrapup-webbuilder/bin/createBaseModules"]
 ];
