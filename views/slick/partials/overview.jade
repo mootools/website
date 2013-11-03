@@ -1,0 +1,24 @@
+h2 Modules Overview
+div
+	h3
+		span.command search 
+	p Search this context for any nodes that match this selector.
+	
+	:highlight(lang=js)
+		slick.search("#foo > bar.baz") ? [<bar>, <bar>, <bar>]
+		slick.search("li > a", [<ol>, <ul>]) ? [<a>, <a>, <a>]
+		slick.search("#foo > bar.baz", document, []) ? [<bar>, <bar>, <bar>]
+
+div
+	h3
+		span.command find
+	p
+		| Find the first node in document that matches selector or null if none are found.
+	
+	:highlight(lang=js)
+		slick.find("#foo > bar.baz") ? <bar>
+		slick.find("#does-not-exist", node) ? null
+
+p.docs
+	a(href='/slick/docs')
+		span.arrow Full Documentation

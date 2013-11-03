@@ -15,7 +15,8 @@
     "prime",
     "elements",
     "agent",
-    "moofx"
+    "moofx",
+	"slick"
   ],
   "author": "Arian Stolwijk",
   "license": "MIT",
@@ -69,9 +70,15 @@
       ]
     },
     "agent": {
-      "repository": "https://github.com/kamicane/agent.git",
+      "repository": "https://github.com/SergioCrisostomo/agent.git",
       "versions": [
         "v0.0.4"
+      ]
+    },
+	"slick": {
+      "repository": "https://github.com/kamicane/slick.git",
+      "versions": [
+        "v1.10.3"
       ]
     }
   },
@@ -96,9 +103,10 @@
         "v3.0.12",
         "v3.1.0"
       ],
+      "agent": [
+        "v0.0.4"
+      ],
       "slick": [
-        "v1.9.0-alpha",
-        "v1.9.1-alpha",
         "v1.10.0"
       ]
     },
