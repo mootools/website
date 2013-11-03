@@ -1,5 +1,23 @@
 "use strict";
 
+/* Adding a moofx animation to drop-down menu 
+*/
+var el$ = require('elements');
+var moofx = require('moofx');
+window.addEventListener('DOMContentLoaded', function () {
+    var drop_down_el = el$('li.dropdown');
+    var op = 1;
+    drop_down_el.on('click', function () {
+        this.search('ul').animate('opacity', op, {
+            duration: "500ms",
+            equation: 'cubic-bezier(0.17,0.67,0.83,0.67)'
+        });
+        op = op ? 0 : 1;
+    });
+});
+/* End of moofx test
+*/
+
 if (window.matchMedia){
 
 	// we can use all this, because matchMedia is for modern browser
