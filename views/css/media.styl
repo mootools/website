@@ -1,0 +1,387 @@
+/* M O B I L E * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+@media only screen and (max-width: 47.999em) /* Less than 600 pixels */
+
+	.arrow:after
+		font-size: 160%;
+		margin-left: 0.25em;
+		position: relative;
+		top: 0.10em;
+		vertical-align: baseline;
+
+
+	.home-page .arrow:after
+		top: 0.08em;
+
+	.slider:after
+		content: "";
+		float: right;
+		font-family: "Entypo";
+		font-size: 140%;
+
+	.overview
+		padding-top: 2em;
+		padding-bottom: 180px;
+		position: relative;
+
+		.big-icon
+			width: 100%;
+			bottom: 0;
+			left: 0;
+			height: 180px;
+			overflow: hidden;
+			position: absolute;
+			z-index: -1;
+			text-align: center;
+
+			img
+				height: auto;
+				opacity: 0.2;
+				max-width: 320px;
+
+		.summary
+			font-size: 120%;
+
+		.description
+			font-size: 100%;
+
+	.modules
+		padding-top: 1em;
+		padding-bottom: 1em;
+
+		.docs
+			margin-top: 1em;
+			a
+				display: block;
+
+
+	.features
+		padding-top: 1em;
+		padding-bottom: 1em;
+		section
+			margin-top: 1em;
+			&:first-child
+				margin-top: 0;
+
+			p
+				max-width: 80%;
+
+			a p
+				margin-top: 0.5em;
+
+	.guides
+		padding-top: 1em;
+		padding-bottom: 1em;
+
+	.docs .content
+		margin-top: 2em;
+
+	.docs .toc
+		ul
+			a.top
+				margin-bottom: 0;
+
+			ul
+				display: none; /* Simulate JS slider behaviour. It has to be replaced with JS. */
+
+
+	.updates section
+		margin-top: 1em;
+		&:nth-of-type(1)
+			margin-top: 0;
+
+	#logo
+		float: none;
+		h1
+			text-align: center;
+
+	.home-page
+		padding-top: 1em;
+		padding-bottom: 1em;
+		.big-icon
+			display: none;
+
+	#global-bar div.wrapper div.right
+		position: static;
+		margin-top: 1.5em;
+		ul
+			display: none;
+
+	body.mootools #search
+		float: none;
+		margin: 0 auto;
+		position: static;
+		max-width: 293px;
+		input
+			width: 100%;
+
+	#header
+		.wrapper
+			padding: 0;
+
+		h1
+			padding: 0.5em 4%;
+
+		ul
+			li
+				overflow: hidden;
+				height: 0;
+				opacity: 0;
+				transition: all 0.4s ease;
+				a
+					border-top: solid #e5e3df 1px;
+					cursor: pointer;
+					display: block;
+					padding: 0.5em 4%;
+
+			&.opened li,
+			li.selected
+				height: 2.6em
+				opacity: 1
+
+	#menu li
+		float: left;
+		width: 50%;
+		margin: 1em 0 0;
+		&:nth-of-type(1n) a
+			margin: 0 0.5em 0 0;
+
+		&:nth-of-type(2n) a
+			margin: 0 0 0 0.5em;
+
+	#footer.wrapper
+		padding: 0;
+
+	#sitemap div
+		border-bottom: solid 1px #e5e3df;
+		h3
+			background: #ffffff;
+			color: #acaaa7;
+			cursor: pointer;
+			padding: 0.5em 4%;
+
+		ul
+			display: none; /* Simulate JS slider behaviour. It has to be replaced with JS. */
+
+	#credits
+		padding: 1em 4% 2em;
+
+
+
+/* T A B L E T * & * D E S K T O P * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+@media only screen and (min-width: 48em) /* More or equal to 768 pixels */
+
+	.arrow:after
+		font-size: 160%;
+		margin-left: 0.25em;
+		position: relative;
+		top: 0.10em;
+		vertical-align: baseline;
+
+	.overview
+		padding-top: 2em;
+		position: relative;
+		.big-icon
+			bottom: 0;
+			height: 230px;
+			overflow: hidden;
+			position: absolute;
+			right: 4%;
+			width: 400px;
+			z-index: -1;
+			img
+				height: auto;
+				opacity: 0.2;
+				width: 100%;
+
+		.use
+			max-width: 40%;
+
+	.modules
+		padding-top: 2em;
+		padding-bottom: 2em;
+
+		section
+			position: relative;
+
+		div
+			margin-top: 1.5em;
+			width: 48%;
+			&:nth-of-type(1)
+				float: left;
+
+			&:nth-of-type(2)
+				float: right;
+
+			pre
+				margin-top: 1em;
+
+		.docs
+			position: absolute;
+			right: 0;
+			top: 0;
+
+	.features
+		padding-top: 2em;
+		padding-bottom: 2em;
+
+		section
+			float: left;
+			width: 33.333%;
+			&:nth-of-type(1) a
+				margin: 0 1.75em 0 0;
+
+			&:nth-of-type(2) a
+				margin: 0 1.25em 0;
+
+			&:nth-of-type(3) a
+				margin: 0 0 0 1.75em;
+
+			a p
+				margin-top: 1em;
+
+	.guides
+		padding-top: 2em;
+		padding-bottom: 2em;
+
+	.docs
+		.toc
+			float: left;
+			width: 26%;
+
+		.content
+			float: right;
+			width: 70%;
+
+	.about
+		padding-top: 2em;
+		padding-bottom: 2em;
+
+		.introduction
+			float: left;
+			width: 70%;
+
+		.license
+			float: right;
+			width: 25%;
+
+	.home-page
+		padding-top: 2em;
+		padding-bottom: 2em;
+
+	.updates
+		padding-top: 2em;
+		padding-bottom: 2em;
+		section
+			float: left;
+			width: 33.333%;
+			&:nth-of-type(1) div.box
+				margin: 0 1.75em 0 0;
+
+			&:nth-of-type(2) div.box
+				margin: 0 1.25em 0;
+
+			&:nth-of-type(3) div.box
+				margin: 0 0 0 1.75em;
+
+
+	#header
+		.wrapper div
+			position: relative;
+
+		h1
+			padding: 1em 0;
+
+		nav
+			bottom: 0em;
+			position: absolute;
+			right: 0;
+			ul li
+				float: left;
+				margin-left: 1em;
+				&:first-child
+					margin-left: 0;
+
+				a
+					position: relative;
+					span
+						position: relative;
+						top: -1em;
+
+				&.selected a
+					color: #777571;
+					&:after
+						background: #ffffff;
+						border: solid 1px;
+						border-color: #777571 #777571 transparent transparent;
+						bottom: -6px;
+						content: "";
+						display: block;
+						height: 10px;
+						left: 50%;
+						margin-left: -5px;
+						position: absolute;
+						transform-origin: center;
+						transform: rotate(-45deg);
+						width: 10px;
+
+	#menu
+		padding-top: 1em;
+		li
+			float: left;
+			width: 20%;
+
+			&:nth-of-type(1) a
+				margin: 0 0.6em 0 0;
+
+			&:nth-of-type(2) a
+				margin: 0 0.45em 0 0.3em;
+
+			&:nth-of-type(3) a
+				margin: 0 0.3em 0 0.45em;
+				
+			&:nth-of-type(4) a
+				margin: 0 0.3em 0 0.45em;
+
+			&:nth-of-type(5) a
+				margin: 0 0 0 0.45em;
+
+	#footer.wrapper
+		padding-top: 2em;
+		padding-bottom: 4em;
+
+	#sitemap
+		float: right;
+
+		div
+			float: left;
+			margin-left: 2em;
+			width: 8.6em;
+
+		h3
+			margin-bottom: 0.3em;
+
+	#credits
+		float: left;
+
+	.prime .big-icon
+		height: 230px;
+		width: 340px;
+
+	.elements .big-icon
+		height: 230px;
+		width: 340px;
+
+	.moofx .big-icon
+		height: 250px;
+		width: 340px;
+
+	.agent .big-icon
+		height: 250px;
+		width: 340px;
+		
+	.slick .big-icon
+		height: 250px;
+		width: 340px;
+
