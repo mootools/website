@@ -25,7 +25,4 @@ module.exports = function(app){
 	app.get('/slick/docs', slick, docs);
 	app.get('/slick/docs/:version', slick, docs);
 
-	app.get('/slick/guides', slick, guides.index);
-	app.get('/slick/guide/:guide', slick, guides.article);
-
 };
