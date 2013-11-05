@@ -52,6 +52,8 @@
     "prime": {
       "repository": "https://github.com/mootools/prime.git",
       "versions": [
+        "v0.3.0",
+        "v0.2.1",
         "v0.1.0",
         "v0.0.6"
       ]
@@ -59,6 +61,7 @@
     "elements": {
       "repository": "https://github.com/mootools/elements.git",
       "versions": [
+        "v0.2.2",
         "v0.1.0",
         "v0.0.9"
       ]
@@ -70,12 +73,12 @@
       ]
     },
     "agent": {
-      "repository": "https://github.com/SergioCrisostomo/agent.git",
+      "repository": "https://github.com/kamicane/agent.git",
       "versions": [
         "v0.0.4"
       ]
     },
-	"slick": {
+    "slick": {
       "repository": "https://github.com/kamicane/slick.git",
       "versions": [
         "v1.10.3"
@@ -85,17 +88,17 @@
   "_wrapupWebbuilderConfig": {
     "modules": {
       "prime": [
-        "v0.0.4-alpha",
-        "v0.0.5-alpha",
         "v0.0.6",
-        "v0.1.0"
+        "v0.1.0",
+        "v0.2.1",
+        "v0.3.0"
       ],
       "elements": [
-        "v0.0.6-alpha",
         "v0.0.7-alpha",
         "v0.0.8",
         "v0.0.9",
-        "v0.1.0"
+        "v0.1.0",
+        "v0.2.2"
       ],
       "moofx": [
         "v3.0.10",
@@ -107,7 +110,7 @@
         "v0.0.4"
       ],
       "slick": [
-        "v1.10.0"
+        "v1.10.3"
       ]
     },
     "dir": "./cache/modules",
