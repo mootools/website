@@ -1,0 +1,104 @@
+/* H E A D E R * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#global-bar
+	box-shadow: #e5e3df 0px 0px 30px;
+	padding-bottom: 1em;
+	padding-top: 1em;
+	position: relative;
+	z-index: 100;
+
+	div.wrapper
+		position: relative;
+		div.right
+			bottom: 0;
+			position: absolute;
+			right: 4%;
+
+	ul
+		float: left;
+		li
+			float: left;
+			margin-right: 0.5em;
+			a
+				background: #F4F1ED;
+				border-radius: 3px;
+				border: solid #F4F1ED 1px;
+				display: block;
+				font-size: 0.8em;
+				font-weight: 400;
+				padding: 0.3em 0.5em;
+				&:active,
+				&:focus
+					background: #777571;
+					border-color: #777571;
+
+			&.selected a
+				background: #777571;
+				border-color: #777571;
+				color: #ffffff
+
+		li.dropdown
+			position:relative;
+
+			ul
+				display:none;
+				background: #f4f1ed;
+				border-radius: 3px;
+
+		li.dropdown:hover ul
+			position:absolute;
+			display:block;
+
+			li
+				width:8em;
+
+			li:hover a
+				color:#111111;
+
+
+body.mootools #global-bar
+	padding-bottom: 2em;
+	padding-top: 2em;
+	h1
+		padding: 0;
+
+#logo
+	float: left;
+	h1 img
+		height: 70px !important;
+	p img
+		height: 27px;
+
+#search
+	float: left;
+	margin-left: 0.5em;
+	label
+		display: block;
+		position: relative;
+
+	input
+		background: transparent;
+		border-color: #e5e3df;
+		display: block;
+		font-size: 0.8em;
+		font-weight: 400;
+		padding: 0.3em 0.5em;
+		&:focus
+			border-color: #acaaa7;
+
+
+#header
+	border-bottom: solid #777571 1px;
+	h1 img
+		height: 90px;
+		width: auto;
+
+	a
+		color: #acaaa7;
+		font-size: 1.125em;
+		&:active,
+		&:focus
+			background: transparent;
+			span
+				background: #777571;
+				border-radius: 3px;

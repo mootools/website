@@ -1,0 +1,166 @@
+/* D O C S * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.docs
+	padding-bottom: 2em;
+
+	.versions
+		background: #F4F1ED;
+		border-radius: 5px;
+		color: #acaaa7;
+		margin: 0 0 2em;
+		padding: 0.5em 1em;
+		h3
+			float: left;
+
+		ul
+			float: right;
+			li
+				font-weight: 400;
+				float: left;
+				margin: 0 0 0 0.5em;
+				position: relative
+
+		a
+			background: #ffffff;
+			border-radius: 3px;
+			color: #ccc7c1 !important;
+			font-size: 0.85em;
+			padding: 0.25em 0.5em;
+			&.selected
+				background: #ffffff;
+				color: #777571 !important;
+				&:after
+					background: #ffffff;
+					bottom: -4px;
+					content: "";
+					display: block;
+					height: 6px;
+					left: 50%;
+					margin-left: -3px;
+					position: absolute;
+					transform-origin: center;
+					transform: rotate(-45deg);
+					width: 6px;
+
+	.toc
+		border-radius: 5px;
+		border: solid #e5e3df 1px;
+		font-size: 0.9em;
+		line-height: 1em;
+
+		ul
+			border-top: solid #e5e3df 1px;
+			padding: 1em 1em;
+			&:first-child
+				border-top: none;
+
+			li ul
+				border-top: none;
+				padding: 0;
+
+			a
+				color: #777571 !important;
+				display: block;
+				margin: 0.5em 0 0;
+				&:active,
+				&:focus
+					color: #ffffff !important;
+
+				&.top
+					font-size: 1.2em;
+					margin: 0 0 1em;
+
+		a.top:after
+			color: #acaaa7;
+			content: "";
+			float: right;
+			font-family: "Entypo";
+			font-size: 140%;
+
+	.content
+		margin: 0 0 2em;
+		h1
+			border-top: solid 1px #e5e3df;
+			margin: 3em 0 0;
+			padding: 1.5em 0 0;
+			&:first-child
+				border: 0;
+				margin: 0;
+				padding: 0;
+
+		h2
+			background: #777571;
+			border-radius: 5px;
+			margin: 2em 0 0.5em;
+			padding: 0.15em 0.5em 0.25em;
+			a
+				color: #ffffff !important;
+
+		h3
+			border-radius: 5px;
+			border: solid #e5e3df 1px;
+			font-weight: 400;
+			margin: 1.5em 0 0;
+			padding: 0.15em 0.5em 0.25em;
+
+		h4
+			border-radius: 5px;
+			border: solid #f4f1ed 1px;
+			color: #acaaa7;
+			font-size: 1.125em;
+			font-weight: 400;
+			margin: 1.5em 0 0.5em;
+			padding: 0.15em 0.5em 0.25em;
+
+		h5
+			color: #acaaa7;
+			font-size: 1em;
+			font-weight: 400;
+			margin: 1.5em 0 0;
+
+		p
+			margin: 0.5em 0;
+
+		ol
+			counter-reset: li; /* Initiate a counter */
+			list-style: none; /* Remove default numbering */
+			*list-style: decimal; /* Keep using default numbering for IE6/7 */
+			position: relative;
+			li
+				margin: 0.5em 0 0 1.5em;
+				&:before
+					background: #f4f1ed;
+					border-radius: 3px;
+					content: counter(li);
+					counter-increment: li;
+					font-size: 0.75em;
+					font-weight: 600;
+					left: 0;
+					padding: 0.15em 0.5em;
+					position: absolute;
+
+		ul li
+			margin: 0.5em 0 0;
+			&:after
+				content: "";
+				float: left;
+				font-family: "Entypo";
+				font-size: 160%;
+				margin: 0 0.25em 0 0;
+
+		pre
+			margin: 0.5em 0 0;
+
+
+.heading
+	position: relative;
+
+a.back-to-top
+	background: #F4F1ED;
+	border-radius: 5px;
+	color: #777571 !important;
+	font-size: 0.8em;
+	margin-top: -3.4em;
+	padding: 0.25em 0.5em;
+	position: absolute !important;
+	right: 0.5em;
