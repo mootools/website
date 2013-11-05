@@ -13,7 +13,6 @@ var cmds = [
 	["build/guides", "elements"],
 	["build/guides", "moofx"],
 	["build/guides", "agent"],
-	["build/guides", "slick"],
 	["build/blog"],
 	["node_modules/wrapup-webbuilder/bin/createBaseModules"]
 ];
