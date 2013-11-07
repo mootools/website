@@ -4,10 +4,6 @@ var docs = require('../middleware/docs')('slick', {
 	title: "MooTools Slick Documentation"
 });
 
-var guides = require('../middleware/guides')('slick', {
-	title: "MooTools Slick Guides"
-});
-
 module.exports = function(app){
 
 	var slick = function(req, res, next){
