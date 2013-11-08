@@ -29,17 +29,17 @@ if (window.matchMedia){
 		var sitemap = document.querySelectorAll('#sitemap div');
 		var open_el = sitemap[0];
 
-		function toggle_div() {
-			var this_el = event.target.parentNode;
+		var toggleDiv = function(){
+			var parent = event.target.parentNode;
 			open_el.classList.remove('open');
 
-			if (this_el === open_el) return false;
-			this_el.classList.toggle('open');
-			open_el = this_el;
+			if (parent === open_el) return false;
+			parent.classList.toggle('open');
+			open_el = parent;
 		}
 		
-		for (var i = 0; i < sitemap.length; i++) {
-			sitemap[i].addEventListener('click',toggle_div,false);
+		for (var i = 0; i < sitemap.length; i++){
+			sitemap[i].addEventListener('click', toggleDiv, false);
 		}
 		// end footer
 		
