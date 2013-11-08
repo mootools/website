@@ -27,15 +27,15 @@ if (window.matchMedia){
 		
 		// for footer menu on mobile
 		var sitemap = document.querySelectorAll('#sitemap div');
-		var open_el = sitemap[0];
+		var openedElement = sitemap[0];
 
 		var toggleDiv = function(){
 			var parent = event.target.parentNode;
-			open_el.classList.remove('open');
+			openedElement.classList.remove('open');
 
-			if (parent === open_el) return false;
+			if (parent === openedElement) return false;
 			parent.classList.toggle('open');
-			open_el = parent;
+			openedElement = parent;
 		}
 		
 		for (var i = 0; i < sitemap.length; i++){
