@@ -7,6 +7,11 @@ if (window.matchMedia){
 
 	window.addEventListener('DOMContentLoaded', function(){
 
+		var matchMobile = function(){
+			var match = window.matchMedia('only screen and (max-width: 47.999em)');
+			return match.matches;
+		};
+
 		// for header menu on mobile
 		var navigation = document.querySelector('#header ul');
 		var selected = document.querySelector('#header ul li.selected');
@@ -15,34 +20,34 @@ if (window.matchMedia){
 
 			var opened = false;
 			selected.addEventListener('click', function(event){
-				var match = window.matchMedia('only screen and (max-width: 47.999em)');
-				if (match.matches){
-					event.preventDefault();
-					navigation.classList.toggle('opened');
-					opened = !opened;
-				}
+				if (!matchMobile()) return;
+				event.preventDefault();
+				navigation.classList.toggle('opened');
+				opened = !opened;
 			}, false);
 		}
-		//end header
-		
+
 		// for footer menu on mobile
 		var sitemap = document.querySelectorAll('#sitemap div');
 		var openedElement = sitemap[0];
 
-		var toggleDiv = function(){
-			var parent = event.target.parentNode;
-			openedElement.classList.remove('open');
+		var toggleDiv = function(i){
+			return function(){
+				if (!matchMobile()) return;
 
-			if (parent === openedElement) return false;
-			parent.classList.toggle('open');
-			openedElement = parent;
-		}
-		
+				var parent = sitemap[i];
+				if (parent != openedElement){
+					openedElement.classList.remove('open');
+				}
+
+				parent.classList.toggle('open');
+				openedElement = parent;
+			};
+		};
+
 		for (var i = 0; i < sitemap.length; i++){
-			sitemap[i].addEventListener('click', toggleDiv, false);
+			sitemap[i].addEventListener('click', toggleDiv(i), false);
 		}
-		// end footer
-		
 
 	}, false);
 
@@ -51,6 +56,7 @@ if (window.matchMedia){
 var editor = require('wrapup-webbuilder/views/js/editor');
 
 require('elements/domready')(function(){
+	if (!document.getElementById('editor')) return;
 	editor({
 		theme: 'mootools'
 	});
