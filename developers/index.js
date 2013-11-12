@@ -7,8 +7,7 @@ module.exports = function(app){
 	var randomSort = function(){
 		return 0.5 - Math.random()
 	};
-	developersData.developers = developersData.developers.sort(randomSort);
-	developersData.alumni = developersData.alumni.sort(randomSort);
+	
 
 	var developers = function(req, res, next){
 		res.locals.site = 'developers';
@@ -16,6 +15,8 @@ module.exports = function(app){
 	};
 
 	app.get('/developers', developers, function(req, res){
+		developersData.developers = developersData.developers.sort(randomSort);
+		developersData.alumni = developersData.alumni.sort(randomSort);
 		res.render('developers/index', {
 			page: "/developers",
 			title: "MooTools Developers",
