@@ -2,11 +2,13 @@
 
 module.exports = function(app){
 	
-	var developersData     = require('./developers');
+	var developersData = require('./developers');
 	
-	var reSort = function(){return 0.5 - Math.random()};
-	developersData.developers = developersData.developers.sort(reSort());
-	developersData.alumni = developersData.alumni.sort(reSort());
+	var randomSort = function(){
+		return 0.5 - Math.random()
+	};
+	developersData.developers = developersData.developers.sort(randomSort);
+	developersData.alumni = developersData.alumni.sort(randomSort);
 
 	var developers = function(req, res, next){
 		res.locals.site = 'developers';
