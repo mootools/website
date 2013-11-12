@@ -1,2 +1,43 @@
-extends ../layouts/main
+extends ../layouts/home
+
+mixin linkExist(result, type)
+	if result[type] !== undefined
+		| , follow on #{type}: <a href="#{result[type]}">#{result[type].split("http://")[1]}</a>
+
+mixin content(result)
+	section
+		h3 #{result.Name} 
+		p.inline #{result.Nick}
+		
+		img(src=result.img)
+		
+		p.small Location: #{result.Location}
+
+		p.small 
+			| Web: 
+			for webResult in result.Web
+				a(href=webResult,target='_blank') #{webResult.split('http://')[1]}
+				
+			mixin linkExist(result, 'Twitter')
+			mixin linkExist(result, 'GitHub')
+
+
+block main
+
+	.overview.clearfix.wrapper
+
+		div.developers
+
+			section 
+				h1 Developers
+				
+			for result in developersData.developers	
+				+content(result)
+						
+			section 
+				h1 Alumni
+					
+			for result in developersData.alumni	
+				+content(result)
+
 

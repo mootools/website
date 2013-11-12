@@ -1,0 +1,184 @@
+{
+    "developers": [{
+        "Name": "Valerio Proietti",
+        "Nick": "(kamicane)",
+        "Web": ["http://mad4milk.net"],
+        "Twitter": "http://twitter.com/kamicane",
+        "GitHub": "http://github.com/kamicane",
+        "img": "../images/avatars/Valerio.png",
+        "Location": "Roma, Italia"
+    }, {
+        "Name": "Christoph Pojer",
+        "Nick": "(cpojer)",
+        "Web": ["http://cpojer.net"],
+        "Twitter": "http://twitter.com/cpojer",
+        "GitHub": "http://github.com/cpojer",
+        "img": "../images/avatars/christoph.png",
+        "Location": "Graz, Austria"
+    }, {
+        "Name": "Aaron Newton",
+        "Nick": "(anutron)",
+        "Web": ["http://clientcide.com", "http://iminta.com"],
+        "Twitter": "http://twitter.com/anutron",
+        "GitHub": "http://github.com/anutron",
+        "img": "../images/avatars/aaron.png",
+        "Location": "SF, CA, USA"
+    }, {
+        "Name": "Jan Kassens",
+        "Nick": "(kassens)",
+        "Web": ["http://mootools.kassens.net"],
+        "Twitter": "http://twitter.com/kassens",
+        "GitHub": "http://github.com/kassens",
+        "img": "../images/avatars/jan.png",
+        "Location": "Darmstadt, Germany"
+    }, {
+        "Name": "Olmo Maldonado",
+        "Nick": "(ibolmo)",
+        "Web": [""],
+        "GitHub": "http://github.com/ibolmo",
+        "img": "../images/avatars/olmo.png",
+        "Location": "Los Angeles, CA, USA"
+    }, {
+        "Name": "David Walsh",
+        "Nick": "(davidwalsh)",
+        "Web": ["http://davidwalsh.name"],
+        "Twitter": "http://twitter.com/davidwalshblog",
+        "GitHub": "http://github.com/darkwing",
+        "img": "../images/avatars/david.png",
+        "Location": "Madison, WI, USA"
+    }, {
+        "Name": "Arian Stolwijk",
+        "Nick": "(arian)",
+        "Web": ["http://aryweb.nl"],
+        "Twitter": "http://twitter.com/astolwijk",
+        "GitHub": "http://github.com/arian",
+        "img": "../images/avatars/arian.png",
+        "Location": "Delft, The Netherlands"
+    }, {
+        "Name": "Thomas Aylott",
+        "Nick": "(SubtleGradient)",
+        "Web": ["http://subtlegradient.com"],
+        "Twitter": "http://twitter.com/SubtleGradient",
+        "GitHub": "http://github.com/subtleGradient",
+        "img": "http://tripledoubleyou.subtlegradient.com/i/Thomas-Aylott-65.png",
+        "Location": "Western North Carolina, USA"
+    }, {
+        "Name": "Cristian Carlesso",
+        "Nick": "(kentaromiura)",
+        "Web": ["http://mykenta.blogspot.com"],
+        "Twitter": "http://twitter.com/kentaromiura",
+        "GitHub": "http://github.com/kentaromiura",
+        "img": "../images/avatars/cristian.jpg",
+        "Location": "Trieste, Italia"
+    }, {
+        "Name": "Fábio Miranda Costa",
+        "Nick": "(fabiomcosta)",
+        "Web": ["http://meiocodigo.com", "http://solucione.info"],
+        "Twitter": "http://twitter.com/fabiomiranda",
+        "GitHub": "http://github.com/fabiomcosta",
+        "img": "http://en.gravatar.com/userimage/1172608/bb22718dff80dbe7d1ea5c4db4f12800.jpg?size=65",
+        "Location": "Natal/RN, Brazil"
+    }, {
+        "Name": "Darren Waddell",
+        "Nick": "(fakedarren)",
+        "Web": ["http://blog.fakedarren.com"],
+        "Twitter": "http://twitter.com/fakedarren",
+        "GitHub": "http://github.com/fakedarren",
+        "img": "../images/avatars/fakedarren.png",
+        "Location": "London, England"
+    }, {
+        "Name": "Sebastian Markbåge",
+        "Nick": "(sebmarkbage)",
+        "Web": ["http://calyptus.eu"],
+        "Twitter": "http://twitter.com/sebmarkbage",
+        "GitHub": "http://github.com/calyptus",
+        "img": "../images/avatars/sebastian.png",
+        "Location": "Sweden"
+    }, {
+        "Name": "Tim Wienk",
+        "Nick": "(Timmeh)",
+        "Web": ["http://tim.wienk.name"],
+        "Twitter": "http://twitter.com/timwienk",
+        "GitHub": "http://github.com/timwienk",
+        "img": "../images/avatars/tim.png",
+        "Location": "Hengelo, Ov, The Netherlands"
+    }, {
+        "Name": "Scott Kyle",
+        "Nick": "(appden)",
+        "Web": ["http://appden.com"],
+        "Twitter": "http://twitter.com/appden",
+        "GitHub": "http://github.com/appden",
+        "img": "../images/avatars/scott_kyle.png",
+        "Location": "New York City, New York, USA"
+    }, {
+        "Name": "Mark Joseph Obcena",
+        "Nick": "(keeto)",
+        "Web": ["http://keetology.com"],
+        "Twitter": "http://twitter.com/keeto",
+        "GitHub": "http://github.com/keeto",
+        "img": "../images/avatars/keeto.png",
+        "Location": "Manila, Philippines"
+    }, {
+        "Name": "Djamil Legato",
+        "Nick": "(w00fz)",
+        "Web": ["http://djamil.it"],
+        "Twitter": "http://twitter.com/w00fz",
+        "GitHub": "http://github.com/w00fz",
+        "img": "../images/avatars/djamil.png",
+        "Location": "Torino, Italia"
+    }],
+    "alumni": [{
+        "Name": "Yaroslaff Fedin",
+        "Nick": "(inviz)",
+        "Web": ["http://inviz.ru"],
+        "Twitter": "http://twitter.com/inviz",
+        "GitHub": "http://github.com/inviz",
+        "img": "http://www.gravatar.com/avatar/ba36762da1f7e8d0758bbb352dd2f3f3?s=100",
+        "Location": "Somewhere in Siberia, Russia"
+    }, {
+        "Name": "Tom Occhino",
+        "Nick": "(tomocchino)",
+        "Web": ["http://tomocchino.com"],
+        "GitHub": "http://github.com/tomocchino",
+        "img": "../images/avatars/tom.png",
+        "Location": "CA, USA"
+    }, {
+        "Name": "Jacob Thornton",
+        "Nick": "(jacobthornton)",
+        "Web": ["http://hellomynameisjacob.com"],
+        "Twitter": "http://twitter.com/fat",
+        "GitHub": "http://github.com/jacobthornton",
+        "img": "../images/avatars/jacob.png",
+        "Location": "SF, CA, USA"
+    }, {
+        "Name": "Christophe Beyls",
+        "Nick": "(Chris)",
+        "Web": ["http://www.digitalia.be"],
+        "img": "../images/avatars/chris.png",
+        "Location": "Brussels, Belgium"
+    }, {
+        "Name": "Michelle Steigerwalt",
+        "Nick": "(Yuffster)",
+        "Web": ["http://msteigerwalt.com"],
+        "Twitter": "http://twitter.com/Yuffster",
+        "GitHub": "http://github.com/Yuffster",
+        "img": "../images/avatars/michelle.png",
+        "Location": "USA"
+    }, {
+        "Name": "Harald Kirschner",
+        "Nick": "(digitarald)",
+        "Web": ["http://digitarald.de"],
+        "Twitter": "http://twitter.com/digitarald",
+        "GitHub": "http://github.com/digitarald",
+        "img": "http://digitarald.de/images/harald-k-100.jpg",
+        "Location": "Lausanne, Switzerland"
+    }, {
+        "Name": "Guillermo Rauch",
+        "Nick": "(guillermo)",
+        "Web": ["http://devthought.com"],
+        "Twitter": "http://twitter.com/rauchg",
+        "GitHub": "http://github.com/guille",
+        "img": "../images/avatars/guillermo.png",
+        "Location": "Buenos Aires, Argentina"
+    }]
+}
