@@ -1,2 +1,63 @@
-extends ../layouts/main
+extends ../layouts/home
+
+block main
+
+	.overview.clearfix.wrapper
+
+		div.developers
+
+			section 
+				h1 Developers
+				
+			for result in developersData.developers
+				- var linkExist = function(i){
+				-   if (result[i] != 'undefined'){
+				-       var html = ', follow on ' + i + ': <a href="' + result[i] + '" target="_blank">' + result[i].split("http://")[1] + '</a>';
+				-       return html;
+				-   };
+				- }
+			
+				section
+					h3 #{result.Name} 
+					p.inline #{result.Nick}
+					
+					img(src=result.img)
+					
+					p.small Location: #{result.Location}
+
+					p.small 
+						| Web: 
+						for webResult in result.Web
+							a(href=webResult,target='_blank') #{webResult.split('http://')[1]}
+							
+						!= linkExist('Twitter')
+						!= linkExist('GitHub')
+						
+			section 
+				h1 Alumni
+					
+			for result in developersData.alumni
+				- var linkExist = function(i){
+				-   if (result[i] != 'undefined'){
+				-       var html = ', follow on ' + i + ': <a href="' + result[i] + '" target="_blank">' + result[i].split("http://")[1] + '</a>';
+				-       return html;
+				-   };
+				- }
+			
+				section
+					
+					h3 #{result.Name} 
+					p.inline #{result.Nick}
+					
+					img(src=result.img)
+					
+					p.small Location: #{result.Location}
+							
+					p.small 
+						| Web: 
+						for webResult in result.Web
+							a(href=webResult,target='_blank') #{webResult.split('http://')[1]}
+
+						!= linkExist('Twitter')
+						!= linkExist('GitHub')
 
