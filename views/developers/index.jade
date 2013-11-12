@@ -1,7 +1,7 @@
 extends ../layouts/home
 
 mixin linkExist(result, type)
-	if result[type] !== 'undefined'
+	if result[type] !== undefined
 		| , follow on #{type}: <a href="#{result[type]}">#{result[type].split("http://")[1]}</a>
 
 mixin content(result)

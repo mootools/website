@@ -35,7 +35,6 @@
         "Name": "Olmo Maldonado",
         "Nick": "(ibolmo)",
         "Web": [""],
-        "Twitter": "undefined",
         "GitHub": "http://github.com/ibolmo",
         "img": "../images/avatars/olmo.png",
         "Location": "Los Angeles, CA, USA"
@@ -140,7 +139,6 @@
         "Name": "Tom Occhino",
         "Nick": "(tomocchino)",
         "Web": ["http://tomocchino.com"],
-        "Twitter": "undefined",
         "GitHub": "http://github.com/tomocchino",
         "img": "../images/avatars/tom.png",
         "Location": "CA, USA"
@@ -156,8 +154,6 @@
         "Name": "Christophe Beyls",
         "Nick": "(Chris)",
         "Web": ["http://www.digitalia.be"],
-        "Twitter": "undefined",
-        "GitHub": "undefined",
         "img": "../images/avatars/chris.png",
         "Location": "Brussels, Belgium"
     }, {
