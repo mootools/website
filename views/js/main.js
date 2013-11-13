@@ -1,5 +1,7 @@
 "use strict";
 
+var moofx = require("moofx");
+
 if (window.matchMedia){
 
 	// we can use all this, because matchMedia is for modern browser
@@ -47,6 +49,23 @@ if (window.matchMedia){
 
 		for (var i = 0; i < sitemap.length; i++){
 			sitemap[i].addEventListener('click', toggleDiv(i), false);
+		}
+		
+		// moofx animation for icons
+		var bigSections = document.querySelectorAll('.main > a');
+		var bigIcons = document.querySelectorAll('div.big-icon img');
+		
+		var rotateIcons = function(h, degrees){
+			return function(){
+				if (matchMobile()) return;
+				
+				moofx(bigIcons[h]).animate('transform', 'rotate('+degrees+'deg)', {duration: 2000});
+			}
+		}
+		
+		for (var h = 0; h < bigSections.length; h++){
+			bigSections[h].addEventListener('mouseenter', rotateIcons(h, 360), false);
+			bigSections[h].addEventListener('mouseleave', rotateIcons(h, 0), false);
 		}
 
 	}, false);
