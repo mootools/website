@@ -50,23 +50,26 @@ if (window.matchMedia){
 		for (var i = 0; i < sitemap.length; i++){
 			sitemap[i].addEventListener('click', toggleDiv(i), false);
 		}
-		
+
 		// moofx animation for icons
 		var bigSections = document.querySelectorAll('.main > a');
 		var bigIcons = document.querySelectorAll('div.big-icon img');
 		var animating = [];
-		var rotateIcons = function (h, degrees){
-			return function (){
+		var rotateIcons = function(h, degrees){
+			return function(){
 				if (matchMobile()) return;
 				if (animating[h]) return;
-				animating[h] = true;						
-				moofx(bigIcons[h]).animate('transform', 'rotate(' + degrees + 'deg)', {duration: 2000, callback: function(){
+				animating[h] = true;
+				moofx(bigIcons[h]).animate('transform', 'rotate(' + degrees + 'deg)', {
+					duration: 2000,
+					callback: function(){
 						animating[h] = false;
 						moofx(bigIcons[h]).style('transform', 'rotate(0deg)');
 					}
 				});
 			};
 		};
+
 		for (var h = 0; h < bigSections.length; h++){
 			animating[h] = false;
 			bigSections[h].addEventListener('mouseenter', rotateIcons(h, 360), false);

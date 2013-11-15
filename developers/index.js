@@ -1,13 +1,12 @@
 "use strict";
 
 module.exports = function(app){
-	
+
 	var developersData = require('./developers');
-	
+
 	var randomSort = function(){
-		return 0.5 - Math.random()
+		return 0.5 - Math.random();
 	};
-	
 
 	var developers = function(req, res, next){
 		res.locals.site = 'developers';

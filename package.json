@@ -16,7 +16,7 @@
     "elements",
     "agent",
     "moofx",
-	"slick"
+    "slick"
   ],
   "author": "Arian Stolwijk",
   "license": "MIT",
@@ -24,6 +24,7 @@
   "dependencies": {
     "prime": "0.1",
     "elements": "0.1",
+    "moofx": "~3.2.0",
     "forever": "0.10",
     "colors": "0.6",
     "express": "3.2",
