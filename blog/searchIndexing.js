@@ -16,7 +16,7 @@ function insertBlog(posts, callback){
 				index : {
 					_index: 'page',
 					_type: 'blogging',
-					_id: post.slug
+					_id: post.permalink
 				}
 			}),
 			JSON.stringify({
@@ -24,7 +24,7 @@ function insertBlog(posts, callback){
 				date: post.date,
 				author: post.author,
 				tags: post.tags.slice(),
-				url: "/blog/" + post.url,
+				url: "/blog/" + post.permalink,
 				content: post.content.toString()
 			})
 		);
