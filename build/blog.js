@@ -44,20 +44,26 @@ function build(srcdir, destdir){
 		compile: ['readfiles', function(callback, res){
 			async.map(res.readfiles, function(file, cb){
 				var parts = fm(file.md);
-				var data = parts.attributes;
-				if (!data.slug) data.slug = slug(data.title).toLowerCase();
-				var date = data.date = new Date(data.date);
-				data.url = '' + date.getFullYear() + '/' + pad(date.getMonth() + 1) +
-					'/' + pad(date.getDate()) + '/' + data.slug;
-				data.file = file.file;
-				data.htmlFile = file.file.replace(/\.md$/, '.html');
-				if (typeof data.tags == 'string') data.tags = [data.tags];
-				if (!data.tags || !Array.isArray(data.tags)) data.tags = [];
+				var post = parts.attributes;
+
+				if (!post.permalink){
+					var link  = slug(post.title).toLowerCase();
+					var date = post.date = new Date(post.date);
+					post.permalink = '' + date.getFullYear() + '/' +
+						pad(date.getMonth() + 1) + '/' + pad(date.getDate()) +
+						'/' + link;
+				}
+
+				post.published = post.published !== false;
+				post.file = file.file;
+				post.htmlFile = file.file.replace(/\.md$/, '.html');
+				if (typeof post.tags == 'string') post.tags = [post.tags];
+				if (!post.tags || !Array.isArray(post.tags)) post.tags = [];
 				var md = parts.body;
 				var moreIndex = md.indexOf('<!--more-->');
-				data.summary = compile(moreIndex == -1 ? md : md.slice(0, moreIndex)).content;
+				post.summary = compile(moreIndex == -1 ? md : md.slice(0, moreIndex)).content;
 				var html = compile(md).content;
-				cb(null, [data, html]);
+				cb(null, [post, html]);
 			}, callback);
 		}],
 
@@ -75,6 +81,8 @@ function build(srcdir, destdir){
 		saveJSON: ['compile', function(callback, res){
 			var posts = res.compile.map(function(post){
 				return post[0];
+			}).filter(function(post){
+				return post.published;
 			}).sort(function(a, b){
 				return b.date - a.date;
 			});

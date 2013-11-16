@@ -6,7 +6,7 @@ block main
 	.clearfix.wrapper.blog
 
 		each post in posts
-			a(href="/blog/#{post.url}")
+			a(href="/blog/#{post.permalink}")
 				h3
 					| #{post.title}
 

@@ -26,7 +26,7 @@ var tags = {};
 
 posts.forEach(function(post, i){
 	post.date = new Date(post.date);
-	postsByURL[post.url] = i;
+	postsByURL[post.permalink] = i;
 	if (post.tags && Array.isArray(post.tags)) post.tags.forEach(function(tag){
 		tag = tag.toLowerCase();
 		(tags[tag] || (tags[tag] = [])).push(i);
@@ -73,9 +73,8 @@ module.exports = function(app){
 	app.get('/blog/category/:tag', index);
 	app.get('/blog/category/:tag/page/:page', index);
 
-	app.get('/blog/:year/:month/:day/:title', function(req, res, next){
-		var url = req.params.year + '/' + req.params.month + '/' +
-			req.params.day + '/' + req.params.title;
+	app.get(/\/blog\/(.+)/, function(req, res, next){
+		var url = req.params[0];
 
 		var postIndex = postsByURL[url];
 		var post = postIndex != null && posts[postIndex];
