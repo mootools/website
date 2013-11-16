@@ -1,8 +1,7 @@
-{
-	"title": "Introduction to Elements",
-	"date": "2013-10-30",
-	"author": "Mootools fanboi"
-}
+---
+title: Introduction to Elements
+date: 2013-10-30
+author: Mootools fanboi
 ---
 
 Welcome to Elements

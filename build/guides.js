@@ -6,7 +6,7 @@ var path = require('path');
 var array = require('prime/shell/array');
 var slug = require ('slugify');
 var compile = require('../lib/compile-md');
-var splitMetaData = require('../lib/splitMarkdownMetaData');
+var fm = require('front-matter');
 var pkg = require('../package.json');
 
 var args = process.argv;
@@ -49,12 +49,12 @@ function build(project, srcdir, destdir){
 
 		compile: ['readfiles', function(callback, res){
 			async.map(res.readfiles, function(file, cb){
-				var parts = splitMetaData(file.md);
-				var data = JSON.parse(parts[0]);
+				var parts = fm(file.md);
+				var data = parts.attributes;
 				data.slug = slug(data.title);
 				data.file = file.file;
 				data.htmlFile = file.file.replace(/\.md$/, '.html');
-				var html = compile(parts[1]);
+				var html = compile(parts.body);
 				cb(null, [data, html]);
 			}, callback);
 		}],

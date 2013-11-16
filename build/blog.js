@@ -5,7 +5,7 @@ var path = require('path');
 var async = require('async');
 var slug = require('slugify');
 var compile = require('../lib/compile-md');
-var splitMetaData = require('../lib/splitMarkdownMetaData');
+var fm = require('front-matter');
 var pkg = require('../package.json');
 
 var srcdir = path.join(__dirname, "/../blog/posts");
@@ -43,8 +43,8 @@ function build(srcdir, destdir){
 
 		compile: ['readfiles', function(callback, res){
 			async.map(res.readfiles, function(file, cb){
-				var parts = splitMetaData(file.md);
-				var data = JSON.parse(parts[0]);
+				var parts = fm(file.md);
+				var data = parts.attributes;
 				if (!data.slug) data.slug = slug(data.title).toLowerCase();
 				var date = data.date = new Date(data.date);
 				data.url = '' + date.getFullYear() + '/' + pad(date.getMonth() + 1) +
@@ -53,9 +53,9 @@ function build(srcdir, destdir){
 				data.htmlFile = file.file.replace(/\.md$/, '.html');
 				if (typeof data.tags == 'string') data.tags = [data.tags];
 				if (!data.tags || !Array.isArray(data.tags)) data.tags = [];
-				var md = parts[1];
+				var md = parts.body;
 				var moreIndex = md.indexOf('<!--more-->');
-				data.summary = compile(moreIndex == -1 ? parts[1] : md.slice(0, moreIndex)).content;
+				data.summary = compile(moreIndex == -1 ? md : md.slice(0, moreIndex)).content;
 				var html = compile(md).content;
 				cb(null, [data, html]);
 			}, callback);

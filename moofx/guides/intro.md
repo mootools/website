@@ -1,8 +1,7 @@
-{
-	"title": "Introduction to MooFx",
-	"date": "2013-05-19",
-	"author": "Mark Henderson"
-}
+---
+title: Introduction to MooFx
+date: 2013-05-19
+author: Mark Henderson
 ---
 
 Welcome to MooFx
