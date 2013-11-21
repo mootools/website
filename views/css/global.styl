@@ -91,7 +91,7 @@ a,
 /* Fonts */
 
 body, button, html, input, select, textarea
-	color: #777571;
+	color: #575551;			/* raise contrast test - original #777571 */
 	font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
 	font-weight: 300;
 
@@ -103,7 +103,7 @@ strong
 	font-weight: 400;
 
 pre
-	background: #f4f1ed;
+	background: #FAF7F4;  /* raise contrast test - original #f4f1ed */
 	border-radius: 5px;
 	display: block;
 	font-family: "Source Code Pro", "Lucida Console", "Monaco", "Courier New", monospace;
@@ -112,7 +112,7 @@ pre
 	padding: 1em;
 
 code
-	background: #f4f1ed;
+	background: #FAF7F4;  /* raise contrast test - original #f4f1ed */
 	border-radius: 3px;
 	display: inline;
 	font-family: "Source Code Pro", "Lucida Console", "Monaco", "Courier New", monospace;
@@ -127,7 +127,11 @@ pre code
 	font-size: 1em;
 	font-weight: 400;
 	padding: 0;
-
+	
+p,code,pre /* raise contrast test - new*/
+	color: #373531;
+	
+	
 /* Forms */
 input,
 textarea,
