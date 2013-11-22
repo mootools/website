@@ -60,7 +60,7 @@
         "Web": ["http://subtlegradient.com"],
         "Twitter": "http://twitter.com/SubtleGradient",
         "GitHub": "http://github.com/subtleGradient",
-        "img": "http://tripledoubleyou.subtlegradient.com/i/Thomas-Aylott-65.png",
+        "img": "../images/avatars/thomas.jpg",
         "Location": "Western North Carolina, USA"
     }, {
         "Name": "Cristian Carlesso",
@@ -76,7 +76,7 @@
         "Web": ["http://meiocodigo.com", "http://solucione.info"],
         "Twitter": "http://twitter.com/fabiomiranda",
         "GitHub": "http://github.com/fabiomcosta",
-        "img": "http://en.gravatar.com/userimage/1172608/bb22718dff80dbe7d1ea5c4db4f12800.jpg?size=65",
+        "img": "../images/avatars/fabio.jpg",
         "Location": "Natal/RN, Brazil"
     }, {
         "Name": "Darren Waddell",
@@ -133,7 +133,7 @@
         "Web": ["http://inviz.ru"],
         "Twitter": "http://twitter.com/inviz",
         "GitHub": "http://github.com/inviz",
-        "img": "http://www.gravatar.com/avatar/ba36762da1f7e8d0758bbb352dd2f3f3?s=100",
+        "img": "../images/avatars/cristian.jpg",
         "Location": "Somewhere in Siberia, Russia"
     }, {
         "Name": "Tom Occhino",
@@ -170,7 +170,7 @@
         "Web": ["http://digitarald.de"],
         "Twitter": "http://twitter.com/digitarald",
         "GitHub": "http://github.com/digitarald",
-        "img": "http://digitarald.de/images/harald-k-100.jpg",
+        "img": "../images/avatars/harald.jpg",
         "Location": "Lausanne, Switzerland"
     }, {
         "Name": "Guillermo Rauch",
