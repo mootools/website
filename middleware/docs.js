@@ -5,33 +5,24 @@ var path = require('path');
 var async = require('async');
 var pkg = require('../package.json');
 var waitForIt = require('../lib/waitForIt');
+var loadJSON = require('../lib/loadJSON');
+var associate = require('../lib/associate');
+var debounce = require('../lib/debounce');
 
-function loadJSON(file, callback){
-
-	fs.readFile(file, function(err, json){
-		if (err) return callback(err);
-		try {
-			callback(null, JSON.parse(json));
-		} catch (e){
-			callback(e);
-		}
+function loadDocsVersion(dir, version, callback){
+	async.parallel([
+		async.apply(fs.readFile, dir + '/content-' + version + '.html', 'utf-8'),
+		async.apply(loadJSON, dir + '/toc-' + version + '.json')
+	], function(err, res){
+		callback(err, {content: res && res[0], toc: res && res[1]});
 	});
-
 }
 
 function loadDocsVersions(dir, versions, callback){
-	var docs = {};
-	async.each(versions, function(version, cb){
-		async.parallel([
-			async.apply(fs.readFile, dir + '/content-' + version + '.html', 'utf-8'),
-			async.apply(loadJSON, dir + '/toc-' + version + '.json')
-		], function(err, res){
-			docs[version] = {content: res && res[0], toc: res && res[1]};
-			cb(err, docs[version]);
-		});
-	}, function(err){
+	var _loadDocsVersion = async.apply(loadDocsVersion, dir);
+	async.map(versions, _loadDocsVersion, function(err, results){
 		callback(err, {
-			docs: docs,
+			docs: associate(versions, results),
 			versions: versions,
 			latest: versions[0]
 		});
@@ -52,14 +43,10 @@ module.exports = function(project, options){
 	var getDocsContent = async.apply(loadDocsVersions, dir);
 	var loadDocs = waitForIt(async.compose(getDocsContent, getVersions));
 
-	var timer;
-	fs.watch(dir, function(){
-		clearTimeout(timer);
-		timer = setTimeout(function(){
-			console.log('resetting ' + dir + ' docs data');
-			loadDocs.reset();
-		}, 200);
-	});
+	fs.watch(dir, debounce(function(){
+		console.log('resetting ' + dir + ' docs data');
+		loadDocs.reset();
+	}));
 
 	return function(req, res, next){
 

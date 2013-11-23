@@ -4,6 +4,7 @@ var fs = require('fs');
 var path = require('path');
 var object = require('prime/shell/object');
 var pkg = require('../package.json');
+var loadJSON = require('../lib/loadJSON');
 
 module.exports = function(project, options){
 

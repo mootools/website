@@ -3,6 +3,7 @@ var fs = require('fs');
 var path = require('path');
 var async = require('async');
 var waitForIt = require('../lib/waitForIt');
+var debounce = require('../lib/debounce');
 var pkg = require('../package.json');
 
 var dir = path.join(__dirname, '../', pkg._buildOutput, 'blog/posts');
@@ -57,11 +58,7 @@ var load = async.compose(index, loadContent, loadJSONPosts);
 
 module.exports = waitForIt(load);
 
-var timer;
-var watcher = fs.watch(dir, function(){
-	clearTimeout(timer);
-	timer = setTimeout(function(){
-		console.log('reloading blog data');
-		module.exports.reset();
-	}, 200);
-});
+fs.watch(dir, debounce(function(){
+	console.log('reloading blog data');
+	module.exports.reset();
+}));
