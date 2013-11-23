@@ -78,12 +78,3 @@ if (window.matchMedia){
 	}, false);
 
 }
-
-var editor = require('wrapup-webbuilder/views/js/editor');
-
-require('elements/domready')(function(){
-	if (!document.getElementById('editor')) return;
-	editor({
-		theme: 'mootools'
-	});
-});

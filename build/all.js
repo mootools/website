@@ -13,8 +13,7 @@ var cmds = [
 	["build/guides", "elements"],
 	["build/guides", "moofx"],
 	["build/guides", "agent"],
-	["build/blog"],
-	["node_modules/wrapup-webbuilder/bin/createBaseModules"]
+	["build/blog"]
 ];
 
 function spawnCmd(cmd, callback){
