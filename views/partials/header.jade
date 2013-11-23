@@ -13,18 +13,24 @@
 					a(href='/')
 						img(src='/images/logo/mootools.png', alt='MooTools Home')
 
-		div.right.clearfix
+		#main-header.right.clearfix
 
-			mixin menu-item(link, text, selected)
+			mixin menu-item(link, text, selected, reallySelected)
+				if reallySelected == undefined
+					reallySelected = selected
+
 				mixin link
 					a(href=link) #{text}
 				if selected
-					li.selected: mixin link
+					if reallySelected
+						li.selected: mixin link
+					else
+						li.selected.not-really: mixin link
 				else
 					li: mixin link
 
 			ul
-				mixin menu-item('/', 'MooTools', page == 'mootools')
+				mixin menu-item('/', 'MooTools', page != 'blog', page == 'mootools')
 				//mixin menu-item('/builder', 'Download', page == 'builder')
 				//mixin menu-item('/forge', 'Forge')
 				mixin menu-item('/blog', 'Blog', page == 'blog')

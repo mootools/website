@@ -15,18 +15,28 @@ if (window.matchMedia){
 		};
 
 		// for header menu on mobile
-		var navigation = document.querySelector('#header ul');
-		var selected = document.querySelector('#header ul li.selected');
+		var navigation = document.querySelectorAll('#header ul, #main-header ul');
 
-		if (navigation && selected){
+		var openNavigation = function(navigation){
+			var selected = navigation.querySelector('li.selected');
+			var notReallySelected = selected.classList.contains('not-really');
+			if (!selected) selected = navigation.querySelector('li');
+
+			if (!navigation || !selected) return;
 
 			var opened = false;
 			selected.addEventListener('click', function(event){
-				if (!matchMobile()) return;
-				event.preventDefault();
-				navigation.classList.toggle('opened');
-				opened = !opened;
+				if (matchMobile() && (!opened || !notReallySelected)){
+					event.preventDefault();
+					navigation.classList.toggle('opened');
+					opened = !opened;
+				}
 			}, false);
+
+		};
+
+		for (var k = 0; k < navigation.length; k++){
+			openNavigation(navigation[k]);
 		}
 
 		// for footer menu on mobile

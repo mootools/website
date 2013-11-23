@@ -92,7 +92,8 @@
 
 	#logo
 		float: none;
-		h1
+		h1,
+		p
 			text-align: center;
 
 	.home-page
@@ -101,17 +102,39 @@
 		.big-icon
 			display: none;
 
+	#global-bar .wrapper
+		padding 0
+
 	#global-bar div.wrapper div.right
 		position: static;
 		margin-top: 1.5em;
+
 		ul
-			display: none;
+			float none
+			margin 0
+
+		ul
+			margin-bottom 0.5em
+
+		li
+			float none
+			margin 0
+
+			a
+				border-radius 0
+
+		ul.opened li,
+		li.selected
+			height 2em
+
+		input
+			width 100%
 
 	body.mootools #search
 		float: none;
-		margin: 0 auto;
+		margin: 0 4%;
 		position: static;
-		max-width: 293px;
+
 		input
 			width: 100%;
 
@@ -121,6 +144,9 @@
 
 		h1
 			padding: 0.5em 4%;
+
+	#header,
+	#main-header
 
 		ul
 			li
