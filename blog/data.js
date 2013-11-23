@@ -9,14 +9,14 @@ var dir = path.join(__dirname, '../', pkg._buildOutput, 'blog/posts');
 
 function loadJSONPosts(callback){
 
-	var JSONPath = dir + '/posts.json';
-
-	try {
-		callback(null, require(JSONPath));
-	} catch (e){
-		callback(new Error(JSONPath + " doesn not exist. \n" +
-			"Did you build the blog with 'node build/blog'?"));
-	}
+	fs.readFile(dir + '/posts.json', function(err, json){
+		if (err) return callback(err);
+		try {
+			callback(null, JSON.parse(json));
+		} catch (e){
+			callback(e);
+		}
+	});
 
 }
 
@@ -56,3 +56,12 @@ function index(posts, callback){
 var load = async.compose(index, loadContent, loadJSONPosts);
 
 module.exports = waitForIt(load);
+
+var timer;
+var watcher = fs.watch(dir, function(){
+	clearTimeout(timer);
+	timer = setTimeout(function(){
+		console.log('reloading blog data');
+		module.exports.reset();
+	}, 200);
+});
