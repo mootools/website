@@ -24,22 +24,7 @@
 					li: mixin link
 
 			ul
-				li.dropdown
-					a Documentation
-					ul
-						li
-							a(href='/prime/docs') prime
-						li
-							a(href='/elements/docs') elements
-						li
-							a(href='/moofx/docs') moofx
-						li
-							a(href='/agent/docs') agent
-						li
-							a(href='/slick/docs') slick
-						li
-							a(href='#') Older versions
-
+				mixin menu-item('/', 'MooTools', page == 'mootools')
 				//mixin menu-item('/builder', 'Download', page == 'builder')
 				//mixin menu-item('/forge', 'Forge')
 				mixin menu-item('/blog', 'Blog', page == 'blog')
