@@ -2,7 +2,32 @@
 
 var fs = require('fs');
 var path = require('path');
+var async = require('async');
 var pkg = require('../package.json');
+var waitForIt = require('../lib/waitForIt');
+var loadJSON = require('../lib/loadJSON');
+var associate = require('../lib/associate');
+var debounce = require('../lib/debounce');
+
+function loadDocsVersion(dir, version, callback){
+	async.parallel([
+		async.apply(fs.readFile, dir + '/content-' + version + '.html', 'utf-8'),
+		async.apply(loadJSON, dir + '/toc-' + version + '.json')
+	], function(err, res){
+		callback(err, {content: res && res[0], toc: res && res[1]});
+	});
+}
+
+function loadDocsVersions(dir, versions, callback){
+	var _loadDocsVersion = async.apply(loadDocsVersion, dir);
+	async.map(versions, _loadDocsVersion, function(err, results){
+		callback(err, {
+			docs: associate(versions, results),
+			versions: versions,
+			latest: versions[0]
+		});
+	});
+}
 
 module.exports = function(project, options){
 
@@ -13,42 +38,37 @@ module.exports = function(project, options){
 	if (!options) options = {};
 	if (!options.title) options.title = project;
 
-	var versions;
-
 	var dir = path.join(__dirname, '../', pkg._buildOutput, project, 'docs');
-	var JSONPath = dir + '/versions.json';
+	var getVersions = async.apply(loadJSON, dir + '/versions.json');
+	var getDocsContent = async.apply(loadDocsVersions, dir);
+	var loadDocs = waitForIt(async.compose(getDocsContent, getVersions));
 
-	try {
-		versions = require(JSONPath);
-	} catch(e){
-		console.error("did you run 'node build/docs.js " + project + "'?");
-		throw e;
-	}
+	fs.watch(dir, debounce(function(){
+		console.log('resetting ' + dir + ' docs data');
+		loadDocs.reset();
+	}));
 
-	var latest = versions[0];
-	var docs = {};
+	return function(req, res, next){
 
-	versions.forEach(function(version){
-		docs[version] = {
-			content: fs.readFileSync(dir + '/content-' + version + '.html'),
-			toc: require(dir + '/toc-' + version + '.json')
-		};
-	});
+		loadDocs.get(function(err, data){
+			if (err) return next(err);
 
-	return function(req, res){
+			var docs = data.docs;
+			var versions = data.versions;
+			var latest = data.latest;
 
-		var version = req.params.version || latest;
-		if (!docs[version]) version = latest;
+			var version = req.params.version || latest;
+			if (!docs[version]) version = latest;
 
-		res.render(project + '/docs', {
-			page: "/" + project + "/docs",
-			title: options.title,
-			content: docs[version].content,
-			toc: docs[version].toc,
-			version: version,
-			versions: versions
+			res.render(project + '/docs', {
+				page: "/" + project + "/docs",
+				title: options.title,
+				content: docs[version].content,
+				toc: docs[version].toc,
+				version: version,
+				versions: versions
+			});
+
 		});
-
 	};
-
 };
