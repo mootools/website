@@ -68,12 +68,12 @@ require('./middleware/build-static')(app, {
 
 app.use(express.static(__dirname + '/public'));
 
-var githubEvents = require('./middleware/githubEvents')({
-	org: 'mootools',
-	variable: 'githubEvents'
-});
+//var githubEvents = require('./middleware/githubEvents')({
+//	org: 'mootools',
+//	variable: 'githubEvents'
+//});
 
-app.get('/', githubEvents, function(req, res){
+app.get('/', function(req, res){
 	res.render('index', {
 		title: 'MooTools'
 	});
