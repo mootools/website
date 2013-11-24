@@ -1,6 +1,6 @@
 /* M O B I L E * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-@media only screen and (max-width: 47.999em) /* Less than 600 pixels */
+@media only screen and (max-device-width: 47.999em) /* Less than 600 pixels */
 
 	.arrow:after
 		font-size: 160%;
@@ -179,30 +179,40 @@
 		padding: 0;
 
 	#sitemap
+		width: 100%;
+		
 		div
 			border-bottom: solid 1px #e5e3df;
-			height:2.7em;
-			overflow:hidden;
+			margin-bottom: 1px;
+			overflow: hidden;
+			float: left;
+			min-width: 100%;
+			
 			h3
-				background: #ffffff;
+				font-size: 2em;
+				background: #fff;
 				color: #acaaa7;
 				cursor: pointer;
 				padding: 0.5em 4%;
 
 			ul
+				display: none;
 				padding: 0 2em 1em 2em;
-		.open
-			height:auto;
+				
+		.open ul
+			display: block !important;
 
 
 	#credits
+		float: left;
+		min-width: 100%;
 		padding: 1em 4% 2em;
 
 
 
 /* T A B L E T * & * D E S K T O P * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-@media only screen and (min-width: 48em) /* More or equal to 768 pixels */
+@media only screen and (min-device-width: 48em) /* More or equal to 768 pixels */
 
 	.arrow:after
 		font-size: 160%;
