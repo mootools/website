@@ -8,7 +8,7 @@ if (window.matchMedia){
 	window.addEventListener('DOMContentLoaded', function(){
 
 		var matchMobile = function(){
-			var match = window.matchMedia('only screen and (max-device-width: 47.999em)');
+			var match = window.matchMedia('only screen and (max-width: 47.999em)');
 			return match.matches;
 		};
 
