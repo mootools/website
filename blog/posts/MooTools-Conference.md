@@ -2,6 +2,7 @@
 title: MooTools Conference
 date: 2013-04-18
 author: Garrick Cheung
+permalink: 2013/04/18/mootools-conference
 tags: [All, MooTools]
 ---
 This year we're thinking about getting everyone in the MooTools community together, in one place, for a weekend to meet up, chat, discuss, and have an all-around good time. That's right, we're trying to plan a MooTools Conference!

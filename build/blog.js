@@ -49,9 +49,7 @@ function build(srcdir, destdir){
 				if (!post.permalink){
 					var link  = slug(post.title).toLowerCase();
 					var date = post.date = new Date(post.date);
-					post.permalink = '' + date.getFullYear() + '/' +
-						pad(date.getMonth() + 1) + '/' + pad(date.getDate()) +
-						'/' + link;
+					post.permalink = link;
 				}
 
 				post.published = post.published !== false;
