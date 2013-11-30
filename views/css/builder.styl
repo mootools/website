@@ -12,7 +12,7 @@
 			float: left
 		p.wrapup
 			float: right
-		
+
 			img
 				height: 2em
 				margin-left: 0.6em
@@ -41,13 +41,13 @@
 				position: absolute
 				padding: 0.3em 0.4em 0.3em 0.5em
 				right: 0
-				
+
 			a:focus
 				background: transparent !important
 
 			a:before
+				icon-arrow-combo()
 				color: #acaaa7
-				content: ""
 				font-family: "Entypo"
 				font-size: 200%
 				line-height: 0.7
@@ -62,9 +62,9 @@
 			.add span
 				font-size: 0.8em
 				font-weight: 400
-		
+
 			.add span.icon:after
-				content: "⊞"
+				icon-plus-squared()
 				font-family: "Entypo"
 				font-size: 260%
 				line-height: 0
@@ -81,13 +81,13 @@
 			display block
 			margin-top: 1em
 			position: relative
-		
+
 		input[type="submit"]
 			margin-top: 0.5em
 			padding: 0.5em
 			width: 100%
 			text-align: left
-			
+
 		.icon.download
 			position: absolute
 			right: 0.25em

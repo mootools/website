@@ -24,11 +24,6 @@
 	font-style: normal;
 }
 
-
-
-
-
-
 /* G L O B A L * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /* Body & Wrapper */
@@ -162,7 +157,7 @@ input[type="checkbox"]
 	width: 1em;
 
 input[type="checkbox"]:after
-	content: "✓";
+	icon-check()
 	font-family: "Entypo";
 	font-size: 200%;
 	line-height: 0;
@@ -214,10 +209,10 @@ select
 			padding: 0;
 
 			&.icon
-				font-size: 400%;
+				font-size: 200%;
 				position: absolute;
-				top: 0.3em;
-				right: 0.1em;
+				top: 0.9em;
+				right: 0.2em;
 				line-height: 0;
 
 		&.version
@@ -274,11 +269,10 @@ a:focus .darker
 /* Icons */
 
 .arrow:after
-	content: "";
+	icon-right-circled()
 	font-family: "Entypo";
 
 .icon
-	bottom: -0.1em;
 	color: #acaaa7;
 	font-size: 220%;
 	line-height: 0;
@@ -290,31 +284,31 @@ a:focus .icon
 	color: #ffffff;
 
 .previous:after
-	content: "";
+	icon-left-circled()
 	font-family: "Entypo";
 
 .next:after
-	content: "";
+	icon-right-circled()
 	font-family: "Entypo";
 
 .download:after
-	content: "";
+	icon-down-circled()
 	font-family: "Entypo";
 
 .github:after
-	content: "";
+	icon-github()
 	font-family: "Entypo Social";
 
 .twitter:after
-	content: "";
+	icon-twitter()
 	font-family: "Entypo Social";
 
 .facebook:after
-	content: "";
+	icon-facebook-squared()
 	font-family: "Entypo Social";
 
 .googleplus:after
-	content: "";
+	icon-gplus()
 	font-family: "Entypo Social";
 
 
@@ -419,7 +413,8 @@ Try smaller texts on homepage
 			width: 46%
 
 		a .icon
-			font-size: 320%;
+			font-size: 200%;
+			top 0.3em
 
 		.older
 			float: left
