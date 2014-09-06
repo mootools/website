@@ -12,6 +12,8 @@
   },
   "keywords": [
     "mootools",
+    "mootools-core",
+    "mootools-more",
     "prime",
     "elements",
     "agent",
@@ -51,10 +53,24 @@
   },
   "devDependencies": {
     "mocha": "1.11",
-    "expect.js": "0.2"
+    "expect.js": "0.3.x"
   },
   "_buildOutput": "cache",
   "_projects": {
+    "core": {
+      "repository": "https://github.com/mootools/mootools-core",
+      "versions": [
+        "1.5.0",
+        "1.5.1"
+      ]
+    },
+    "more": {
+      "repository": "https://github.com/mootools/mootools-more",
+      "versions": [
+        "1.5.0",
+        "1.5.1"
+      ]
+    },
     "prime": {
       "repository": "https://github.com/mootools/prime.git",
       "versions": [

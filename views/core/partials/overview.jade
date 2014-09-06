@@ -1,0 +1,27 @@
+h2 Modules Overview
+div
+	h3
+		span.command implement
+	p This method implements a new method to the type's prototype.
+	:highlight(lang=js)
+		Array.implement('limitTop', function(top){
+			for (var i = 0, l = this.length; i < l; i++){
+				if (this[i] > top) this[i] = top;
+			}
+			return this;
+		});
+
+		[1, 2, 3, 4, 5, 6].limitTop(4); // returns [1, 2, 3, 4, 4, 4]
+
+div
+	h3
+		span.command typeOf
+	p
+		| Returns the type of an object.
+	:highlight(lang=js)
+		var myString = 'hello';
+		typeOf(myString); // returns "string"
+
+p.docs
+	a(href='/core/docs')
+		span.arrow Full Documentation

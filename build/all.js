@@ -4,6 +4,7 @@ var async = require('async');
 var spawn = require('child_process').spawn;
 
 var cmds = [
+/*
 	["build/docs", "prime"],
 	["build/docs", "elements"],
 	["build/docs", "moofx"],
@@ -13,6 +14,11 @@ var cmds = [
 	["build/guides", "elements"],
 	["build/guides", "moofx"],
 	["build/guides", "agent"],
+*/
+	["build/docs", "core"],
+	["build/docs", "more"],
+	["build/guides", "core"],
+	["build/guides", "more"],
 	["build/blog"]
 ];
 

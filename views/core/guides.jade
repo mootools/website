@@ -1,0 +1,9 @@
+extends page
+
+block main
+	.guides.overview.clearfix.wrapper
+		each guide in guides
+			.guide
+				h3
+					a(href="/core/guide/" + guide.slug)= guide.title
+				| !{guide.author}

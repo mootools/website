@@ -87,12 +87,15 @@ app.get('/search', function(req, res){
 	});
 });
 
-require('./prime')(app);
-require('./elements')(app);
+require('./core')(app);
+require('./more')(app);
+/*
 require('./moofx')(app);
 require('./agent')(app);
 require('./slick')(app);
+*/
 require('./blog')(app);
+require('./builder')(app);
 require('./developers')(app);
 
 app.use(app.router);
