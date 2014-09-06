@@ -80,6 +80,13 @@ app.get('/', function(req, res){
 	});
 });
 
+app.get('/search', function(req, res){
+	res.render('search', {
+		title: 'Search',
+		page: 'search'
+	});
+});
+
 require('./prime')(app);
 require('./elements')(app);
 require('./moofx')(app);
