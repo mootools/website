@@ -53,7 +53,6 @@ automatically. The website should then be running on `http://localhost:5001`.
 * Styling for different projects according [designs](https://github.com/mootools/website/tree/master/design)
 * ~~Adding sites for other projects: wrapup, moofx, agent~~
 * ~~Integrate the wrapup-webbuilder better~~
-* Search (Lucene/elasticsearch with node?)
 * Overall polish
 * So fork and send pull requests!
 

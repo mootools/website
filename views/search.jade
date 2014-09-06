@@ -1,0 +1,19 @@
+
+extends layouts/main
+
+block main
+	.clearfix.wrapper.blog
+
+		script(type='text/javascript')
+			(function() {
+			var cx = '010060716948516680719:r5u1rkeinvk';
+			var gcse = document.createElement('script');
+			gcse.type = 'text/javascript';
+			gcse.async = true;
+			gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+				'//www.google.com/cse/cse.js?cx=' + cx;
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(gcse, s);
+			})();
+
+		gcse:searchresults-only(refinementStyle='link')
