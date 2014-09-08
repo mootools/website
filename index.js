@@ -95,7 +95,8 @@ require('./agent')(app);
 require('./slick')(app);
 */
 require('./blog')(app);
-require('./builder')(app);
+require('./builder/core')(app);
+require('./builder/more')(app);
 require('./developers')(app);
 
 app.use(app.router);

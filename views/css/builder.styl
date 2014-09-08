@@ -10,6 +10,9 @@
 	.header
 		h1
 			float: left
+			margin: 1em 0em
+			width 100%
+			
 		p.wrapup
 			float: right
 
@@ -17,6 +20,12 @@
 				height: 2em
 				margin-left: 0.6em
 				width: auto
+				
+		.save
+			float left
+			clear none
+			margin-right 1em
+			
 
 	.load
 		input
@@ -129,18 +138,31 @@
 			width 35%
 
 		.editor
-			margin-left 5%
 			margin-top: 0
 			width 60%
 
 		.save
 			width 35%
-			float: left
 
 		.snippets
 			li
 				select
 					width: 4.4em
+		table
+			width 100%
+			
+			tr
+				border-bottom 1px solid #acaaa7
+				td
+					padding .4em
+
+					&:first-child
+						width 20%
+					& + td
+						width 20%
+					& + td +td
+						width 60%
+
 
 
 @media only screen and (min-width: 60em) /* More or equal to 960 pixels */
