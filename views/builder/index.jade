@@ -1,14 +1,5 @@
 extends ../layouts/main
 
-block scripts
-
-	//
-		script var snippets = !{JSON.stringify(snippets)};
-		script(src="/builder/js/codemirror/lib/codemirror.js")
-		script(src="/builder/js/codemirror/mode/javascript/javascript.js")
-		link(href="/builder/js/codemirror/lib/codemirror.css", rel="stylesheet")
-		link(href="/builder/js/codemirror/theme/monokai.css", rel="stylesheet")
-
 block main
 	.clearfix.wrapper.builder
 
@@ -38,17 +29,18 @@ block main
 
 		form(method="post", action="/builder")
 
-			table
+			table#builderOptions
 				tr
+					td 
 					td File
 					td Provides
 					td Description
 
 				each yaml, module in dependencies
 					tr
-						td
+						td 
 							input(type="checkbox", name="#{module}", value="1", data-provides="#{yaml.prov}", data-requires="#{yaml.req}")
-							| #{module}
+						td #{module}
 						td #{yaml.prov}
 						td #{yaml.desc}
 
@@ -76,51 +68,3 @@ block main
 		div.header.clearfix
 			h2
 				a(href="#") Download older versions of Mootools
-
-	script
-			(function(){
-			
-				var checkboxes = document.querySelectorAll('table input[type=checkbox]');
-				var providerInput = {};
-				var requireInput = {};
-				for (var i = 0; i < checkboxes.length; i++){
-					var data = getData(checkboxes[i]);
-					data.provides.forEach(function(code){
-						if (code) providerInput[code] = checkboxes[i];
-					});
-					data.requires.forEach(function(code){
-						if (code) {
-							if (!requireInput[code]) requireInput[code] = [];
-							requireInput[code].push(checkboxes[i]);
-						}
-					});
-					checkboxes[i].addEventListener('change', updateModules)
-				};
-
-
-				function updateModules(){
-					var action = this.checked ? addDependency : removeDependency;
-					var modules = getData(this)[this.checked ? 'requires' : 'provides'];
-					for (var i = 0; i < modules.length; i++) if (modules[i]) action(modules[i]);
-
-				}
-				function addDependency(code){
-					if (!providerInput[code]) return;
-					providerInput[code].checked = true;
-					updateModules.call(providerInput[code]);
-				}
-				function removeDependency(code){
-					if (!requireInput[code]) return;
-					requireInput[code].forEach(function(input){
-						input.checked = false;
-						updateModules.call(input);
-					});
-				}
-				function getData(input){
-					var provides = input.getAttribute('data-provides').split(', ');
-					var requires = input.getAttribute('data-requires').split(', ');
-					return {provides: provides, requires: requires};
-				}
-			})();
-
-

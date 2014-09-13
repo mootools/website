@@ -26,6 +26,6 @@ module.exports = function(app){
 	app.get('/more/docs/:version', more, docs);
 
 	app.get('/more/guides', more, guides.index);
-	app.get('/more/guide/:guide', more, guides.article);
+	app.get('/more/guides/:guide', more, guides.article);
 
 };

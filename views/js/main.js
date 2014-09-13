@@ -58,7 +58,53 @@ if (window.matchMedia){
 		for (var i = 0; i < sitemap.length; i++){
 			sitemap[i].addEventListener('click', toggleDiv(i), false);
 		}
-
+	customBuilderTable();
 	}, false);
 
 }
+
+function customBuilderTable(){
+
+	var checkboxes = document.querySelectorAll('table#builderOptions input[type=checkbox]');
+	if (!checkboxes.length) return;
+	var providerInput = {};
+	var requireInput = {};
+	for (var i = 0; i < checkboxes.length; i++){
+		var data = getData(checkboxes[i]);
+		data.provides.forEach(function(code){
+			if (code) providerInput[code] = checkboxes[i];
+		});
+		data.requires.forEach(function(code){
+			if (code) {
+				if (!requireInput[code]) requireInput[code] = [];
+				requireInput[code].push(checkboxes[i]);
+			}
+		});
+		checkboxes[i].addEventListener('change', updateModules)
+	};
+
+
+	function updateModules(){
+		var action = this.checked ? addDependency : removeDependency;
+		var modules = getData(this)[this.checked ? 'requires' : 'provides'];
+		for (var i = 0; i < modules.length; i++) if (modules[i]) action(modules[i]);
+
+	}
+	function addDependency(code){
+		if (!providerInput[code]) return;
+		providerInput[code].checked = true;
+		updateModules.call(providerInput[code]);
+	}
+	function removeDependency(code){
+		if (!requireInput[code]) return;
+		requireInput[code].forEach(function(input){
+			input.checked = false;
+			updateModules.call(input);
+		});
+	}
+	function getData(input){
+		var provides = input.getAttribute('data-provides').split(', ');
+		var requires = input.getAttribute('data-requires').split(', ');
+		return {provides: provides, requires: requires};
+	}
+};

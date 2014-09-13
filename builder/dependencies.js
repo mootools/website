@@ -8,9 +8,9 @@ function makeString(type){
 	return typeof type == 'string' ? type : type.join(', ');
 }
 
-module.exports = function(component){
+module.exports = function(project, version){
 	// get all files in sub-directories
-	var path = 'cache/'+component+'/docs/'+component+'-1.5.1/Source';
+	var path = 'cache/' + project + '/docs/' + project + '-' + version + '/Source';
 	var files = (function getFiles(dir,files_){
 		files_ = files_ || [];
 		if (typeof files_ === 'undefined') files_=[];
@@ -45,4 +45,3 @@ module.exports = function(component){
 	});
 	return filesInfo;
 };
-

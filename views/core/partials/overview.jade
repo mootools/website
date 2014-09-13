@@ -2,7 +2,7 @@ h2 Modules Overview
 div
 	h3
 		span.command implement
-	p This method implements a new method to the type's prototype.
+	p This method implements a new method to the Array type's prototype.
 	:highlight(lang=js)
 		Array.implement('limitTop', function(top){
 			for (var i = 0, l = this.length; i < l; i++){
@@ -15,12 +15,25 @@ div
 
 div
 	h3
-		span.command typeOf
+		span.command MooTools Class
 	p
-		| Returns the type of an object.
+		| A simple MooTools Class example.
 	:highlight(lang=js)
-		var myString = 'hello';
-		typeOf(myString); // returns "string"
+		var Animal = new Class({
+			initialize: function(age){
+				this.age = age;
+			}
+		});
+		var Cat = new Class({
+			Extends: Animal,
+			initialize: function(name, age){
+				this.parent(age); // calls initalize method of Animal class
+				this.name = name;
+			}
+		});
+		var myCat = new Cat('Micia', 20);
+		alert(myCat.name); // alerts 'Micia'.
+		alert(myCat.age); // alerts 20.
 
 p.docs
 	a(href='/core/docs')
