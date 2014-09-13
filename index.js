@@ -89,11 +89,6 @@ app.get('/search', function(req, res){
 
 require('./core')(app);
 require('./more')(app);
-/*
-require('./moofx')(app);
-require('./agent')(app);
-require('./slick')(app);
-*/
 require('./blog')(app);
 require('./builder/core')(app);
 require('./builder/more')(app);

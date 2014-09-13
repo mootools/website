@@ -1,6 +1,6 @@
 {
   "name": "mootools-website",
-  "version": "0.0.0",
+  "version": "0.2.1",
   "description": "Website for MooTools",
   "main": "index.js",
   "scripts": {
@@ -13,20 +13,13 @@
   "keywords": [
     "mootools",
     "mootools-core",
-    "mootools-more",
-    "prime",
-    "elements",
-    "agent",
-    "moofx",
-    "slick"
+    "mootools-more"
   ],
   "author": "Arian Stolwijk",
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
     "prime": "0.1",
-    "elements": "0.1",
-    "moofx": "~3.2.0",
     "forever": "0.10",
     "colors": "0.6",
     "express": "3.2",
@@ -70,72 +63,6 @@
         "1.5.0",
         "1.5.1"
       ]
-    },
-    "prime": {
-      "repository": "https://github.com/mootools/prime.git",
-      "versions": [
-        "v0.3.2",
-        "v0.2.1",
-        "v0.1.0",
-        "v0.0.6"
-      ]
-    },
-    "elements": {
-      "repository": "https://github.com/mootools/elements.git",
-      "versions": [
-        "v0.2.2",
-        "v0.1.0",
-        "v0.0.9"
-      ]
-    },
-    "moofx": {
-      "repository": "https://github.com/kamicane/moofx.git",
-      "versions": [
-        "v3.1.0"
-      ]
-    },
-    "agent": {
-      "repository": "https://github.com/kamicane/agent.git",
-      "versions": [
-        "v0.0.4"
-      ]
-    },
-    "slick": {
-      "repository": "https://github.com/kamicane/slick.git",
-      "versions": [
-        "v1.10.3"
-      ]
     }
-  },
-  "_wrapupWebbuilderConfig": {
-    "modules": {
-      "prime": [
-        "v0.0.6",
-        "v0.1.0",
-        "v0.2.1",
-        "v0.3.0"
-      ],
-      "elements": [
-        "v0.0.7-alpha",
-        "v0.0.8",
-        "v0.0.9",
-        "v0.1.0",
-        "v0.2.2"
-      ],
-      "moofx": [
-        "v3.0.10",
-        "v3.0.11",
-        "v3.0.12",
-        "v3.1.0"
-      ],
-      "agent": [
-        "v0.0.4"
-      ],
-      "slick": [
-        "v1.10.3"
-      ]
-    },
-    "dir": "./cache/modules",
-    "snippetsdir": "./builder/snippets"
   }
 }

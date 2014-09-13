@@ -1,5 +1,3 @@
 node_modules
-prime/docs
-elements/docs
-moofx/docs
-agent/docs
+core/docs
+more/docs

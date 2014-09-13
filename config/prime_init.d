@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAME="prime-website"
+NAME="mootools-website"
 PID="/var/run/$NAME.pid"
 
 . /lib/lsb/init-functions
@@ -10,7 +10,7 @@ case "$1" in
 		echo "starting $NAME"
 		touch $PID
 		start-stop-daemon --start --pidfile $PID --make-pidfile --background \
-			--exec /usr/bin/node /vagrant/prime-website
+			--exec /usr/bin/node /vagrant/mootools-website
 		echo "$NAME started"
 		;;
 	stop)
