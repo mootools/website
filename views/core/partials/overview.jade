@@ -1,20 +1,6 @@
 h2 Modules Overview
 div
 	h3
-		span.command implement
-	p This method implements a new method to the Array type's prototype.
-	:highlight(lang=js)
-		Array.implement('limitTop', function(top){
-			for (var i = 0, l = this.length; i < l; i++){
-				if (this[i] > top) this[i] = top;
-			}
-			return this;
-		});
-
-		[1, 2, 3, 4, 5, 6].limitTop(4); // returns [1, 2, 3, 4, 4, 4]
-
-div
-	h3
 		span.command MooTools Class
 	p
 		| A simple MooTools Class example.
@@ -34,6 +20,20 @@ div
 		var myCat = new Cat('Micia', 20);
 		alert(myCat.name); // alerts 'Micia'.
 		alert(myCat.age); // alerts 20.
+
+div
+	h3
+		span.command implement
+	p This method implements a new method to the Array type's prototype.
+	:highlight(lang=js)
+		Array.implement('limitTop', function(top){
+			for (var i = 0, l = this.length; i < l; i++){
+				if (this[i] > top) this[i] = top;
+			}
+			return this;
+		});
+
+		[1, 2, 3, 4, 5, 6].limitTop(4); // returns [1, 2, 3, 4, 4, 4]
 
 p.docs
 	a(href='/core/docs')

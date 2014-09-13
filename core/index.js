@@ -8,6 +8,9 @@ var guides = require('../middleware/guides')('core', {
 	title: "MooTools Core Guides"
 });
 
+var project = 'core';
+var lastVersion = require('../package.json')._projects[project].versions[0];
+
 module.exports = function(app){
 
 	var core = function(req, res, next){
@@ -19,6 +22,16 @@ module.exports = function(app){
 		res.render('core/index', {
 			page: "/core",
 			title: "MooTools Core"
+		});
+	});
+	
+	app.get('/core/builder', function(req, res){
+		res.render('builder/index', {
+			title: 'MooTools Core Builder',
+			page: 'builder',
+			project: 'Core',
+			version: lastVersion,
+			dependencies: require('../builder/dependencies.js')(project, lastVersion)
 		});
 	});
 

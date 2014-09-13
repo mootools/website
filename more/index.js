@@ -8,6 +8,9 @@ var guides = require('../middleware/guides')('more', {
 	title: "MooTools More Guides"
 });
 
+var project = 'more';
+var lastVersion = require('../package.json')._projects[project].versions[0];
+
 module.exports = function(app){
 
 	var more = function(req, res, next){
@@ -19,6 +22,16 @@ module.exports = function(app){
 		res.render('more/index', {
 			page: "/more",
 			title: "MooTools More"
+		});
+	});
+
+	app.get('/more/builder', function(req, res){
+		res.render('builder/index', {
+			title: 'MooTools More Builder',
+			page: 'builder',
+			project: 'More',
+			version: lastVersion,
+			dependencies: require('../builder/dependencies.js')(project, lastVersion)
 		});
 	});
 
