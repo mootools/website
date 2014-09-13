@@ -15,12 +15,78 @@ if (args.length < 3){
 }
 
 var project = args[2];
+var frameworkProjects = ['core', 'more'];
+var optionalDocFiles = ['readme', 'intro', 'license'];
 
 var docsdir = path.join(__dirname, "../", pkg._buildOutput, project, "docs");
 
 build(project, docsdir);
 
+// fix path for sidebar toc anchor links
+function fixPath(mdFilePath, ver){
+	var fullPath = mdFilePath.slice(0, -3).split('/');
+	var tocPath = fullPath.slice(fullPath.indexOf("Docs") + 1).join('/');
+	var version = ver.split('-')[1];
+	return project + '/docs/' + tocPath + '/' + version;
+}
+
+// get all .md files inside each project-version
+function getFiles(dir, files_){
+
+	files_ = files_ || [];
+	if (typeof files_ === 'undefined') files_ = [];
+	var files = fs.readdirSync(dir);
+	for (var i in files){
+		if (!files.hasOwnProperty(i)) continue;
+		var name = dir + '/' + files[i];
+		if (fs.statSync(name).isDirectory()) getFiles(name, files_);
+		else if (path.extname(files[i]) === ".md") files_.push(name);
+	}
+	return files_;
+}
+
+// distinguish Core, More from Prime & friends builder
 function build(project, docsdir){
+	if (~frameworkProjects.indexOf(project)) buildFrameworkDocs(project, docsdir);
+	else buildModuleDocs(project, docsdir);
+}
+
+function buildFrameworkDocs(project, docsdir){
+
+	var projectFiles = fs.readdirSync(docsdir);
+	var verionsIndex = [];
+	projectFiles.forEach(function(library){
+
+		var type = fs.statSync(docsdir + '/' + library);
+		if (!type.isDirectory()) return;
+
+		var versionPath = docsdir + '/' + library + '/Docs';
+		var docFiles = getFiles(versionPath, null);
+		var version = library.split('-')[1];
+		if (!~verionsIndex.indexOf(version)) verionsIndex.push(version);
+
+		var toc = [];
+		docFiles.forEach(function(mdFile){
+
+			var projectMD = fs.readFileSync(mdFile);
+			var html = compile(projectMD, '/' + fixPath(mdFile, library));
+			var fileName = path.basename(mdFile, '.md');
+			var optionalDocFile = ~optionalDocFiles.indexOf(fileName.toLowerCase());
+			if (!optionalDocFile) toc.push(html.toc[0]);
+
+			var submodule = fileName.toLowerCase() == 'intro' ? '' : fileName + '-';
+			fs.writeFile(docsdir + '/' + 'content-' + submodule + version + '.html', html.content);
+		});
+
+		// make file with toc for sidebar
+		fs.writeFile(docsdir + '/' + 'toc-' + version + '.json', JSON.stringify(toc, null, 2));
+	});
+
+	verionsIndex = verionsIndex.sort(semver.rcompare);
+	fs.writeFile(docsdir + '/versions.json', JSON.stringify(verionsIndex, null, 2));
+}
+
+function buildModuleDocs(project, docsdir){
 
 	async.auto({
 

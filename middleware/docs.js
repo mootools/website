@@ -9,10 +9,13 @@ var loadJSON = require('../lib/loadJSON');
 var associate = require('../lib/associate');
 var debounce = require('../lib/debounce');
 
+var requestedPath;
+
 function loadDocsVersion(dir, version, callback){
+	var submodule = requestedPath.file ? requestedPath.file + '-' : '';
 	async.parallel([
-		async.apply(fs.readFile, dir + '/content-' + version + '.html', 'utf-8'),
-		async.apply(loadJSON, dir + '/toc-' + version + '.json')
+		async.apply(fs.readFile, dir + '/content-' + submodule + requestedPath.version + '.html', 'utf-8'),
+		async.apply(loadJSON, dir + '/toc-' + requestedPath.version + '.json')
 	], function(err, res){
 		callback(err, {content: res && res[0], toc: res && res[1]});
 	});
@@ -49,6 +52,11 @@ module.exports = function(project, options){
 	}));
 
 	return function(req, res, next){
+
+		requestedPath = req.params;
+		var latestVersion = pkg._projects[project].versions.sort().reverse()[0];
+		if (!requestedPath.version) requestedPath.version = latestVersion;	
+		loadDocs.reset()
 
 		loadDocs.get(function(err, data){
 			if (err) return next(err);
