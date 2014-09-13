@@ -3,7 +3,6 @@
 var fs = require('fs-extra');
 var async = require('async');
 var path = require('path');
-var array = require('prime/shell/array');
 var slug = require ('slugify');
 var compile = require('../lib/compile-md');
 var fm = require('front-matter');

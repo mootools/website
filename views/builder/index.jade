@@ -1,83 +1,70 @@
 extends ../layouts/main
 
-block scripts
-	script var snippets = !{JSON.stringify(snippets)};
-	script(src="/builder/js/codemirror/lib/codemirror.js")
-	script(src="/builder/js/codemirror/mode/javascript/javascript.js")
-	link(href="/builder/js/codemirror/lib/codemirror.css", rel="stylesheet")
-	link(href="/builder/js/codemirror/theme/monokai.css", rel="stylesheet")
-
 block main
 	.clearfix.wrapper.builder
 
 		div.header.clearfix
+			h1 Download complete source
+
+			.save
+				a.button.highlighted(href='/builder')
+					span
+						| Download MooTools #{project}
+						span.version Ver. #{version}
+						span.icon.download(aria-hidden='true')
+
+				label
+					input(type="checkbox", name="minified", value="1")
+					| Download minified source code
+
+				label
+					input(type="checkbox", name="compat", value="1")
+					| Download with compat layer
+
+
+		div.header.clearfix
 			h1 Download your customized version
-			p.wrapup
-				a(href="https://github.com/mootools/wrapup")
-					| Powered by
-					img(src="/images/logo/wrapup.png", alt="WrapUp")
+			
+			h3 Choose which modules you want to use
 
 		form(method="post", action="/builder")
 
-			.aside
-				.load.step
-					label
-						span(aria-hidden="true").number
-							| 1
-						| Upload your previous main.js:
-						input(type="file", name="load", size=15)
+			table#builderOptions
+				tr
+					td 
+					td File
+					td Provides
+					td Description
 
-				p.step
-					span(aria-hidden="true").number
-						| 2
-					| Click the package you want to include and which version of
-					| the package you'd like to use.
+				each yaml, module in dependencies
+					tr
+						td 
+							input(type="checkbox", name="#{module}", value="1", data-provides="#{yaml.prov}", data-requires="#{yaml.req}")
+						td #{module}
+						td #{yaml.prov}
+						td #{yaml.desc}
 
-				ul.snippets
-					each code, name in snippets
-						li
-							img(src="/images/logo/#{name}.png", alt=#{name})
+			h2.step Options:
 
-							select(name="version-#{name}")
-								each version, i in modules[name]
-									if (i + 1) == modules[name].length
-										option(selected)= version
-									else
-										option= version
-
-							a(href="##{name}").add
-								span
-									| Add
-								span(aria-hidden="true").icon
-
-
-
-			.editor
-				textarea#editor(name="setup")
-
+						
 			.save
-				p.step
-					span(aria-hidden="true").number
-						| 3
-					| Select your options & download!
 
 				label
-					input(type="checkbox", name="compress", value="1")
-					| Compress the output JS
+					input(type="checkbox", name="minified", value="1")
+					| Download minified source code
 
 				label
-					input(type="checkbox", name="zip", value="1")
-					| Download zip with everything included
+					input(type="checkbox", name="compat", value="1")
+					| Download with compat layer
 
 				label
-					input(type="submit", name="wrup", value="Download your wrapup'd version")
-					span(aria-hidden="true").icon.download
-
-				label
-					input(type="submit", name="editor", value="Just download the code in the editor")
-					span(aria-hidden="true").icon.download
+					a.button.highlighted(href='/builder')
+						span
+							| Download custom MooTools #{project}
+							span.version Ver. #{version}
+							span.icon.download(aria-hidden='true')
 
 	.clearfix.wrapper.builder
 		div.header.clearfix
 			h2
-				a(href="#") Dowload older versions of Mootools
+				a(href="#") Download older versions of Mootools
