@@ -35,6 +35,7 @@ module.exports = function(app){
 		});
 	});
 
+	app.all('/core/docs/:version/:module/:file?', core, docs);	
 	app.get('/core/docs', core, docs);
 	app.get('/core/docs/:version', core, docs);
 
