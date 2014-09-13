@@ -35,7 +35,7 @@ module.exports = function(app){
 		});
 	});
 
-	app.all('/more/docs/:module/:file/:version?', more, docs);	
+	app.all('/more/docs/:version/:module/:file?', more, docs);	
 	app.get('/more/docs', more, docs);
 	app.get('/more/docs/:version', more, docs);
 

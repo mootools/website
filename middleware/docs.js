@@ -55,7 +55,7 @@ module.exports = function(project, options){
 
 		requestedPath = req.params;
 		var latestVersion = pkg._projects[project].versions.sort().reverse()[0];
-		if (!requestedPath.version) requestedPath.version = latestVersion;	
+		if (!requestedPath.version) res.redirect(req.path + '/' + latestVersion);
 		loadDocs.reset()
 
 		loadDocs.get(function(err, data){

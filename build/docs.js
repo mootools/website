@@ -15,7 +15,6 @@ if (args.length < 3){
 }
 
 var project = args[2];
-var frameworkProjects = ['core', 'more'];
 var optionalDocFiles = ['readme', 'intro', 'license'];
 
 var docsdir = path.join(__dirname, "../", pkg._buildOutput, project, "docs");
@@ -27,7 +26,7 @@ function fixPath(mdFilePath, ver){
 	var fullPath = mdFilePath.slice(0, -3).split('/');
 	var tocPath = fullPath.slice(fullPath.indexOf("Docs") + 1).join('/');
 	var version = ver.split('-')[1];
-	return project + '/docs/' + tocPath + '/' + version;
+	return project + '/docs/' + version + '/' + tocPath;
 }
 
 // get all .md files inside each project-version
@@ -47,11 +46,6 @@ function getFiles(dir, files_){
 
 // distinguish Core, More from Prime & friends builder
 function build(project, docsdir){
-	if (~frameworkProjects.indexOf(project)) buildFrameworkDocs(project, docsdir);
-	else buildModuleDocs(project, docsdir);
-}
-
-function buildFrameworkDocs(project, docsdir){
 
 	var projectFiles = fs.readdirSync(docsdir);
 	var verionsIndex = [];
@@ -84,63 +78,4 @@ function buildFrameworkDocs(project, docsdir){
 
 	verionsIndex = verionsIndex.sort(semver.rcompare);
 	fs.writeFile(docsdir + '/versions.json', JSON.stringify(verionsIndex, null, 2));
-}
-
-function buildModuleDocs(project, docsdir){
-
-	async.auto({
-
-		readdir: function(callback){
-			fs.readdir(docsdir, function(err, files){
-				if (err) return callback(err);
-				async.filter(files, function(file, cb){
-					fs.stat(docsdir + '/' + file, function(err, stat){
-						cb(!err && stat.isDirectory());
-					});
-				}, function(files){
-					callback(null, files);
-				});
-			});
-		},
-
-		doc: ['readdir', function(callback, res){
-			async.map(res.readdir, function(file, cb){
-				async.filter([
-					docsdir + '/' + file + '/doc/' + project + '.md',
-					docsdir + '/' + file + '/README.md'
-				], fs.exists, function(results){
-					if (results[0]) fs.readFile(results[0], "utf-8", cb);
-					else cb(new Error("Could not find documentation file"));
-				});
-			}, callback);
-		}],
-
-		compile: ['readdir', 'doc', function(callback, res){
-			var files = res.readdir;
-			async.each(files, function(file, cb){
-				var md = res.doc[files.indexOf(file)];
-				var html = compile(md);
-				var version = file.slice(project.length + 1);
-				async.parallel([
-					async.apply(fs.writeFile, docsdir + '/' + 'toc-' + version + '.json', JSON.stringify(html.toc, null, 2)),
-					async.apply(fs.writeFile, docsdir + '/' + 'content-' + version + '.html', html.content)
-				], cb);
-			}, callback);
-		}],
-
-		versions: ['readdir', function(cb, res){
-			cb(null, res.readdir.map(function(file){
-				return file.slice(project.length + 1);
-			}).sort(semver.rcompare));
-		}],
-
-		makeVerionsIndex: ['versions', function(cb, res){
-			fs.writeFile(docsdir + '/versions.json', JSON.stringify(res.versions, null, 2), cb);
-		}]
-
-	}, function(err){
-		if (err) console.error(err);
-		console.log("done building documentation html files for " + project);
-	});
-
 }
