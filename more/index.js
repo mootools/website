@@ -20,6 +20,7 @@ module.exports = function(app){
 
 	app.get('/more', more, function(req, res){
 		res.render('more/index', {
+			navigation: 'more',
 			page: "/more",
 			title: "MooTools More"
 		});
@@ -28,6 +29,7 @@ module.exports = function(app){
 	app.get('/more/builder', function(req, res){
 		res.render('builder/index', {
 			title: 'MooTools More Builder',
+			navigation: 'more',
 			page: 'builder',
 			project: 'More',
 			version: lastVersion,

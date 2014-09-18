@@ -60,7 +60,6 @@ module.exports = function(project, options){
 
 		loadDocs.get(function(err, data){
 			if (err) return next(err);
-
 			var docs = data.docs;
 			var versions = data.versions;
 			var latest = data.latest;
@@ -71,10 +70,12 @@ module.exports = function(project, options){
 			res.render(project + '/docs', {
 				page: "/" + project + "/docs",
 				title: options.title,
+				navigation: project,
 				content: docs[version].content,
 				toc: docs[version].toc,
 				version: version,
-				versions: versions
+				versions: versions,
+				file: req.params.file
 			});
 
 		});

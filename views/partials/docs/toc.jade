@@ -1,6 +1,7 @@
 each section in toc
-	ul.section
-		li
+	- var visibility = section.text == file ? '' : 'small';
+	ul.section		
+		li(class="#{visibility}")
 			if section.link
 				a.top(href= section.link) #{section.text}
 
