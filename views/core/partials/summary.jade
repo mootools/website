@@ -24,8 +24,7 @@ p.description.lighter MooTools is about enhancing JavaScript.
 
 p.previous-version
 	select(onchange='selectVersion(this)')
-		<option disabled="disabled" selected="selected">Download Previous</option>
-    
+    option(disabled='disabled', selected='selected') Download Previous
 		for set in versions
 			optgroup(label=set.version)
 				for file in set.files
