@@ -107,4 +107,9 @@ function customBuilderTable(){
 		var requires = input.getAttribute('data-requires').split(', ');
 		return {provides: provides, requires: requires};
 	}
+}
+
+global.selectVersion = function(select){
+  location.href = select.options[select.selectedIndex].value;
 };
+

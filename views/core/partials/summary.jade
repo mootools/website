@@ -21,6 +21,15 @@ p.description.lighter MooTools is about enhancing JavaScript.
 					br
 					| Repository
 					span.icon.github(aria-hidden='true')
+
+p.previous-version
+	select(onchange='selectVersion(this)')
+		option(disabled='disabled', selected='selected') Download Previous
+		for set in versions
+			optgroup(label=set.version)
+				for file in set.files
+					option(value=file.link)= file.label
+
 p.license Core is released under the Open Source MIT License
 
 
