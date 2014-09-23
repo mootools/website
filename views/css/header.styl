@@ -4,8 +4,11 @@
 	box-shadow: #e5e3df 0px 0px 30px;
 	padding-bottom: 1em;
 	padding-top: 1em;
-	position: relative;
+	position: fixed;
+	width: 100%;
+	background-color: white;
 	z-index: 100;
+
 
 	div.wrapper
 		position: relative;
@@ -16,48 +19,66 @@
 
 	ul
 		float: left;
+
 		li
 			float: left;
 			margin-right: 0.5em;
+			position: relative;
 			a
 				background: #F4F1ED;
 				border-radius: 3px;
 				border: solid #F4F1ED 1px;
-				display: block;
-				font-size: 0.8em;
-				font-weight: 400;
-				padding: 0.3em 0.5em;
+				color: #000000;
+				font-size: .8em;
+				padding: 0.4em 1em 0.5em 1em;
+				transition: color .2s;
 				&:active,
 				&:focus
 					background: #777571;
 					border-color: #777571;
+					color: #ffffff;
 
-			&.selected a
+			&.selected > a, &:hover > a
 				background: #777571;
 				border-color: #777571;
 				color: #ffffff;
-			a:hover
-				color: #000;
+		
+		li.dropdown
+			
+			> a:after
+				icon-down-open-mini()			
+				color: #acaaa7;
+				float: right;
+				font-family: "Entypo";
+				font-size: 120%;
+				margin-left .5em
 
-//		li.dropdown
-//			position:relative;
-//
-//			ul
-//				display:none;
-//				background: #f4f1ed;
-//				border: 1px #e3e0dc solid;
-//				border-radius: 3px;
-//
-//		li.dropdown:hover ul
-//			position:absolute;
-//			display:block;
-//
-//			li
-//				width:8em;
-//
-//			li:hover a
-//				color:#111111;
+			ul
+				font-weight 400
+				position: absolute;
+				display: none;
 
+				li
+					width: 17em;
+					overflow hidden;
+					background: #f4f1ed;
+					border: 1px #e3e0dc solid;
+				& a
+					padding .5em 0em 0.7em 1.5em;
+					width 100%;
+
+				li:first-child
+					margin-top: 4px;
+
+			img
+				height 2em
+				padding 0 0 .3em 0
+			span
+				padding .5em .6em
+				font-size .8em
+
+		li.dropdown.opened ul
+			display: block;
 
 body.mootools #global-bar
 	padding-bottom: 2em;
@@ -85,13 +106,14 @@ body.mootools #global-bar
 		display: block;
 		font-size: 0.8em;
 		font-weight: 400;
-		padding: 0.3em 0.5em;
+		padding: 0.4em 0.5em;
 		&:focus
 			border-color: #acaaa7;
 
 
 #header
 	border-bottom: solid #777571 1px;
+	margin-top: 40px;
 	h1 img
 		height: 90px;
 		width: auto;
@@ -105,3 +127,9 @@ body.mootools #global-bar
 			span
 				background: #777571;
 				border-radius: 3px;
+
+body.mootools
+	#header
+		margin-top: 0px;
+	#global-bar
+		position: relative;

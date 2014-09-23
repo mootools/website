@@ -35,6 +35,7 @@ module.exports = function(app){
 		res.render('core/index', {
 			page: "/core",
 			title: "MooTools Core",
+			navigation: 'core',
 			versions: links
 		});
 	});
@@ -42,6 +43,7 @@ module.exports = function(app){
 	app.get('/core/builder', function(req, res){
 		res.render('builder/index', {
 			title: 'MooTools Core Builder',
+			navigation: 'core',
 			page: 'builder',
 			project: 'Core',
 			version: lastVersion,

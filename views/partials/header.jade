@@ -30,10 +30,37 @@
 					li: mixin link
 
 			ul
-				mixin menu-item('/', 'MooTools', page != 'blog', page == 'mootools')
-				//mixin menu-item('/builder', 'Download', page == 'builder')
-				//mixin menu-item('/forge', 'Forge')
-				mixin menu-item('/blog', 'Blog', page == 'blog')
+				li.dropdown(class=('#{navigation}' == 'core' ? 'selected' : ''))
+					a Core
+					ul
+						li
+							span
+								img(src="/images/logo/core.png", alt='MooTools Core')
+							span 
+								i We make JavaScript awesome!
+						li
+							a(href='/core/docs') Documentation
+						li
+							a(href='/core/builder') Download
+						li
+							a(href='/core/guides') Guides
+
+				li.dropdown(class=('#{navigation}' == 'more' ? 'selected' : ''))
+					a  More
+					ul
+						li
+							span
+								img(src="/images/logo/more.png", alt='MooTools More')
+							span 
+								i We make awesome plugins!
+						li
+							a(href='/more/docs') Documentation
+						li
+							a(href='/more/builder') Download
+						li
+							a(href='/more/guides') Guides
+							
+				mixin menu-item('/blog', 'Blog', navigation == 'blog')
 				mixin menu-item("http://github.com/mootools", 'Contribute')
 
 			form#search(role='search', method='get', action='/search')
