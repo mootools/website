@@ -10,7 +10,17 @@ var guides = require('../middleware/guides')('core', {
 
 var project = 'core';
 var versions = require('../package.json')._projects[project].versions;
-var lastVersion = versions[0];
+var links = versions.slice(1).map(function(version){
+	return {
+		version: version,
+		files: ['compat', 'yui-compressed', 'nocompat', 'nocompat-yui-compressed'].map(function(key){
+			return {
+				link: 'http://ajax.googleapis.com/ajax/libs/mootools/'+ version + '/mootools' + ((key == 'compat') ? '' : '-' + key) + '.js',
+				label: key
+			};
+		})
+	};
+});
 
 module.exports = function(app){
 
@@ -20,22 +30,13 @@ module.exports = function(app){
 	};
 
 	app.get('/core', core, function(req, res){
-		var links = versions.slice(1).map(function(version){
-			return {
-				version: version,
-				files: ['compat', 'yui-compressed', 'nocompat', 'nocompat-yui-compressed'].map(function(key){
-					return {
-						link: 'http://ajax.googleapis.com/ajax/libs/mootools/'+ version + '/mootools' + ((key == 'compat') ? '' : '-' + key) + '.js',
-						label: key
-					};
-				})
-			};
-		});
 
 		res.render('core/index', {
 			page: "/core",
 			title: "MooTools Core",
 			navigation: 'core',
+			project: 'Core',
+			version: versions[0],
 			versions: links
 		});
 	});
@@ -46,10 +47,12 @@ module.exports = function(app){
 			navigation: 'core',
 			page: 'builder',
 			project: 'Core',
-			version: lastVersion,
-			dependencies: require('../builder/dependencies.js')(project, lastVersion)
+			version: versions[0],
+			versions: links,
+			dependencies: require('../builder/dependencies.js')(project, versions[0])
 		});
 	});
+
 
 	app.all('/core/docs/:version/:module/:file?', core, docs);	
 	app.get('/core/docs', core, docs);

@@ -22,6 +22,8 @@ module.exports = function(app){
 		res.render('more/index', {
 			navigation: 'more',
 			page: "/more",
+			project: 'More',
+			version: lastVersion,
 			title: "MooTools More"
 		});
 	});

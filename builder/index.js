@@ -1,28 +1,67 @@
 "use strict";
 
-var os = require('os');
-var path = require('path');
 var express = require('express');
-var wrapupBuilder = require('wrapup-webbuilder');
+var UglifyJS = require("uglify-js");
+var packager = require(__dirname + '/packager.js');
+var copyright = '/* MooTools: the javascript framework. license: MIT-style license. copyright: Copyright (c) 2006-' + new Date().getFullYear() + ' [Valerio Proietti](http://mad4milk.net/).*/ ';
+var allVersions = require('../package.json');
 
-var config = require('../package.json')._wrapupWebbuilderConfig;
-config.tmpdir      = path.join(os.tmpdir(), 'website-builder');
-config.dir         = path.join(__dirname, '../', config.dir);
-config.snippetsdir = path.join(__dirname, '../', config.snippetsdir);
+function uglify(source){
+	var uglifyed = UglifyJS.minify(source, {
+		fromString : true,
+		mangle: ['sort'] // to assign shorter names to most frequently used variables. 
+	});
+	return copyright + uglifyed.code;
+}
 
-var builder = wrapupBuilder(config);
+function projectPath(project_, version_){
+	var versions = allVersions._projects[project_].versions;
+	if (!~versions.indexOf(version_)) version_ = versions.filter(function(ver){
+		return ver.slice(0, -2) <= version_.slice(0, -2); 
+	})[0];
+	return 'cache/' + project_.toLowerCase() + '/docs/' + project_.toLowerCase() + '-' + version_ + '/Source/';
+}
 
-module.exports = function(app){
+function processPost(req, res){
 
-	app.use('/builder', express.static(__dirname + '/../node_modules/wrapup-webbuilder/public'));
-
-	app.get('/builder', builder.index, function(req, res){
-		res.render('builder/index', {
-			title: 'MooTools Builder',
-			page: 'builder'
-		});
+	var postData = req.body;
+	var compat = postData.compat;
+	var minified = postData.minified;
+	var project = postData.project;
+	var version = postData.version;
+	var addCoreDependencies = postData.addCoreDependencies; // TODO: optional download of Core
+	['addCoreDependencies', 'compat', 'minified', 'project', 'version'].forEach(function(prop){
+		delete postData[prop];
 	});
 
-	app.post('/builder', builder.result);
+	var sourceFiles = [projectPath('core', version), projectPath('more', version)];
+	var modules = Object.keys(postData).length == 0 ? [project + '/*'] : Object.keys(postData);
+	var packagerOptions = {
+		name: {
+			Core: projectPath('core', version),
+			More: projectPath('more', version)
+		},
+		noOutput: true,
+		callback: stream
+	};
+	if (modules.length) packagerOptions.only = modules;
+	if (!compat) packagerOptions.strip = ['.*compat'];
 
+	// do it!
+	packager(sourceFiles, packagerOptions);
+
+	function stream(data){
+		var filename = ['MooTools-', project, '-', version, (compat ? '-compat' : '') + (minified ? '-compressed' : ''), '.js'].join('');
+		if (minified) data = uglify(data);
+
+		res.setHeader('Content-Type', 'application/javascript');
+		res.setHeader('Content-disposition', 'attachment; filename=' + filename);
+		res.write(data, 'binary');
+		res.end();
+	}
+}
+	
+module.exports = function(app){
+	app.use(express.bodyParser());
+	app.post('/builder', processPost);
 };

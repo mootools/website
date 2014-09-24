@@ -1,5 +1,34 @@
 "use strict";
 
+window.addEvent('domready', function(){
+
+	// open dropdown menus in navigation menu for desktop
+	var dropdowns = document.querySelectorAll('#main-header > ul > li.dropdown');
+	var makeDropdown = function(el){
+		for (var j = 0; j < dropdowns.length; j++){
+			if (el == dropdowns[j]) continue;
+			dropdowns[j].removeClass('opened', 'selected');
+			el && el.addClass('selected');
+		}
+		el && el.toggleClass('opened');
+	}
+
+	// close dropdown if clicked outside menu
+	window.addEvent('click', function(e){
+		var li = e.target.getParent('li.dropdown');
+		makeDropdown(li);
+	});
+	
+	// download buttons, form submit and source code download
+	document.getElements('a.getFile').addEvent('click', function(e){
+		e.stop();
+		this.getParent('form').submit();
+	});
+
+	// to manage dependencies in build table
+	customBuilderTable();
+});
+
 if (window.matchMedia){
 
 	// we can use all this, because matchMedia is for modern browser
@@ -59,26 +88,7 @@ if (window.matchMedia){
 			sitemap[i].addEventListener('click', toggleDiv(i), false);
 		}
 
-		// open dropdown menus in navigation menu for desktop
-		var dropdowns = document.querySelectorAll('#main-header > ul > li.dropdown');
-		var makeDropdown = function(el){
-			for (var j = 0; j < dropdowns.length; j++){
-				if (el == dropdowns[j]) continue;
-				dropdowns[j].classList.remove('opened', 'selected');
-				el && el.classList.add('selected');
-			}
-			el && el.classList.toggle('opened');
-		}
-
-		window.addEventListener('click', function(e){
-			var li = e.target.getParent('li.dropdown');
-			makeDropdown(li);
-		});
-
-	customBuilderTable();
-
 	}, false);
-
 }
 
 function customBuilderTable(){
@@ -127,7 +137,13 @@ function customBuilderTable(){
 	}
 }
 
+// script for older-version select
 global.selectVersion = function(select){
-  location.href = select.options[select.selectedIndex].value;
+	var span = select.getNext();
+	span.removeClass('visible');
+	var link = select.get('value');
+	setTimeout(function(){
+		span.set('html', '<a download target="_blank" href="' + link + '">Download source code here</a>').addClass('visible');
+	}, 200);
 };
 

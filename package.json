@@ -40,6 +40,7 @@
     "send": "0.1",
     "slugify": "0.1",
     "stylus": "0.32",
+    "uglify-js": "^2.4.15",
     "unzip": "~0.1.9",
     "wrapup": "0.12",
     "wrapup-middleware": "0.0.x",

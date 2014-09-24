@@ -1,34 +1,44 @@
 extends ../layouts/main
+include ../partials/older-version-select
 
 block main
 	.clearfix.wrapper.builder
 
 		div.header.clearfix
 			h1 Download complete source
+			form(method="post", action="../builder")
+				input(hidden, name="project", value="#{project}")
+				input(hidden, name="version", value="#{version}")
+				.save
 
-			.save
-				a.button.highlighted(href='/builder')
-					span
-						| Download MooTools #{project}
-						span.version Ver. #{version}
-						span.icon.download(aria-hidden='true')
+					label
+						input(type="checkbox", name="minified", value="1")
+						| Download minified source code
 
-				label
-					input(type="checkbox", name="minified", value="1")
-					| Download minified source code
+					label
+						input(type="checkbox", name="compat", value="1")
+						| Download with compat layer
 
-				label
-					input(type="checkbox", name="compat", value="1")
-					| Download with compat layer
-
+					if project != 'Core'
+						// TODO: adapt packager to build more dependencies and export without Core files
+							label
+								input(type="checkbox", name="addCoreDependencies", checked, value="1")
+								| Add MooTools Core's dependencies
+								
+					label
+						a.button.highlighted.getFile(href='#')
+							span Download MooTools #{project}
+							span.version Ver. #{version}
+							span.icon.download(aria-hidden='true')					
 
 		div.header.clearfix
 			h1 Download your customized version
 			
 			h3 Choose which modules you want to use
 
-		form(method="post", action="/builder")
-
+		form(method="post", action="../builder")
+			input(hidden, name="project", value="#{project}")
+			input(hidden, name="version", value="#{version}")
 			table#builderOptions
 				tr
 					td 
@@ -39,7 +49,7 @@ block main
 				each yaml, module in dependencies
 					tr
 						td 
-							input(type="checkbox", name="#{module}", value="1", data-provides="#{yaml.prov}", data-requires="#{yaml.req}")
+							input(type="checkbox", name="#{project}/#{module}", value="1", data-provides="#{yaml.prov}", data-requires="#{yaml.req}")
 						td #{module}
 						td #{yaml.prov}
 						td #{yaml.desc}
@@ -57,14 +67,20 @@ block main
 					input(type="checkbox", name="compat", value="1")
 					| Download with compat layer
 
+				if project != 'Core'
+					// TODO: adapt packager to build more dependencies and export without Core files
+						label
+							input(type="checkbox", name="addCoreDependencies", checked, value="1")
+							| Add MooTools Core's dependencies
+
 				label
-					a.button.highlighted(href='/builder')
-						span
-							| Download custom MooTools #{project}
-							span.version Ver. #{version}
-							span.icon.download(aria-hidden='true')
+					a.button.highlighted.getFile(href='#')
+						span Download custom MooTools #{project}
+						span.version Ver. #{version}
+						span.icon.download(aria-hidden='true')
 
 	.clearfix.wrapper.builder
-		div.header.clearfix
-			h2
-				a(href="#") Download older versions of Mootools
+		if (navigation == 'core')
+			div.header.clearfix
+				h1 Older versions of Mootools
+				mixin older-version-select(versions)
