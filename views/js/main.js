@@ -7,10 +7,10 @@ window.addEvent('domready', function(){
 	var makeDropdown = function(el){
 		for (var j = 0; j < dropdowns.length; j++){
 			if (el == dropdowns[j]) continue;
-			dropdowns[j].removeClass('opened', 'selected');
-			el && el.addClass('selected');
+			dropdowns[j].removeClass('opened').removeClass('selected');
+			if (el) el.addClass('selected');
 		}
-		el && el.toggleClass('opened');
+		if (el) el.toggleClass('opened');
 	}
 
 	// close dropdown if clicked outside menu
@@ -21,7 +21,7 @@ window.addEvent('domready', function(){
 	
 	// download buttons, form submit and source code download
 	document.getElements('a.getFile').addEvent('click', function(e){
-		e.stop();
+		e.preventDefault();
 		this.getParent('form').submit();
 	});
 
