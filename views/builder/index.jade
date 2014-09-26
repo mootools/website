@@ -20,10 +20,9 @@ block main
 						| Download with compat layer
 
 					if project != 'Core'
-						// TODO: adapt packager to build more dependencies and export without Core files
-							label
-								input(type="checkbox", name="addCoreDependencies", checked, value="1")
-								| Add MooTools Core's dependencies
+						label
+							input(type="checkbox", name="removeCoreDependencies", value="1")
+							| Remove MooTools Core's dependencies
 								
 					label
 						a.button.highlighted.getFile(href='#')
@@ -68,10 +67,9 @@ block main
 					| Download with compat layer
 
 				if project != 'Core'
-					// TODO: adapt packager to build more dependencies and export without Core files
-						label
-							input(type="checkbox", name="addCoreDependencies", checked, value="1")
-							| Add MooTools Core's dependencies
+					label
+						input(type="checkbox", name="removeCoreDependencies", value="1")
+						| Remove MooTools Core's dependencies
 
 				label
 					a.button.highlighted.getFile(href='#')

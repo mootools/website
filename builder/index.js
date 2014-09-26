@@ -31,8 +31,8 @@ function processPost(req, res){
 	var minified = postData.minified;
 	var project = postData.project;
 	var version = postData.version;
-	var addCoreDependencies = postData.addCoreDependencies; // TODO: optional download of Core
-	['addCoreDependencies', 'compat', 'minified', 'project', 'version'].forEach(function(prop){
+	var removeCoreDependencies = postData.removeCoreDependencies;
+	['removeCoreDependencies', 'compat', 'minified', 'project', 'version'].forEach(function(prop){
 		delete postData[prop];
 	});
 
@@ -44,7 +44,8 @@ function processPost(req, res){
 			More: projectPath('more', version)
 		},
 		noOutput: true,
-		callback: stream
+		callback: stream,
+		removeCoreDependencies: removeCoreDependencies
 	};
 	if (modules.length) packagerOptions.only = modules;
 	if (!compat) packagerOptions.strip = ['.*compat'];
