@@ -2,7 +2,9 @@
 
 var express = require('express');
 var UglifyJS = require("uglify-js");
-var packager = require(__dirname + '/packager.js');
+var packager = require('mootools-packager');
+var getFiles = require('../lib/getFiles');
+
 var copyright = '/* MooTools: the javascript framework. license: MIT-style license. copyright: Copyright (c) 2006-' + new Date().getFullYear() + ' [Valerio Proietti](http://mad4milk.net/).*/ ';
 var allVersions = require('../package.json');
 
@@ -34,7 +36,7 @@ function processPost(req, res){
 		delete postData[prop];
 	});
 
-	var sourceFiles = [projectPath('core', version), projectPath('more', version)];
+	var sourcePath = [projectPath('core', version), projectPath('more', version)];
 	var modules = Object.keys(postData).length == 0 ? [project + '/*'] : Object.keys(postData);
 	var packagerOptions = {
 		name: {
@@ -47,9 +49,17 @@ function processPost(req, res){
 	if (modules.length) packagerOptions.only = modules;
 	if (!compat) packagerOptions.strip = ['.*compat'];
 
-	// do it!
+	// get all files and send to packager
+	var sourceFiles = [];
+	sourcePath.forEach(function(folder){
+		var folderPath = __dirname + '/../' + folder;
+		sourceFiles = getFiles(folderPath, sourceFiles, '.js');
+	});
+
+	// compile files
 	packager(sourceFiles, packagerOptions);
 
+	// callback from packager
 	function stream(data){
 		var filename = ['MooTools-', project, '-', version, (compat ? '-compat' : '') + (minified ? '-compressed' : ''), '.js'].join('');
 		if (minified) data = uglify(data);
