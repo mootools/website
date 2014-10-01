@@ -82,7 +82,9 @@ function build(srcdir, destdir){
 			}).filter(function(post){
 				return post.published;
 			}).sort(function(a, b){
-				return b.date - a.date;
+				if (a.date > b.date) return -1;
+				if (a.date < b.date) return 1;
+				return 0;
 			});
 			fs.writeFile(destdir + '/posts.json', JSON.stringify(posts, null, 2), callback);
 		}]
