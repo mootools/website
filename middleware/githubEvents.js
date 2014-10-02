@@ -70,7 +70,7 @@ module.exports = function(options){
 
 	return function(req, res, next){
 		res.locals[options.variable] = events;
-		next();
+		if (next) next();
 	};
 
 };

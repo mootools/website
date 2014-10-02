@@ -12,22 +12,22 @@ mixin GitHubEvents(events, max)
 			a(href="https://github.com/#{event.repo.name}/compare/#{event.payload.before}...#{event.payload.head}")
 				| #{event.payload.size} commits
 		|  to #{space}
-		a(href="https://github.com/#{event.repo.name}") #{event.repo.name}
+		a(href="https://github.com/#{event.repo.name}") #{event.repo_name}
 
 	mixin CommitCommentEvent(event)
 		a(href="https://github.com/#{event.actor.login}") #{event.actor.login}
 		|  commented on #{space}
-		a(href="#{event.payload.comment.html_url}") #{event.repo.name}@#{event.payload.comment.commit_id.slice(0, 6)}
+		a(href="#{event.payload.comment.html_url}") #{event.repo_name}@#{event.payload.comment.commit_id.slice(0, 6)}
 
 	mixin IssuesEvent(event)
 		a(href="https://github.com/#{event.actor.login}") #{event.actor.login}
 		|  #{event.payload.action} issue #{space}
-		a(href="#{event.payload.issue.html_url}") #{event.repo.name}##{event.payload.issue.number}
+		a(href="#{event.payload.issue.html_url}") #{event.repo_name}##{event.payload.issue.number}
 
 	mixin PullRequestEvent(event)
 		a(href="https://github.com/#{event.actor.login}") #{event.actor.login}
 		|  #{event.payload.action} pull request #{space}
-		a(href="#{event.payload.pull_request.html_url}") #{event.repo.name}##{event.payload.pull_request.number}
+		a(href="#{event.payload.pull_request.html_url}") #{event.repo_name}##{event.payload.pull_request.number}
 
 	if !events || events.length == 0
 		p No recent activity
@@ -37,6 +37,8 @@ mixin GitHubEvents(events, max)
 		count = 0
 
 		each event in events
+
+			#{event.repo_name = event.repo.name.split('/')[1]}
 
 			if event.type == 'PushEvent' && count++ < max
 				p: mixin PushEvent(event)
