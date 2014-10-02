@@ -154,7 +154,7 @@
 				overflow: hidden;
 				height: 0;
 				opacity: 0;
-				transition: all 0.4s ease;
+				transition: height 0.4s ease;
 				a
 					border-top: solid #e5e3df 1px;
 					cursor: pointer;
@@ -242,9 +242,6 @@
 				width: 100%;
 				transition: transform 0.5s ease;
 
-		&:hover .big-icon img
-			transform: rotate(20deg);
-
 		.use
 			max-width: 30%;
 
@@ -273,14 +270,14 @@
 			top: 0;
 
 	.features
-		padding-top: 2em;
-		padding-bottom: 2em;
+		padding-top: 1em;
+		padding-bottom: 1em;
 
 		section
 			float: left;
 			width: 33.333%;
 			&:nth-of-type(1) a
-				margin: 0 1.75em 0 0;
+				margin: 0 1.75em 0 -.6em;
 
 			&:nth-of-type(2) a
 				margin: 0 1.25em 0;
@@ -288,7 +285,9 @@
 			&:nth-of-type(3) a
 				margin: 0 0 0 1.75em;
 
-			a p
+			a
+				padding: .8em;
+			& p
 				margin-top: 1em;
 
 	.guides
@@ -357,6 +356,7 @@
 					span
 						position: relative;
 						top: -1em;
+						padding: 0.1em 0.5em;
 
 				&.selected a
 					color: #777571;
@@ -376,6 +376,7 @@
 						width: 10px;
 
 	#menu
+		display: none; /* don't show in desktop. too few. */
 		padding-top: 1em;
 		li
 			float: left;

@@ -1,7 +1,7 @@
 
 mixin older-version-select(versions)
 	p.previous-version
-		select(onchange='selectVersion(this)')
+		label.select: select(onchange='selectVersion(this)')
 			option(disabled='disabled', selected='selected') Choose a previous version
 			for set in versions
 				optgroup(label=set.version)
