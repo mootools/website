@@ -55,8 +55,8 @@ function build(srcdir, destdir){
 				post.published = post.published !== false;
 				post.file = file.file;
 				post.htmlFile = file.file.replace(/\.md$/, '.html');
-				if (typeof post.tags == 'string') post.tags = [post.tags];
-				if (!post.tags || !Array.isArray(post.tags)) post.tags = [];
+				if (!post.tags) post.tags = [];
+				post.tags = post.tags.split(',');
 				var md = parts.body;
 				var moreIndex = md.indexOf('<!--more-->');
 				post.summary = compile(moreIndex == -1 ? md : md.slice(0, moreIndex)).content;
@@ -81,10 +81,10 @@ function build(srcdir, destdir){
 				return post[0];
 			}).filter(function(post){
 				return post.published;
-			}).sort(function(a, b){
-				if (a.date > b.date) return -1;
-				if (a.date < b.date) return 1;
-				return 0;
+			}).sort(function(date1, date2){
+				date1 = new Date(date1.date);
+				date2 = new Date(date2.date);
+				return date2 - date1;
 			});
 			fs.writeFile(destdir + '/posts.json', JSON.stringify(posts, null, 2), callback);
 		}]
