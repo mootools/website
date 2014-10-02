@@ -15,7 +15,7 @@ function getName(nickname){
     return author.author_first_name.__cdata + ' ' + author.author_last_name.__cdata;
 }
 
-var rebuildPost = function(post, index){
+function rebuildPost(post, index){
 
 	var renderLink = post.link.replace('http://mootools.net/blog/', '');
 	var content = post.encoded[0].__cdata;
@@ -23,10 +23,6 @@ var rebuildPost = function(post, index){
 		console.warn('Post has no content.');
 		return;
 	}
-	content = compile(content, renderLink).content;
-	var author = getName(post.creator.__cdata.toLowerCase());
-	var authorURL; // TODO
-
 	if (!post.category.length) post.category = [post.category];
 	var tags  = post.category.map(function(cat){
 		return cat._nicename;
@@ -36,11 +32,11 @@ var rebuildPost = function(post, index){
 		'---',
 		'title: "' + post.title + '"',
 		'date: "' + post.pubDate + '"',
-		'author: "' + author + '"',
+		'author: "' + getName(post.creator.__cdata.toLowerCase()) + '"',
 		'tags: "' + tags + '"',
 		'permalink: "' + renderLink + '"',
 		'---',
-		content
+		compile(content, renderLink).content
 	].join('\n');
 
 	var filename = 'blog/posts/' + renderLink.split('/')[3] + '.md';
