@@ -27,17 +27,11 @@ function projectPath(project_, version_){
 function processPost(req, res){
 
 	var postData = req.body;
-	var compat = postData.compat;
 	var minified = postData.minified;
 	var project = postData.project;
-	var version = postData.version;
-	var removeCoreDependencies = postData.removeCoreDependencies;
-	['removeCoreDependencies', 'compat', 'minified', 'project', 'version'].forEach(function(prop){
-		delete postData[prop];
-	});
-
+	var version = allVersions._projects[project.toLowerCase()].versions[0];
 	var sourcePath = [projectPath('core', version), projectPath('more', version)];
-	var modules = Object.keys(postData).length == 0 ? [project + '/*'] : Object.keys(postData);
+	var modules = !postData.modules ? [project + '/*'] : postData.modules;
 	var packagerOptions = {
 		name: {
 			Core: projectPath('core', version),
@@ -45,10 +39,10 @@ function processPost(req, res){
 		},
 		noOutput: true,
 		callback: stream,
-		removeCoreDependencies: removeCoreDependencies
+		removeCoreDependencies: postData.removeCoreDependencies
 	};
 	if (modules.length) packagerOptions.only = modules;
-	if (!compat) packagerOptions.strip = ['.*compat'];
+	if (!postData.compat) packagerOptions.strip = ['.*compat'];
 
 	// get all files and send to packager
 	var sourceFiles = [];
@@ -62,7 +56,7 @@ function processPost(req, res){
 
 	// callback from packager
 	function stream(data){
-		var filename = ['MooTools-', project, '-', version, (compat ? '-compat' : '') + (minified ? '-compressed' : ''), '.js'].join('');
+		var filename = ['MooTools-', project, '-', version, (postData.compat ? '-compat' : '') + (minified ? '-compressed' : ''), '.js'].join('');
 		if (minified) data = uglify(data);
 
 		res.setHeader('Content-Type', 'application/javascript');

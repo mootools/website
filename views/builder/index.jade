@@ -8,7 +8,6 @@ block main
 			h1 Download complete source
 			form(method="post", action="../builder")
 				input(hidden, name="project", value="#{project}")
-				input(hidden, name="version", value="#{version}")
 				.save
 
 					label
@@ -37,7 +36,6 @@ block main
 
 		form(method="post", action="../builder")
 			input(hidden, name="project", value="#{project}")
-			input(hidden, name="version", value="#{version}")
 			table#builderOptions
 				tr
 					td 
@@ -48,7 +46,7 @@ block main
 				each yaml, module in dependencies
 					tr
 						td 
-							input(type="checkbox", name="#{project}/#{module}", value="1", data-provides="#{yaml.prov}", data-requires="#{yaml.req}")
+							input(type="checkbox", value="#{project}/#{module}", name="modules[]", data-provides="#{yaml.prov}", data-requires="#{yaml.req}")
 						td #{module}
 						td #{yaml.prov}
 						td #{yaml.desc}
@@ -80,5 +78,5 @@ block main
 	.clearfix.wrapper.builder
 		if (navigation == 'core')
 			div.header.clearfix
-				h1 Older versions of Mootools
+				h1 Older versions of MooTools
 				mixin older-version-select(versions)
