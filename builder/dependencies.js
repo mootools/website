@@ -2,6 +2,7 @@
 
 var YAML = require('js-yaml');
 var fs = require("fs");
+var getFiles = require('../lib/getFiles');
 
 function makeString(type){
 	if (!type) return '';
@@ -11,21 +12,7 @@ function makeString(type){
 module.exports = function(project, version){
 	// get all files in sub-directories
 	var path = 'cache/' + project + '/docs/' + project + '-' + version + '/Source';
-	var files = (function getFiles(dir,files_){
-		files_ = files_ || [];
-		if (typeof files_ === 'undefined') files_=[];
-		var files = fs.readdirSync(dir);
-		for(var i in files){
-			if (!files.hasOwnProperty(i)) continue;
-			var name = dir+'/'+files[i];
-			if (fs.statSync(name).isDirectory()){
-				getFiles(name,files_);
-			} else {
-				files_.push(name);
-			}
-		}
-		return files_;
-	})(path);
+	var files = getFiles(path, [], '.js');
 
 	// get YAML info from each file
 	// TODO: add a filter for server build

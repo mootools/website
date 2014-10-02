@@ -92,6 +92,7 @@ app.get('/search', function(req, res){
 require('./core')(app);
 require('./more')(app);
 require('./blog')(app);
+require('./builder')(app);
 require('./developers')(app);
 
 app.use(app.router);

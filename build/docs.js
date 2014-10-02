@@ -6,6 +6,7 @@ var path = require('path');
 var semver = require('semver');
 var compile = require('../lib/compile-md');
 var pkg = require('../package.json');
+var getFiles = require('../lib/getFiles');
 
 var args = process.argv;
 
@@ -29,21 +30,6 @@ function fixPath(mdFilePath, ver){
 	return project + '/docs/' + version + '/' + tocPath;
 }
 
-// get all .md files inside each project-version
-function getFiles(dir, files_){
-
-	files_ = files_ || [];
-	if (typeof files_ === 'undefined') files_ = [];
-	var files = fs.readdirSync(dir);
-	for (var i in files){
-		if (!files.hasOwnProperty(i)) continue;
-		var name = dir + '/' + files[i];
-		if (fs.statSync(name).isDirectory()) getFiles(name, files_);
-		else if (path.extname(files[i]) === ".md") files_.push(name);
-	}
-	return files_;
-}
-
 // distinguish Core, More from Prime & friends builder
 function build(project, docsdir){
 
@@ -52,10 +38,11 @@ function build(project, docsdir){
 	projectFiles.forEach(function(library){
 
 		var type = fs.statSync(docsdir + '/' + library);
+		var versionPath = docsdir + '/' + library + '/Docs';
 		if (!type.isDirectory()) return;
 
-		var versionPath = docsdir + '/' + library + '/Docs';
-		var docFiles = getFiles(versionPath, null);
+		// get all .md files inside each project-version
+		var docFiles = getFiles(versionPath, null, '.md');
 		var version = library.split('-')[1];
 		if (!~verionsIndex.indexOf(version)) verionsIndex.push(version);
 
