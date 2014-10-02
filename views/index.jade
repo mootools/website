@@ -26,7 +26,9 @@ block updates
 			section
 				div.box
 					h3 Blog Entries
-					p Sample Text
+					h4
+						strong: a(href="/blog/#{lastBlogPost.permalink}") #{lastBlogPost.title}
+					p !{lastBlogPost.summary.slice(0, 150)}...
 
 			section.box
 				div.box

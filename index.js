@@ -33,6 +33,7 @@ parseArguments: while (args.length){
 			break parseArguments;
 	}
 }
+var lastBlogPost = require('./cache/blog/posts/posts.json')[0];
 
 // all environments
 app.set('views', __dirname + '/views');
@@ -76,7 +77,8 @@ app.get('/', function(req, res){
 	githubEvents(req, res);
 	res.render('index', {
 		title: 'MooTools',
-		page: 'mootools'
+		page: 'mootools',
+		lastBlogPost: lastBlogPost
 	});
 });
 
