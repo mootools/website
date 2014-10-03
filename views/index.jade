@@ -28,7 +28,7 @@ block updates
 					h3 Blog Entries
 					h4
 						strong: a(href="/blog/#{lastBlogPost.permalink}") #{lastBlogPost.title}
-					p !{lastBlogPost.summary.slice(0, 150)}...
+					p !{lastBlogPost.summary.slice(0, 240)}...
 
 			section.box
 				div.box
@@ -39,7 +39,8 @@ block updates
 			section.box
 				div.box
 					h3 Latest Tweets
-					p Sample Text
+					for tweet in tweetFeed
+						p: a(href="https://twitter.com/mootools/status/#{tweet.id_str}") #{tweet.text}
 
 block main
 
