@@ -2,9 +2,7 @@
 
 var express = require('express');
 var http = require('http');
-var path = require('path');
 var jade = require('jade');
-var fs = require('fs-extra');
 
 jade.filters.highlight = require('./lib/jade-highlight');
 
