@@ -2,7 +2,6 @@
 
 var express = require('express');
 var http = require('http');
-var path = require('path');
 var jade = require('jade');
 
 jade.filters.highlight = require('./lib/jade-highlight');
@@ -72,13 +71,16 @@ app.use(express.static(__dirname + '/public'));
 var githubEvents = require('./middleware/githubEvents')({
 	org: 'mootools'
 });
+var twitter = require('./middleware/twitter')();
 
 app.get('/', function(req, res){
 	githubEvents(req, res);
+	twitter(req, res);
 	res.render('index', {
 		title: 'MooTools',
 		page: 'mootools',
-		lastBlogPost: lastBlogPost
+		lastBlogPost: lastBlogPost,
+		tweetFeed: res.locals.twitter
 	});
 });
 

@@ -2,6 +2,10 @@
 
 var async = require('async');
 var spawn = require('child_process').spawn;
+var getKeys = require('./api_keys');
+var options = process.argv.splice(2);
+
+if (~options.indexOf('--add-keys')) getKeys();
 
 var cmds = [
 	["build/docs", "core"],
