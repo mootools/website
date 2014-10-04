@@ -39,8 +39,9 @@ block updates
 			section.box
 				div.box
 					h3 Latest Tweets
-					for tweet in tweetFeed
-						p: a(href="https://twitter.com/mootools/status/#{tweet.id_str}") #{tweet.text}
+					if (tweetFeed) 
+						for tweet in tweetFeed
+							p: a(href="https://twitter.com/mootools/status/#{tweet.id_str}") #{tweet.text}
 
 block main
 
