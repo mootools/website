@@ -15,10 +15,11 @@ module.exports = function(interval){
 			console.log('recieved Twitter events data');
 		});
 	};
-
-	setInterval(poller(), (interval == null) ? 1000 * 60 * 30 : interval);
+	
+	setInterval(poller, (interval == null) ? 1000 * 60 * 30 : interval);
 	return function(req, res, next){
 		res.locals.twitter = tweets;
 		if (next) next();
 	};
+	poller();
 };
