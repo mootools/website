@@ -11,7 +11,7 @@ var allVersions = require('../package.json');
 function uglify(source){
 	var uglifyed = UglifyJS.minify(source, {
 		fromString : true,
-		mangle: ['sort'] // to assign shorter names to most frequently used variables. 
+		mangle: ['sort'] // to assign shorter names to most frequently used variables.
 	});
 	return copyright + uglifyed.code;
 }
@@ -19,7 +19,7 @@ function uglify(source){
 function projectPath(project_, version_){
 	var versions = allVersions._projects[project_].versions;
 	if (!~versions.indexOf(version_)) version_ = versions.filter(function(ver){
-		return ver.slice(0, -2) <= version_.slice(0, -2); 
+		return ver.slice(0, -2) <= version_.slice(0, -2);
 	})[0];
 	return 'cache/' + project_.toLowerCase() + '/docs/' + project_.toLowerCase() + '-' + version_ + '/Source/';
 }
@@ -60,12 +60,12 @@ function processPost(req, res){
 		if (minified) data = uglify(data);
 
 		res.setHeader('Content-Type', 'application/javascript');
-		res.setHeader('Content-disposition', 'attachment; filename=' + filename);
-		res.write(data, 'binary');
+		res.setHeader('Content-Disposition', 'attachment; filename=' + filename);
+		res.write(data);
 		res.end();
 	}
 }
-	
+
 module.exports = function(app){
 	app.use(express.bodyParser());
 	app.post('/builder', processPost);
