@@ -1,10 +1,25 @@
-.mootools #header{
-	border-bottom: 1px solid #e5e3df;
-}
+.mootools #header
+	border-bottom  1px solid #e5e3df 
 
-.previous-version {
-	margin-top: 1.0em;
-}
+.previous-version
+	margin-top  1.0em 
+
+	label.select
+		position relative
+
+@media screen and (-webkit-min-device-pixel-ratio:0) /* Chrome and Safari only */
+	label.select:after
+		content '<>' 
+		font 11px "Consolas", monospace 
+		padding  3px 
+		-webkit-transform rotate(90deg) 
+		-moz-transform rotate(90deg) 
+		-ms-transform rotate(90deg) 
+		transform rotate(90deg) 
+		right 8px  
+		top 3px 
+		position absolute 
+		pointer-events none 
 
 #googleLink
 	margin-left 2em

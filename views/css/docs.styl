@@ -47,7 +47,7 @@
 		border: solid #e5e3df 1px;
 		font-size: 0.9em;
 		line-height: 1em;
-		
+
 		.small
 			height: 1em;
 			ul
@@ -67,7 +67,7 @@
 			a
 				color: #575551 !important;
 				display: block;
-				margin: 0.5em 0 0;
+				padding: 0.3em
 				&:active,
 				&:focus
 					color: #ffffff !important;
@@ -75,7 +75,7 @@
 				&.top
 					font-size: 1.2em;
 					margin: 0 0 1em;
-					padding: .2em
+					padding: 0.4em
 
 		a.top:after
 			color: #acaaa7;
@@ -166,11 +166,17 @@
 	position: relative;
 
 a.back-to-top
-	background: #F4F1ED;
+	background: #d9d6d3;
 	border-radius: 5px;
-	color: #777571 !important;
+	color: #777571;
 	font-size: 0.8em;
 	margin-top: -3.4em;
-	padding: 0.25em 0.5em;
+	padding: 0.3em 0.5em;
 	position: absolute !important;
 	right: 0.5em;
+
+a.back-to-top:active, a.back-to-top:focus
+	background-color: #ffffff;
+
+a.top:active, a.top:focus
+	background-color: #777571;

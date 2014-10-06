@@ -16,65 +16,72 @@
 			bottom: 0;
 			position: absolute;
 			right: 4%;
-
+	ul > li > a
+		&:active,
+		&:focus
+			background: #777571;
+			border-color: #777571;
+			color: #ffffff;
+				
 	ul
 		float: left;
-
 		li
 			float: left;
 			margin-right: 0.5em;
 			position: relative;
 			a
-				background: #F4F1ED;
 				border-radius: 3px;
-				border: solid #F4F1ED 1px;
 				color: #000000;
-				font-size: .8em;
-				padding: 0.4em 1em 0.5em 1em;
-				transition: color .2s;
-				&:active,
-				&:focus
-					background: #777571;
-					border-color: #777571;
-					color: #ffffff;
-
-			&.selected > a, &:hover > a
-				background: #777571;
-				border-color: #777571;
-				color: #ffffff;
+				font-size: 1em;
+				padding: 0.3em 1em 0.3em 1em;
+				cursor: pointer;
 		
+	ul	
+		li.selected > a
+			background: #777571;
+			border-color: #777571;
+			color: #ffffff;
+
 		li.dropdown
 			
 			> a:after
-				icon-down-open-mini()			
 				color: #acaaa7;
+				icon-down-open-mini()			
 				float: right;
 				font-family: "Entypo";
 				font-size: 120%;
 				margin-left .5em
+				height 1em
 
 			ul
-				font-weight 400
+				font-weight 300
 				position: absolute;
 				display: none;
+				border: solid #F4F1ED 2px;
+				background-color: #ffffff;
+				margin-top: 3px;	
+				border-radius: 5px;	
+				width: 16em;
+				font-size: 1em;
 
 				li
-					width: 17em;
-					overflow hidden;
-					background: #f4f1ed;
-					border: 1px #e3e0dc solid;
+					clear: both;
+					background: #ffffff !important;
+					
 				& a
-					padding .5em 0em 0.7em 1.5em;
+					padding 0em 0em 0.8em 1.5em;
 					width 100%;
+					color: #acaaa7;
 
-				li:first-child
-					margin-top: 4px;
+					&:focus, &:hover
+						background-color: #ffffff;
+						color: #000000;	
 
 			img
 				height 2em
-				padding 0 0 .3em 0
+				padding 0 0 0.4em 0
 			span
-				padding .5em .6em
+				padding .4em .6em
 				font-size .8em
 
 		li.dropdown.opened ul
@@ -92,6 +99,7 @@ body.mootools #global-bar
 		height: 70px !important;
 	p img
 		height: 27px;
+		padding: 0.5em;
 
 #search
 	float: left;

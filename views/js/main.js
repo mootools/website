@@ -103,7 +103,7 @@ function customBuilderTable(){
 			if (code) providerInput[code] = checkboxes[i];
 		});
 		data.requires.forEach(function(code){
-			if (code) {
+			if (code){
 				if (!requireInput[code]) requireInput[code] = [];
 				requireInput[code].push(checkboxes[i]);
 			}
@@ -139,11 +139,10 @@ function customBuilderTable(){
 
 // script for older-version select
 global.selectVersion = function(select){
-	var span = select.getNext();
+	var span = select.getParent().getNext();
 	span.removeClass('visible');
 	var link = select.get('value');
 	setTimeout(function(){
 		span.set('html', '<a download target="_blank" href="' + link + '">Download source code here</a>').addClass('visible');
 	}, 200);
 };
-
