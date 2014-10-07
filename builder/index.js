@@ -1,7 +1,8 @@
 "use strict";
 
+var path = require('path');
 var express = require('express');
-var UglifyJS = require("uglify-js");
+var UglifyJS = require('uglify-js');
 var packager = require('mootools-packager');
 var getFiles = require('../lib/getFiles');
 
@@ -18,7 +19,7 @@ function uglify(source){
 
 function projectPath(project_, version_){
 	var versions = allVersions._projects[project_].versions;
-	if (!~versions.indexOf(version_)) version_ = versions.filter(function(ver){
+	if (versions.indexOf(version_) == -1) version_ = versions.filter(function(ver){
 		return ver.slice(0, -2) <= version_.slice(0, -2);
 	})[0];
 	return 'cache/' + project_.toLowerCase() + '/docs/' + project_.toLowerCase() + '-' + version_ + '/Source/';
@@ -30,26 +31,29 @@ function processPost(req, res){
 	var minified = postData.minified;
 	var project = postData.project;
 	var version = allVersions._projects[project.toLowerCase()].versions[0];
-	var sourcePath = [projectPath('core', version), projectPath('more', version)];
+
+	var corePath = projectPath('core', version);
+	var morePath = projectPath('more', version);
+
 	var modules = !postData.modules ? [project + '/*'] : postData.modules;
 	var packagerOptions = {
 		name: {
-			Core: projectPath('core', version),
-			More: projectPath('more', version)
+			Core: corePath,
+			More: morePath
 		},
 		noOutput: true,
 		callback: stream,
 		removeCoreDependencies: postData.removeCoreDependencies
 	};
+
 	if (modules.length) packagerOptions.only = modules;
 	if (!postData.compat) packagerOptions.strip = ['.*compat'];
 
 	// get all files and send to packager
-	var sourceFiles = [];
-	sourcePath.forEach(function(folder){
-		var folderPath = __dirname + '/../' + folder;
-		sourceFiles = getFiles(folderPath, sourceFiles, '.js');
-	});
+	var sourceFiles = [corePath, morePath].reduce(function(files, folder){
+		var folderPath = path.join(__dirname, '/../', folder);
+		return getFiles(folderPath, files, '.js');
+	}, []);
 
 	// compile files
 	packager(sourceFiles, packagerOptions);
@@ -58,7 +62,6 @@ function processPost(req, res){
 	function stream(data){
 		var filename = ['MooTools-', project, '-', version, (postData.compat ? '-compat' : '') + (minified ? '-compressed' : ''), '.js'].join('');
 		if (minified) data = uglify(data);
-
 		res.setHeader('Content-Type', 'application/javascript');
 		res.setHeader('Content-Disposition', 'attachment; filename=' + filename);
 		res.write(data);
