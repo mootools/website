@@ -1,8 +1,11 @@
 "use strict";
 
 var express = require('express');
-var http = require('http');
 var jade = require('jade');
+var favicon = require('serve-favicon');
+var bodyParser = require('body-parser');
+var morgan = require('morgan');
+var errorhandler = require('errorhandler');
 
 jade.filters.highlight = require('./lib/jade-highlight');
 
@@ -39,14 +42,17 @@ app.set('views', __dirname + '/views');
 app.engine('jade', jade.__express);
 app.set('view engine', 'jade');
 app.set('view cache', true);
-app.use(express.favicon(__dirname + '/public/images/favicon/mootools.ico'));
-app.use(express.bodyParser());
+app.use(favicon(__dirname + '/public/images/favicon/mootools.ico'));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
 
 // important to be before express.router
 if (app.get('env') == 'development'){
 
-	app.use(express.logger('dev'));
-	app.use(express.errorHandler());
+	app.use(morgan('dev'));
+	app.use(errorhandler());
 
 	app.use(function setJadePretty(req, res, next){
 		res.locals.pretty = true;
@@ -97,9 +103,8 @@ require('./blog')(app);
 require('./builder')(app);
 require('./developers')(app);
 
-app.use(app.router);
 
 // starting server
-http.createServer(app).listen(app.get('port'), function(){
+app.listen(app.get('port'), function(){
 	console.log('Express server listening on port ' + app.get('port'));
 });

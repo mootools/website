@@ -17,9 +17,9 @@ module.exports = function(interval){
 	};
 	
 	setInterval(poller, (interval == null) ? 1000 * 60 * 30 : interval);
+	poller();
 	return function(req, res, next){
 		res.locals.twitter = tweets;
 		if (next) next();
 	};
-	poller();
 };
