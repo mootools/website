@@ -6,6 +6,7 @@ var path = require('path');
 var compile = require('../lib/compile-md');
 var pkg = require('../package.json');
 var getFiles = require('../lib/getFiles');
+var compareSEMVER = require('../lib/compareSEMVER');
 
 var args = process.argv;
 
@@ -29,27 +30,6 @@ function fixPath(mdFilePath, ver){
 	return project + '/docs/' + version + '/' + tocPath;
 }
 
-// from http://stackoverflow.com/a/6832706/2256325
-function compareSEMVER(a, b){
-    if (a === b) return 0;
-
-    var a_components = a.split('.');
-    var b_components = b.split('.');
-    var len = Math.min(a_components.length, b_components.length);
-
-    // loop while the components are equal
-    for (var i = 0; i < len; i++){
-        if (parseInt(a_components[i]) > parseInt(b_components[i])) return 1;
-        if (parseInt(a_components[i]) < parseInt(b_components[i])) return -1;
-    }
-
-    // If one's a prefix of the other, the longer one is greater.
-    if (a_components.length > b_components.length) return 1;
-    if (a_components.length < b_components.length) return -1;
-
-    // Otherwise they are the same.
-    return 0;
-}
 
 // distinguish Core, More from Prime & friends builder
 function build(project, docsdir){
