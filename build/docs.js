@@ -3,7 +3,6 @@
 var fs = require('fs');
 var async = require('async');
 var path = require('path');
-var semver = require('semver');
 var compile = require('../lib/compile-md');
 var pkg = require('../package.json');
 var getFiles = require('../lib/getFiles');
@@ -28,6 +27,28 @@ function fixPath(mdFilePath, ver){
 	var tocPath = fullPath.slice(fullPath.indexOf("Docs") + 1).join('/');
 	var version = ver.split('-')[1];
 	return project + '/docs/' + version + '/' + tocPath;
+}
+
+// from http://stackoverflow.com/a/6832706/2256325
+function compareSEMVER(a, b){
+    if (a === b) return 0;
+
+    var a_components = a.split('.');
+    var b_components = b.split('.');
+    var len = Math.min(a_components.length, b_components.length);
+
+    // loop while the components are equal
+    for (var i = 0; i < len; i++){
+        if (parseInt(a_components[i]) > parseInt(b_components[i])) return 1;
+        if (parseInt(a_components[i]) < parseInt(b_components[i])) return -1;
+    }
+
+    // If one's a prefix of the other, the longer one is greater.
+    if (a_components.length > b_components.length) return 1;
+    if (a_components.length < b_components.length) return -1;
+
+    // Otherwise they are the same.
+    return 0;
 }
 
 // distinguish Core, More from Prime & friends builder
@@ -64,6 +85,6 @@ function build(project, docsdir){
 		fs.writeFile(docsdir + '/' + 'toc-' + version + '.json', JSON.stringify(toc, null, 2));
 	});
 
-	verionsIndex = verionsIndex.sort(semver.rcompare);
+	verionsIndex = verionsIndex.sort(compareSEMVER).reverse();
 	fs.writeFile(docsdir + '/versions.json', JSON.stringify(verionsIndex, null, 2));
 }
