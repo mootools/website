@@ -5,6 +5,7 @@ var express = require('express');
 var UglifyJS = require('uglify-js');
 var packager = require('mootools-packager');
 var getFiles = require('../lib/getFiles');
+var bodyParser = require('body-parser');
 
 var copyright = '/* MooTools: the javascript framework. license: MIT-style license. copyright: Copyright (c) 2006-' + new Date().getFullYear() + ' [Valerio Proietti](http://mad4milk.net/).*/ ';
 var allVersions = require('../package.json');
@@ -70,6 +71,8 @@ function processPost(req, res){
 }
 
 module.exports = function(app){
-	app.use(express.bodyParser());
+	app.use(bodyParser.urlencoded({
+		extended: true
+	}));
 	app.post('/builder', processPost);
 };
