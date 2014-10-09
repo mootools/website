@@ -53,7 +53,7 @@ function build(project, srcdir, destdir){
 				data.slug = slug(data.title);
 				data.file = file.file;
 				data.htmlFile = file.file.replace(/\.md$/, '.html');
-				var html = compile(parts.body);
+				var html = compile(parts.body, data.htmlFile);
 				cb(null, [data, html]);
 			}, callback);
 		}],

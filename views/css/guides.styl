@@ -1,0 +1,81 @@
+/* G U I D E S * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.guides
+	padding-bottom: 2em;
+
+	.content
+		margin: 0 0 2em;
+
+		.heading:first-child h1
+			border: 0;
+			margin: 0;
+			padding: 0;
+
+		h1
+			border-top: solid 1px #e5e3df;
+			margin: 2em 0 0;
+			padding: 1.5em 0 0;
+
+		h2
+			background: #777571;
+			border-radius: 5px;
+			margin: 2em 0 0.5em;
+			padding: 0.15em 0.5em 0.25em;
+			a
+				color: #ffffff !important;
+
+		h3
+			border-radius: 5px;
+			border: solid #e5e3df 1px;
+			font-weight: 400;
+			margin: 1.5em 0 0;
+			padding: 0.15em 0.5em 0.25em;
+
+		h4
+			border-radius: 5px;
+			border: solid #f4f1ed 1px;
+			color: #acaaa7;
+			font-size: 1.125em;
+			font-weight: 400;
+			margin: 1.5em 0 0.5em;
+			padding: 0.15em 0.5em 0.25em;
+
+		h5
+			color: #acaaa7;
+			font-size: 1em;
+			font-weight: 400;
+			margin: 1.5em 0 0;
+
+		p
+			margin: 0.5em 0;
+
+		ol
+			counter-reset: li; /* Initiate a counter */
+			list-style: none; /* Remove default numbering */
+			*list-style: decimal; /* Keep using default numbering for IE6/7 */
+			position: relative;
+			li
+				margin-top: 0.5em
+				padding-left 1.5em
+				&:before
+					background: #f4f1ed;
+					border-radius: 3px;
+					content: counter(li);
+					counter-increment: li;
+					font-size: 0.75em;
+					font-weight: 600;
+					left: 0;
+					padding: 0.15em 0.5em;
+					position: absolute;
+
+		ul li
+			margin: 0.5em 0 0;
+			&:after
+				icon-right-open-mini()
+				float: left;
+				font-family: "Entypo";
+				font-size: 100%;
+				margin: 0.2em 0.5em 0 0;
+
+		pre
+			margin: 0.5em 0 0;
