@@ -10,14 +10,20 @@ module.exports = function(interval){
 
 	// periodically fetching the Twiter API.
 	var poller = function(){
-		twit.get('/statuses/user_timeline.json', {include_entities:true, screen_name: 'mootools'}, function(data){
-			tweets = data.slice(0, 3);
-			console.log('recieved Twitter events data');
+		twit.get('/statuses/user_timeline.json', {
+			include_entities: true,
+			screen_name: 'mootools'
+		}, function(data){
+			if (data.statusCode == 200){
+				tweets = data.slice(0, 3);
+				console.log('recieved Twitter events data');
+			}
 		});
+		return poller;
 	};
-	
-	setInterval(poller, (interval == null) ? 1000 * 60 * 30 : interval);
-	poller();
+
+	setInterval(poller(), (interval == null) ? 1000 * 60 * 30 : interval);
+
 	return function(req, res, next){
 		res.locals.twitter = tweets;
 		if (next) next();
