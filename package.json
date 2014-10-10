@@ -50,8 +50,7 @@
     "uglify-js": "^2.4.15",
     "unzip": "~0.1.9",
     "wrapup": "0.12",
-    "wrapup-middleware": "0.0.x",
-    "wrapup-webbuilder": "0.1"
+    "wrapup-middleware": "0.0.x"
   },
   "devDependencies": {
     "mocha": "1.11",
