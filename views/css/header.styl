@@ -42,50 +42,6 @@
 			border-color: #777571;
 			color: #ffffff;
 
-		li.dropdown
-			
-			> a:after
-				color: #acaaa7;
-				icon-down-open-mini()			
-				float: right;
-				font-family: "Entypo";
-				font-size: 120%;
-				margin-left .5em
-				height 1em
-
-			ul
-				font-weight 300
-				position: absolute;
-				display: none;
-				border: solid #F4F1ED 2px;
-				background-color: #ffffff;
-				margin-top: 3px;	
-				border-radius: 5px;	
-				width: 16em;
-				font-size: 1em;
-
-				li
-					clear: both;
-					background: #ffffff !important;
-					
-				& a
-					padding 0em 0em 0.8em 1.5em;
-					width 100%;
-					color: #acaaa7;
-
-					&:focus, &:hover
-						background-color: #ffffff;
-						color: #000000;	
-
-			img
-				height 2em
-				padding 0 0 0.4em 0
-			span
-				padding .4em .6em
-				font-size .8em
-
-		li.dropdown.opened ul
-			display: block;
 
 body.mootools #global-bar
 	padding-bottom: 2em;
@@ -98,8 +54,10 @@ body.mootools #global-bar
 	h1 img
 		height: 70px !important;
 	p img
-		height: 27px;
+		width: 150px;
 		padding: 0.5em;
+	img:focus, img:active
+		background-color: #ffffff;;
 
 #search
 	float: left;
@@ -112,7 +70,7 @@ body.mootools #global-bar
 		background: transparent;
 		border-color: #e5e3df;
 		display: block;
-		font-size: 0.8em;
+		font-size: 0.85em;
 		font-weight: 400;
 		padding: 0.4em 0.5em;
 		&:focus
@@ -125,6 +83,7 @@ body.mootools #global-bar
 	h1 img
 		height: 90px;
 		width: auto;
+		padding: 0.15em;
 
 	a
 		color: #acaaa7;
