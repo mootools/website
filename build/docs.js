@@ -3,10 +3,10 @@
 var fs = require('fs');
 var async = require('async');
 var path = require('path');
-var semver = require('semver');
 var compile = require('../lib/compile-md');
 var pkg = require('../package.json');
 var getFiles = require('../lib/getFiles');
+var compareSEMVER = require('../lib/compareSEMVER');
 
 var args = process.argv;
 
@@ -29,6 +29,7 @@ function fixPath(mdFilePath, ver){
 	var version = ver.split('-')[1];
 	return project + '/docs/' + version + '/' + tocPath;
 }
+
 
 // distinguish Core, More from Prime & friends builder
 function build(project, docsdir){
@@ -64,6 +65,6 @@ function build(project, docsdir){
 		fs.writeFile(docsdir + '/' + 'toc-' + version + '.json', JSON.stringify(toc, null, 2));
 	});
 
-	verionsIndex = verionsIndex.sort(semver.rcompare);
+	verionsIndex = verionsIndex.sort(compareSEMVER).reverse();
 	fs.writeFile(docsdir + '/versions.json', JSON.stringify(verionsIndex, null, 2));
 }
