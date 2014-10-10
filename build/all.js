@@ -28,6 +28,5 @@ function spawnCmd(cmd, callback){
 
 async.series([
 	async.apply(spawnCmd, ["build/repositories"]),
-	async.apply(spawnCmd, ["build/archived-blog"]),
 	async.apply(async.each, cmds, spawnCmd)
 ]);

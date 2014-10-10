@@ -1,30 +1,31 @@
 "use strict";
 
 var fs = require('fs');
-var compile = require('../lib/compile-md');
-var slug = require('slugify');
-var parsed = JSON.parse(fs.readFileSync('build/archived-blog.json'));
-var posts = parsed.channel.item;
-var authors = parsed.channel.author;
+var async = require('async');
 
-function getName(nickname){
-    var author = authors.filter(function(writer){
-        return writer.author_display_name.__cdata.toLowerCase() == nickname;
-    })[0];
-    if (!author) console.log('Blog author not found with nickname: ' + nickname);
-    return author.author_first_name.__cdata + ' ' + author.author_last_name.__cdata;
+function getName(nickname, authors){
+	var author = authors.filter(function(writer){
+		return writer.author_display_name.__cdata.toLowerCase() == nickname;
+	})[0];
+	if (!author) console.log('Blog author not found with nickname: ' + nickname);
+	return author.author_first_name.__cdata + ' ' + author.author_last_name.__cdata;
 }
 
-function rebuildPost(post, index){
+function rebuildPost(post, authors, callback){
 
 	var renderLink = post.link.replace('http://mootools.net/blog/', '');
 	var content = post.encoded[0].__cdata;
+
 	if (!content){
-		console.warn('Post has no content.');
-		return;
+		if (post.status.__text == 'publish'){
+			console.error(post);
+			return callback(new Error('Post has no content'));
+		}
+		return callback();
 	}
+
 	if (!post.category.length) post.category = [post.category];
-	var tags  = post.category.map(function(cat){
+	var tags = post.category.map(function(cat){
 		return cat._nicename;
 	});
 
@@ -32,41 +33,37 @@ function rebuildPost(post, index){
 		'---',
 		'title: "' + post.title + '"',
 		'date: "' + post.pubDate + '"',
-		'author: "' + getName(post.creator.__cdata.toLowerCase()) + '"',
+		'author: "' + getName(post.creator.__cdata.toLowerCase(), authors) + '"',
 		'tags: "' + tags + '"',
 		'permalink: "' + renderLink + '"',
+		post.status.__text != 'publish' ? 'published: false' : '',
 		'---',
-		compile(content, renderLink).content
+		content
 	].join('\n');
 
 	var filename = 'blog/posts/' + renderLink.split('/')[3] + '.md';
-	fs.writeFile(filename, md, 'utf8', function(err){
-		if (err) console.log('Error: ' + err);
-	});
-
-	return {
-		htmlFile: filename, 
-		content: md, 
-		tags: tags, 
-		date: post.pubDate
-	};
+	fs.writeFile(filename, md, 'utf8', callback);
 }
 
-// use only the published posts
-posts = posts.filter(function(post){
-	return post.status.__text == 'publish';
-}).sort(function(date1, date2){
-	date1 = new Date(date1.pubDate);
-	date2 = new Date(date2.pubDate);
-	return date2 - date1;
-}).map(function(post, number){
-	return rebuildPost(post, number);
+function readArchive(file, callback){
+	fs.readFile(file, 'utf-8', function(err, data){
+		if (err) return callback(err);
+		data = JSON.parse(data);
+		callback(err, {
+			posts: data.channel.item,
+			authors: data.channel.author
+		});
+	});
+}
+
+var importPosts = async.compose(function(data, callback){
+	async.map(data.posts, function(post, cb){
+		rebuildPost(post, data.authors, cb);
+	}, callback);
+}, readArchive);
+
+importPosts('build/archived-blog.json', function(err){
+	if (err) console.error(err);
+	else console.log('imported the old posts');
 });
 
-fs.writeFile('blog/posts/posts.json', JSON.stringify(posts, null, 4), function(err) {
-    if(err) {
-      console.log('Error: ' + err);
-    } else {
-      console.log("JSON saved to posts.json");
-    }
-}); 

@@ -13,9 +13,13 @@ var destdir = path.join(__dirname, "../", pkg._buildOutput, "blog/posts");
 
 build(srcdir, destdir);
 
-var pad = function(n){
+function pad(n){
 	return (n < 10 ? '0' : '') + n;
-};
+}
+
+function trimTrailingSlash(str){
+	return str.replace(/\/$/, '');
+}
 
 function build(srcdir, destdir){
 
@@ -47,11 +51,12 @@ function build(srcdir, destdir){
 				var post = parts.attributes;
 
 				if (!post.permalink){
-					var link  = slug(post.title).toLowerCase();
+					var link = slug(post.title).toLowerCase();
 					var date = post.date = new Date(post.date);
 					post.permalink = link;
 				}
 
+				post.permalink = trimTrailingSlash(post.permalink);
 				post.published = post.published !== false;
 				post.file = file.file;
 				post.htmlFile = file.file.replace(/\.md$/, '.html');
@@ -91,7 +96,7 @@ function build(srcdir, destdir){
 
 	}, function(err, res){
 		if (err) console.error(err);
-		console.log("done building docs");
+		console.log("done building blog");
 	});
 
 }
