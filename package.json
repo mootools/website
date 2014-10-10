@@ -41,7 +41,6 @@
     "request": "2.22",
     "robotskirt": "2.7",
     "semver": "2.0",
-    "send": "0.1",
     "serve-favicon": "^2.1.5",
     "slugify": "0.1",
     "stylus": "0.32",
