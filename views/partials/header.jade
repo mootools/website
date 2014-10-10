@@ -30,39 +30,11 @@
 					li: mixin link
 
 			ul
-				li.dropdown(class=('#{navigation}' == 'core' ? 'selected' : ''))
-					a Core
-					ul
-						li
-							span
-								img(src="/images/logo/core.png", alt='MooTools Core')
-							span 
-								i We make JavaScript awesome!
-						li
-							a(href='/core') About MooTools Core
-						li
-							a(href='/core/docs') Documentation
-						li
-							a(href='/core/builder') Download
-						li
-							a(href='/core/guides') Guides
+				li(class=('#{navigation}' == 'core' ? 'selected' : ''))
+					a(href='/core/') Core
 
-				li.dropdown(class=('#{navigation}' == 'more' ? 'selected' : ''))
-					a  More
-					ul
-						li
-							span
-								img(src="/images/logo/more.png", alt='MooTools More')
-							span 
-								i We make awesome plugins!
-						li
-							a(href='/more/') About MooTools More
-						li
-							a(href='/more/docs') Documentation
-						li
-							a(href='/more/builder') Download
-						li
-							a(href='/more/guides') Guides
+				li(class=('#{navigation}' == 'more' ? 'selected' : ''))
+					a(href='/more/')  More
 							
 				mixin menu-item('/blog', 'Blog', navigation == 'blog')
 				mixin menu-item("http://github.com/mootools", 'Contribute')

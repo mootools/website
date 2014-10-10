@@ -1,23 +1,6 @@
 "use strict";
 
 window.addEvent('domready', function(){
-
-	// open dropdown menus in navigation menu for desktop
-	var dropdowns = document.querySelectorAll('#main-header > ul > li.dropdown');
-	var makeDropdown = function(el){
-		for (var j = 0; j < dropdowns.length; j++){
-			if (el == dropdowns[j]) continue;
-			dropdowns[j].removeClass('opened').removeClass('selected');
-			if (el) el.addClass('selected');
-		}
-		if (el) el.toggleClass('opened');
-	}
-
-	// close dropdown if clicked outside menu
-	window.addEvent('click', function(e){
-		var li = e.target.getParent('li.dropdown');
-		makeDropdown(li);
-	});
 	
 	// download buttons, form submit and source code download
 	document.getElements('a.getFile').addEvent('click', function(e){
