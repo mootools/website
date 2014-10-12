@@ -1,15 +1,4 @@
 extends page
 
 block main
-	.guides.overview.clearfix.wrapper
-		.content
-			h1= guide.title
-			p
-				space = " "
-				strong= "Author: "
-				| #{guide.author} #{space}
-				strong= "Date: "
-				| #{dateable(new Date(guide.date), "D MMMM YYYY")}
-			
-		.content
-			!{guide.content}
+	include ../partials/guide
