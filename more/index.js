@@ -34,6 +34,7 @@ module.exports = function(app){
 			navigation: 'more',
 			page: 'builder',
 			project: 'More',
+			site: 'more',
 			version: lastVersion,
 			dependencies: require('../builder/dependencies.js')(project, lastVersion)
 		});

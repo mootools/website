@@ -40,13 +40,14 @@ module.exports = function(app){
 			versions: links
 		});
 	});
-	
+
 	app.get('/core/builder', function(req, res){
 		res.render('builder/index', {
 			title: 'MooTools Core Builder',
 			navigation: 'core',
 			page: 'builder',
 			project: 'Core',
+			site: 'core',
 			version: versions[0],
 			versions: links,
 			dependencies: require('../builder/dependencies.js')(project, versions[0])
