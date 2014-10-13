@@ -19,7 +19,8 @@ module.exports = function(project, version){
 	var filesInfo = {};
 	files.forEach(function(file){
 		var content = fs.readFileSync(file, "utf8");
-		var src = file.match(/\/([^\/]*)\.js$/);
+		var src = file.match(/[\/\\]([^\/\\]*)\.js$/);
+
 		if (src){
 			var DESC_REGEXP = /\/\*\s*^---([.\s\S]*)^(?:\.\.\.|---)\s*\*\//m;
 			var yamlHeader = YAML.load(content.match(DESC_REGEXP)[1] || '');
