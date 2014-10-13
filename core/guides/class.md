@@ -4,7 +4,6 @@ date: 2014-10-08
 author: Aaron Newton
 ---
 
-# Classes 
 
 Here is [the documentation page for Class.js](http://mootools.net/docs/core/Class/Class).
 MooTools contains a robust Class creation and inheritance system. Creating a new class is actually pretty easy.
