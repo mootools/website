@@ -63,10 +63,10 @@ module.exports = function(app){
 		if (!post) return next();
 
 		res.render('blog/post', {
+			site: "mootools",
 			title: "MooTools Blog: " + post.title,
 			post: post,
-			content: post.content,
-			page: 'blog'
+			content: post.content
 		});
 
 	});

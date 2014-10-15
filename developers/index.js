@@ -17,7 +17,7 @@ module.exports = function(app){
 		developersData.developers = developersData.developers.sort(randomSort);
 		developersData.alumni = developersData.alumni.sort(randomSort);
 		res.render('developers/index', {
-			page: "/developers",
+			site: "mootools",
 			title: "MooTools Developers",
 			developersData: developersData
 		});

@@ -87,7 +87,7 @@ a,
 
 body, button, html, input, select, textarea
 	color: #575551;
-	font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
+	font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 	font-weight: 300;
 
 h1, h2, h3, h4, h5, h6
@@ -237,7 +237,7 @@ a:focus .darker
 	color: #ffffff;
 
 .summary
-	font-size: 1.4em;
+	font-size: 1.3em;
 
 .description
 	font-size: 1.2em;
@@ -314,7 +314,7 @@ a:focus .icon
 	padding-bottom: 1em;
 
 	.introduction p
-		font-size: 1.4em;
+		font-size: 1.3em;
 		margin: 1em 0;
 
 	.license
@@ -364,8 +364,10 @@ Try smaller texts on homepage
 	a:hover
 		text-decoration: underline;
 
+.blog, .developers, .books, .overview		
+	padding-top: 3em;
+		
 .blog
-	margin-top: 2em;
 	margin-bottom: 2em;
 
 	a
@@ -381,9 +383,10 @@ Try smaller texts on homepage
 
 	h2
 		font-size: 2.5em;
+		color: #1694a5;
 	h3
-		font-size: 2.5em;
-		padding: 0em 0.3em;
+		font-size: 2em;
+		padding: 0.5em 0.3em 0em 0.3em;
 		margin-left: -0.2em;
 	h4
 		font-weight: 400;
@@ -395,7 +398,7 @@ Try smaller texts on homepage
 			padding: 0.1em 0em;
 
 	small
-		background: #F4F1ED;
+		border: 1px solid #acaaa7;
 		border-radius: 5px;
 		display: block;
 		font-size: 0.8em;
@@ -403,9 +406,8 @@ Try smaller texts on homepage
 		margin: 0.5em 0 2em;
 		padding: 0.5em 1em;
 		a
-			background: #acaaa7
+			background: #F4F1ED
 			border-radius: 3px
-			color: #ffffff
 			display: inline
 			padding: 0 0.5em
 
@@ -414,13 +416,14 @@ Try smaller texts on homepage
 
 	.post p
 		font-size: 1.1em;
-		line-height: 1.4em;
+		line-height: 1.3em;
 		margin: 1em 0;
 
 	.post p, ul
 		a
-			font-weight: 600;
-			text-decoration: underline;
+			font-weight: 400;
+			text-decoration: none;
+			color: #1694a5;
 
 
 	.pagination
@@ -429,10 +432,13 @@ Try smaller texts on homepage
 			border-radius: 5px
 			padding: 1em
 			width: 46%
+			color: #1694a5;
+			font-weight: 400;
 
 		a .icon
 			font-size: 200%;
 			top 0.3em
+			color: #1694a5;
 
 		.older
 			float: left
