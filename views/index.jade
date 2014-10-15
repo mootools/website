@@ -19,7 +19,104 @@ block about
 						| Open Source MIT license
 					|  which gives you the possibility to use them and modify them in every circumstance.
 
+block examples
 
+	.clearfix.wrapper.examples.modules
+		section
+			h1
+				| How to use?
+
+			div
+				h3
+					span.command MooTools Selectors
+				p
+					| Selectors for DOM Elements
+				:highlight(lang=js)
+					// get elements by class
+					$$("div.foo, div.bar, div.bar a");
+
+					// selector with different elements
+					$$("div.foo, div.bar, div.bar a");
+
+					// get a single element
+					document.getElement('div.foo');
+			div
+				h3
+					span.command How to create new DOM elements
+				p
+					| A simple MooTools Class example.
+				:highlight(lang=js)
+					// the short way
+					new Element("div#bar.foo");
+
+					// using the element constructor
+					new Element("div", {
+						"class": "foo",
+						id: "bar"
+					});
+		section
+			div
+				h3
+					span.command Ajax!
+				p
+					| MooTools uses a Class called Request.
+				:highlight(lang=js)
+					// create a new Class instance
+					var myRequest = new Request({
+						url: 'getMyText.php',
+						method: 'get',
+						onRequest: function(){
+							myElement.set('text', 'loading...');
+						},
+						onSuccess: function(responseText){
+							myElement.set('text', responseText);
+						},
+						onFailure: function(){
+							myElement.set('text', 'Sorry, your request failed :(');
+						}
+					});
+
+					// and to send it:
+					myRequest.send(data);
+
+				p
+					| To send a form it can be even more simple!
+				:highlight(lang=js)
+					myForm.send();
+					// optionally you can add/change the form properties
+					myForm.set('send', {url: 'contact.php', method: 'get'});
+
+			div
+				h3
+					span.command Event handlers
+				p
+					| Attach events to be updated on what's happening!
+				:highlight(lang=js)
+					// attach a click event o a element
+					myElement.addEvent('click', function(){
+						alert('clicked!');
+					});
+
+					// attach several events at a time
+					myElement.addEvents({
+						mouseover: function(){
+							alert('mouseover');
+						},
+						click: function(){
+							alert('click');
+						}
+					});
+
+				p
+					| You can also remove, fire or clone events!
+				:highlight(lang=js)
+					// remove a event
+					myElement.removeEvent(type, fn);
+					// fire a event
+					myElement.fireEvent(type[, args[, delay]]);
+					// clone events
+					myElement.cloneEvents(from[, type]); // defaults to all types if type == undefined
+					
 block updates
 	div.updates
 		div.clearfix.wrapper
@@ -32,13 +129,17 @@ block updates
 
 			section.box
 				div.box
-					h3 GitHub Activity
+					h3 
+						span.github(aria-hidden='true')
+						| GitHub Activity
 					include ./partials/GitHubEvents
 					mixin GitHubEvents(githubEvents, 5)
 
 			section.box
 				div.box
-					h3 Latest Tweets
+					h3 
+						span.twitter(aria-hidden='true')
+						| Latest Tweets
 					if (tweetFeed) 
 						for tweet in tweetFeed
 							p: a(href="https://twitter.com/mootools/status/#{tweet.id_str}") #{tweet.text}
@@ -47,6 +148,10 @@ block main
 
 	block about
 	
+	hr
+
+	block examples
+
 	hr
 
 	block updates
