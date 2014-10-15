@@ -1,0 +1,26 @@
+extends ../layouts/home
+
+block about
+	.overview.books
+
+		each book in books
+			.about
+				div.clearfix.wrapper
+					div.introduction
+						h2
+							| #{book.title}
+						p
+							| !{book.description}
+						
+					div.cover
+						img(src="#{book.cover}")
+						p
+							a(href='#{book.buy_link}', target='_blank', alt='#{book.alt_tag}') Grab a copy here
+
+block main
+
+	block about
+	
+	hr
+
+	block updates
