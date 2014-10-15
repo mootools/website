@@ -1,13 +1,50 @@
 h2 Modules Overview
+
 div
 	h3
-		span.command average
+		span.command Request.JSONP
 	p
-		| Calculates the average value of the array.
+		| Creates a JSON request using script tag injection and handles the callbacks.
 	:highlight(lang=js)
-		[1, 2, 3].average();
-		//returns 2
+		var myJSONP = new Request.JSONP({
+			url: 'http://goo.gl/cCLshl?format=json',
+			callbackKey: 'jsoncallback',
+			data: {
+				viewType: 'json',
+			},
+			onRequest: function (url) {
+				// a script tag is created with a 
+				// src attribute equal to url
+			},
+			onComplete: function (data) {
+				// the request was completed 
+				// and data received the server answer.
+				console.log(data); // answer object with data
+			}
+		}).send();
 
+div
+	h3
+		span.command HTML table constructor
+	p
+		| Builds table elements with methods to add rows quickly.
+	:highlight(lang=js)
+		var myTable = new HtmlTable({
+			properties: {
+				border: 5,
+				cellpadding: 5
+			},
+			headers: ['fruits', 'colors'],
+			rows: [
+				['apple', 'red'],
+				['lemon', 'yellow']
+			]
+		});
+
+		myTable.inject($(document.body));
+
+		// and to push more data into it:
+		myTable.push(['lime', 'green']);
 
 p.docs
 	a(href='/more/docs')
