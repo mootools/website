@@ -33,10 +33,10 @@ block examples
 					| Selectors for DOM Elements
 				:highlight(lang=js)
 					// get elements by class
-					$$("div.foo, div.bar, div.bar a");
+					$$('.foo'); // or even: document.getElements('.foo');
 
 					// selector with different elements
-					$$("div.foo, div.bar, div.bar a");
+					$$('div.foo, div.bar, div.bar a');
 
 					// get a single element
 					document.getElement('div.foo');
@@ -47,12 +47,12 @@ block examples
 					| A simple MooTools Class example.
 				:highlight(lang=js)
 					// the short way
-					new Element("div#bar.foo");
+					new Element('div#bar.foo');
 
 					// using the element constructor
-					new Element("div", {
-						"class": "foo",
-						id: "bar"
+					new Element('div', {
+						'class': 'foo',
+						id: 'bar'
 					});
 		section
 			div
