@@ -3,6 +3,8 @@
 var YAML = require('js-yaml');
 var fs = require("fs");
 var getFiles = require('../lib/getFiles');
+var packager = require('mootools-packager');
+var DESC_REGEXP = /\/\*\s*^---([\s\S]+?)^(?:\.\.\.|---)\s*\*\//mg;
 
 function makeString(type){
 	if (!type) return '';
@@ -13,23 +15,23 @@ module.exports = function(project, version){
 	// get all files in sub-directories
 	var path = 'cache/' + project + '/docs/' + project + '-' + version + '/Source';
 	var files = getFiles(path, [], '.js');
-
-	// get YAML info from each file
-	// TODO: add a filter for server build
-	var filesInfo = {};
-	files.forEach(function(file){
-		var content = fs.readFileSync(file, "utf8");
-		var src = file.match(/[\/\\]([^\/\\]*)\.js$/);
-
-		if (src){
-			var DESC_REGEXP = /\/\*\s*^---([.\s\S]*)^(?:\.\.\.|---)\s*\*\//m;
-			var yamlHeader = YAML.load(content.match(DESC_REGEXP)[1] || '');
-			filesInfo[src[1]] = {
-				req: makeString(yamlHeader.requires), 
-				prov: makeString(yamlHeader.provides), 
-				desc: yamlHeader.description
-			};
+	var packagerOptions = {
+		name: project.charAt(0).toUpperCase() + project.substring(1),
+		noOutput: true,
+		callback: function(src){
+			var headers = src.match(DESC_REGEXP);
+			headers.forEach(function(header){
+				var yamlHeader = YAML.load(header.slice(2, -2));
+				filesInfo[yamlHeader.name] = {
+					req: makeString(yamlHeader.requires), 
+					prov: makeString(yamlHeader.provides), 
+					desc: yamlHeader.description
+				};
+			});
 		}
-	});
+	};
+
+	var filesInfo = {};
+	packager(files, packagerOptions);
 	return filesInfo;
 };
