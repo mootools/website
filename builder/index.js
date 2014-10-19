@@ -5,6 +5,7 @@ var express = require('express');
 var UglifyJS = require('uglify-js');
 var packager = require('mootools-packager');
 var getFiles = require('../lib/getFiles');
+var projectPath = require('../lib/projectPath');
 var bodyParser = require('body-parser');
 
 var copyright = '/* MooTools: the javascript framework. license: MIT-style license. copyright: Copyright (c) 2006-' + new Date().getFullYear() + ' [Valerio Proietti](http://mad4milk.net/).*/ ';
@@ -16,14 +17,6 @@ function uglify(source){
 		mangle: ['sort'] // to assign shorter names to most frequently used variables.
 	});
 	return copyright + uglifyed.code;
-}
-
-function projectPath(project_, version_){
-	var versions = allVersions._projects[project_].versions;
-	if (versions.indexOf(version_) == -1) version_ = versions.filter(function(ver){
-		return ver.slice(0, -2) <= version_.slice(0, -2);
-	})[0];
-	return 'cache/' + project_.toLowerCase() + '/docs/' + project_.toLowerCase() + '-' + version_ + '/Source/';
 }
 
 function processPost(req, res){
