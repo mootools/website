@@ -5,9 +5,9 @@ block about
 		div.clearfix.wrapper
 			div.introduction
 				p
-					| MooTools are JavaScript libraries designed for the intermediate to advanced JavaScript developer. They allows you to write powerful and flexible code with its elegant, well documented, and coherent APIs.
+					| MooTools is a collection of JavaScript utilities designed for the intermediate to advanced JavaScript developer. It allows you to write powerful and flexible code with its elegant, well documented, and coherent APIs.
 				p
-					| MooTools code it's extensively documented and has meaningful variable names: a joy to browse and a snap to understand.
+					| MooTools code is extensively documented and easy to read, enabling you to extend the functionality to match your requirements.
 
 			div.license
 				h2
@@ -33,10 +33,10 @@ block examples
 					| Selectors for DOM Elements
 				:highlight(lang=js)
 					// get elements by class
-					$$("div.foo, div.bar, div.bar a");
+					$$('.foo'); // or even: document.getElements('.foo');
 
 					// selector with different elements
-					$$("div.foo, div.bar, div.bar a");
+					$$('div.foo, div.bar, div.bar a');
 
 					// get a single element
 					document.getElement('div.foo');
@@ -47,12 +47,12 @@ block examples
 					| A simple MooTools Class example.
 				:highlight(lang=js)
 					// the short way
-					new Element("div#bar.foo");
+					new Element('div#bar.foo');
 
 					// using the element constructor
-					new Element("div", {
-						"class": "foo",
-						id: "bar"
+					new Element('div', {
+						'class': 'foo',
+						id: 'bar'
 					});
 		section
 			div

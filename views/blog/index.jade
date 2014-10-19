@@ -1,13 +1,12 @@
-extends ../layouts/main
-
+extends ../layouts/home
 include ./partials/postedUnder
 
 block main
-	.clearfix.wrapper.blog
+	.overview.clearfix.wrapper.blog
 
 		each post in posts
 			a(href="/blog/#{post.permalink}")
-				h3 #{post.title}
+				h2 #{post.title}
 
 			small
 				space = ""
