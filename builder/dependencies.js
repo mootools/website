@@ -1,8 +1,10 @@
 "use strict";
 
 var YAML = require('js-yaml');
+var path = require('path');
 var fs = require("fs");
 var getFiles = require('../lib/getFiles');
+var projectPath = require('../lib/projectPath');
 var packager = require('mootools-packager');
 var DESC_REGEXP = /\/\*\s*^---([\s\S]+?)^(?:\.\.\.|---)\s*\*\//mg;
 
@@ -11,13 +13,18 @@ function makeString(type){
 	return typeof type == 'string' ? type : type.join(', ');
 }
 
+
 module.exports = function(project, version){
-	// get all files in sub-directories
-	var path = 'cache/' + project + '/docs/' + project + '-' + version + '/Source';
-	var files = getFiles(path, [], '.js');
+
+	var sourcePath = {
+		Core: projectPath('core', version),
+		More: projectPath('more', version)
+	};
+
 	var packagerOptions = {
-		name: project.charAt(0).toUpperCase() + project.substring(1),
+		name: sourcePath,
 		noOutput: true,
+		removeCoreDependencies: project != 'core',
 		callback: function(src){
 			var headers = src.match(DESC_REGEXP);
 			headers.forEach(function(header){
@@ -31,7 +38,12 @@ module.exports = function(project, version){
 		}
 	};
 
+	var sourceFiles = [sourcePath.Core, sourcePath.More].reduce(function(files, folder){
+		var folderPath = path.join(__dirname, '/../', folder);
+		return getFiles(folderPath, files, '.js');
+	}, []);	
+
 	var filesInfo = {};
-	packager(files, packagerOptions);
+	packager(sourceFiles, packagerOptions);
 	return filesInfo;
 };
