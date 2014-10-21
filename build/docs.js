@@ -7,6 +7,11 @@ var compile = require('../lib/compile-md');
 var pkg = require('../package.json');
 var getFiles = require('../lib/getFiles');
 var compareSEMVER = require('../lib/compareSEMVER');
+var docsIndex = (function(){
+	var projects = {};
+	for (var key in pkg._projects) projects[key] = pkg._projects[key].docsIntro;
+	return projects;
+})();
 
 var args = process.argv;
 
@@ -49,13 +54,12 @@ function build(project, docsdir){
 
 		var toc = [], intro;
 		docFiles.forEach(function(mdFile){
-
 			var projectMD = fs.readFileSync(mdFile);
 			var html = compile(projectMD, '/' + fixPath(mdFile, library));
 			var fileName = path.basename(mdFile, '.md');
 			var optionalDocFile = ~optionalDocFiles.indexOf(fileName.toLowerCase());
 			if (!optionalDocFile) toc.push(html.toc[0]);
-			var module = ~['intro', 'more'].indexOf(fileName.toLowerCase()) ? '' : fileName + '-';
+			var module = ~mdFile.indexOf(docsIndex[project]) ? '' : fileName + '-';
 			if (!module) intro = true;
 			fs.writeFile(docsdir + '/content-' + module + version + '.html', html.content);
 		});
