@@ -104,6 +104,14 @@ require('./books')(app);
 require('./builder')(app);
 require('./developers')(app);
 
+// redirect old docs path
+var versions = require('./package.json')._projects;
+app.get('/docs/:project/:module/:file?', function(req, res){
+	var latestVersion = versions[req.params.project].versions[0];
+	var newPath = ['', req.params.project, 'docs', latestVersion, req.params.module, req.params.file].join('/');
+	res.redirect(301, newPath);
+});
+
 
 // starting server
 app.listen(app.get('port'), function(){
