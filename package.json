@@ -45,7 +45,7 @@
     "slugify": "0.1",
     "stylus": "0.32",
     "sync-prompt": "^0.4.1",
-    "twitter": "^0.2.12",
+    "twitter": "https://github.com/SergioCrisostomo/node-twitter/tarball/master",
     "uglify-js": "^2.4.15",
     "unzip": "~0.1.9",
     "wrapup": "0.12",

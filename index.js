@@ -44,7 +44,7 @@ app.set('view engine', 'jade');
 app.set('view cache', true);
 app.use(favicon(__dirname + '/public/images/favicon/mootools.ico'));
 app.use(bodyParser.urlencoded({
-  extended: true
+	extended: true
 }));
 app.use(bodyParser.json());
 
