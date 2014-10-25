@@ -59,6 +59,7 @@
   "_projects": {
     "core": {
       "repository": "https://github.com/mootools/mootools-core",
+      "docsIntro": "Docs/Intro.md",
       "versions": [
         "1.5.1",
         "1.4.5",
@@ -68,6 +69,7 @@
     },
     "more": {
       "repository": "https://github.com/mootools/mootools-more",
+      "docsIntro": "Docs/More/More.md",
       "versions": [
         "1.5.1",
         "1.5.0",

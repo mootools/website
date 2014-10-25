@@ -7,6 +7,11 @@ var compile = require('../lib/compile-md');
 var pkg = require('../package.json');
 var getFiles = require('../lib/getFiles');
 var compareSEMVER = require('../lib/compareSEMVER');
+var docsIndex = (function(){
+	var projects = {};
+	for (var key in pkg._projects) projects[key] = pkg._projects[key].docsIntro;
+	return projects;
+})();
 
 var args = process.argv;
 
@@ -16,7 +21,7 @@ if (args.length < 3){
 }
 
 var project = args[2];
-var optionalDocFiles = ['readme', 'intro', 'license'];
+var optionalDocFiles = ['readme', 'intro', 'license', 'more'];
 var placeholder = '<div class="heading clearfix"><h1><a href="#">API Documentation</a></h1></div>';
 var docsdir = path.join(__dirname, "../", pkg._buildOutput, project, "docs");
 
@@ -49,13 +54,12 @@ function build(project, docsdir){
 
 		var toc = [], intro;
 		docFiles.forEach(function(mdFile){
-
 			var projectMD = fs.readFileSync(mdFile);
 			var html = compile(projectMD, '/' + fixPath(mdFile, library));
 			var fileName = path.basename(mdFile, '.md');
 			var optionalDocFile = ~optionalDocFiles.indexOf(fileName.toLowerCase());
 			if (!optionalDocFile) toc.push(html.toc[0]);
-			var module = fileName.toLowerCase() == 'intro' ? '' : fileName + '-';
+			var module = ~mdFile.indexOf(docsIndex[project]) ? '' : fileName + '-';
 			if (!module) intro = true;
 			fs.writeFile(docsdir + '/content-' + module + version + '.html', html.content);
 		});
