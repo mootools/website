@@ -35,14 +35,6 @@ Now the website is running on `http://localhost:3000`.
 `supervisor` watches all files, while wrapup/stylus write to the `public`
 folder. It is advised to use `supervisor --ignore public index`.
 
-## Vagrant
-
-If you don't want to install all node.js dependencies (and maybe later nginx),
-you can use Vagrant to get the same setup.
-
-Once that's done you're only a `vagrant up` away of running everything
-automatically. The website should then be running on `http://localhost:5001`.
-
 ## Like to help?
 
 * We need all websites for all projects, it needs to be easy, fast and done well.
