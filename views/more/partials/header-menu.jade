@@ -1,6 +1,9 @@
 menu_more = {text: "Overview", url: "/more"}
 menu_docs = {text: "Documentation", url: "/more/docs"}
-menu_guides = {text: "Guides", url: "/more/guides"}
 menu_download = {text: "Download", url: "/more/builder"}
- 
-mixin menu([menu_more, menu_docs, menu_guides, menu_download], page)
+
+mixin menu([menu_more, menu_docs, menu_download], page)
+
+//
+	menu_guides = {text: "Guides", url: "/more/guides"}
+	mixin menu([menu_more, menu_docs, menu_guides, menu_download], page)
