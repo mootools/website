@@ -79,21 +79,22 @@ var githubEvents = require('./middleware/githubEvents')({
 });
 var twitter = require('./middleware/twitter')();
 var blogData = require('./blog/data');
+function getLatestBlog(req, res, next){
+	blogData.get(function(err, blog) {
+		if (err) next(err);
+		res.locals.lastBlogPost = blog.posts[0];
+		next();
+	});
+}
 
 // home
-app.get('/', githubEvents, twitter, function(req, res, next){
-    blogData.get(function(err, blog) {
-        if (err) next(err);
-        res.locals.lastBlogPost = blog.posts[0];
-        next();
-    });
-}, function(req, res){
-    res.render('index', {
-        title: 'MooTools',
-        page: 'mootools',
-        lastBlogPost: res.locals.lastBlogPost,
-        tweetFeed: res.locals.twitter
-    });    
+app.get('/', githubEvents, twitter, getLatestBlog, function(req, res){
+	res.render('index', {
+		title: 'MooTools',
+		page: 'mootools',
+		lastBlogPost: res.locals.lastBlogPost,
+		tweetFeed: res.locals.twitter
+	});    
 });
 
 app.get('/search', function(req, res){
