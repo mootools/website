@@ -14,10 +14,12 @@ mixin doc-versions(versions, path)
 
 mixin docs(content, versions, path)
 	.docs.overview.clearfix.wrapper
+
 		mixin doc-versions(versions, path)
 
-		div.toc
+		.toc
 			include ./docs/toc
-		div.content
+
+		.content
 			| !{content}
 

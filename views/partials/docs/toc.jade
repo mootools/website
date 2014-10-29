@@ -1,6 +1,8 @@
 each section in toc
 	if section.optional == false
-		- var visibility = section.text == file ? '' : 'small';
+
+		visibility = section.path == file ? '' : 'small';
+
 		ul.section
 			li(class="#{visibility}")
 				if section.link
@@ -10,4 +12,8 @@ each section in toc
 					ul
 						each link in section.links
 							li
-								a(href= link.link) #{link.text}
+								if link.subTitle
+									h3
+										a(href=link.link) #{link.text}
+								else
+									a(href=link.link) #{link.text}
