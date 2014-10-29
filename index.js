@@ -35,7 +35,6 @@ parseArguments: while (args.length){
 			break parseArguments;
 	}
 }
-var lastBlogPost = require('./cache/blog/posts/posts.json')[0];
 
 // all environments
 app.set('views', __dirname + '/views');
@@ -74,20 +73,27 @@ require('./middleware/build-static')(app, {
 
 app.use(express.static(__dirname + '/public'));
 
+// github, twitter & blog feeds
 var githubEvents = require('./middleware/githubEvents')({
 	org: 'mootools'
 });
 var twitter = require('./middleware/twitter')();
+var blogData = require('./blog/data');
 
-app.get('/', function(req, res){
-	githubEvents(req, res);
-	twitter(req, res);
-	res.render('index', {
-		title: 'MooTools',
-		page: 'mootools',
-		lastBlogPost: lastBlogPost,
-		tweetFeed: res.locals.twitter
-	});
+// home
+app.get('/', githubEvents, twitter, function(req, res, next){
+    blogData.get(function(err, blog) {
+        if (err) next(err);
+        res.locals.lastBlogPost = blog.posts[0];
+        next();
+    });
+}, function(req, res){
+    res.render('index', {
+        title: 'MooTools',
+        page: 'mootools',
+        lastBlogPost: res.locals.lastBlogPost,
+        tweetFeed: res.locals.twitter
+    });    
 });
 
 app.get('/search', function(req, res){
