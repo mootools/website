@@ -40,21 +40,7 @@ block examples
 
 					// get a single element
 					document.getElement('div.foo');
-			div
-				h3
-					span.command How to create new DOM elements
-				p
-					| A simple MooTools Class example.
-				:highlight(lang=js)
-					// the short way
-					new Element('div#bar.foo');
 
-					// using the element constructor
-					new Element('div', {
-						'class': 'foo',
-						id: 'bar'
-					});
-		section
 			div
 				h3
 					span.command Ajax!
@@ -88,6 +74,22 @@ block examples
 
 			div
 				h3
+					span.command How to create new DOM elements
+				p
+					| A simple MooTools Element example.
+				:highlight(lang=js)
+					// the short way
+					new Element('div#bar.foo');
+
+					// using the element constructor
+					new Element('div', {
+						'class': 'foo',
+						id: 'bar'
+					});
+
+		section
+			div
+				h3
 					span.command Event handlers
 				p
 					| Attach events to be updated on what's happening!
@@ -112,11 +114,33 @@ block examples
 				:highlight(lang=js)
 					// remove a event
 					myElement.removeEvent(type, fn);
-					// fire a event
-					myElement.fireEvent(type[, args[, delay]]);
-					// clone events
-					myElement.cloneEvents(from[, type]); // defaults to all types if type == undefined
-					
+
+
+			div
+				h3
+					span.command MooTools Class
+				p
+					| A simple MooTools Class example.
+				:highlight(lang=js)
+					var Animal = new Class({
+						initialize: function(age){
+							this.age = age;
+						}
+					});
+
+					var Cat = new Class({
+						Extends: Animal,
+						initialize: function(name, age){
+							// calls initalize method of Animal class
+							this.parent(age);
+							this.name = name;
+						}
+					});
+
+					var myCat = new Cat('Micia', 20);
+					alert(myCat.name); // alerts 'Micia'.
+					alert(myCat.age); // alerts 20.
+
 block updates
 	div.updates
 		div.clearfix.wrapper
