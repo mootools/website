@@ -12,19 +12,23 @@ function makeString(type){
 	if (!type) return '';
 	return typeof type == 'string' ? type : type.join(', ');
 }
+function capitalise(name){
+	return name.charAt(0).toUpperCase() + name.slice(1);
+}
 
 
 module.exports = function(project, version){
 
+	var isCore = project == 'core';
 	var sourcePath = {
-		Core: projectPath('core', version),
-		More: projectPath('more', version)
+		Core: projectPath('core', version)
 	};
+	if (!isCore) sourcePath[capitalise(project)] = projectPath(project, version);
 
 	var packagerOptions = {
 		name: sourcePath,
 		noOutput: true,
-		removeCoreDependencies: project != 'core',
+		removeCoreDependencies: !isCore,
 		callback: function(src){
 			var headers = src.match(DESC_REGEXP);
 			headers.forEach(function(header){
@@ -38,7 +42,9 @@ module.exports = function(project, version){
 		}
 	};
 
-	var sourceFiles = [sourcePath.Core, sourcePath.More].reduce(function(files, folder){
+	var sourceFiles = Object.keys(sourcePath).map(function(proj){
+		return sourcePath[proj];
+	}).reduce(function(files, folder){
 		var folderPath = path.join(__dirname, '/../', folder);
 		return getFiles(folderPath, files, '.js');
 	}, []);	
