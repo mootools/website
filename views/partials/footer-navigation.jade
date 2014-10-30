@@ -58,10 +58,8 @@ div
 		li
 			a(href='/more/docs') MooTools More
 
-script
+script.
 	// kissmetrics
-	var KM_KEY = "bdc37c96b302d1ae5030c63f81ebb0fead91601e";
-	document.write(unescape("%3Cscript src='" + (("https:" == document.location.protocol) ? "https://s3.amazonaws.com/" : "http://") + "scripts.kissmetrics.com/t.js' type='text/javascript'%3E%3C/script%3E"));
 	if ("/" == document.location.pathname.toLowerCase())
 		KM.record("Viewed Home");
 	if ("/more" == document.location.pathname.toLowerCase())
