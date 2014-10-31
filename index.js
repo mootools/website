@@ -46,6 +46,7 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 app.use(bodyParser.json());
+
 // fix trailing slashes in path
 app.use(function(req, res, next){
 	if (req.path != '/' && req.path.substr(-1) == '/'){
@@ -142,12 +143,18 @@ app.get('*', function(req, res, next){
 	err.status = 404;
 	next(err);
 });
+
 app.use(function(err, req, res, next){
 	if (err.status != 404){
-		return next();
+		return next(err);
 	}
 	res.status(404);
 	res.render('errors/404');
+});
+
+// general error handler
+app.use(function(err){
+	console.error(err);
 });
 
 // starting server

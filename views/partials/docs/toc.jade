@@ -1,12 +1,13 @@
 each section in toc
-	- var visibility = section.text == file ? '' : 'small';
-	ul.section		
-		li(class="#{visibility}")
-			if section.link
-				a.top(href= section.link) #{section.text}
+	if section.optional == false
+		- var visibility = section.text == file ? '' : 'small';
+		ul.section
+			li(class="#{visibility}")
+				if section.link
+					a.top(href= section.link) #{section.text}
 
-			if section.links && section.links.length
-				ul
-					each link in section.links
-						li
-							a(href= link.link) #{link.text}
+				if section.links && section.links.length
+					ul
+						each link in section.links
+							li
+								a(href= link.link) #{link.text}

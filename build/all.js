@@ -5,7 +5,9 @@ var spawn = require('child_process').spawn;
 var getKeys = require('./api_keys');
 var options = process.argv.splice(2);
 
-if (~options.indexOf('--add-keys')) getKeys();
+if (options.indexOf('--add-keys') == -1){
+	getKeys();
+}
 
 var cmds = [
 	["build/docs", "core"],
