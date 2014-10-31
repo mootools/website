@@ -8,21 +8,35 @@ var waitForIt = require('../lib/waitForIt');
 var loadJSON = require('../lib/loadJSON');
 var associate = require('../lib/associate');
 var debounce = require('../lib/debounce');
+var getFiles = require('../lib/getFiles');
 
-var requestedPath;
+function getSubmodules(dir, project, version, callback){
+	var cache = {};
+	var docsPath = path.join(dir, project + '-' + version, 'Docs');
+	var docsIntro = pkg._projects[project].docsIntro;
+	async.each(getFiles(docsPath, [], '.md'), function(file, cb){
+		var moduleName = path.basename(file, '.md');
+		if (file.indexOf(docsIntro) != -1) moduleName = 'docsIntro';
+		fs.readFile(dir + '/content-' + moduleName + '-' + version + '.html', 'utf-8', function(err, data){
+			cache[moduleName] = data;
+			cb();
+		});
+	}, function(){
+		callback(null, cache);
+	});
+}
 
-function loadDocsVersion(dir, version, callback){
-	var submodule = requestedPath.file ? requestedPath.file + '-' : '';
+function loadDocsVersion(dir, project, version, callback){
 	async.parallel([
-		async.apply(fs.readFile, dir + '/content-' + submodule + requestedPath.version + '.html', 'utf-8'),
-		async.apply(loadJSON, dir + '/toc-' + requestedPath.version + '.json')
+		async.apply(getSubmodules, dir, project, version),
+		async.apply(loadJSON, dir + '/toc-' + version + '.json')
 	], function(err, res){
 		callback(err, {content: res && res[0], toc: res && res[1]});
 	});
 }
 
-function loadDocsVersions(dir, versions, callback){
-	var _loadDocsVersion = async.apply(loadDocsVersion, dir);
+function loadDocsVersions(dir, project, versions, callback){
+	var _loadDocsVersion = async.apply(loadDocsVersion, dir, project);
 	async.map(versions, _loadDocsVersion, function(err, results){
 		callback(err, {
 			docs: associate(versions, results),
@@ -40,10 +54,9 @@ module.exports = function(project, options){
 
 	if (!options) options = {};
 	if (!options.title) options.title = project;
-
 	var dir = path.join(__dirname, '../', pkg._buildOutput, project, 'docs');
 	var getVersions = async.apply(loadJSON, dir + '/versions.json');
-	var getDocsContent = async.apply(loadDocsVersions, dir);
+	var getDocsContent = async.apply(loadDocsVersions, dir, project);
 	var loadDocs = waitForIt(async.compose(getDocsContent, getVersions));
 
 	fs.watch(dir, debounce(function(){
@@ -53,25 +66,24 @@ module.exports = function(project, options){
 
 	return function(req, res, next){
 
-		requestedPath = req.params;
-		var latestVersion = pkg._projects[project].versions.sort().reverse()[0];
-		if (!requestedPath.version) res.redirect('/' + project + '/docs/' + latestVersion);
-		loadDocs.reset()
-
 		loadDocs.get(function(err, data){
 			if (err) return next(err);
+
 			var docs = data.docs;
 			var versions = data.versions;
 			var latest = data.latest;
-
 			var version = req.params.version || latest;
+			var submodule = req.params.file;
+			var content = docs[version].content[submodule ? submodule : 'docsIntro'];
+
 			if (!docs[version]) version = latest;
+			if (!req.params.version) res.redirect('/' + project + '/docs/' + latest);
 
 			res.render(project + '/docs', {
 				page: "/" + project + "/docs",
 				title: options.title,
 				navigation: project,
-				content: docs[version].content,
+				content: content,
 				toc: docs[version].toc,
 				version: version,
 				versions: versions,

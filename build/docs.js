@@ -59,7 +59,7 @@ function build(project, docsdir){
 			var fileName = path.basename(mdFile, '.md');
 			var optionalDocFile = ~optionalDocFiles.indexOf(fileName.toLowerCase());
 			if (!optionalDocFile) toc.push(html.toc[0]);
-			var module = ~mdFile.indexOf(docsIndex[project]) ? '' : fileName + '-';
+			var module = ~mdFile.indexOf(docsIndex[project]) ? 'docsIntro-' : fileName + '-';
 			if (!module) intro = true;
 			fs.writeFile(docsdir + '/content-' + module + version + '.html', html.content);
 		});
