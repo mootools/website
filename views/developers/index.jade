@@ -26,18 +26,11 @@ block main
 
 	.overview.clearfix.wrapper
 
-		div.developers
+		for section, key in developersData 
+			div.developers
 
-			section 
-				h1 Developers
+				section 
+					h1 #{key}
 				
-			for result in developersData.developers	
-				+content(result)
-						
-			section 
-				h1 Alumni
-					
-			for result in developersData.alumni	
-				+content(result)
-
-
+				for person in section
+					+content(person)

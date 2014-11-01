@@ -14,8 +14,10 @@ module.exports = function(app){
 	};
 
 	app.get('/developers', developers, function(req, res){
-		developersData.developers = developersData.developers.sort(randomSort);
-		developersData.alumni = developersData.alumni.sort(randomSort);
+
+		Object.keys(developersData).forEach(function(section){
+			developersData[section] = developersData[section].sort(randomSort);
+		});
 		res.render('developers/index', {
 			site: "mootools",
 			title: "MooTools Developers",
