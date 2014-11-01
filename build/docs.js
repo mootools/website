@@ -60,10 +60,11 @@ function build(project, docsdir){
 			var tocItem   = html.toc[0];
 			var fileName  = path.basename(mdFile, '.md');
 
-			var module    = mdFile.indexOf(docsIndex) != -1 ? '' : fileName + '-';
-			if (!module) intro = true;
-
-			fs.writeFile(docsdir + '/content-' + module + version + '.html', html.content);
+			fs.writeFile(docsdir + '/content-' + fileName + '-' + version + '.html', html.content);
+			if (mdFile.indexOf(docsIndex) != -1){
+				fs.writeFile(docsdir + '/content-' + version + '.html', html.content);
+				intro = true;
+			}
 
 			var optionalDocFile = optionalDocFiles.indexOf(fileName.toLowerCase()) != -1;
 			tocItem.optional = optionalDocFile;
