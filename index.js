@@ -149,7 +149,9 @@ app.use(function(err, req, res, next){
 		return next(err);
 	}
 	res.status(404);
-	res.render('errors/404');
+	res.render('errors/404', {
+		site: 'mootools'
+	});
 });
 
 // general error handler
