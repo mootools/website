@@ -46,14 +46,15 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 app.use(bodyParser.json());
+
 // fix trailing slashes in path
 app.use(function(req, res, next){
-    if (req.path != '/' && req.path.substr(-1) == '/'){
-        var query = req.url.slice(req.path.length);
-        res.redirect(301, req.path.slice(0, -1) + query);
-    } else {
-        next();
-    }
+	if (req.path != '/' && req.path.substr(-1) == '/'){
+		var query = req.url.slice(req.path.length);
+		res.redirect(301, req.path.slice(0, -1) + query);
+	} else {
+		next();
+	}
 });
 
 // important to be before express.router
@@ -103,7 +104,7 @@ app.get('/', githubEvents, twitter, getLatestBlog, function(req, res){
 		page: 'mootools',
 		lastBlogPost: res.locals.lastBlogPost,
 		tweetFeed: res.locals.twitter
-	});    
+	});
 });
 
 app.get('/search', function(req, res){
@@ -123,7 +124,9 @@ require('./developers')(app);
 // redirect old docs path
 var projects = require('./package.json')._projects;
 app.get('/docs/:project?/:module?/:file?', function(req, res){
-	if (!req.params.project || !projects[req.params.project]) res.redirect(301, '/core/docs');
+	if (!req.params.project || !projects[req.params.project]){
+		res.redirect(301, '/core/docs');
+	}
 	var latestVersion = projects[req.params.project].versions[0];
 	var newPath = '/' + [req.params.project, 'docs', latestVersion, req.params.module, req.params.file].filter(Boolean).join('/');
 	res.redirect(301, newPath);
@@ -134,6 +137,27 @@ app.get(/^\/download/i, function(req, res){
 	res.redirect(301, '/core');
 });
 
+// handle 404 errors
+app.get('*', function(req, res, next){
+	var err = new Error();
+	err.status = 404;
+	next(err);
+});
+
+app.use(function(err, req, res, next){
+	if (err.status != 404){
+		return next(err);
+	}
+	res.status(404);
+	res.render('errors/404', {
+		site: 'mootools'
+	});
+});
+
+// general error handler
+app.use(function(err){
+	console.error(err);
+});
 
 // starting server
 app.listen(app.get('port'), function(){

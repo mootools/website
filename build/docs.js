@@ -7,11 +7,6 @@ var compile = require('../lib/compile-md');
 var pkg = require('../package.json');
 var getFiles = require('../lib/getFiles');
 var compareSEMVER = require('../lib/compareSEMVER');
-var docsIndex = (function(){
-	var projects = {};
-	for (var key in pkg._projects) projects[key] = pkg._projects[key].docsIntro;
-	return projects;
-})();
 
 var args = process.argv;
 
@@ -24,6 +19,7 @@ var project = args[2];
 var optionalDocFiles = ['readme', 'intro', 'license', 'more'];
 var placeholder = '<div class="heading clearfix"><h1><a href="#">API Documentation</a></h1></div>';
 var docsdir = path.join(__dirname, "../", pkg._buildOutput, project, "docs");
+var docsIndex = pkg._projects[project].docsIntro;
 
 build(project, docsdir);
 
@@ -41,6 +37,7 @@ function build(project, docsdir){
 
 	var projectFiles = fs.readdirSync(docsdir);
 	var verionsIndex = [];
+
 	projectFiles.forEach(function(library){
 
 		var type = fs.statSync(docsdir + '/' + library);
@@ -50,18 +47,31 @@ function build(project, docsdir){
 		// get all .md files inside each project-version
 		var docFiles = getFiles(versionPath, null, '.md');
 		var version = library.split('-')[1];
-		if (!~verionsIndex.indexOf(version)) verionsIndex.push(version);
+		if (verionsIndex.indexOf(version) == -1){
+			verionsIndex.push(version);
+		}
 
-		var toc = [], intro;
+		var toc = [];
+		var intro;
+
 		docFiles.forEach(function(mdFile){
 			var projectMD = fs.readFileSync(mdFile);
-			var html = compile(projectMD, '/' + fixPath(mdFile, library));
-			var fileName = path.basename(mdFile, '.md');
-			var optionalDocFile = ~optionalDocFiles.indexOf(fileName.toLowerCase());
-			if (!optionalDocFile) toc.push(html.toc[0]);
-			var module = ~mdFile.indexOf(docsIndex[project]) ? '' : fileName + '-';
-			if (!module) intro = true;
-			fs.writeFile(docsdir + '/content-' + module + version + '.html', html.content);
+			var html      = compile(projectMD, '/' + fixPath(mdFile, library));
+			var tocItem   = html.toc[0];
+			var fileName  = path.basename(mdFile, '.md');
+
+			fs.writeFile(docsdir + '/content-' + fileName + '-' + version + '.html', html.content);
+			if (mdFile.indexOf(docsIndex) != -1){
+				fs.writeFile(docsdir + '/content-' + version + '.html', html.content);
+				intro = true;
+			}
+
+			var optionalDocFile = optionalDocFiles.indexOf(fileName.toLowerCase()) != -1;
+			tocItem.optional = optionalDocFile;
+			var mdFileDir = path.dirname(path.relative(versionPath, mdFile));
+			tocItem.path = path.join(mdFileDir, fileName);
+			tocItem.file = fileName;
+			toc.push(tocItem);
 		});
 
 		if (!intro) fs.writeFile(docsdir + '/content-' + version + '.html', placeholder);
