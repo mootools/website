@@ -1,5 +1,5 @@
 {
-    "developers": [{
+    "Developers": [{
         "Name": "Valerio Proietti",
         "Nick": "(kamicane)",
         "Web": ["http://mad4milk.net"],
@@ -127,7 +127,7 @@
         "img": "../images/avatars/djamil.png",
         "Location": "Torino, Italia"
     }],
-    "alumni": [{
+    "Alumni": [{
         "Name": "Yaroslaff Fedin",
         "Nick": "(inviz)",
         "Web": ["http://inviz.ru"],
@@ -180,5 +180,14 @@
         "GitHub": "http://github.com/guille",
         "img": "../images/avatars/guillermo.png",
         "Location": "Buenos Aires, Argentina"
+    }],
+	"Design": [{
+        "Name": "Pietro Gregorini",
+        "Nick": "(pietrogregorini)",
+        "Web": ["http://www.pietrogregorini.com"],
+        "Twitter": "http://twitter.com/pietrogregorini",
+        "GitHub": "http://github.com/pietrogregorini",
+        "img": "../images/avatars/pietrogregorini.jpg",
+        "Location": "Italy"
     }]
 }
