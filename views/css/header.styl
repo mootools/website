@@ -1,7 +1,7 @@
 /* H E A D E R * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #global-bar
-	box-shadow: #9c9ea0 0px 0px 30px;
+	box-shadow: rgba(0,0,0,0.1) 0px 0px 30px;
 	padding-bottom: 1em;
 	padding-top: 1em;
 	position: fixed;
@@ -13,7 +13,7 @@
 	div.wrapper
 		position: relative;
 		div.right
-			bottom: 0;
+			bottom: 4px;
 			position: absolute;
 			right: 4%;
 	ul > li > a
@@ -81,6 +81,10 @@ body.mootools #global-bar
 #header
 	border-bottom: solid #7D8AA5 1px;
 	margin-top: 3em;
+
+	div.wrapper div.right
+		bottom: 0px;
+
 	h1 img
 		height: 60px;
 		width: auto;

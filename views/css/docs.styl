@@ -4,7 +4,7 @@
 	padding-bottom: 2em;
 
 	.versions
-		background: #DEDFDF;
+		background: #e5e8ed;
 		border-radius: 5px;
 		color: #3C3A37;
 		margin: 0 0 2em;
@@ -55,7 +55,7 @@
 
 		ul
 			border-top: solid #e5e3df 1px;
-			padding: 1em 1em;
+			padding: 0.5em 1em 1em;
 			overflow: none;
 			&:first-child
 				border-top: none;
@@ -78,7 +78,6 @@
 				&.top
 					font-size: 1.2em;
 					margin: 0 0 0.5em;
-					padding: 0.4em
 
 		a.top:after
 			color: #acaaa7;
@@ -90,10 +89,13 @@
 	.content
 		margin: 0 0 2em;
 
-		.heading:first-child h1
-			border: 0;
-			margin: 0;
-			padding: 0;
+		.heading:first-child
+			h1
+				border: 0;
+				margin: 0;
+				padding: 0;
+			.back-to-top
+				display: none;
 
 		h1
 			border-top: solid 1px #e5e3df;
@@ -164,22 +166,26 @@
 		pre
 			margin: 0.5em 0 0;
 
+	a.back-to-top:before
+		color: #ffffff;
+		icon-up-open-mini()
+		margin-right: 0.5em;
+		font-family: "Entypo";
+		font-size: 110%;
+
+	a.back-to-top
+		color: #ffffff !important;
+		font-size: 0.8em;
+		margin-top: -3.4em;
+		padding: 0.3em 0.5em;
+		position: absolute !important;
+		right: 0.5em;
+
+	a.back-to-top:active, a.back-to-top:focus
+		background-color: #ffffff;
+
+	a.top:active, a.top:focus
+		background-color: #777571;
 
 .heading
 	position: relative;
-
-a.back-to-top
-	background: #d9d6d3;
-	border-radius: 5px;
-	color: #777571;
-	font-size: 0.8em;
-	margin-top: -3.4em;
-	padding: 0.3em 0.5em;
-	position: absolute !important;
-	right: 0.5em;
-
-a.back-to-top:active, a.back-to-top:focus
-	background-color: #ffffff;
-
-a.top:active, a.top:focus
-	background-color: #777571;
