@@ -1,21 +1,21 @@
 
-upstream staging.mootools.net {
-	server 127.0.0.1:3000;
+upstream mootools.net {
+	server 127.0.0.1:8000;
 }
 
 server {
 
 	listen [::]:80; ## listen for ipv4 and ipv6
 
-	server_name staging.mootools.net;
+	server_name mootools.net;
 
-	access_log /var/log/nginx/staging.mootools.net.access.log;
+	access_log /var/log/nginx/mootools.net.access.log;
 
 	location / {
 		proxy_redirect off;
 		proxy_set_header Host $http_host;
 		proxy_set_header X-Real-IP $remote_addr;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-		proxy_pass http://staging.mootools.net;
+		proxy_pass http://mootools.net;
 	}
 }
