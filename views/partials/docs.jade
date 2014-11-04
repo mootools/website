@@ -6,10 +6,10 @@ mixin doc-versions(versions, path)
 			each ver in versions
 				li
 					if version == ver
-						a(href="#{path}#{ver}", class='selected')
+						a(href="#{path}#{ver}#{file ? '/' + file : ''}", class='selected')
 							| #{ver}
 					else
-						a(href="#{path}#{ver}")
+						a(href="#{path}#{ver}#{file ? '/' + file : ''}")
 							| #{ver}
 
 mixin docs(content, versions, path)
