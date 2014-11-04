@@ -12,7 +12,7 @@
 PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
 DAEMON_ARGS="/srv/www/mootools.net/index.js -p 8000"
 DESC="mootools production server"
-NODEUSER=mootools:mootools
+NODEUSER=root:staff
 LOCAL_VAR_RUN=/var/run
 
 NAME=node
