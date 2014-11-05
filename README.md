@@ -1,19 +1,16 @@
-Central place for ideas and designs for MooTools Projects.
-
-Want to help, go to the [Wiki](https://github.com/mootools/website/wiki) and add your things.
-
-Now there is something implemented already too. To start hacking follow the steps below:
-
 ## Installation
 
 To install everything you need to clone the repository and submodules (for the docs), install dependencies, build the documentation and run the server:
 
 ```bash
-~$ git clone git://github.com/mootools/website.git
-~$ cd website
-~/website$ npm install
-~/website$ node build/all
-~/website$ node index
+
+	git clone git://github.com/mootools/website.git
+	cd website
+	npm install
+	cp config/api_keys.sample.json config/api_keys.json
+	node build/all
+	node index
+
 ```
 
 ### Notes:
@@ -24,38 +21,27 @@ To install everything you need to clone the repository and submodules (for the d
 
 ## Run it
 
-To run it, you can either use node directly, use `forever` or use `supervisor`.
+To run it, you can either use node directly.
 
 ```bash
-node index
+
+	node index
+
 ```
+Now the website is running on `http://localhost:3000`. 
 
-Now the website is running on `http://localhost:3000`.
-
-`supervisor` watches all files, while wrapup/stylus write to the `public`
-folder. It is advised to use `supervisor --ignore public index`.
+Alternatively use `forever` or use `supervisor`. `supervisor` watches all files, while wrapup/stylus write to the `public` folder. It is advised to use `supervisor --ignore public index`.
 
 ## Like to help?
 
-* We need all websites for all projects, it needs to be easy, fast and done well.
-* Like to work with cool techniques like node, express, jade and stylus?
-* We also need great content and documentation.
-* All pages and navigation need to be fixed
-* ~~Homepage needs to be transformed into html/css according to [the design](https://github.com/mootools/website/tree/master/design)~~
-* Styling for different projects according [designs](https://github.com/mootools/website/tree/master/design)
-* ~~Adding sites for other projects: wrapup, moofx, agent~~
-* ~~Integrate the wrapup-webbuilder better~~
-* Overall polish
-* So fork and send pull requests!
+We have a [Trello board](https://trello.com/b/84PZ53Pr/development) that you can follow and comment on. Also you can find [opened issues](https://github.com/mootools/website/issues) and create pull requests.
 
 ## Folder structure
 
 - `/index.js`, is the main file, you can find everything from there
 - `/views` is where all the views and uncompiled js/css is
-- `/public` is where compiled css/js is saved. Also contains other things like
-  images or fonts
-- `/{prime,elements,agent,moofx}` is where the routes of those projects are
-  defined also the source files (markdown) of the guides/tutorials
+- `/public` is where compiled css/js is saved. Also contains other things like images or fonts
+- `/{core,more}` is where the routes of those projects are defined also the source files (markdown) of the guides/tutorials
 - `/blog` is where the routes and blogposts are stored
 - `/{middleware,lib}` are some library/helper modules
 - `/tests` is where some unit tests for some modules are located
@@ -64,10 +50,12 @@ folder. It is advised to use `supervisor --ignore public index`.
 - `/build` contains build scripts for the blog/guides and more
 - `/cache` is where the output of the build scripts is stored
 
-## Adding new release of project
+## Adding new release of project (untested as of 2014-11-04)
 
 ```bash
-node build/release [project] [tag]
+
+	node build/release [project] [tag]
+
 ```
 
 this command should update the `package.json` configuration fields. After that
