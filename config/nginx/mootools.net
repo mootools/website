@@ -3,6 +3,15 @@ server {
 #	listen 80; ## listen for ipv4
 	listen [::]:80; ## listen for ipv4 and ipv6
 
+	server_name www.mootools.net;
+
+	return 301 $schme://mootools.net$request_uri;
+}
+
+server {
+
+	listen [::]:80; ## listen for ipv4 and ipv6
+
 	server_name mootools.net;
 
 	root /srv/www/mootools.net/public;
