@@ -1,21 +1,123 @@
-
-upstream mootools.net {
-	server 127.0.0.1:8000;
-}
-
 server {
 
+#	listen 80; ## listen for ipv4
 	listen [::]:80; ## listen for ipv4 and ipv6
 
 	server_name mootools.net;
 
+	root /srv/www/mootools.net/public;
 	access_log /var/log/nginx/mootools.net.access.log;
+#	error_log /var/log/nginx/mootools.net.error.log;
 
-	location / {
+#	error_page 400 401 403 404 410 500 502 503 504 = @error;
+	error_page 400 = @error400;
+	error_page 401 = @error401;
+	error_page 403 = @error403;
+	error_page 404 502 = @error404;
+	error_page 410 = @error410;
+	error_page 500 503 504 = @error500;
+
+	location ~ \.php$ {
+		try_files $uri.html =404;
+	}
+
+	location ~ ^/([^/]*)(?:/(.*))?$ {
+		try_files $uri $uri/index.html @microsites;
+	}
+
+	location @microsites {
+		root /srv/www/mootools.net/microsites/$1/public;
+		try_files /$2 /$2/index.html @proxy;
+	}
+
+	location @proxy {
+		set $microsite $1;
+		root /srv/www/mootools.net/microsites/$microsite/public;
+
+		set $socket website;
+		set $location /;
+		set $target $uri;
+
+		if (!-d /srv/www/mootools.net/microsites/$1) {
+			set $microsite "";
+		}
+
+		if ($microsite) {
+			set $socket $1;
+			set $location /$1;
+			set $target /$2;
+		}
+
+		if ($microsite = "forge") {
+			set $fastcgi 1;
+		}
+
+		if ($fastcgi = "") {
+			proxy_pass http://unix:/var/opt/mootools/sockets/$socket:$target;
+		}
+
 		proxy_redirect off;
-		proxy_set_header Host $http_host;
+		proxy_set_header Host $host;
 		proxy_set_header X-Real-IP $remote_addr;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-		proxy_pass http://mootools.net;
+		proxy_set_header X-Location $location;
+		proxy_connect_timeout 10s;
+#		proxy_intercept_errors on;
+		proxy_pass_header Server;
+
+		if ($fastcgi) {
+			fastcgi_pass unix:/var/opt/mootools/sockets/fcgi_$socket;
+		}
+
+		include fastcgi_params;
+		fastcgi_index index.php;
+		fastcgi_param SCRIPT_FILENAME $document_root/index.php;
+		fastcgi_param SCRIPT_NAME /$microsite/index.php;
 	}
+
+#	location @error {
+#		root /srv/www/mootools.net/error;
+#		try_files /$status.html /error.html =$status;
+#	}
+
+	location @error400 {
+		root /srv/www/mootools.net/error;
+		try_files /400.html /error.html =400;
+	}
+
+	location @error401 {
+		root /srv/www/mootools.net/error;
+		try_files /401.html /error.html =401;
+	}
+
+	location @error403 {
+		root /srv/www/mootools.net/error;
+		try_files /403.html /error.html =403;
+	}
+
+	location @error404 {
+		root /srv/www/mootools.net/error;
+		try_files /404.html /error.html =404;
+	}
+
+	location @error410 {
+		root /srv/www/mootools.net/error;
+		try_files /410.html /error.html =410;
+	}
+
+	location @error500 {
+		root /srv/www/mootools.net/error;
+		try_files /500.html /error.html =500;
+	}
+
+}
+
+server {
+
+#	listen 80; ## listen for ipv4
+	listen [::]:80; ## listen for ipv4 and ipv6
+
+	server_name www.mootools.net;
+	return 301 $scheme://mootools.net$request_uri;
+
 }
