@@ -7,6 +7,15 @@ server {
 
 	listen [::]:80; ## listen for ipv4 and ipv6
 
+	server_name www.mootools.net;
+
+	return 301 $schme://mootools.net$request_uri;
+}
+
+server {
+
+	listen [::]:80; ## listen for ipv4 and ipv6
+
 	server_name mootools.net;
 
 	access_log /var/log/nginx/mootools.net.access.log;
