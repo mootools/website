@@ -28,13 +28,15 @@ module.exports = function(app){
 		});
 	});
 
-	app.get('/more/builder', function(req, res){
+	app.get('/more/builder/:hash?', function(req, res){
+		var hash = req.params.hash;
 		res.render('builder/index', {
 			title: 'MooTools More Builder',
 			navigation: 'more',
 			page: 'builder',
 			project: 'More',
 			site: 'more',
+			hashDependencies: getHashDependencies(hash),
 			version: lastVersion,
 			dependencies: require('../builder/dependencies.js')(project, lastVersion)
 		});
@@ -46,5 +48,12 @@ module.exports = function(app){
 
 	app.get('/more/guides', more, guides.index);
 	app.get('/more/guides/:guide', more, guides.article);
+
+	// hash build redirect
+	var regex = /more\/([a-z]+[0-9]+[a-z0-9]*|[0-9]+[a-z]+[a-z0-9]*)$/;
+	app.get(regex, function(req, res){
+		var hash = req.url.match(regex)[1];
+		res.redirect('/more/builder#' + hash);
+	});
 
 };

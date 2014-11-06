@@ -12,7 +12,7 @@ block main
 
 		div.header.clearfix
 			h1 Download complete source
-			form(method="post", action="../builder")
+			form(method="post", action="/builder")
 				input(hidden, name="project", value="#{project}")
 				.save
 
@@ -40,7 +40,7 @@ block main
 			
 			h3 Choose which modules you want to use
 
-		form(method="post", action="../builder")
+		form(method="post", action="/builder")
 			input(hidden, name="project", value="#{project}")
 			table#builderOptions
 				tr
@@ -50,16 +50,17 @@ block main
 					td Description
 
 				each yaml, module in dependencies
+					- var file = project + "/" + module;
+					- var hashRequested = hashDependencies.indexOf(file) != -1;
 					tr
 						td 
-							input(type="checkbox", value="#{project}/#{module}", name="modules[]", data-provides="#{yaml.prov}", data-requires="#{yaml.req}")
+							input(type="checkbox", value=file, name="modules[]", data-provides="#{yaml.prov}", data-requires="#{yaml.req}", checked=hashRequested)
 						td #{module}
 						td #{yaml.prov}
 						td #{yaml.desc}
 
 			h2.step Options:
 
-						
 			.save
 
 				label
