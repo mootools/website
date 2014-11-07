@@ -124,11 +124,15 @@ require('./developers')(app);
 // redirect old docs path
 var projects = require('./package.json')._projects;
 app.get('/docs/:project?/:module?/:file?', function(req, res){
-	if (!req.params.project || !projects[req.params.project]){
-		res.redirect(301, '/core/docs');
+	var project = projects[req.params.project] ? req.params.project : 'core';
+	var latestVersion = projects[project].versions[0];
+	if (!req.params.project) res.redirect(301, '/core/docs' + latestVersion);
+	var newPath;
+	if (!req.params.file){
+		newPath = ['/core/docs', latestVersion, req.params.project, req.params.module].join('/');
+	} else {
+		newPath = ['', req.params.project, 'docs', latestVersion, req.params.module, req.params.file].join('/');
 	}
-	var latestVersion = projects[req.params.project].versions[0];
-	var newPath = '/' + [req.params.project, 'docs', latestVersion, req.params.module, req.params.file].filter(Boolean).join('/');
 	res.redirect(301, newPath);
 });
 
