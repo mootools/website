@@ -68,14 +68,12 @@
 				color: #575551 !important;
 				font-weight: 400;
 			a
-				color: #575551 !important;
+				color: #575551;
 				display: block;
 				padding: 0.3em
-				&:active,
-				&:focus
-					color: #ffffff !important;
 
 				&.top
+					color: #7d8aa5;
 					font-size: 1.2em;
 					margin: 0 0 0.5em;
 
@@ -85,6 +83,11 @@
 			float: right;
 			font-family: "Entypo";
 			font-size: 140%;
+
+		a.top:active, a.top:focus
+			background-color: #777571;
+			&:after
+				color: #ffffff;
 
 	.content
 		margin: 0 0 2em;
@@ -171,26 +174,26 @@
 		pre
 			margin: 0.5em 0 0;
 
-	a.back-to-top:before
-		color: #ffffff;
-		icon-up-open-mini()
-		margin-right: 0.5em;
-		font-family: "Entypo";
-		font-size: 110%;
+		a.back-to-top:before
+			color: #ffffff;
+			icon-up-open-mini()
+			margin-right: 0.5em;
+			font-family: "Entypo";
+			font-size: 110%;
 
-	a.back-to-top
-		color: #ffffff !important;
-		font-size: 0.8em;
-		margin-top: -3.4em;
-		padding: 0.3em 0.5em;
-		position: absolute !important;
-		right: 0.5em;
+		a.back-to-top
+			color: #ffffff !important;
+			font-size: 0.8em;
+			margin-top: -3.4em;
+			padding: 0.3em 0.5em;
+			position: absolute !important;
+			right: 0.5em;
 
-	a.back-to-top:active, a.back-to-top:focus
-		background-color: #ffffff;
-
-	a.top:active, a.top:focus
-		background-color: #777571;
+		a.back-to-top:active, a.back-to-top:focus
+			background-color: #ffffff;
+			color: #7D8AA5 !important;
+			&:before
+				color: #7D8AA5 !important;
 
 .heading
 	position: relative;
