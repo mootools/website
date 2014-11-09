@@ -7,9 +7,18 @@ var packager = require('mootools-packager');
 var getFiles = require('../lib/getFiles');
 var projectPath = require('../lib/projectPath');
 var bodyParser = require('body-parser');
+var pkgProjects = require('../package.json')._projects;
 
+var hashPath = (function(){
+	var pathObject = {};
+	var projects = Object.keys(pkgProjects).forEach(function(project){
+		pathObject[project] = pkgProjects[project].hashStorage;
+	})
+	return pathObject;
+})();
+var builderHash = require('../middleware/builderHash')(hashPath);
 var copyright = '/* MooTools: the javascript framework. license: MIT-style license. copyright: Copyright (c) 2006-' + new Date().getFullYear() + ' [Valerio Proietti](http://mad4milk.net/).*/ ';
-var allVersions = require('../package.json');
+
 
 function uglify(source){
 	var uglifyed = UglifyJS.minify(source, {
@@ -24,7 +33,7 @@ function processPost(req, res){
 	var postData = req.body;
 	var minified = postData.minified;
 	var project = postData.project;
-	var version = allVersions._projects[project.toLowerCase()].versions[0];
+	var version = pkgProjects[project.toLowerCase()].versions[0];
 
 	var corePath = projectPath('core', version);
 	var morePath = projectPath('more', version);
@@ -62,10 +71,22 @@ function processPost(req, res){
 		res.end();
 	}
 }
-
+function hash(req, res, next){
+	if (!req.query.packages) return res.end();
+	builderHash.save(req.query.project, req.query.packages, function(data) {
+		res.locals.hash = data.hash;
+		next();
+	});
+}
 module.exports = function(app){
 	app.use(bodyParser.urlencoded({
 		extended: true
 	}));
 	app.post('/builder', processPost);
+	app.get('/builder', hash, function(req, res){
+		res.send({
+			hash: res.locals.hash,
+			project: req.query.project
+		});
+	});
 };

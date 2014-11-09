@@ -31,9 +31,8 @@ function loadHash(project, hash, callback){
 function saveHash(project, packages, callback){
 	if (packages && packages.length){
 		var db = getDatabase(project),
-			packageString = packages.join(';'),
+			packageString = typeof packages == 'string' ? packages : packages.join(';'),
 			hash = md5.digest_s(packageString);
-
 		db.get('SELECT COUNT(*) AS count FROM hashes WHERE md5 = ?', {1: hash}, function(error, row){
 			if (error) throw error;
 			if (row.count){

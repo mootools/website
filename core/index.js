@@ -9,8 +9,8 @@ var guides = require('../middleware/guides')('core', {
 });
 
 var project = 'core';
-var versions = require('../package.json')._projects[project].versions;
-var getHashDependencies = require('../lib/getHashDependencies')();
+var pkgProject = require('../package.json')._projects[project];
+var versions = pkgProject.versions;
 var links = versions.slice(1).map(function(version){
 	return {
 		version: version,
@@ -23,6 +23,19 @@ var links = versions.slice(1).map(function(version){
 	};
 });
 
+var builderHash = require('../middleware/builderHash')({
+	core: pkgProject.hashStorage
+});
+
+function hash(req, res, next){
+	var hash = req.params.hash;
+	if (!hash) return next();
+	builderHash.load(project, hash, function(data) {
+		res.locals.hash = data.packages;
+		next();
+	});
+}
+
 module.exports = function(app){
 
 	var core = function(req, res, next){
@@ -31,7 +44,6 @@ module.exports = function(app){
 	};
 
 	app.get('/core', core, function(req, res){
-
 		res.render('core/index', {
 			page: "/core",
 			title: "MooTools Core",
@@ -42,15 +54,14 @@ module.exports = function(app){
 		});
 	});
 
-	app.get('/core/builder/:hash?', function(req, res){
-		var hash = req.params.hash;
+	app.get('/core/builder/:hash?', hash, function(req, res){
 		res.render('builder/index', {
 			title: 'MooTools Core Builder',
 			navigation: 'core',
 			page: 'builder',
 			project: 'Core',
 			site: 'core',
-			hashDependencies: getHashDependencies(hash),
+			hashDependencies: res.locals.hash || [],
 			version: versions[0],
 			versions: links,
 			dependencies: require('../builder/dependencies.js')(project, versions[0])
@@ -65,10 +76,8 @@ module.exports = function(app){
 	app.get('/core/guides/:guide', core, guides.article);
 
 	// hash build redirect
-	var regex = /core\/([a-z]+[0-9]+[a-z0-9]*|[0-9]+[a-z]+[a-z0-9]*)$/;
-	app.get(regex, function(req, res){
-		var hash = req.path.match(regex)[1];
-		res.redirect('/core/builder/' + hash);
+	app.get('/core/:hash', function(req, res){
+		res.redirect('/core/builder/' + req.params.hash);
 	});
 
 };

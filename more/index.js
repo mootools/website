@@ -9,7 +9,21 @@ var guides = require('../middleware/guides')('more', {
 });
 
 var project = 'more';
-var lastVersion = require('../package.json')._projects[project].versions[0];
+var pkgProject = require('../package.json')._projects[project];
+var lastVersion = pkgProject.versions[0];
+
+var builderHash = require('../middleware/builderHash')({
+	more: pkgProject.hashStorage
+});
+
+function hash(req, res, next){
+	var hash = req.params.hash;
+	if (!hash) return next();
+	builderHash.load(project, hash, function(data) {
+		res.locals.hash = data.packages;
+		next();
+	});
+}
 
 module.exports = function(app){
 
@@ -28,7 +42,7 @@ module.exports = function(app){
 		});
 	});
 
-	app.get('/more/builder/:hash?', function(req, res){
+	app.get('/more/builder/:hash?', hash, function(req, res){
 		var hash = req.params.hash;
 		res.render('builder/index', {
 			title: 'MooTools More Builder',
@@ -36,7 +50,7 @@ module.exports = function(app){
 			page: 'builder',
 			project: 'More',
 			site: 'more',
-			hashDependencies: getHashDependencies(hash),
+			hashDependencies: res.locals.hash || [],
 			version: lastVersion,
 			dependencies: require('../builder/dependencies.js')(project, lastVersion)
 		});

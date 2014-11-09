@@ -1,11 +1,35 @@
 "use strict";
 
+var global = global || {};
+global.hashRequest = new Request.JSON({
+    url: '/builder',
+    method: 'get',
+	onComplete: function(res){
+		var link = '/' + res.project + '/builder/' + res.hash;
+		var anchor = new Element('a', {
+			href: link,
+			text: 'mootools.net' + link
+		});
+		$('hashLink').empty().adopt(anchor).addClass('visible');
+		$('builderOptions').submit();
+	}
+});
+
+
 window.addEvent('domready', function(){
 	
 	// download buttons, form submit and source code download
 	document.getElements('a.getFile').addEvent('click', function(e){
 		e.preventDefault();
-		this.getParent('form').submit();
+		// check if checkbox for getting hash is checked
+		if (!$('hashOption').get('checked')) return $('builderOptions').submit();
+
+		// prepare data and send Request
+		var project = document.getElement('input[name="project"]').value.toLowerCase();
+		var packages = $$('.activeChoice').get('value').reduce(function(a, b){
+			return a + b + ';';
+		}, '');
+		global.hashRequest.send('packages=' + packages + '&project=' + project);
 	});
 
 	// to manage dependencies in build table
@@ -32,7 +56,9 @@ if (window.matchMedia){
 			var notReallySelected = selected && selected.classList.contains('not-really');
 			if (!selected) selected = navigation.querySelector('li');
 
-			if (!navigation || !selected) return;
+			if (!navigation || !selected){
+				return;
+			}
 
 			var opened = false;
 			selected.addEventListener('click', function(event){
@@ -76,36 +102,53 @@ if (window.matchMedia){
 
 function customBuilderTable(){
 
-	var checkboxes = document.querySelectorAll('table#builderOptions input[type=checkbox]');
+	var checkboxes = $$('form#builderOptions table input[type=checkbox]');
+	// in case not builder page
 	if (!checkboxes.length) return;
+
 	var providerInput = {};
 	var requireInput = {};
-	for (var i = 0; i < checkboxes.length; i++){
-		var data = getData(checkboxes[i]);
+	checkboxes.each(function(checkbox){
+		var data = getData(checkbox);
 		data.provides.forEach(function(code){
-			if (code) providerInput[code] = checkboxes[i];
+			if (code) providerInput[code] = checkbox;
 		});
 		data.requires.forEach(function(code){
 			if (code){
 				if (!requireInput[code]) requireInput[code] = [];
-				requireInput[code].push(checkboxes[i]);
+				requireInput[code].push(checkbox);
 			}
 		});
-		checkboxes[i].addEventListener('change', updateModules)
-	};
+		checkbox.addEvent('change', changedModule);
+	});
+	// in case its a hash URL with pre-selected modules
+	$$('.activeChoice').set('checked', true).fireEvent('change');
 
+	// everytime a checkbox changes
+    function changedModule() {
+        this.toggleClass('activeChoice', this.checked || !this.hasClass('activeChoice'));
+		var required = [];
+		checkboxes.each(function(checkbox){
+			if (checkbox.hasClass('activeChoice')) required.append(getData(checkbox).requires);
+			else  checkbox.checked = false;
+		});
+		required.each(addDependency);
+    }
 
+	// trigger update of checked modules/dependencies
 	function updateModules(){
-		var action = this.checked ? addDependency : removeDependency;
-		var modules = getData(this)[this.checked ? 'requires' : 'provides'];
+		var isWanted = this.checked || this.hasClass('activeChoice');
+		var action = isWanted ? addDependency : removeDependency;
+		var modules = getData(this)[isWanted ? 'requires' : 'provides'];
 		for (var i = 0; i < modules.length; i++) if (modules[i]) action(modules[i]);
-
 	}
+
 	function addDependency(code){
 		if (!providerInput[code]) return;
 		providerInput[code].checked = true;
 		updateModules.call(providerInput[code]);
 	}
+
 	function removeDependency(code){
 		if (!requireInput[code]) return;
 		requireInput[code].forEach(function(input){
@@ -113,6 +156,8 @@ function customBuilderTable(){
 			updateModules.call(input);
 		});
 	}
+
+	// make array out of data fields
 	function getData(input){
 		var provides = input.getAttribute('data-provides').split(', ');
 		var requires = input.getAttribute('data-requires').split(', ');
@@ -120,7 +165,7 @@ function customBuilderTable(){
 	}
 }
 
-// script for older-version select
+// script for "choose older version" select
 global.selectVersion = function(select){
 	var span = select.getParent().getNext();
 	span.removeClass('visible');
