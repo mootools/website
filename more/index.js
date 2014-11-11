@@ -11,19 +11,7 @@ var guides = require('../middleware/guides')('more', {
 var project = 'more';
 var pkgProject = require('../package.json')._projects[project];
 var lastVersion = pkgProject.versions[0];
-
-var builderHash = require('../middleware/builderHash')({
-	more: pkgProject.hashStorage
-});
-
-function hash(req, res, next){
-	var hash = req.params.hash;
-	if (!hash) return next();
-	builderHash.load(project, hash, function(data) {
-		res.locals.hash = data.packages;
-		next();
-	});
-}
+var hashMiddleware = require('../middleware/hashMiddleware')(project);
 
 module.exports = function(app){
 
@@ -42,7 +30,7 @@ module.exports = function(app){
 		});
 	});
 
-	app.get('/more/builder/:hash?', hash, function(req, res){
+	app.get('/more/builder/:hash?', hashMiddleware, function(req, res){
 		var hash = req.params.hash;
 		res.render('builder/index', {
 			title: 'MooTools More Builder',
@@ -64,10 +52,8 @@ module.exports = function(app){
 	app.get('/more/guides/:guide', more, guides.article);
 
 	// hash build redirect
-	var regex = /more\/([a-z]+[0-9]+[a-z0-9]*|[0-9]+[a-z]+[a-z0-9]*)$/;
-	app.get(regex, function(req, res){
-		var hash = req.url.match(regex)[1];
-		res.redirect('/more/builder#' + hash);
+	app.get('/more/:hash', function(req, res){
+		res.redirect('/more/builder/' + req.params.hash);
 	});
 
 };

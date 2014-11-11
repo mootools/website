@@ -23,18 +23,7 @@ var links = versions.slice(1).map(function(version){
 	};
 });
 
-var builderHash = require('../middleware/builderHash')({
-	core: pkgProject.hashStorage
-});
-
-function hash(req, res, next){
-	var hash = req.params.hash;
-	if (!hash) return next();
-	builderHash.load(project, hash, function(data) {
-		res.locals.hash = data.packages;
-		next();
-	});
-}
+var hashMiddleware = require('../middleware/hashMiddleware')(project);
 
 module.exports = function(app){
 
@@ -54,7 +43,7 @@ module.exports = function(app){
 		});
 	});
 
-	app.get('/core/builder/:hash?', hash, function(req, res){
+	app.get('/core/builder/:hash?', hashMiddleware, function(req, res){
 		res.render('builder/index', {
 			title: 'MooTools Core Builder',
 			navigation: 'core',

@@ -2,8 +2,8 @@
 
 var global = global || {};
 global.hashRequest = new Request.JSON({
-    url: '/builder',
-    method: 'get',
+	url: '/builder',
+	method: 'get',
 	onComplete: function(res){
 		var link = '/' + res.project + '/builder/' + res.hash;
 		var anchor = new Element('a', {
@@ -125,15 +125,15 @@ function customBuilderTable(){
 	$$('.activeChoice').set('checked', true).fireEvent('change');
 
 	// everytime a checkbox changes
-    function changedModule() {
-        this.toggleClass('activeChoice', this.checked || !this.hasClass('activeChoice'));
+	function changedModule() {
+		this.toggleClass('activeChoice', this.checked || !this.hasClass('activeChoice'));
 		var required = [];
 		checkboxes.each(function(checkbox){
 			if (checkbox.hasClass('activeChoice')) required.append(getData(checkbox).requires);
-			else  checkbox.checked = false;
+			else checkbox.checked = false;
 		});
 		required.each(addDependency);
-    }
+	}
 
 	// trigger update of checked modules/dependencies
 	function updateModules(){

@@ -8,15 +8,7 @@ var getFiles = require('../lib/getFiles');
 var projectPath = require('../lib/projectPath');
 var bodyParser = require('body-parser');
 var pkgProjects = require('../package.json')._projects;
-
-var hashPath = (function(){
-	var pathObject = {};
-	var projects = Object.keys(pkgProjects).forEach(function(project){
-		pathObject[project] = pkgProjects[project].hashStorage;
-	})
-	return pathObject;
-})();
-var builderHash = require('../middleware/builderHash')(hashPath);
+var builderHash = require('../middleware/builderHash')(Object.keys(pkgProjects));
 var copyright = '/* MooTools: the javascript framework. license: MIT-style license. copyright: Copyright (c) 2006-' + new Date().getFullYear() + ' [Valerio Proietti](http://mad4milk.net/).*/ ';
 
 
