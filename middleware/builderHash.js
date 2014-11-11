@@ -1,67 +1,85 @@
-'use strict';
+"use strict";
 
-var sqlite3 = require('sqlite3'),
-	md5 = require('md5'),
-	pkgProjects = require('../package.json')._projects;
+var path = require('path');
+var async = require('async');
+var sqlite3 = require('sqlite3');
+var md5 = require('md5');
+var waitForIt = require('../lib/waitForIt');
 
-function BuilderDatabase(projects){
-	this.databasePaths = {};
+function BuilderDatabase(paths){
+	this.paths = paths;
 	this.databases = {};
-	this.paths = projects.reduce(function(pathObject, project){
-	    pathObject[project] = pkgProjects[project].hashStorage;
-		return pathObject;
-	}, {});
-
-	for (var key in this.paths){
-		this.databasePaths[key] = this.paths[key];
-	}
-
-	this.getDatabase = function(project){
-		if (!this.databases[project]){
-			var path = this.databasePaths[project];
-			if (path){
-				this.databases[project] = new sqlite3.Database(path, sqlite3.OPEN_READWRITE, function(error){
-					if (error) throw error;
-				});
-			} else {
-				throw Error('No database found for "' + project + '".');
-			}
-		}
-		return this.databases[project];
-	}
-
-	this.loadHash = function(project, hash, callback){
-		this.getDatabase(project).get('SELECT * FROM hashes WHERE md5 = ?', {1: hash}, function(error, row){
-			var data = null;
-			if (row) data = {hash: row.md5, packages: row.packages.split(';')};
-			if (callback) callback(data);
-		});
-	}
-
-	this.saveHash = function(project, packages, callback){
-		if (packages && packages.length){
-			var db = this.getDatabase(project),
-				packageString = typeof packages == 'string' ? packages : packages.join(';'),
-				hash = md5.digest_s(packageString);
-			db.get('SELECT COUNT(*) AS count FROM hashes WHERE md5 = ?', {1: hash}, function(error, row){
-				if (error) throw error;
-				if (row.count){
-					if (callback) callback({hash: hash, packages: packages});
-				} else {
-					var values = {1: hash, 2: packageString, 3: Math.round(Date.now() / 1000)};
-					db.run('INSERT INTO hashes (md5, packages, date) VALUES (?, ?, ?)', values, function(error){
-						if (error) throw error;
-						if (callback) callback({hash: hash, packages: packages});
-					});
-				}
-			});
-		} else {
-			if (callback) callback(null);
-		}
-	}
 }
 
+BuilderDatabase.prototype.getDatabase = function(project, callback){
+	var getDB = this.databases[project];
+	if (getDB){
+		return getDB.get(callback);
+	}
+	var dbPath = path.join(__dirname, '..', this.paths[project]);
+	if (!path){
+		return callback(Error('No database found for "' + project + '".'));
+	}
+	getDB = waitForIt(function(cb){
+		var db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, function(error){
+			if (error) cb(error);
+			else cb(null, db);
+		});
+	});
+	getDB.get(callback);
+};
+
+BuilderDatabase.prototype.loadHash = function(project, hash, callback){
+	function getResult(row, cb){
+		cb(null, row ? {hash: row.md5, packages: row.packages.split(';')} : null);
+	}
+	function getHash(db, cb){
+		db.get('SELECT * FROM hashes WHERE md5 = ?', {1: hash}, cb);
+	}
+	async.compose(
+		getResult,
+		getHash,
+		this.getDatabase.bind(this, project)
+	)(callback);
+};
+
+BuilderDatabase.prototype.saveHash = function(project, packages, callback){
+	if (!packages || !packages.length){
+		if (callback) callback(null);
+		return;
+	}
+
+	var packageString = typeof packages == 'string' ? packages : packages.join(';');
+	var hash = md5.digest_s(packageString);
+
+	function hashCount(db, cb){
+		db.get('SELECT COUNT(*) AS count FROM hashes WHERE md5 = ?', {1: hash}, function(err, row){
+			cb(err, row && {count: row.count, db: db});
+		});
+	}
+	function insertIfNotExisting(res, cb){
+		if (res.hash){
+			cb(null, {hash: hash, packages: packages});
+		} else {
+			var values = {1: hash, 2: packageString, 3: Math.round(Date.now() / 1000)};
+			res.db.run('INSERT INTO hashes (md5, packages, date) VALUES (?, ?, ?)', values, function(error){
+				if (error) cb(error);
+				else cb(null, {hash: hash, packages: packages});
+			});
+		}
+	}
+
+	async.compose(
+		insertIfNotExisting,
+		hashCount,
+		this.getDatabase.bind(this, project)
+	)(callback);
+};
+
 module.exports = function(paths){
-  var db = new BuilderDatabase(paths);
-  return {load: db.loadHash.bind(db), save: db.saveHash.bind(db)};
+	var db = new BuilderDatabase(paths);
+	return {
+		load: db.loadHash.bind(db),
+		save: db.saveHash.bind(db)
+	};
 };

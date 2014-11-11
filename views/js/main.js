@@ -1,35 +1,11 @@
 "use strict";
 
-var global = global || {};
-global.hashRequest = new Request.JSON({
-	url: '/builder',
-	method: 'get',
-	onComplete: function(res){
-		var link = '/' + res.project + '/builder/' + res.hash;
-		var anchor = new Element('a', {
-			href: link,
-			text: 'mootools.net' + link
-		});
-		$('hashLink').empty().adopt(anchor).addClass('visible');
-		$('builderOptions').submit();
-	}
-});
-
-
 window.addEvent('domready', function(){
-	
+
 	// download buttons, form submit and source code download
 	document.getElements('a.getFile').addEvent('click', function(e){
 		e.preventDefault();
-		// check if checkbox for getting hash is checked
-		if (!$('hashOption').get('checked')) return $('builderOptions').submit();
-
-		// prepare data and send Request
-		var project = document.getElement('input[name="project"]').value.toLowerCase();
-		var packages = $$('.activeChoice').get('value').reduce(function(a, b){
-			return a + b + ';';
-		}, '');
-		global.hashRequest.send('packages=' + packages + '&project=' + project);
+		this.getParent('form').submit();
 	});
 
 	// to manage dependencies in build table

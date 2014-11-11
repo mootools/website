@@ -6,7 +6,7 @@ block header-logo
 
 block header-menu
 	include partials/header-menu
-	
+
 block main
 	.clearfix.wrapper.builder
 
@@ -28,23 +28,23 @@ block main
 						label
 							input(type="checkbox", name="removeCoreDependencies", value="1")
 							| Remove MooTools Core's dependencies
-								
+
 					label
 						a.button.highlighted.getFile(href='#')
 							span Download MooTools #{project}
 							span.version Ver. #{version}
-							span.icon.download(aria-hidden='true')					
+							span.icon.download(aria-hidden='true')
 
 		div.header.clearfix
 			h1 Download your customized version
-			
+
 			h3 Choose which modules you want to use
 
 		form#builderOptions(method="post", action="/builder")
 			input(hidden, name="project", value="#{project}")
 			table
 				tr
-					td 
+					td
 					td File
 					td Provides
 					td Description
@@ -53,7 +53,7 @@ block main
 					- var file = project + "/" + module;
 					- var hashRequested = hashDependencies.indexOf(file) != -1;
 					tr
-						td 
+						td
 							input(type="checkbox", value=file, name="modules[]", data-provides="#{yaml.prov}", data-requires="#{yaml.req}", checked=hashRequested, class=hashRequested ? "activeChoice" : "")
 						td #{module}
 						td #{yaml.prov}
@@ -63,11 +63,6 @@ block main
 
 			.save
 				span(id="hashLink")
-
-				label
-					input(type="checkbox", id="hashOption")
-					| Save this build and give me a url to it
-					
 
 				label
 					input(type="checkbox", name="minified", value="1")

@@ -1,18 +1,21 @@
 "use strict";
 
-module.exports = function(project){
+var builderHash = require('../middleware/builderHash')(require('../config/databases.json'));
 
-	var builderHash = require('../middleware/builderHash')([project]);
+module.exports = function(project){
 
 	return function(req, res, next){
 		var hash = req.params.hash;
 		if (hash){
-			builderHash.load(project, hash, function(data) {
-				res.locals.hash = data.packages;
-				next();
+			builderHash.load(project, hash, function(err, data) {
+				if (err) next(err);
+				else {
+					res.locals.hash = data.packages;
+					next();
+				}
 			});
 		} else {
 			return next();
 		}
-	}
+	};
 };

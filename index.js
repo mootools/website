@@ -154,17 +154,14 @@ app.use(function(err, req, res, next){
 	});
 });
 
-app.use(function(err, req, res, next){
-	res.status(500);
-	res.render('errors/500', {
-		site: 'mootools'
+if (app.get('env') != 'development'){
+	app.use(function(err, req, res, next){
+		res.status(500);
+		res.render('errors/500', {
+			site: 'mootools'
+		});
 	});
-});
-
-// general error handler
-app.use(function(err){
-	console.error(err);
-});
+}
 
 // starting server
 app.listen(app.get('port'), function(){
