@@ -14,6 +14,7 @@ p.description.lighter MooTools More makes MooTools even More awesome.
 			form(method="post", action="../builder")
 				input(hidden, name="project", value="#{project}")
 				input(hidden, name="version", value="#{version}")
+				input(type="checkbox", name="removeCoreDependencies", value="1", checked="true", style="display: none;")
 				a.button.highlighted.getFile(href='#')
 					span
 						| Download
