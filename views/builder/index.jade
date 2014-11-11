@@ -25,8 +25,8 @@ block main
 						| Download with compat layer
 
 					if project != 'Core'
-						label
-							input(type="checkbox", name="removeCoreDependencies", value="1")
+						label(style="display: none;")
+							input(type="checkbox", name="removeCoreDependencies", value="1", checked="true")
 							| Remove MooTools Core's dependencies
 								
 					label
@@ -71,8 +71,8 @@ block main
 					| Download with compat layer
 
 				if project != 'Core'
-					label
-						input(type="checkbox", name="removeCoreDependencies", value="1")
+					label(style="display: none;")
+						input(type="checkbox", name="removeCoreDependencies", value="1", checked="true")
 						| Remove MooTools Core's dependencies
 
 				label
