@@ -1,6 +1,6 @@
 "use strict";
 
-var builderHash = require('../middleware/builderHash')(require('../config/databases.json'));
+var builderHash = require('../lib/BuilderHash')(require('../config/databases.json'));
 
 module.exports = function(project){
 
