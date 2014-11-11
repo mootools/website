@@ -1,15 +1,20 @@
 "use strict";
 
-var docs = require('../middleware/docs')('core', {
+var project = 'core';
+
+var docs = require('../middleware/docs')(project, {
 	title: "MooTools Core Documentation"
 });
 
-var guides = require('../middleware/guides')('core', {
+var guides = require('../middleware/guides')(project, {
 	title: "MooTools Core Guides"
 });
 
-var project = 'core';
-var versions = require('../package.json')._projects[project].versions;
+var hash = require('../middleware/buildHash')(project);
+
+var pkgProject = require('../package.json')._projects[project];
+var versions = pkgProject.versions;
+
 var links = versions.slice(1).map(function(version){
 	return {
 		version: version,
@@ -30,7 +35,6 @@ module.exports = function(app){
 	};
 
 	app.get('/core', core, function(req, res){
-
 		res.render('core/index', {
 			page: "/core",
 			title: "MooTools Core",
@@ -41,13 +45,14 @@ module.exports = function(app){
 		});
 	});
 
-	app.get('/core/builder', function(req, res){
+	app.get('/core/builder/:hash?', hash, function(req, res){
 		res.render('builder/index', {
 			title: 'MooTools Core Builder',
 			navigation: 'core',
 			page: 'builder',
 			project: 'Core',
 			site: 'core',
+			hashDependencies: res.locals.hash || [],
 			version: versions[0],
 			versions: links,
 			dependencies: require('../builder/dependencies.js')(project, versions[0])
@@ -60,5 +65,10 @@ module.exports = function(app){
 
 	app.get('/core/guides', core, guides.index);
 	app.get('/core/guides/:guide', core, guides.article);
+
+	// hash build redirect
+	app.get('/core/:hash', function(req, res){
+		res.redirect('/core/builder/' + req.params.hash);
+	});
 
 };

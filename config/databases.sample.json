@@ -1,0 +1,4 @@
+{
+  "core": "tests/database/core.db",
+  "more": "tests/database/more.db"
+}

@@ -1,15 +1,19 @@
 "use strict";
 
-var docs = require('../middleware/docs')('more', {
+var project = 'more';
+
+var docs = require('../middleware/docs')(project, {
 	title: "MooTools More Documentation"
 });
 
-var guides = require('../middleware/guides')('more', {
+var guides = require('../middleware/guides')(project, {
 	title: "MooTools More Guides"
 });
 
-var project = 'more';
-var lastVersion = require('../package.json')._projects[project].versions[0];
+var hash = require('../middleware/buildHash')(project);
+
+var pkgProject = require('../package.json')._projects[project];
+var lastVersion = pkgProject.versions[0];
 
 module.exports = function(app){
 
@@ -28,13 +32,14 @@ module.exports = function(app){
 		});
 	});
 
-	app.get('/more/builder', function(req, res){
+	app.get('/more/builder/:hash?', hash, function(req, res){
 		res.render('builder/index', {
 			title: 'MooTools More Builder',
 			navigation: 'more',
 			page: 'builder',
 			project: 'More',
 			site: 'more',
+			hashDependencies: res.locals.hash || [],
 			version: lastVersion,
 			dependencies: require('../builder/dependencies.js')(project, lastVersion)
 		});
@@ -46,5 +51,10 @@ module.exports = function(app){
 
 	app.get('/more/guides', more, guides.index);
 	app.get('/more/guides/:guide', more, guides.article);
+
+	// hash build redirect
+	app.get('/more/:hash', function(req, res){
+		res.redirect('/more/builder/' + req.params.hash);
+	});
 
 };

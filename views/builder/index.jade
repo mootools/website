@@ -6,13 +6,13 @@ block header-logo
 
 block header-menu
 	include partials/header-menu
-	
+
 block main
 	.clearfix.wrapper.builder
 
 		div.header.clearfix
 			h1 Download complete source
-			form(method="post", action="../builder")
+			form(method="post", action="/builder")
 				input(hidden, name="project", value="#{project}")
 				.save
 
@@ -28,40 +28,40 @@ block main
 						label
 							input(type="checkbox", name="removeCoreDependencies", value="1")
 							| Remove MooTools Core's dependencies
-								
+
 					label
 						a.button.highlighted.getFile(href='#')
 							span Download MooTools #{project}
 							span.version Ver. #{version}
-							span.icon.download(aria-hidden='true')					
+							span.icon.download(aria-hidden='true')
 
 		div.header.clearfix
 			h1 Download your customized version
-			
+
 			h3 Choose which modules you want to use
 
-		form(method="post", action="../builder")
+		form#builderOptions(method="post", action="/builder")
 			input(hidden, name="project", value="#{project}")
-			table#builderOptions
+			table
 				tr
-					td 
+					td
 					td File
 					td Provides
 					td Description
 
 				each yaml, module in dependencies
+					- var file = project + "/" + module;
+					- var hashRequested = hashDependencies.indexOf(file) != -1;
 					tr
-						td 
-							input(type="checkbox", value="#{project}/#{module}", name="modules[]", data-provides="#{yaml.prov}", data-requires="#{yaml.req}")
+						td
+							input(type="checkbox", value=file, name="modules[]", data-provides="#{yaml.prov}", data-requires="#{yaml.req}", checked=hashRequested, class=hashRequested ? "activeChoice" : "")
 						td #{module}
 						td #{yaml.prov}
 						td #{yaml.desc}
 
 			h2.step Options:
 
-						
 			.save
-
 				label
 					input(type="checkbox", name="minified", value="1")
 					| Download minified source code
