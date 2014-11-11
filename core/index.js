@@ -1,16 +1,20 @@
 "use strict";
 
-var docs = require('../middleware/docs')('core', {
+var project = 'core';
+
+var docs = require('../middleware/docs')(project, {
 	title: "MooTools Core Documentation"
 });
 
-var guides = require('../middleware/guides')('core', {
+var guides = require('../middleware/guides')(project, {
 	title: "MooTools Core Guides"
 });
 
-var project = 'core';
+var hash = require('../middleware/buildHash')(project);
+
 var pkgProject = require('../package.json')._projects[project];
 var versions = pkgProject.versions;
+
 var links = versions.slice(1).map(function(version){
 	return {
 		version: version,
@@ -22,8 +26,6 @@ var links = versions.slice(1).map(function(version){
 		})
 	};
 });
-
-var hashMiddleware = require('../middleware/hashMiddleware')(project);
 
 module.exports = function(app){
 
@@ -43,7 +45,7 @@ module.exports = function(app){
 		});
 	});
 
-	app.get('/core/builder/:hash?', hashMiddleware, function(req, res){
+	app.get('/core/builder/:hash?', hash, function(req, res){
 		res.render('builder/index', {
 			title: 'MooTools Core Builder',
 			navigation: 'core',

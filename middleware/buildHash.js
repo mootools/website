@@ -8,11 +8,10 @@ module.exports = function(project){
 		var hash = req.params.hash;
 		if (hash){
 			builderHash.load(project, hash, function(err, data) {
-				if (err) next(err);
-				else {
+				if (data){
 					res.locals.hash = data.packages;
-					next();
 				}
+				next(err);
 			});
 		} else {
 			return next();
