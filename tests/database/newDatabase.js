@@ -1,8 +1,9 @@
 var fs = require('fs');
-var file = __dirname + '/../tests/database/test.db';
+var path = require('path');
+var file = path.join(__dirname, 'more.db');
 var exists = fs.existsSync(file);
 var sqlite3 = require('sqlite3').verbose();
-var sampleData = require('../tests/database/sampleData.json');
+var sampleData = require('./sampleData.json');
 
 if (!exists){
 	console.log('Creating DB file.');

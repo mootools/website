@@ -8,6 +8,7 @@ To install everything you need to clone the repository and submodules (for the d
 	cd website
 	npm install
 	cp config/api_keys.sample.json config/api_keys.json
+	cp config/databases.sample.json config/databases.json
 	node build/all
 	node index
 
@@ -28,7 +29,7 @@ To run it, you can either use node directly.
 	node index
 
 ```
-Now the website is running on `http://localhost:3000`. 
+Now the website is running on `http://localhost:3000`.
 
 Alternatively use `forever` or use `supervisor`. `supervisor` watches all files, while wrapup/stylus write to the `public` folder. It is advised to use `supervisor --ignore public index`.
 

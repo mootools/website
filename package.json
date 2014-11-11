@@ -62,7 +62,6 @@
     "core": {
       "repository": "https://github.com/mootools/mootools-core",
       "docsIntro": "Docs/Intro.md",
-      "hashStorage": "/srv/mootools/core/database/packager.sqlite",
       "versions": [
         "1.5.1",
         "1.4.5",
@@ -73,7 +72,6 @@
     "more": {
       "repository": "https://github.com/mootools/mootools-more",
       "docsIntro": "Docs/More/More.md",
-      "hashStorage": "/srv/mootools/more/database/packager.sqlite",
       "versions": [
         "1.5.1",
         "1.5.0",
