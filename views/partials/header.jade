@@ -30,14 +30,14 @@
 					li: mixin link
 
 			ul
-				li(class=('#{navigation}' == 'core' ? 'selected' : ''))
+				li(class=(site == 'core' ? 'selected' : ''))
 					a(href='/core/') Core
 
-				li(class=('#{navigation}' == 'more' ? 'selected' : ''))
+				li(class=(site == 'more' ? 'selected' : ''))
 					a(href='/more/')  More
 
-				mixin menu-item('/blog', 'Blog', navigation == 'blog')
-				mixin menu-item('/forge', 'Forge', navigation == 'forge')
+				mixin menu-item('/blog', 'Blog', site == 'blog')
+				mixin menu-item('/forge', 'Forge', site == 'forge')
 				mixin menu-item("http://github.com/mootools", 'Contribute')
 
 			form#search(role='search', method='get', action='/search')

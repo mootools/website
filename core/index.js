@@ -48,7 +48,7 @@ module.exports = function(app){
 	app.get('/core/builder/:hash?', hash, function(req, res){
 		res.render('builder/index', {
 			title: 'MooTools Core Builder',
-			navigation: 'core',
+			navigation: 'builder',
 			page: 'builder',
 			project: 'Core',
 			site: 'core',

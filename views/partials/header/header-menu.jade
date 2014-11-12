@@ -1,0 +1,9 @@
+menu_core = 	{text: "Overview", 		subpage: site, 		url: "/" + site}
+menu_docs = 	{text: "Documentation", subpage: 'docs', 	url: "/" + site + "/docs"}
+menu_download = {text: "Builder",		subpage: 'builder', 	url: "/" + site + "/builder"}
+
+mixin menu([menu_core, menu_docs, menu_download], navigation)
+
+//
+	menu_guides = {text: "Guides", subpage: 'builder', url: "/" + site + "/guides"}
+	mixin menu([menu_core, menu_docs, menu_guides, menu_download], navigation)

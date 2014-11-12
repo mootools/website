@@ -110,7 +110,7 @@ module.exports = function(project, options){
 			res.render(project + '/docs', {
 				page: "/" + project + "/docs",
 				title: options.title,
-				navigation: project,
+				navigation: 'docs',
 				content: content,
 				toc: toc,
 				version: version,

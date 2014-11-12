@@ -38,7 +38,7 @@ module.exports = function(app){
 
 		res.render('blog/index', {
 			title: "MooTools Blog",
-			navigation: 'blog',
+			site: 'blog',
 			posts: postsOnPage,
 			nextPage: page < pages && page + 1,
 			previousPage: page > 1 && page - 1,

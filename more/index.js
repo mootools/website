@@ -35,7 +35,7 @@ module.exports = function(app){
 	app.get('/more/builder/:hash?', hash, function(req, res){
 		res.render('builder/index', {
 			title: 'MooTools More Builder',
-			navigation: 'more',
+			navigation: 'builder',
 			page: 'builder',
 			project: 'More',
 			site: 'more',
