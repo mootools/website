@@ -106,14 +106,14 @@ function customBuilderTable(){
 		var required = [];
 		checkboxes.each(function(checkbox){
 			if (checkbox.hasClass('activeChoice')) required.append(getData(checkbox).requires);
-			else checkbox.checked = false;
+			else checkbox.removeClass('dependency').set('checked', null);
 		});
 		required.each(addDependency);
 	}
 
 	// trigger update of checked modules/dependencies
 	function updateModules(){
-		var isWanted = this.checked || this.hasClass('activeChoice');
+		var isWanted = this.checked || this.hasClass('activeChoice') || this.hasClass('dependency');
 		var action = isWanted ? addDependency : removeDependency;
 		var modules = getData(this)[isWanted ? 'requires' : 'provides'];
 		for (var i = 0; i < modules.length; i++) if (modules[i]) action(modules[i]);
@@ -121,14 +121,14 @@ function customBuilderTable(){
 
 	function addDependency(code){
 		if (!providerInput[code]) return;
-		providerInput[code].checked = true;
+		providerInput[code].addClass('dependency');
 		updateModules.call(providerInput[code]);
 	}
 
 	function removeDependency(code){
 		if (!requireInput[code]) return;
 		requireInput[code].forEach(function(input){
-			input.checked = false;
+			input.removeClass('dependency');
 			updateModules.call(input);
 		});
 	}
