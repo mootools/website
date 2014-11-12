@@ -25,9 +25,11 @@ block main
 						| Download with compat layer
 
 					if project != 'Core'
-						label
-							input(type="checkbox", name="removeCoreDependencies", value="1")
-							| Remove MooTools Core's dependencies
+						label.select
+							select(name="removeCoreDependencies")
+								option(value="removeAll") Do not add Core
+								option(value="removeNone") Add Core (full)
+								option(value="keepDependencies") Add Core (only dependencies)
 
 					label
 						a.button.highlighted.getFile(href='#')
@@ -71,9 +73,11 @@ block main
 					| Download with compat layer
 
 				if project != 'Core'
-					label
-						input(type="checkbox", name="removeCoreDependencies", value="1")
-						| Remove MooTools Core's dependencies
+					label.select
+						select(name="removeCoreDependencies")
+							option(value="removeAll") Do not add Core
+							option(value="removeNone") Add Core (full)
+							option(value="keepDependencies") Add Core (only dependencies)
 
 				label
 					a.button.highlighted.getFile(href='#')

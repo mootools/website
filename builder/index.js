@@ -36,6 +36,7 @@ function processPost(req, res, next){
 
 	var version = pkgProjects[project_].versions[0];
 	var modules = !postData.modules ? [project + '/*'] : postData.modules;
+	if (postData.removeCoreDependencies == 'removeNone') modules.unshift('Core/*');
 
 	function packageFile(cb) {
 
@@ -51,7 +52,7 @@ function processPost(req, res, next){
 			callback: function(data){
 				cb(null, data);
 			},
-			removeCoreDependencies: postData.removeCoreDependencies
+			removeCoreDependencies: postData.removeCoreDependencies == 'removeAll'
 		};
 
 		if (modules.length) packagerOptions.only = modules;
