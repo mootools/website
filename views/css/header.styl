@@ -79,9 +79,11 @@ body.mootools #global-bar
 
 
 #header
-	border-bottom: solid #7D8AA5 1px;
-	margin-top: 3em;
-
+	border-color: #7d8aa5;
+	nav ul li.selected a
+		color: #7d8aa5;;
+		&:after
+			border-color: #7d8aa5 #7d8aa5 transparent transparent
 	div.wrapper div.right
 		bottom: 0px;
 
@@ -100,8 +102,11 @@ body.mootools #global-bar
 				background: #777571;
 				border-radius: 3px;
 
+.core, .more
+	> #header
+		border-bottom: solid #7D8AA5 1px;
+		margin-top: 3em;
+		
 body.mootools
-	#header
-		margin-top: 0px;
 	#global-bar
 		position: relative;

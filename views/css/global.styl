@@ -221,8 +221,8 @@ select
 			margin-top: 0.2em;
 
 	&.highlighted
-		background: #acaaa7;
-		color: #ffffff !important;
+		background: #7d8aa5;
+		color: #ffffff;
 		.icon
 		pre
 			color: #ffffff;
@@ -339,19 +339,6 @@ a:focus .icon
 			color: #6d798f;
 			text-decoration: none;
 
-/*
-
-Try smaller texts on homepage
-
-.home-page h2 img {
-	height: 60px !important;
-}
-
-.home-page p {
-	font-size: 110%;
-}
-*/
-
 .updates
 	padding-top: 1em;
 	padding-bottom: 1em;
@@ -375,100 +362,110 @@ Try smaller texts on homepage
 	a:hover
 		text-decoration: underline;
 
-.blog, .books, .overview		
-	padding-top: 3em;
-		
-.blog
-	margin-bottom: 2em;
-
+.main
+	.color
+		color: #7d8aa5;
+	.button.highlighted
+		background-color: #7d8aa5;
+	h2
+		color: #7d8aa5;
 	a
-		position: relative;
-		padding: 0 0.2em;
+		color: #7d8aa5;
 
-	a:focus, a:active
-		background-color: #777571 !important;
+	.selected
+		background-color: #7d8aa5;
+		border-color: #7d8aa5;
 
-	hr
-		margin-top: 2em;
+	.blog
 		margin-bottom: 2em;
 
-	h2
-		font-size: 2em;
-		color: #7D8AA5;
-		padding-bottom: 0.5em;
-	h3
-		font-size: 2em;
-		padding: 0.5em 0.3em 0em 0.3em;
-		margin-left: -0.2em;
-	h4
-		font-weight: 400;
+		a
+			position: relative;
+			padding: 0 0.2em;
+
+		a:focus, a:active
+			background-color: #777571 !important;
+			
+		hr
+			margin-top: 2em;
+			margin-bottom: 2em;
+
+		h2
+			font-size: 2em;
+			color: #7D8AA5;
+			padding-bottom: 0.5em;
+		h3
+			font-size: 2em;
+			padding: 0.5em 0.3em 0em 0.3em;
+			margin-left: -0.2em;
+		h4
+			font-weight: 400;
 		
-	ul
-		padding-left: 2em;
-		li
-			list-style-type: disc;
-			padding: 0.1em 0em;
+		ul
+			padding-left: 2em;
+			li
+				list-style-type: disc;
+				padding: 0.1em 0em;
 
-	small
-		border: 1px solid #acaaa7;
-		border-radius: 5px;
-		display: block;
-		font-size: 0.8em;
-		font-weight: 400;
-		margin: 0.5em 0 2em;
-		padding: 0.5em 1em;
-		a
-			background: #F4F1ED
-			border-radius: 3px
-			display: inline
-			padding: 0 0.5em
-
-		.comments
-			float: right;
-
-	.post p
-		font-size: 1.1em;
-		line-height: 1.3em;
-		margin: 1em 0;
-
-	.post p, ul
-		a
+		small
+			border: 1px solid #acaaa7;
+			border-radius: 5px;
+			display: block;
+			font-size: 0.8em;
 			font-weight: 400;
-			text-decoration: none;
-			color: #7D8AA5;
+			margin: 0.5em 0 2em;
+			padding: 0.5em 1em;
+			a
+				background: #F4F1ED
+				color: #777571
+				border-radius: 3px
+				display: inline
+				padding: 0 0.5em
+
+			.comments
+				float: right;
+
+		.post p
+			font-size: 1.1em;
+			line-height: 1.3em;
+			margin: 1em 0;
+
+		.post p, ul
+			a
+				font-weight: 400;
+				text-decoration: none;
+				color: #7D8AA5;
 
 
-	.pagination
-		a
-			background: #F4F1ED
-			border-radius: 5px
-			padding: 1em
-			width: 46%
-			color: #7D8AA5;
-			font-weight: 400;
+		.pagination
+			a
+				background: #F4F1ED
+				border-radius: 5px
+				padding: 1em
+				width: 46%
+				color: #7D8AA5;
+				font-weight: 400;
 
-		a .icon
-			font-size: 200%;
-			top 0.3em
-			color: #7D8AA5;
+			a .icon
+				font-size: 200%;
+				top 0.3em
+				color: #7D8AA5;
 
-		.older
-			float: left
-			text-align: right
+			.older
+				float: left
+				text-align: right
 
-		.newer
-			float: right
-			text-align: left
+			.newer
+				float: right
+				text-align: left
 
-		.icon.previous
-			float: left;
-			margin-right: 0.5em
+			.icon.previous
+				float: left;
+				margin-right: 0.5em
 
-		.icon.next
-			float: right;
-			margin-left: 0.5em
-
-
+			.icon.next
+				float: right;
+				margin-left: 0.5em
 
 .overview
 	.summary,
@@ -512,6 +509,7 @@ Try smaller texts on homepage
 
 	.about
 		background-color: #ffffff;
+		padding-top: 0em;
 		a	
 			font-weight: 400;
 	.cover
@@ -525,6 +523,8 @@ Try smaller texts on homepage
 	h2
 		color: #7D8AA5;
 		font-size: 2em;
+	.introduction p
+		font-size: 1.1em;
 	
 .examples
 	section
@@ -538,3 +538,4 @@ Try smaller texts on homepage
 			
 		p
 			padding-top: 0.5em;
+
