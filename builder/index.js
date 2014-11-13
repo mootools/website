@@ -13,11 +13,11 @@ var builderHash = require('../lib/BuilderHash')(require('../config/databases.jso
 var copyright = '/* MooTools: the javascript framework. license: MIT-style license. copyright: Copyright (c) 2006-' + new Date().getFullYear() + ' [Valerio Proietti](http://mad4milk.net/).*/ ';
 
 function uglify(source){
-	var uglifyed = UglifyJS.minify(source, {
+	var uglified = UglifyJS.minify(source, {
 		fromString : true,
 		mangle: ['sort'] // to assign shorter names to most frequently used variables.
 	});
-	return uglifyed.code;
+	return uglified.code;
 }
 
 function processPost(req, res, next){
