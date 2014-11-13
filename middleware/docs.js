@@ -108,7 +108,6 @@ module.exports = function(project, options){
 			if (!content) return send404(next);
 
 			res.render(project + '/docs', {
-				page: "/" + project + "/docs",
 				title: options.title,
 				navigation: 'docs',
 				content: content,

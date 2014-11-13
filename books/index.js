@@ -6,7 +6,7 @@ module.exports = function(app){
 
 	app.get('/books', function(req, res){
 		res.render('books/index', {
-			page: "mootools",
+			site: "books",
 			title: "MooTools Books",
 			books: books
 		});

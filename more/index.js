@@ -25,20 +25,17 @@ module.exports = function(app){
 	app.get('/more', more, function(req, res){
 		res.render('more/index', {
 			navigation: 'more',
-			page: "/more",
 			project: 'More',
 			version: lastVersion,
 			title: "MooTools More"
 		});
 	});
 
-	app.get('/more/builder/:hash?', hash, function(req, res){
+	app.get('/more/builder/:hash?', hash, more, function(req, res){
 		res.render('builder/index', {
 			title: 'MooTools More Builder',
 			navigation: 'builder',
-			page: 'builder',
 			project: 'More',
-			site: 'more',
 			hashDependencies: res.locals.hash || [],
 			version: lastVersion,
 			dependencies: require('../builder/dependencies.js')(project, lastVersion)

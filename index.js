@@ -71,8 +71,6 @@ if (app.get('env') == 'development'){
 
 }
 
-app.locals.site = 'mootools';
-app.locals.page = '';
 app.locals.dateable = require('dateable');
 app.locals.webfonts = app.get('webfonts');
 
@@ -101,7 +99,7 @@ function getLatestBlog(req, res, next){
 app.get('/', githubEvents, twitter, getLatestBlog, function(req, res){
 	res.render('index', {
 		title: 'MooTools',
-		page: 'mootools',
+		site: 'mootools',
 		lastBlogPost: res.locals.lastBlogPost,
 		tweetFeed: res.locals.twitter
 	});
