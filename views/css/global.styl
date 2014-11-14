@@ -107,7 +107,7 @@ pre
 	padding: 1em;
 
 code
-	background: #DEDFDF;
+	background: #dedfdf;
 	border-radius: 3px;
 	display: inline;
 	font-family: "Source Code Pro", "Lucida Console", "Monaco", "Courier New", monospace;
@@ -163,7 +163,7 @@ input[type="checkbox"]
 		background #7d8aa5
 
 input[type="submit"]
-	background: #F4F1ED;
+	background: #f4f1ed;
 	border-radius: 5px;
 	color: #777571 !important;
 	display: block;
@@ -172,23 +172,6 @@ input[type="submit"]
 
 input[type="submit"]:hover
 	color: #ffffff !important
-
-/*	background: #F4F1ED;
-	border: solid transparent 1px;
-	border-radius: 3px;
-	color: #777571;
-	cursor: pointer;*/
-/*
-select
-		background: transparent;
-		border-color: #e5e3df;
-		display: block;
-		font-size: 0.8em;
-		font-weight: 400;
-		padding: 0.3em 0.5em;
-		&:focus
-			border-color: #acaaa7;*/
-
 
 /* Classes */
 
@@ -221,8 +204,8 @@ select
 			margin-top: 0.2em;
 
 	&.highlighted
-		background: #acaaa7;
-		color: #ffffff !important;
+		background: #7d8aa5;
+		color: #ffffff;
 		.icon
 		pre
 			color: #ffffff;
@@ -339,19 +322,6 @@ a:focus .icon
 			color: #6d798f;
 			text-decoration: none;
 
-/*
-
-Try smaller texts on homepage
-
-.home-page h2 img {
-	height: 60px !important;
-}
-
-.home-page p {
-	font-size: 110%;
-}
-*/
-
 .updates
 	padding-top: 1em;
 	padding-bottom: 1em;
@@ -375,100 +345,107 @@ Try smaller texts on homepage
 	a:hover
 		text-decoration: underline;
 
-.blog, .books, .overview		
-	padding-top: 3em;
-		
-.blog
-	margin-bottom: 2em;
-
+.main
+	.color
+		color: #7d8aa5;
+	h2
+		color: #7d8aa5;
 	a
-		position: relative;
-		padding: 0 0.2em;
+		color: #7d8aa5;
 
-	a:focus, a:active
-		background-color: #777571 !important;
+	.selected
+		background-color: #7d8aa5;
+		border-color: #7d8aa5;
 
-	hr
-		margin-top: 2em;
+	.blog
 		margin-bottom: 2em;
 
-	h2
-		font-size: 2em;
-		color: #7D8AA5;
-		padding-bottom: 0.5em;
-	h3
-		font-size: 2em;
-		padding: 0.5em 0.3em 0em 0.3em;
-		margin-left: -0.2em;
-	h4
-		font-weight: 400;
+		a
+			position: relative;
+			padding: 0 0.2em;
+
+		a:focus, a:active
+			background-color: #777571 !important;
+			
+		hr
+			margin-top: 2em;
+			margin-bottom: 2em;
+
+		h2
+			font-size: 2em;
+			padding-bottom: 0.5em;
+		h3
+			font-size: 2em;
+			padding: 0.5em 0.3em 0em 0.3em;
+			margin-left: -0.2em;
+		h4
+			font-weight: 400;
 		
-	ul
-		padding-left: 2em;
-		li
-			list-style-type: disc;
-			padding: 0.1em 0em;
+		ul
+			padding-left: 2em;
+			li
+				list-style-type: disc;
+				padding: 0.1em 0em;
 
-	small
-		border: 1px solid #acaaa7;
-		border-radius: 5px;
-		display: block;
-		font-size: 0.8em;
-		font-weight: 400;
-		margin: 0.5em 0 2em;
-		padding: 0.5em 1em;
-		a
-			background: #F4F1ED
-			border-radius: 3px
-			display: inline
-			padding: 0 0.5em
-
-		.comments
-			float: right;
-
-	.post p
-		font-size: 1.1em;
-		line-height: 1.3em;
-		margin: 1em 0;
-
-	.post p, ul
-		a
+		small
+			border: 1px solid #acaaa7;
+			border-radius: 5px;
+			display: block;
+			font-size: 0.8em;
 			font-weight: 400;
-			text-decoration: none;
-			color: #7D8AA5;
+			margin: 0.5em 0 2em;
+			padding: 0.5em 1em;
+			a
+				background: #f4f1ed
+				color: #777571
+				border-radius: 3px
+				display: inline
+				padding: 0 0.5em
+
+			.comments
+				float: right;
+
+		.post p
+			font-size: 1.1em;
+			line-height: 1.3em;
+			margin: 1em 0;
+
+		.post p, ul
+			a
+				font-weight: 400;
+				text-decoration: none;
+				color: #7d8aa5;
 
 
-	.pagination
-		a
-			background: #F4F1ED
-			border-radius: 5px
-			padding: 1em
-			width: 46%
-			color: #7D8AA5;
-			font-weight: 400;
+		.pagination
+			a
+				background: #f4f1ed
+				border-radius: 5px
+				padding: 1em
+				width: 46%
+				color: #7d8aa5;
+				font-weight: 400;
 
-		a .icon
-			font-size: 200%;
-			top 0.3em
-			color: #7D8AA5;
+			a .icon
+				font-size: 200%;
+				top 0.3em
+				color: #7d8aa5;
 
-		.older
-			float: left
-			text-align: right
+			.older
+				float: left
+				text-align: right
 
-		.newer
-			float: right
-			text-align: left
+			.newer
+				float: right
+				text-align: left
 
-		.icon.previous
-			float: left;
-			margin-right: 0.5em
+			.icon.previous
+				float: left;
+				margin-right: 0.5em
 
-		.icon.next
-			float: right;
-			margin-left: 0.5em
-
-
+			.icon.next
+				float: right;
+				margin-left: 0.5em
 
 .overview
 	.summary,
@@ -491,17 +468,6 @@ Try smaller texts on homepage
 		.button
 			height: 3em;
 
-	&.home-page
-		a
-			display: block;
-
-		img
-			height: 90px;
-			width: auto;
-
-	.big-link
-		font-size: 1.313em;
-
 .features a
 	display: block;
 	position: relative;
@@ -512,6 +478,7 @@ Try smaller texts on homepage
 
 	.about
 		background-color: #ffffff;
+		padding-top: 0em;
 		a	
 			font-weight: 400;
 	.cover
@@ -521,16 +488,18 @@ Try smaller texts on homepage
 			margin: 0.3em 0em;
 			font-weight: 600;
 			padding: 0.3em;
-			color: #7D8AA5;
+			color: #7d8aa5;
 	h2
-		color: #7D8AA5;
 		font-size: 2em;
-	
+
+	.introduction p
+		font-size: 1.1em;
+
 .examples
 	section
 
 		h1
-			color: #7D8AA5;
+			color: #7d8aa5;
 			font-size: 2em;
 			font-weight: 200;
 		h3
@@ -538,3 +507,4 @@ Try smaller texts on homepage
 			
 		p
 			padding-top: 0.5em;
+

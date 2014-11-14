@@ -11,7 +11,6 @@ var guides = require('../middleware/guides')(project, {
 });
 
 var hash = require('../middleware/buildHash')(project);
-
 var pkgProject = require('../package.json')._projects[project];
 var versions = pkgProject.versions;
 
@@ -36,7 +35,6 @@ module.exports = function(app){
 
 	app.get('/core', core, function(req, res){
 		res.render('core/index', {
-			page: "/core",
 			title: "MooTools Core",
 			navigation: 'core',
 			project: 'Core',
@@ -45,13 +43,11 @@ module.exports = function(app){
 		});
 	});
 
-	app.get('/core/builder/:hash?', hash, function(req, res){
+	app.get('/core/builder/:hash?', hash, core, function(req, res){
 		res.render('builder/index', {
 			title: 'MooTools Core Builder',
-			navigation: 'core',
-			page: 'builder',
+			navigation: 'builder',
 			project: 'Core',
-			site: 'core',
 			hashDependencies: res.locals.hash || [],
 			version: versions[0],
 			versions: links,
