@@ -1,5 +1,10 @@
 /* H E A D E R * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+background()
+	background: arguments;
+	border-color: arguments;
+	color: #ffffff;
+
 #global-bar
 	box-shadow: rgba(0,0,0,0.1) 0px 0px 30px;
 	padding-bottom: 1em;
@@ -19,9 +24,7 @@
 	ul > li > a
 		&:active,
 		&:focus
-			background: #9c9ea0;
-			border-color: #9c9ea0;
-			color: #ffffff;
+			background(#9c9ea0);
 				
 	ul
 		float: left;
@@ -38,9 +41,10 @@
 		
 	ul	
 		li.selected > a
-			background: #414347;
-			border-color: #414347;
-			color: #ffffff;
+			background(#414347);
+			&:active,
+			&:focus
+				background(#9c9ea0);
 
 
 body.mootools #global-bar
