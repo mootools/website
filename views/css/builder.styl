@@ -4,9 +4,6 @@
 	margin-top: 2em
 	margin-bottom: 2em
 
-	.CodeMirror
-		border-radius: 5px
-
 	.header
 		h1
 			float: left
@@ -31,55 +28,6 @@
 			margin-top: 1em
 			width: 100%
 
-	.snippets
-		li
-			margin-top: 1em
-			position: relative
-
-			select
-				position: absolute
-				right: 4.2em
-				top: 0
-				width 7em
-
-			a
-				background: #f4f1ed
-				border: solid #f4f1ed 1px
-				border-radius: 3px
-				position: absolute
-				padding: 0.3em 0.4em 0.3em 0.5em
-				right: 0
-
-			a:focus
-				background: transparent !important
-
-			a:before
-				icon-arrow-combo()
-				color: #acaaa7
-				font-family: "Entypo"
-				font-size: 200%
-				line-height: 0.7
-				position: absolute
-				right: 2.3em
-				z-index: 100
-
-			img
-				height: 2em
-				width: auto
-
-			.add span
-				font-size: 0.8em
-				font-weight: 400
-
-			.add span.icon:after
-				icon-plus-squared()
-				font-family: "Entypo"
-				font-size: 260%
-				line-height: 0
-				margin-left: 0.2em
-				position: relative
-				top: 2px
-
 	.save
 		clear: both
 
@@ -87,6 +35,11 @@
 			display block
 			margin-top: 1em
 			position: relative
+
+		label.select:after
+			top: 7px;
+		select
+			width: 100%;
 
 		input[type="checkbox"]
 			margin-right: 0.5em
@@ -124,31 +77,12 @@
 		font-weight: 400
 		margin-top: 1em
 
-	.editor
-		margin-top 1em
-
 
 @media only screen and (min-width: 48em) /* More or equal to 768 pixels */
 
 	.builder
-		.aside
-		.editor
-			float left
-
-		.aside
-			width 35%
-
-		.editor
-			margin-top: 0
-			width 60%
-
 		.save
 			width 35%
-
-		.snippets
-			li
-				select
-					width: 4.4em
 		table
 			width 100%
 
@@ -165,11 +99,3 @@
 						width 20%
 					& + td + td +td
 						width 60%
-
-@media only screen and (min-width: 60em) /* More or equal to 960 pixels */
-
-	.builder
-		.snippets
-			li
-				select
-					width: 7em
