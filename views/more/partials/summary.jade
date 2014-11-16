@@ -11,14 +11,11 @@ p.description.lighter MooTools More makes MooTools even More awesome.
 
 	ul.clearfix
 		li
-			form(method="post", action="../builder")
-				input(hidden, name="project", value="#{project}")
-				input(hidden, name="version", value="#{version}")
-				a.button.highlighted.getFile(href='#')
-					span
-						| Download
-						span.version Ver. 1.5.1
-						span.icon.download(aria-hidden='true')
+			a.button.highlighted(href='/more/builder')
+				span
+					| Build
+					span.version Ver. #{version}
+					span.icon.download(aria-hidden='true')
 		li
 			a.button.git(href='http://github.com/mootools/mootools-more')
 				span
@@ -26,10 +23,6 @@ p.description.lighter MooTools More makes MooTools even More awesome.
 					br
 					| Repository
 					span.icon.github(aria-hidden='true')
-
-p.license 
-	| To choose which modules to use visit the 
-	a(href='#{site}/builder') builder page.
 
 include big-icon
 
