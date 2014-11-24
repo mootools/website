@@ -1,114 +1,109 @@
 /* H E A D E R * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 background()
-	background: arguments;
-	border-color: arguments;
-	color: #ffffff;
+	background arguments
+	border-color arguments
+	color #ffffff
 
 #global-bar
-	box-shadow: rgba(0,0,0,0.1) 0px 0px 30px;
-	padding-bottom: 1em;
-	padding-top: 1em;
-	position: fixed;
-	width: 100%;
-	background-color: white;
-	z-index: 100;
-
+	box-shadow rgba(0,0,0,0.1) 0px 0px 30px
+	padding-bottom 1em
+	padding-top 1em
+	position fixed
+	width 100%
+	background-color white
+	z-index 100
 
 	div.wrapper
-		position: relative;
+		position relative
 		div.right
-			bottom: 4px;
-			position: absolute;
-			right: 4%;
+			bottom 4px
+			position absolute
+			right 4%
 	ul > li > a
 		&:active,
 		&:focus
-			background(#9c9ea0);
-				
+			background(#9c9ea0)
 	ul
-		float: left;
+		float left
 		li
-			float: left;
-			margin-right: 0.5em;
-			position: relative;
+			float left
+			margin-right 0.5em
+			position relative
 			a
-				border-radius: 3px;
-				color: #414347;
-				font-size: 1em;
-				padding: 0.3em 0.5em 0.3em 0.5em;
-				cursor: pointer;
-		
+				border-radius 3px
+				color #414347
+				font-size 1em
+				padding 0.3em 0.5em 0.3em 0.5em
+				cursor pointer
 	ul	
 		li.selected > a
-			background(#414347);
+			background(#414347)
 			&:active,
 			&:focus
-				background(#9c9ea0);
+				background(#9c9ea0)
 
 
 body.mootools #global-bar
-	padding-bottom: 2em;
-	padding-top: 2em;
-	position: relative;
+	padding-bottom 2em
+	padding-top 2em
+	position relative
 	h1
-		padding: 0;
+		padding 0
 
 #logo
-	float: left;
+	float left
 	h1 img
-		height: 70px !important;
+		height 70px !important
 	p img
-		width: 150px;
-		padding: 0.5em;
+		width 150px
+		padding 0.5em
 	img:focus, img:active
-		background-color: #ffffff;;
+		background-color #ffffff
 
 #search
-	float: left;
-	margin-left: 0.5em;
+	float left
+	margin-left 0.5em
 	label
-		display: block;
-		position: relative;
+		display block
+		position relative
 
 	input
-		background: transparent;
-		border-color: #dedfdf;
-		display: block;
-		font-size: 0.85em;
-		font-weight: 400;
-		padding: 0.4em 0.5em;
-		width: 12em;
+		background transparent
+		border-color #dedfdf
+		display block
+		font-size 0.85em
+		font-weight 400
+		padding 0.4em 0.5em
+		width 12em
 		&:focus
-			border-color: #acaaa7;
-
+			border-color #acaaa7
 
 #header
-	border-color: #7d8aa5;
+	border-color #7d8aa5
 	nav ul li.selected a
-		color: #7d8aa5;;
+		color #7d8aa5
 		&:after
-			border-color: #7d8aa5 #7d8aa5 transparent transparent
+			border-color #7d8aa5 #7d8aa5 transparent transparent
 	div.wrapper div.right
-		bottom: 0px;
+		bottom 0px
 
 	h1 img
-		height: 60px;
-		width: auto;
-		margin-top: 1em;
+		height 60px
+		width auto
+		margin-top 1em
 
 	a
-		color: #b1b9c8;
-		font-size: 1.125em;
+		color #b1b9c8
+		font-size 1.125em
 		&:active,
 		&:focus
-			background: transparent;
+			background transparent
 			span
-				background: #777571;
-				border-radius: 3px;
+				background #777571
+				border-radius 3px
 
 .core, .more
 	> #header
-		border-bottom: solid #7d8aa5 1px;
-		margin-top: 3em;
-
+		border-bottom solid #7d8aa5 1px
+		margin-top 3em
