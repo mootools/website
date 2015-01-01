@@ -51,13 +51,13 @@ block main
 					td Provides
 					td Description
 
-				each yaml, module in dependencies
-					- var file = project + "/" + module;
+				each yaml in dependencies
+					- var file = project + "/" + yaml.name;
 					- var hashRequested = hashDependencies.indexOf(file) != -1;
 					tr
 						td
 							input(type="checkbox", value=file, name="modules[]", data-provides="#{yaml.prov}", data-requires="#{yaml.req}", checked=hashRequested, class=hashRequested ? "activeChoice" : "")
-						td #{module}
+						td #{yaml.name}
 						td #{yaml.prov}
 						td #{yaml.desc}
 

@@ -10,6 +10,8 @@ var guides = require('../middleware/guides')(project, {
 	title: "MooTools Core Guides"
 });
 
+var async = require('async');
+var waitForIt = require('../lib/waitForIt');
 var hash = require('../middleware/buildHash')(project);
 var pkgProject = require('../package.json')._projects[project];
 var versions = pkgProject.versions;
@@ -25,7 +27,10 @@ var links = versions.slice(1).map(function(version){
 		})
 	};
 });
+var latestVersion = versions[0]; // todo: use fs.watch to update latest version
+var loadPackages = waitForIt(async.apply(require('../builder/dependencies.js'),project, latestVersion));
 
+	
 module.exports = function(app){
 
 	var core = function(req, res, next){
@@ -38,20 +43,22 @@ module.exports = function(app){
 			title: "MooTools Core",
 			navigation: 'core',
 			project: 'Core',
-			version: versions[0],
+			version: latestVersion,
 			versions: links
 		});
 	});
 
 	app.get('/core/builder/:hash?', hash, core, function(req, res){
-		res.render('builder/index', {
-			title: 'MooTools Core Builder',
-			navigation: 'builder',
-			project: 'Core',
-			hashDependencies: res.locals.hash || [],
-			version: versions[0],
-			versions: links,
-			dependencies: require('../builder/dependencies.js')(project, versions[0])
+		loadPackages.get(function(err, packages){
+			res.render('builder/index', {
+				title: 'MooTools Core Builder',
+				navigation: 'builder',
+				project: 'Core',
+				hashDependencies: res.locals.hash || [],
+				version: latestVersion,
+				versions: links,
+				dependencies: packages
+			});
 		});
 	});
 

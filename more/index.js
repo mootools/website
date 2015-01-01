@@ -10,10 +10,13 @@ var guides = require('../middleware/guides')(project, {
 	title: "MooTools More Guides"
 });
 
+var async = require('async');
+var waitForIt = require('../lib/waitForIt');
 var hash = require('../middleware/buildHash')(project);
-
 var pkgProject = require('../package.json')._projects[project];
-var lastVersion = pkgProject.versions[0];
+var versions = pkgProject.versions;
+var latestVersion = versions[0]; // todo: use fs.watch to update latest version
+var loadPackages = waitForIt(async.apply(require('../builder/dependencies.js'),project, latestVersion));
 
 module.exports = function(app){
 
@@ -26,19 +29,21 @@ module.exports = function(app){
 		res.render('more/index', {
 			navigation: 'more',
 			project: 'More',
-			version: lastVersion,
+			version: latestVersion,
 			title: "MooTools More"
 		});
 	});
 
 	app.get('/more/builder/:hash?', hash, more, function(req, res){
-		res.render('builder/index', {
-			title: 'MooTools More Builder',
-			navigation: 'builder',
-			project: 'More',
-			hashDependencies: res.locals.hash || [],
-			version: lastVersion,
-			dependencies: require('../builder/dependencies.js')(project, lastVersion)
+		loadPackages.get(function(err, packages){
+			res.render('builder/index', {
+				title: 'MooTools More Builder',
+				navigation: 'builder',
+				project: 'More',
+				hashDependencies: res.locals.hash || [],
+				version: latestVersion,
+				dependencies: packages
+			});
 		});
 	});
 
