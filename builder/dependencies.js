@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var fs = require('fs');
 var path = require('path');
@@ -69,7 +69,7 @@ module.exports = function(project, version, callback){
 				return obj.name == module || obj.file == module;
 			})[0];
 		});
-		if (orderedModules.length != headers.length) console.log('Err: package.yml and files missmatch');
+		if (orderedModules.length != headers.length) console.log('Err: package.yml and Source files missmatch');
 		callback(err, !err && orderedModules);
 	});	
 };

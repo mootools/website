@@ -10,27 +10,40 @@ var guides = require('../middleware/guides')(project, {
 	title: "MooTools Core Guides"
 });
 
+var fs = require('fs');
+var path = require('path');
 var async = require('async');
+var debounce = require('../lib/debounce');
 var waitForIt = require('../lib/waitForIt');
 var hash = require('../middleware/buildHash')(project);
-var pkgProject = require('../package.json')._projects[project];
-var versions = pkgProject.versions;
+var pkgReader = require('../middleware/packageJSONreader')(project);
+var pkgProject = pkgReader();
 
-var links = versions.slice(1).map(function(version){
-	return {
-		version: version,
-		files: ['compat', 'yui-compressed', 'nocompat', 'nocompat-yui-compressed'].map(function(key){
-			return {
-				link: 'http://ajax.googleapis.com/ajax/libs/mootools/'+ version + '/mootools' + ((key == 'compat') ? '' : '-' + key) + '.js',
-				label: key
-			};
-		})
-	};
-});
-var latestVersion = versions[0]; // todo: use fs.watch to update latest version
-var loadPackages = waitForIt(async.apply(require('../builder/dependencies.js'),project, latestVersion));
+var loadPackages = waitForIt(async.apply(require('../builder/dependencies.js'), project, pkgProject.lastVersion));
+var dir = path.join(__dirname, '..', pkgProject.buildOutput, project, 'docs');
 
+function getLinks(versions){
+	return versions.slice(1).map(function(version){
+		return {
+			version: version,
+			files: ['compat', 'yui-compressed', 'nocompat', 'nocompat-yui-compressed'].map(function(key){
+				var link = 'http://ajax.googleapis.com/ajax/libs/mootools/'+ version + '/mootools' + ((key == 'compat') ? '' : '-' + key) + '.js';
+				return {link: link, label: key};
+			})
+		};
+	});
+};
+var links = getLinks(pkgProject.versions);
+
+fs.watch(dir, debounce(function(){
+	console.log('resetting ' + dir + ' docs data');
+	loadPackages.reset();
 	
+	console.log('resetting package.json data');
+	pkgProject = pkgReader();
+	links = getLinks(pkgProject.versions);
+}));
+
 module.exports = function(app){
 
 	var core = function(req, res, next){
@@ -43,7 +56,7 @@ module.exports = function(app){
 			title: "MooTools Core",
 			navigation: 'core',
 			project: 'Core',
-			version: latestVersion,
+			version: pkgProject.lastVersion,
 			versions: links
 		});
 	});
@@ -55,7 +68,7 @@ module.exports = function(app){
 				navigation: 'builder',
 				project: 'Core',
 				hashDependencies: res.locals.hash || [],
-				version: latestVersion,
+				version: pkgProject.lastVersion,
 				versions: links,
 				dependencies: packages
 			});
