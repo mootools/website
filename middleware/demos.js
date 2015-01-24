@@ -12,7 +12,7 @@ var debounce = require('../lib/debounce');
 
 
 function filterToc(file, cb){
-	cb(!fs.statSync(file).isDirectory() && file.indexOf('toc-demos.json') == -1 && path.extname(file).slice(1) == 'json');
+	cb(!fs.statSync(file).isDirectory() && file.indexOf('toc-demos.json') == -1 && file.slice(-4) == 'json');
 }
 
 function loadFiles(dir, callback){
@@ -24,7 +24,13 @@ function loadFiles(dir, callback){
 	}
 	var filterFiles = function(files, cb){
 		async.filter(files, filterToc, function(filtered){
-			cb(null, filtered);
+			// to sort files alphabetically without file extension interfering 
+			var orderedFiles = filtered.map(function(file){
+				return file.slice(0, -5);
+			}).sort().map(function(file){
+				return file + '.json';
+			});
+			cb(null, orderedFiles);
 		});
 	}
 	var addContent = function(arr, cb){
