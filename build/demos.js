@@ -90,7 +90,7 @@ function build(project, dir){
 			link: '/demos/?demo=' + demo,
 			description:  yamlHeader
 		}
-		fs.writeFile(demoPath + '.json', JSON.stringify(jsFiddle, null, 2));
+		fs.writeFile(path.join(dir, demo + '.json'), JSON.stringify(jsFiddle, null, 2));
 	});
 	fs.writeFile(dir + '/toc-demos.json', JSON.stringify(tocDemos, null, 2));
 }
