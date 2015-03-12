@@ -134,6 +134,11 @@ app.get('/docs/:project?/:module?/:file?', function(req, res){
 	res.redirect(301, newPath);
 });
 
+// redirect old forge path
+app.get(/^\/plugins/, function(req, res){
+	res.redirect(301, req.path.replace('/plugins', '/forge'));
+});
+
 // redirect old download paths
 app.get(/^\/download/i, function(req, res){
 	res.redirect(301, '/core');
