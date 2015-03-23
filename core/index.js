@@ -10,21 +10,39 @@ var guides = require('../middleware/guides')(project, {
 	title: "MooTools Core Guides"
 });
 
+var fs = require('fs');
+var path = require('path');
+var async = require('async');
+var debounce = require('../lib/debounce');
+var waitForIt = require('../lib/waitForIt');
 var hash = require('../middleware/buildHash')(project);
-var pkgProject = require('../package.json')._projects[project];
-var versions = pkgProject.versions;
+var pkgReader = require('../middleware/packageJSONreader')(project);
+var pkgProject = pkgReader();
 
-var links = versions.slice(1).map(function(version){
-	return {
-		version: version,
-		files: ['compat', 'yui-compressed', 'nocompat', 'nocompat-yui-compressed'].map(function(key){
-			return {
-				link: 'http://ajax.googleapis.com/ajax/libs/mootools/'+ version + '/mootools' + ((key == 'compat') ? '' : '-' + key) + '.js',
-				label: key
-			};
-		})
-	};
-});
+var loadPackages = waitForIt(async.apply(require('../builder/dependencies.js'), project, pkgProject.lastVersion));
+var dir = path.join(__dirname, '..', pkgProject.buildOutput, project, 'docs');
+
+function getLinks(versions){
+	return versions.slice(1).map(function(version){
+		return {
+			version: version,
+			files: ['compat', 'yui-compressed', 'nocompat', 'nocompat-yui-compressed'].map(function(key){
+				var link = 'http://ajax.googleapis.com/ajax/libs/mootools/'+ version + '/mootools' + ((key == 'compat') ? '' : '-' + key) + '.js';
+				return {link: link, label: key};
+			})
+		};
+	});
+};
+var links = getLinks(pkgProject.versions);
+
+fs.watch(dir, debounce(function(){
+	console.log('resetting ' + dir + ' docs data');
+	loadPackages.reset();
+	
+	console.log('resetting package.json data');
+	pkgProject = pkgReader();
+	links = getLinks(pkgProject.versions);
+}));
 
 module.exports = function(app){
 
@@ -38,20 +56,22 @@ module.exports = function(app){
 			title: "MooTools Core",
 			navigation: 'core',
 			project: 'Core',
-			version: versions[0],
+			version: pkgProject.lastVersion,
 			versions: links
 		});
 	});
 
 	app.get('/core/builder/:hash?', hash, core, function(req, res){
-		res.render('builder/index', {
-			title: 'MooTools Core Builder',
-			navigation: 'builder',
-			project: 'Core',
-			hashDependencies: res.locals.hash || [],
-			version: versions[0],
-			versions: links,
-			dependencies: require('../builder/dependencies.js')(project, versions[0])
+		loadPackages.get(function(err, packages){
+			res.render('builder/index', {
+				title: 'MooTools Core Builder',
+				navigation: 'builder',
+				project: 'Core',
+				hashDependencies: res.locals.hash || [],
+				version: pkgProject.lastVersion,
+				versions: links,
+				dependencies: packages
+			});
 		});
 	});
 

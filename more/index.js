@@ -10,10 +10,26 @@ var guides = require('../middleware/guides')(project, {
 	title: "MooTools More Guides"
 });
 
+var fs = require('fs');
+var path = require('path');
+var async = require('async');
+var debounce = require('../lib/debounce');
+var waitForIt = require('../lib/waitForIt');
 var hash = require('../middleware/buildHash')(project);
+var pkgReader = require('../middleware/packageJSONreader')(project);
+var pkgProject = pkgReader();
 
-var pkgProject = require('../package.json')._projects[project];
-var lastVersion = pkgProject.versions[0];
+var loadPackages = waitForIt(async.apply(require('../builder/dependencies.js'), project, pkgProject.lastVersion));
+var dir = path.join(__dirname, '..', pkgProject.buildOutput, project, 'docs');
+
+fs.watch(dir, debounce(function(){
+	console.log('resetting ' + dir + ' docs data');
+	loadPackages.reset();
+	
+	console.log('resetting package.json data');
+	pkgProject = pkgReader();
+	console.log(pkgProject);
+}));
 
 module.exports = function(app){
 
@@ -26,19 +42,21 @@ module.exports = function(app){
 		res.render('more/index', {
 			navigation: 'more',
 			project: 'More',
-			version: lastVersion,
+			version: pkgProject.lastVersion,
 			title: "MooTools More"
 		});
 	});
 
 	app.get('/more/builder/:hash?', hash, more, function(req, res){
-		res.render('builder/index', {
-			title: 'MooTools More Builder',
-			navigation: 'builder',
-			project: 'More',
-			hashDependencies: res.locals.hash || [],
-			version: lastVersion,
-			dependencies: require('../builder/dependencies.js')(project, lastVersion)
+		loadPackages.get(function(err, packages){
+			res.render('builder/index', {
+				title: 'MooTools More Builder',
+				navigation: 'builder',
+				project: 'More',
+				hashDependencies: res.locals.hash || [],
+				version: pkgProject.lastVersion,
+				dependencies: packages
+			});
 		});
 	});
 
