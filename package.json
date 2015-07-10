@@ -40,7 +40,7 @@
     "nib": "0.9",
     "prime": "0.1",
     "request": "2.22",
-    "robotskirt": "2.7",
+    "marked": "0.3.3",
     "semver": "2.0",
     "serve-favicon": "^2.1.5",
     "slugify": "0.1",
