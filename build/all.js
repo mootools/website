@@ -5,8 +5,10 @@ var spawn = require('child_process').spawn;
 var getKeys = require('./api_keys');
 var options = process.argv.splice(2);
 
-if (options.indexOf('--add-keys') != -1){
-	getKeys();
+function checkKeys(){
+	if (options.indexOf('--add-keys') != -1){
+		getKeys();
+	}
 }
 
 var cmds = [
@@ -31,4 +33,4 @@ function spawnCmd(cmd, callback){
 async.series([
 	async.apply(spawnCmd, ["build/repositories"]),
 	async.apply(async.each, cmds, spawnCmd)
-]);
+], checkKeys);

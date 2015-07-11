@@ -1,25 +1,41 @@
 "use strict";
 
 var fs = require('fs-extra');
-var async = require('async');
-var spawn = require('child_process').spawn;
 var APIkeys = require('./../config/api_keys.json');
-var prompt = require('sync-prompt').prompt;
+var readline = require('readline');
+var rli;
 
-function checkKeys(api, name){
-	Object.keys(api).forEach(function(key){
-		api[key] = prompt('Please insert ' + name + '\'s ' + key + ': ') || api[key];
-	});
+function checkKeys(site, done){
+    var keys = Object.keys(APIkeys[site]);
+    (function question() {
+        var key = keys.shift();
+		if (!key) return done();
+        rli.question('Please insert ' + site + '\'s ' + key + ': ', function(answer){
+            if (answer) APIkeys[site][key] = answer;
+            question();
+        });
+    })();
 }
 
-function question(what){
-	var answer = prompt('Do you want to add or change keys for ' + what + '? (y/n): ');
-	return answer.toLowerCase() == 'y';
+function question(site, next){
+    rli.question('Do you want to add or change keys for ' + site + '? (y/n): ', function(answer){
+        if (answer.toLowerCase() == 'y') checkKeys(site, next);
+        else next();
+    });
 }
 
 module.exports = function(){
-	for (var name in APIkeys){
-		if (question(name)) checkKeys(APIkeys[name], name);
-	}
-	fs.writeFileSync('./config/api_keys.json', JSON.stringify(APIkeys, null, 4));
+	var services = Object.keys(APIkeys);
+	rli = readline.createInterface({
+	    input: process.stdin,
+	    output: process.stdout
+	});
+
+	(function iterator(){
+	    var service = services.shift();
+	    if (service) return question(service, iterator);
+
+	    rli.close();
+		fs.writeFileSync(APIpath, JSON.stringify(APIkeys, null, 4));
+	})();
 }
