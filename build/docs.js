@@ -31,6 +31,11 @@ function fixPath(mdFilePath, ver){
 	return project + '/docs/' + version + '/' + tocPath;
 }
 
+function makeFileAndModuleName(path){
+	var subPath = path.split('/Docs')[1].slice(0, -3); // drop ".md" and get module name
+	return subPath.split('/').join('-');
+}
+
 
 // distinguish Core, More from Prime & friends builder
 function build(project, docsdir){
@@ -59,8 +64,9 @@ function build(project, docsdir){
 			var html      = compile(projectMD, '/' + fixPath(mdFile, library));
 			var tocItem   = html.toc[0];
 			var fileName  = path.basename(mdFile, '.md');
+			var uniquename = makeFileAndModuleName(mdFile);
 
-			fs.writeFile(docsdir + '/content-' + fileName + '-' + version + '.html', html.content);
+			fs.writeFile(docsdir + '/content-' + uniquename + '-' + version + '.html', html.content);
 			if (mdFile.indexOf(docsIndex) != -1){
 				fs.writeFile(docsdir + '/content-' + version + '.html', html.content);
 				intro = true;
@@ -70,7 +76,7 @@ function build(project, docsdir){
 			tocItem.optional = optionalDocFile;
 			var mdFileDir = path.dirname(path.relative(versionPath, mdFile));
 			tocItem.path = path.join(mdFileDir, fileName);
-			tocItem.file = fileName;
+			tocItem.file = uniquename;
 			toc.push(tocItem);
 		});
 
