@@ -60,7 +60,7 @@ function build(project, docsdir){
 		var intro;
 
 		docFiles.forEach(function(mdFile){
-			var projectMD = fs.readFileSync(mdFile);
+			var projectMD = fs.readFileSync(mdFile, 'utf8');
 			var html      = compile(projectMD, '/' + fixPath(mdFile, library));
 			var tocItem   = html.toc[0];
 			var fileName  = path.basename(mdFile, '.md');

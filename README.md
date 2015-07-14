@@ -9,7 +9,7 @@ To install everything you need to clone the repository and submodules (for the d
 	npm install
 	cp config/api_keys.sample.json config/api_keys.json
 	cp config/databases.sample.json config/databases.json
-	node build/all
+	node build/all # optional "--add-keys" to update api_keys.json
 	node index
 
 ```
