@@ -9,7 +9,6 @@ server {
 	access_log /var/log/nginx/mootools.net.access.log;
 #	error_log /var/log/nginx/mootools.net.error.log;
 
-#	error_page 400 401 403 404 410 500 502 503 504 = @error;
 	error_page 400 = @error400;
 	error_page 401 = @error401;
 	error_page 403 = @error403;
@@ -74,11 +73,6 @@ server {
 		fastcgi_param SCRIPT_FILENAME $document_root/index.php;
 		fastcgi_param SCRIPT_NAME /$microsite/index.php;
 	}
-
-#	location @error {
-#		root /srv/www/mootools.net/error;
-#		try_files /$status.html /error.html =$status;
-#	}
 
 	location @error400 {
 		root /srv/www/mootools.net/error;
