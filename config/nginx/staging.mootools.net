@@ -5,7 +5,8 @@ upstream staging.mootools.net {
 
 server {
 
-	listen [::]:80; ## listen for ipv4 and ipv6
+	listen 80; ## listen for ipv4
+	listen [::]:80; ## listen for ipv6
 
 	server_name staging.mootools.net;
 
