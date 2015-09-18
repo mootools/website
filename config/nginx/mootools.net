@@ -108,8 +108,8 @@ server {
 
 server {
 
-#	listen 80; ## listen for ipv4
-	listen [::]:80; ## listen for ipv4 and ipv6
+	listen 80; ## listen for ipv4
+	listen [::]:80; ## listen for ipv6
 
 	server_name www.mootools.net;
 	return 301 $scheme://mootools.net$request_uri;
