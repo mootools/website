@@ -26,7 +26,7 @@ DAEMON=/usr/local/bin/node
 DAEMON_DIR=/opt/mootools/$SHORTNAME
 DAEMON_USER=www-data
 
-APP=index
+APP=service
 APP_ARGS="-p $SOCKET"
 APP_ENV=production
 
@@ -53,6 +53,7 @@ do_start() {
 	#   1 if daemon was already running
 	#   2 if daemon could not be started
 	start-stop-daemon --start --quiet --pidfile $PIDFILE --chuid $DAEMON_USER --exec $DAEMON --test > /dev/null || return 1
+	rm -f "$SOCKET"
 	NODE_ENV="$APP_ENV" start-stop-daemon --start --quiet --background --make-pidfile --pidfile $PIDFILE --chuid $DAEMON_USER --chdir $DAEMON_DIR --exec $DAEMON -- $APP $APP_ARGS > /dev/null || return 2
 }
 
@@ -68,8 +69,21 @@ do_stop() {
 	start-stop-daemon --stop --quiet --retry=TERM/30/KILL/5 --pidfile $PIDFILE --exec $DAEMON
 	RETVAL="$?"
 	[ "$RETVAL" = 2 ] && return 2
-	rm -f $PIDFILE $SOCKET
+	rm -f "$PIDFILE" "$SOCKET"
 	return "$RETVAL"
+}
+
+#
+# Function that sends a SIGHUP to the daemon/service
+#
+do_reload() {
+	# Return
+	#   0 if the signal was sent (and old socket was removed)
+	#   1 if the signal could not be sent
+	start-stop-daemon --stop --signal HUP --quiet --pidfile $PIDFILE --exec $DAEMON --test > /dev/null || return 1
+	rm -f "$SOCKET"
+	start-stop-daemon --stop --signal HUP --quiet --pidfile $PIDFILE --exec $DAEMON
+	return 0
 }
 
 case "$1" in
@@ -92,7 +106,12 @@ case "$1" in
 	status)
 		status_of_proc "$DAEMON" "$NAME" && exit 0 || exit $?
 		;;
-	restart|force-reload)
+	reload|force-reload)
+		log_daemon_msg "Reloading $DESC" "$NAME"
+		do_reload
+		log_end_msg $?
+		;;
+	restart)
 		log_daemon_msg "Restarting $DESC" "$NAME"
 		do_stop
 		case "$?" in
@@ -111,7 +130,7 @@ case "$1" in
 		esac
 		;;
 	*)
-		echo "Usage: $SCRIPTNAME {start|stop|status|restart|force-reload}" >&2
+		echo "Usage: $SCRIPTNAME {start|stop|status|restart|reload|force-reload}" >&2
 		exit 3
 		;;
 esac
