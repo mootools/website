@@ -74,6 +74,18 @@ do_stop() {
 }
 
 #
+# Function that sends a SIGUSR2 to the daemon/service
+#
+do_reload_logs() {
+	# Return
+	#   0 if the signal was sent
+	#   1 if the signal could not be sent
+	start-stop-daemon --stop --signal USR2 --quiet --pidfile $PIDFILE --exec $DAEMON --test > /dev/null || return 1
+	start-stop-daemon --stop --signal USR2 --quiet --pidfile $PIDFILE --exec $DAEMON
+	return 0
+}
+
+#
 # Function that sends a SIGHUP to the daemon/service
 #
 do_reload() {
@@ -106,6 +118,11 @@ case "$1" in
 	status)
 		status_of_proc "$DAEMON" "$NAME" && exit 0 || exit $?
 		;;
+	reload-logs)
+		log_daemon_msg "Reloading logs of $DESC" "$NAME"
+		do_reload_logs
+		log_end_msg $?
+		;;
 	reload|force-reload)
 		log_daemon_msg "Reloading $DESC" "$NAME"
 		do_reload
@@ -130,7 +147,7 @@ case "$1" in
 		esac
 		;;
 	*)
-		echo "Usage: $SCRIPTNAME {start|stop|status|restart|reload|force-reload}" >&2
+		echo "Usage: $SCRIPTNAME {start|stop|status|restart|reload|reload-logs|force-reload}" >&2
 		exit 3
 		;;
 esac

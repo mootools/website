@@ -3,51 +3,66 @@
 var app = 'index',
 	name = 'mootools-website';
 
-var Monitor = require('forever-monitor').Monitor;
+var Monitor = require('forever-monitor').Monitor,
+	log = require('./lib/log.js');
 
 var monitor = new Monitor(__dirname + '/' + app + '.js', {
+	silent: true,
 	minUptime: 2000,
 	args: process.argv.splice(2)
 });
 
+log.attach(monitor);
+try {
+	log.configure(require('./config/log.json'));
+} catch (error){
+}
+
 function stop(){
-	console.error('** Requested stop of ' + name);
+	log.error('** Requested stop of ' + name);
 	monitor.stop();
 }
 
 function reload(){
-	console.error('** Requested reload of ' + name);
+	log.error('** Requested reload of ' + name);
+	log.reload();
 	monitor.restart();
+}
+
+function reloadLogs(){
+	log.error('** Requested log reload of ' + name);
+	log.reload();
 }
 
 process.addListener('SIGINT', stop);
 process.addListener('SIGTERM', stop);
 process.addListener('SIGHUP', reload);
+process.addListener('SIGUSR2', reloadLogs);
 
 monitor.addListener('start', function(){
-	console.error('** Starting ' + name + ' monitor');
+	log.error('** Starting ' + name + ' monitor');
 });
 
 monitor.addListener('stop', function(){
-	console.error('** Stopping ' + name + ' monitor');
+	log.error('** Stopping ' + name + ' monitor');
 });
 
 monitor.addListener('exit:code', function(code){
 	if (code == null) code = 0;
-	console.error('** Detected ' + name + ' process exited (exit code ' + code + ')');
+	log.error('** Detected ' + name + ' process exited (exit code ' + code + ')');
 });
 
 monitor.addListener('restart', function(){
-	console.error('** Restarting ' + name + ' process (#' + monitor.times + ')');
+	log.error('** Restarting ' + name + ' process (#' + monitor.times + ')');
 });
 
 monitor.addListener('error', function(error){
 	if (error.stack){
-		console.error('** ' + error.stack);
+		log.error('** ' + error.stack);
 	} else if (error.message) {
-		console.error('** Error: ' + error.message);
+		log.error('** Error: ' + error.message);
 	} else {
-		console.error('** Error: ' + error);
+		log.error('** Error: ' + error);
 	}
 });
 
