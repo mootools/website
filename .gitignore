@@ -3,3 +3,4 @@ node_modules/
 *.tern-port
 config/api_keys.json
 config/databases.json
+config/log.json

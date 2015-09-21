@@ -1,0 +1,13 @@
+/var/opt/mootools/log/mootools-website.*.log {
+	weekly
+	missingok
+	rotate 52
+	compress
+	delaycompress
+	notifempty
+	create 0640 www-data adm
+	sharedscripts
+	postrotate
+		service mootools-website reload-logs
+	endscript
+}

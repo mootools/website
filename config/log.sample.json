@@ -1,0 +1,4 @@
+{
+	"outFile": "tests/out.log",
+	"errFile": "tests/err.log"
+}
