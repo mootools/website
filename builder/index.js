@@ -69,7 +69,7 @@ function processPost(req, res, next){
 	}
 
 	function hash(cb){
-		if (!modules || minified) return cb();
+		if (!modules) return cb();
 		builderHash.save(project_, modules, cb);
 	}
 
@@ -81,7 +81,7 @@ function processPost(req, res, next){
 		if (minified) data = uglify(data);
 
 		data = copyright + '\n' +
-			(results[1] ? '/*\nWeb Build: http://mootools.net/' + project_ + '/builder/' + results[1].hash + '\n*/\n' : '') +
+			(results[1] ? '/*!\nWeb Build: http://mootools.net/' + project_ + '/builder/' + results[1].hash + '\n*/\n' : '') +
 			data;
 
 		res.setHeader('Content-Type', 'application/javascript');
