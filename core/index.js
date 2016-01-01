@@ -13,14 +13,25 @@ var guides = require('../middleware/guides')(project, {
 var hash = require('../middleware/buildHash')(project);
 var pkgProject = require('../package.json')._projects[project];
 var versions = pkgProject.versions;
+var suffixes = {
+	old: ['', '-yui-compressed', '-nocompat', '-nocompat-yui-compressed'],
+	new: ['', '.min', '-nocompat', '-nocompat.min'],
+	names: ['compat', 'compat compressed', 'nocompat', 'nocompat compressed']
+}
+
+function isModernSuffix(ver){
+	var xyz = ver.split('.').map(Number);
+	return xyz[0] > 0 && xyz[1] > 4 && xyz[2] > 1; // > 1.5.1
+}
 
 var links = versions.slice(1).map(function(version){
+	var suffix = suffixes[isModernSuffix(version) ? 'new' : 'old'];
 	return {
 		version: version,
-		files: ['compat', 'yui-compressed', 'nocompat', 'nocompat-yui-compressed'].map(function(key){
+		files: suffix.map(function(key, i){
 			return {
-				link: 'http://ajax.googleapis.com/ajax/libs/mootools/'+ version + '/mootools' + ((key == 'compat') ? '' : '-' + key) + '.js',
-				label: key
+				link: 'http://ajax.googleapis.com/ajax/libs/mootools/'+ version + '/mootools' + key + '.js',
+				label: suffixes.names[i]
 			};
 		})
 	};
