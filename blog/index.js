@@ -12,6 +12,15 @@ function getData(req, res, next){
 	});
 }
 
+var blogURL = 'http://mootools.net/blog';
+var feed = {
+    title: 'MooTools',
+    description: 'MooTools blog',
+    feedURL: blogURL + '/blog/feed',
+    blogURL: blogURL,
+    language: 'en-US'
+};
+
 module.exports = function(app){
 
 	var index = function(req, res, next){
@@ -57,6 +66,14 @@ module.exports = function(app){
 		var url = req.params[0];
 		var posts = res.locals._posts.posts;
 		var urls  = res.locals._posts.urls;
+
+		if (url == 'feed'){
+			feed.posts = posts;
+			return res.render('blog/feed', feed, function(err, xml){
+				res.header('Content-Type', 'application/xml');
+				res.send(xml);
+			});
+		}
 
 		var postIndex = urls[url];
 		var post = postIndex != null && posts[postIndex];
