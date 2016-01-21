@@ -5,6 +5,7 @@ var async = require('async');
 var fs = require('fs-extra');
 var path = require('path');
 var spawn = require('child_process').spawn;
+var exec = require('child_process').exec;
 require('colors');
 
 function inverseFsExists(version, callback){
@@ -36,13 +37,24 @@ function checkout(vers, callback){
 	});
 }
 
+function verifyTag(vers, callback){
+	console.log(("verifying that tag " + vers.version + " is in place").green);
+	exec('git describe --abbrev=0', {
+		cwd: vers.dir
+	}, (error, stdout, stderr) => {
+		var tag = stdout.replace('\n', '');
+		if (tag == vers.version) callback(error, vers);
+		else callback(vers.version + ' tag mismatch');
+	});
+}
+
 function mkdirs(vers, callback){
 	fs.mkdirs(vers.dir, function(err){
 		callback(err, vers);
 	});
 }
 
-var cloneAndCheckout = async.compose(checkout, clone, mkdirs);
+var cloneAndCheckout = async.compose(verifyTag, checkout, clone, mkdirs);
 
 function cloneAndCheckoutAll(versions, callback){
 	async.map(versions, cloneAndCheckout, callback);
