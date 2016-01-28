@@ -151,16 +151,21 @@ label
 select:after
 	content "stocazzo"
 
-input[type="checkbox"]
-	height 1em
-	position relative
-	width 1em
-#builderOptions table input[type="checkbox"]
-	&:checked,
-	&.dependency
-		background #f4f1ed
-	&.activeChoice:checked
-		background #7d8aa5
+
+.builder
+	input[type="checkbox"] + span
+		border solid #e5e3df 1px
+		border-radius 3px
+		padding 1px 8px
+		margin-right 5px
+		font-size 13px
+	input[type="checkbox"]
+		display none
+
+		&.dependency + span
+			background #f4f1ed
+		&:checked + span, &.activeChoice:checked + span
+			background #7d8aa5
 
 input[type="submit"]
 	background #f4f1ed
@@ -367,7 +372,7 @@ a:focus .icon
 
 		a:focus, a:active
 			background-color #777571 !important
-			
+
 		hr
 			margin-top 2em
 			margin-bottom 2em
@@ -381,7 +386,7 @@ a:focus .icon
 			margin-left -0.2em
 		h4
 			font-weight 400
-		
+
 		ul
 			padding-left 2em
 			li
@@ -480,7 +485,7 @@ a:focus .icon
 	.about
 		background-color #ffffff
 		padding-top 0em
-		a	
+		a
 			font-weight 400
 	.cover
 		float right
@@ -505,7 +510,6 @@ a:focus .icon
 			font-weight 200
 		h3
 			color #575551
-			
+
 		p
 			padding-top 0.5em
-
