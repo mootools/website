@@ -13,8 +13,9 @@ module.exports = function(interval){
 		twit.get('/statuses/user_timeline.json', {
 			include_entities: true,
 			screen_name: 'mootools'
-		}, function(data, res){
-			if (res.statusCode == 200){
+		}, function(err, data, res){
+			if (err) console.log(err);
+			if (res && res.statusCode == 200){
 				tweets = data.slice(0, 3);
 				console.log('recieved Twitter events data');
 			}
