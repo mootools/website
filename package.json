@@ -83,6 +83,10 @@
         "1.2.5.1",
         "1.0.2"
       ]
+    },
+    "demos": {
+      "repository": "https://github.com/mootools/mootools-demos",
+      "versions": [""]
     }
   }
 }

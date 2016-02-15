@@ -57,8 +57,9 @@ var versions = [];
 
 prime.each(projects, function(project, name){
 	project.versions.forEach(function(version){
+		var versionPath = name + (version ? '-' + version : '');
 		versions.push({
-			dir: path.join(__dirname, '../', pkg._buildOutput, name, 'docs', name + '-' + version),
+			dir: path.join(__dirname, '../', pkg._buildOutput, name, 'docs', versionPath),
 			repository: project.repository,
 			version: version
 		});

@@ -73,6 +73,18 @@ if (window.matchMedia){
 			sitemap[i].addEventListener('click', toggleDiv(i), false);
 		}
 
+		// demo runner
+		document.getElements('ul.demoTabs li a').addEvent('click', function(event){
+			event.preventDefault();
+			var type = this.getProperty('data-type');
+			if (type == 'jsfiddle') return this.getParent('form').submit();
+			$$('ul.demoTabs a.selected').removeClass('selected');
+			this.addClass('selected');
+			$$('.tabcontent .tabs').removeClass('selected');
+			$$('.tabcontent .tabs[data-type="' + type + '"]').addClass('selected');
+		}, false);
+
+
 	}, false);
 }
 

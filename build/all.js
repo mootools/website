@@ -14,6 +14,7 @@ function checkKeys(){
 var cmds = [
 	["build/docs", "core"],
 	["build/docs", "more"],
+	["build/demos", "demos"],
 	["build/guides", "core"],
 	["build/guides", "more"],
 	["build/blog"]

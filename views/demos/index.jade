@@ -1,0 +1,50 @@
+extends ../layouts/home
+
+mixin tabs(highlighted)
+	div.versions.clearfix
+		h3
+			| #{demoName}
+
+		ul.demoTabs
+			each highligh, type in highlighted
+				li
+					a(href="#", data-type="#{type}")
+						| #{type}
+			li
+				a(href="#", data-type="demo").selected
+					| demo
+			li
+				form(method="post", action="http://jsfiddle.net/api/post/mootools/#{version}/#{dependencies}")
+					a(href="#", data-type="jsfiddle")
+						| Edit live in jsFiddle
+					textarea(name="html") #{content.html}
+					textarea(name="css") #{content.css}
+					textarea(name="js") #{content.js}
+
+block main
+	.docs.overview.clearfix.wrapper.democontent
+		mixin tabs(content.highlighted)
+		.toc
+			each section in toc
+				ul.section
+					li.small
+						a(href= section.link) #{section.description.name}
+
+
+		.content.demos
+			div.tabcontent
+				div#runner.tabs.selected(data-type="demo")
+					.details
+						!{description}
+						div
+							!{content.html}
+
+				each highligh, type in content.highlighted
+					div.tabs(data-type="#{type}")
+						| !{highligh}
+
+	script(src='/demos/MooTools-More-1.5.1-compressed.js')
+	script.
+		!{content.js}
+	style.
+		!{content.css}

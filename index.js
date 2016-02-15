@@ -49,6 +49,7 @@ app.use(bodyParser.json());
 
 // fix trailing slashes in path
 app.use(function(req, res, next){
+	if (req.method == 'POST') return next();
 	if (req.path != '/' && req.path.substr(-1) == '/'){
 		var query = req.url.slice(req.path.length);
 		res.redirect(301, req.path.slice(0, -1) + query);
@@ -62,7 +63,6 @@ if (app.get('env') == 'development'){
 
 	app.use(morgan('dev'));
 	app.use(errorhandler());
-
 	app.use(function setJadePretty(req, res, next){
 		res.locals.pretty = true;
 		res.locals.cache = false;
@@ -79,7 +79,7 @@ require('./middleware/build-static')(app, {
 	dirname: __dirname
 });
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public', { redirect: false }));
 
 // github, twitter & blog feeds
 var githubEvents = require('./middleware/githubEvents')({
@@ -88,7 +88,7 @@ var githubEvents = require('./middleware/githubEvents')({
 var twitter = require('./middleware/twitter')();
 var blogData = require('./blog/data');
 function getLatestBlog(req, res, next){
-	blogData.get(function(err, blog) {
+	blogData.get(function(err, blog){
 		if (err) next(err);
 		res.locals.lastBlogPost = blog.posts[0];
 		next();
@@ -114,6 +114,7 @@ app.get('/search', function(req, res){
 
 require('./core')(app);
 require('./more')(app);
+require('./demos')(app);
 require('./blog')(app);
 require('./books')(app);
 require('./builder')(app);
@@ -142,6 +143,13 @@ app.get(/^\/plugins/, function(req, res){
 // redirect old download paths
 app.get(/^\/download/i, function(req, res){
 	res.redirect(301, '/core');
+});
+
+// for demos to echo Requests
+app.post('/echo/:type', function(req, res){
+	var type = req.params.type;
+	res.send(req.body[type]);
+	res.end();
 });
 
 // handle 404 errors
