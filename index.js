@@ -79,7 +79,7 @@ require('./middleware/build-static')(app, {
 	dirname: __dirname
 });
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public', {redirect : false}));
 
 // github, twitter & blog feeds
 var githubEvents = require('./middleware/githubEvents')({
