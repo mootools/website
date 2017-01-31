@@ -12,7 +12,7 @@ block main
 				space = ""
 				| Written by #{post.author} on #{dateable(post.date, "D MMMM YYYY")}
 				mixin postedUnder(post.tags)
-				a(href="http://mootools.net/blog/#{post.permalink}/#disqus_thread", data-disqus-identifier).comments
+				a(href="/blog/#{post.permalink}/#disqus_thread", data-disqus-identifier).comments
 					| Comments
 
 			.post.short
