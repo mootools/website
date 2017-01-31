@@ -7,7 +7,7 @@ permalink: "2007/06/11/selectors-on-fire-a-tale-of-pseudoselectors/"
 
 ---
 ![slickspeed](http://blog.mootools.net/assets/2007/6/11/slickspeed.png)
-During the last few days, we've added some nifty CSS3 selectors to the trunk. Continue reading to know what this is all about, or try [SlickSpeed](http://mootools.net/slickspeed) now!
+During the last few days, we've added some nifty CSS3 selectors to the trunk. Continue reading to know what this is all about, or try [SlickSpeed](/slickspeed) now!
 
 UPDATE: SlickSpeed can now be [downloaded from googlecode](http://code.google.com/p/slickspeed/source).
 
@@ -144,7 +144,7 @@ His test was flawed though, as every framework was just included in the same pag
 In the demo I tried to include the latest development version of the frameworks where possible.
 Currently in the demo: [mootools](http://mootools.net), [prototype](http://prototypejs.org), [jquery](http://jquery.com), [ext](http://extjs.com/), [cssQuery](http://dean.edwards.name/my/cssQuery/) and [dojo](http://dojotoolkit.org/).
 
-So welcome to the battle of the frameworks, and may the best win. Meet [SlickSpeed](http://mootools.net/slickspeed).
+So welcome to the battle of the frameworks, and may the best win. Meet [SlickSpeed](/slickspeed).
 
 <del>P.S. We're gonna release SlickSpeed next week, as we need to add a few features.</del>
 SlickSpeed can now be [downloaded from googlecode](http://code.google.com/p/slickspeed/source).

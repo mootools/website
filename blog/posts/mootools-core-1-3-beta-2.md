@@ -18,7 +18,7 @@ All in all the new beta is faster, better, more stable - in a word - sexier. Tel
 
 ### Download
 
-- Download the [built 1.3 beta 2 release](http://mootools.net/download/get/mootools-core-1.3b2.js).
+- Download the [built 1.3 beta 2 release](/download/get/mootools-core-1.3b2.js).
 - [Fork / clone MooTools 1.3](http://github.com/mootools/mootools-core/tree/1.3b2) from github, and build it yourself with [Packager](http://github.com/kamicane/packager).
 - Read the commit logs to [see what has changed](http://github.com/mootools/mootools-core/commits/1.3b2).
 - Wondering how those amazing new methods are called? You can [browse our markdown documentation](http://github.com/mootools/mootools-core/tree/1.3b2/Docs/) right on github.

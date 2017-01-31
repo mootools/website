@@ -15,7 +15,7 @@ permalink: "2009/09/22/mootools-124-released/"
 
 <p>While the 1.2 version of MooTools Core no longer accepts additions, MooTools More, the official plugins collection, continues to be iterated upon constantly. Included in the next version of MooTools More (1.2.4.1) are numerous bug fixes and performance enhancements, along with new widgets, classes, and extensions for you to play with. Here are a few:</p>
 
-<img src="http://mootools.net/uploads/zebra.png" alt="Zebra Table" style="float:right;margin:0 0 20px 20px;" />
+<img src="/uploads/zebra.png" alt="Zebra Table" style="float:right;margin:0 0 20px 20px;" />
 <ul>
 <li>Mask - An overlay class that allows you to put a semi-transparent layer above any element, including the window.</li>
 <li>Spinner - This class automates putting an AJAX indicator over any element.</li>
@@ -33,7 +33,7 @@ permalink: "2009/09/22/mootools-124-released/"
 <h3>MooTools ART</h3>
 
 <p>
-<img src="http://mootools.net/uploads/art.png" alt="MooTools ART" style="float:right;margin:0 0 40px 20px;" />
+<img src="/uploads/art.png" alt="MooTools ART" style="float:right;margin:0 0 40px 20px;" />
 MooTools ART has been under development off and on for nearly a year now and for the most part has been under wraps. MooTools ART is the foundation for MooTools&#8217; upcoming UI library. Using canvas and VML, it features support for dynamic illustrations, allowing complex UI elements that have numerous interactive states. When released, will come with numerous plugins for stylable windows, buttons, and more.</p>
 
 <p>One of the most interesting ART features is its support for themes using CSS-like syntax in javascript. In conjunction with the default widgets that come with ART we hope to see the MooTools community create numerous interfaces using the system that allows for a fully themable UI by the end of the year.</p>

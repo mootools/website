@@ -29,7 +29,7 @@ MooRTE is a great MooTools rich text editor.  MooRTE is lightweight, customizabl
 
 <h3 style="clear:both;">Call to Upgrade: MooTools 1.1.2 and MooTools 1.2.4</h3>
 <p>Remember to upgrade your MooTools 1.1 and MooTools 1.2 builds to 1.1.2 and 1.2.4 respectively.  Firefox 3.6 has removed document.getBoxObjectFor which will impact Gecko detection.</p>
-<p><a href="http://mootools.net/blog/2009/11/02/upgrade-mootools/">http://mootools.net/blog/2009/11/02/upgrade-mootools/</a></p>
+<p><a href="/blog/2009/11/02/upgrade-mootools/">/blog/2009/11/02/upgrade-mootools/</a></p>
 
 
 <h3>Keep Up the Good Work!</h3>

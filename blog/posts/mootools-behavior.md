@@ -44,7 +44,7 @@ You do this:
 	<a data-behavior="Tip" title="I'm a tip!">blah</a>
 	<div data-behavior="Accordion" data-accordion-options="{someOptions}">...</div>
 
-Think of it as delegation (as in [event delegation](http://mootools.net/blog/2011/03/28/events-with-mootools-element-class-delegation-and-pseudos/)) for class invocation. If you use DOMReady to do your setup and you want to swap out some HTML with AJAX, you need to reapply that startup selectively to only your components that you're updating, which is often painful. Not with Behavior, you just apply the filters to the response and call it a day.
+Think of it as delegation (as in [event delegation](/blog/2011/03/28/events-with-mootools-element-class-delegation-and-pseudos/)) for class invocation. If you use DOMReady to do your setup and you want to swap out some HTML with AJAX, you need to reapply that startup selectively to only your components that you're updating, which is often painful. Not with Behavior, you just apply the filters to the response and call it a day.
 
 You do a lot less DOM selection; you only ever run `$$('[data-behavior]')` once (though some filters may run more selectors on themselves - like Accordion finding its togglers and sections).
 

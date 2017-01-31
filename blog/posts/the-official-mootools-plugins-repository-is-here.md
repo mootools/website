@@ -6,9 +6,9 @@ tags: "news"
 permalink: "2009/12/10/the-official-mootools-plugins-repository-is-here/"
 
 ---
-If I was to highlight the single most important thing for MooTools in 2009, I would say without a doubt it's been its *community*. This year has seen the involvement of many individuals from all over the world that have contributed their time, expertise, talent and charm. Our San Francisco & <a href="http://mootools.net/blog/2009/11/30/london-hackathon-2009/">London</a> hackathons are clear confirmation of this.
+If I was to highlight the single most important thing for MooTools in 2009, I would say without a doubt it's been its *community*. This year has seen the involvement of many individuals from all over the world that have contributed their time, expertise, talent and charm. Our San Francisco & <a href="/blog/2009/11/30/london-hackathon-2009/">London</a> hackathons are clear confirmation of this.
 
-Today we're introducing a tool that has been in the works for the past few months that we believe will change how our community collaborates forever. Meet <a href="http://mootools.net/forge">the MooTools Forge</a>.
+Today we're introducing a tool that has been in the works for the past few months that we believe will change how our community collaborates forever. Meet <a href="/forge">the MooTools Forge</a>.
 
 <h3>The Problem</h3>
 

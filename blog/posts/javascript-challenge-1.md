@@ -16,7 +16,7 @@ It is with this in mind that we want to set some challenges in plain old JavaScr
  
 This week's challenge is to find an elegant solution to generating elements in a spiral pattern. Consider the following diagram...
 
-<div style="padding-bottom: 1em"><img src="http://mootools.net/blog/wp-content/uploads/2012/07/Screen-Shot-2012-07-25-at-11.53.43-AM.png" alt="" width="399" height="201" /></div>
+<div style="padding-bottom: 1em"><img src="/blog/wp-content/uploads/2012/07/Screen-Shot-2012-07-25-at-11.53.43-AM.png" alt="" width="399" height="201" /></div>
 
 Your solution can be <a href="http://en.wikipedia.org/wiki/Procedural_programming">procedural</a> or <a href="http://en.wikipedia.org/wiki/Recursive#Functional_recursion">recursive</a>, but in either case you will be dealing with a shrinking grid of possible locations for elements. The colours do not have to be in the result - they are only used to indicate the pattern.
 
@@ -30,4 +30,4 @@ We hope to make it a weekly thing, so be on the lookout for more challenges to f
 
 <strong>EDIT [2012/08/01]</strong>: We are closing comments and reviewing submissions. We will follow this post up with a review of our favourites and what they teach us about the task and JavaScript development in general.
 
-<strong>EDIT [2012/08/08]</strong>: We have posted the <a href="http://mootools.net/blog/2012/08/08/javascript-challenge-1-review/">review post</a> to for these submissions.
+<strong>EDIT [2012/08/08]</strong>: We have posted the <a href="/blog/2012/08/08/javascript-challenge-1-review/">review post</a> to for these submissions.

@@ -9,7 +9,7 @@ permalink: "2011/07/04/june-28th-irc-office-hour-recapsummary/"
 Every week the MooTools developers have an IRC office hour meeting where they work together to listen to your feedback, answer your questions, and develop on MooTools. We do this every Tuesday at 11am EST at [#mootools Freenode IRC Channel](irc://irc.freenode.net/mootools). Everyone’s welcome so join us tomorrow.
 ### Recap
 <!--more-->
-Last week’s office hour was dominated by the experimental [define-2](http://github.com/kamicane/mootools-core/tree/define-2) branch by [Valerio](http://mootools.net/developers). This branch has the experimental support of [Asynchronous Module Definition (AMD)](http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition) and also has the proposed direction of MooTools 2.0 as mentioned in the [previous blog post](http://mootools.net/blog/2011/06/27/june-21st-office-hour-recapsummary/). 
+Last week’s office hour was dominated by the experimental [define-2](http://github.com/kamicane/mootools-core/tree/define-2) branch by [Valerio](/developers). This branch has the experimental support of [Asynchronous Module Definition (AMD)](http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition) and also has the proposed direction of MooTools 2.0 as mentioned in the [previous blog post](/blog/2011/06/27/june-21st-office-hour-recapsummary/). 
 
 From the discussion in last week’s office hour, it seemed that there was confusion on the implications of adopting Valerio’s 2.0 branch. In particular there were concerns for: compatibility, native extensions (and minimum ES5 polyfills), chainability, and style. 
 

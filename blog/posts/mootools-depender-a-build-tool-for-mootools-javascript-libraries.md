@@ -6,7 +6,7 @@ tags: "releases"
 permalink: "2009/11/09/mootools-depender-a-build-tool-for-mootools-javascript-libraries/"
 
 ---
-As [mentioned in the new features in MooTools More in 1.2.4.1](http://mootools.net/blog/2009/10/19/mootools-1-2-4/), there's a new plugin called [Depender](/docs/more/Core/Depender) which uses MooTools dependency mappings to allow you to lazy load additional scripts on the fly based on what you need. Rather than list every single file you depend on, you just list the _features_ you want to use and it computes all the specific files needed and each of the files that they need (and so on), excludes the files you already have, and then injects the remaining scripts into the document, providing a callback.
+As [mentioned in the new features in MooTools More in 1.2.4.1](/blog/2009/10/19/mootools-1-2-4/), there's a new plugin called [Depender](/docs/more/Core/Depender) which uses MooTools dependency mappings to allow you to lazy load additional scripts on the fly based on what you need. Rather than list every single file you depend on, you just list the _features_ you want to use and it computes all the specific files needed and each of the files that they need (and so on), excludes the files you already have, and then injects the remaining scripts into the document, providing a callback.
 
 Unfortunately this method is rather slow. The JavaScript plugin must inject each individual script in the dependency list and all these requests can only go as fast as your browser can make them. As a companion to this plugin, we have also authored a stand alone server side application.
 
@@ -38,7 +38,7 @@ The server side applications are [available on github](http://github.com/anutron
 Libraries that you download with Depender will all have a standard header that looks something like this:
 
         //MooTools, <http://mootools.net>, My Object Oriented (JavaScript) Tools. Copyright (c) 2006-2009 Valerio Proietti, <http://mad4milk.net>, MIT Style License.
-        //MooTools More, <http://mootools.net/more>. Copyright (c) 2006-2009 Aaron Newton <http://clientcide.com/>, Valerio Proietti <http://mad4milk.net> & the MooTools team <http://mootools.net/developers>, MIT Style License.
+        //MooTools More, </more>. Copyright (c) 2006-2009 Aaron Newton <http://clientcide.com/>, Valerio Proietti <http://mad4milk.net> & the MooTools team </developers>, MIT Style License.
         //Contents: Core, Browser, Array, Function, Number, String, Hash, Event, Class, Class.Extras, Element, Element.Event, Element.Style, Element.Dimensions, Selectors, DomReady, JSON, Cookie, Swiff, Fx, Fx.CSS, Fx.Tween, Fx.Morph, Fx.Transitions, Request, Request.HTML, Request.JSON, More, Element.Shortcuts, Element.Measure, Fx.Reveal
         //This lib: http://clientcide.com/js/build.php?requireLibs=mootools-core&require=Fx.Reveal&compression=none
 

@@ -64,22 +64,22 @@ If you have any questions, either about how to do something or about contributin
 
 ### Get it!
 
-* [Download MooTools Core 1.4.0](http://mootools.net/download); [Build MooTools Core 1.4.0](http://mootools.net/core/)
-* [Build MooTools More 1.4.0.1](http://mootools.net/more/)
+* [Download MooTools Core 1.4.0](/download); [Build MooTools Core 1.4.0](/core/)
+* [Build MooTools More 1.4.0.1](/more/)
 * Fork / clone [MooTools 1.4.0 from GitHub](http://github.com/mootools/mootools-core/tree/1.4.0), and build it yourself with [Packager](http://github.com/kamicane/packager).
 * [Google CDN][cdn]  (which should be updated soon)
-* [Browse the Documentation for Core & More.](http://mootools.net/docs)
+* [Browse the Documentation for Core & More.](/docs)
 
 
-[Delegation]: http://mootools.net/docs/core/Element/Element.Delegation
-[Selectors]: http://mootools.net/docs/core/Slick/Slick
+[Delegation]: /docs/core/Element/Element.Delegation
+[Selectors]: /docs/core/Slick/Slick
 [core-compare]: https://github.com/mootools/mootools-core/compare/1.3.2...1.4.0
-[move-to-github]: http://mootools.net/blog/2011/08/01/moving-to-github-issues/
+[move-to-github]: /blog/2011/08/01/moving-to-github-issues/
 [core-bugs]: https://github.com/mootools/mootools-core/issues
 [more-bugs]: https://github.com/mootools/mootools-more/issues
 [ML]: https://groups.google.com/forum/#!forum/mootools-users
-[office hour]: http://mootools.net/blog/2011/06/09/open-irc-office-hours/
-[core-builder]: http://mootools.net/core
-[more-builder]: http://mootools.net/more
-[download]: http://mootools.net/download
+[office hour]: /blog/2011/06/09/open-irc-office-hours/
+[core-builder]: /core
+[more-builder]: /more
+[download]: /download
 [cdn]: http://code.google.com/apis/ajaxlibs/documentation/index.html#mootools

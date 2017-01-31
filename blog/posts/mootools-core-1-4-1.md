@@ -12,7 +12,7 @@ Upgrading from 1.4.0 should not cause any backward incompatibilities. We recomme
 
 ### Get it!
 
-* [Download MooTools Core 1.4.1](http://mootools.net/download); [Build MooTools Core 1.4.1](http://mootools.net/core/)
+* [Download MooTools Core 1.4.1](/download); [Build MooTools Core 1.4.1](/core/)
 * Fork / clone [MooTools Core 1.4.1 from GitHub](http://github.com/mootools/mootools-core/tree/1.4.1), and build it yourself with [Packager](http://github.com/kamicane/packager).
 * [Google CDN](http://code.google.com/apis/ajaxlibs/documentation/index.html#mootools) (will be updated soon)
-* [Browse the Documentation for Core & More.](http://mootools.net/docs)
+* [Browse the Documentation for Core & More.](/docs)

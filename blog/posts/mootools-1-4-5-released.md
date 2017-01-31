@@ -25,9 +25,9 @@ Send us issues (tickets) or feature requests to the [MooTools Core Issues](https
 
 ### Get it!
 
-* [Download MooTools Core 1.4.5](http://mootools.net/download); [Build MooTools Core 1.4.5](http://mootools.net/core/)
+* [Download MooTools Core 1.4.5](/download); [Build MooTools Core 1.4.5](/core/)
 * Fork / clone [MooTools 1.4.5 from GitHub](http://github.com/mootools/mootools-core/tree/1.4.5), and build it yourself with [Packager](http://github.com/kamicane/packager).
 * [Google CDN][cdn] (which should be updated soon)
-* [Browse the Documentation](http://mootools.net/docs)
+* [Browse the Documentation](/docs)
 
 [cdn]: http://code.google.com/apis/ajaxlibs/documentation/index.html#mootools

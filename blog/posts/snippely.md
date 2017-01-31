@@ -6,7 +6,7 @@ tags: "all,news"
 permalink: "2008/03/15/snippely/"
 
 ---
-<img style="float:left; margin-right:10px; margin-bottom:10px;" src="http://mootools.net/snippely.png" alt="" />
+<img style="float:left; margin-right:10px; margin-bottom:10px;" src="/snippely.png" alt="" />
 
 With the initial release of [Adobe AIR](http://www.adobe.com/products/air/), a lot of web developers (myself included) are starting to get excited about developing rich web applications that run natively on the desktop across platforms.  We've already seen several great AIR apps popping up all over the Internet, and thought we'd try our hand at creating one of our own.
 

@@ -6,7 +6,7 @@ tags: "all"
 permalink: "2010/12/05/mootools-survey/"
 
 ---
-<a href="http://mootools.net/merch"><img src="/blog/wp-content/uploads/2010/12/tim-mootools.jpg" style="float: right; margin: 0 0 20px 20px" alt="MooTools Shirt" /></a>
+<a href="/merch"><img src="/blog/wp-content/uploads/2010/12/tim-mootools.jpg" style="float: right; margin: 0 0 20px 20px" alt="MooTools Shirt" /></a>
 
 The community and the MooTools users are very important for MooTools and its development. Therefore we would love to hear who you are and how you are using MooTools. You could do this by this [survey][survey link]. It will take about five minutes and none of the questions are required.
 

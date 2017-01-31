@@ -62,7 +62,7 @@ On another note, thanks to the *Slick*'s parser, you will be able to build an el
 
 As I get back to work on an exciting number of totally amazing upcoming MooTools projects that you know nothing about because [you don't follow me on github](http://github.com/kamicane), I'll leave you with a few useful 1.3 links:
 
- - Download the [built 1.3 beta 1 release](http://mootools.net/download/get/mootools-core-1.3b1.1.js).
+ - Download the [built 1.3 beta 1 release](/download/get/mootools-core-1.3b1.1.js).
  - [Fork / clone MooTools 1.3](http://github.com/mootools/mootools-core/tree/1.3b1.1) from github, and build it yourself with [Packager](http://github.com/kamicane/packager), or [Depender](http://github.com/anutron/mootools-depender).
  - If you want a full changelog, go [read the git history](http://github.com/mootools/mootools-core/commits/1.3b1.1), you lazy bastard. Changelogs are so 2001.
  - Wondering how those amazing new methods are called? You can [browse our markdown documentation](http://github.com/mootools/mootools-core/tree/1.3b1.1/Docs/) right on github.

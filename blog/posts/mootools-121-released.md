@@ -19,8 +19,8 @@ For a complete list of changes, see the changelog on GitHub...
 #### Links:
 
 - [Changelog](http://github.com/mootools/mootools-core/tree/1.2.1/CHANGELOG)
-- [MooTools 1.2.1 Download](http://mootools.net/download)
-- [MooTools 1.2.1 Builder](http://mootools.net/core)
+- [MooTools 1.2.1 Download](/download)
+- [MooTools 1.2.1 Builder](/core)
 
 #### What's next?
 

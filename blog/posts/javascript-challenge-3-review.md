@@ -6,7 +6,7 @@ tags: "all,challenges"
 permalink: "2012/08/22/javascript-challenge-3-review/"
 
 ---
-The <a href="http://mootools.net/blog/2012/08/08/javascript-challenge-3/">third JavaScript challenge</a> showed us what it would be like to draw with canvas. The challenge was open ended, in so far as there were no restrictions as to what drawing technology could have been used, but everyone just went straight for canvas.
+The <a href="/blog/2012/08/08/javascript-challenge-3/">third JavaScript challenge</a> showed us what it would be like to draw with canvas. The challenge was open ended, in so far as there were no restrictions as to what drawing technology could have been used, but everyone just went straight for canvas.
 
 <!--more-->
 

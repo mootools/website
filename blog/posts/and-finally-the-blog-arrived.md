@@ -6,7 +6,7 @@ tags: "all"
 permalink: "2007/05/29/and-finally-the-blog-arrived/"
 
 ---
-After more than a year of continuous and dedicated development, [we](http://mootools.net/developers) decided it was time to launch a blog to keep you in the loop.
+After more than a year of continuous and dedicated development, [we](/developers) decided it was time to launch a blog to keep you in the loop.
 
 Here we're gonna post about the latest moo trends, the latest breaking changes, the latest plugins that see the light everyday.
 

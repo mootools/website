@@ -29,10 +29,10 @@ A new component has been added to MooTools More: Table. Table was slated to be a
 
 ### Get it!
 
-* [Download MooTools Core 1.3.2](http://mootools.net/download); [Build MooTools Core 1.3.2](http://mootools.net/core/)
-* [Build MooTools More 1.3.2.1](http://mootools.net/more/)
+* [Download MooTools Core 1.3.2](/download); [Build MooTools Core 1.3.2](/core/)
+* [Build MooTools More 1.3.2.1](/more/)
 * Fork / clone [MooTools 1.3.2 from GitHub](http://github.com/mootools/mootools-core/tree/1.3.2), and build it yourself with [Packager](http://github.com/kamicane/packager).
 * [Read the Core commit logs](http://github.com/mootools/mootools-core/commits/1.3.2) to see precisely what has changed.
 * [Read the More commit logs](http://github.com/mootools/mootools-more/commits/1.3.2.1) to see precisely what has changed for More.
-* [Browse the Documentation for Core & More.](http://mootools.net/docs)
+* [Browse the Documentation for Core & More.](/docs)
 * Please report any bugs you can find on [Lighthouse](https://mootools.lighthouseapp.com/projects/2706-mootools/tickets), our bug tracker.

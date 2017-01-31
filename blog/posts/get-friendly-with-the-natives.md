@@ -63,17 +63,17 @@ I've used this in a couple scripts, it takes a number and returns a string with 
 
 Awesome? Yes. You can do the same thing to:
 
-* [Array](http://mootools.net/docs/core/Native/Array)
-* [Function](http://mootools.net/docs/core/Native/Function)
-* [Number](http://mootools.net/docs/core/Native/Number)
-* [String](http://mootools.net/docs/core/Native/String)
-* [Hash](http://mootools.net/docs/core/Native/Hash)
+* [Array](/docs/core/Native/Array)
+* [Function](/docs/core/Native/Function)
+* [Number](/docs/core/Native/Number)
+* [String](/docs/core/Native/String)
+* [Hash](/docs/core/Native/Hash)
 
 Some say extending natives is a bad idea.  Personally, I think it's awesome--but this topic is a sore spot for some.  Extending natives is a feature of javascript itself that any general application framework like MooTools is entitled to use.  There could be an entire article dedicated to this topic but this article isn't it.  This article is simply here to show how to use this handy feature.
 
 ### Flippin' Sweet Array methods
 
-Arian Stolwijk created this amazing gem: [Array.Math](http://mootools.net/forge/p/array_math).  Code samples often tell the story faster:
+Arian Stolwijk created this amazing gem: [Array.Math](/forge/p/array_math).  Code samples often tell the story faster:
 
     [2,5,1,6].sum(); // 14
     [2,5,6,2].product(3); // [6,15,18,6]
