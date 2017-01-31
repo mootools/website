@@ -6,7 +6,7 @@ tags: "all"
 permalink: "2009/10/19/mootools-1-2-4/"
 
 ---
-It's been three months *to the day* since [the last point release of MooTools](http://mootools.net/blog/2009/06/19/mootools-123-released/) and we're excited about all the goodness packed into this release. At this point, the 1.2 codebase has a very stable API, and our current plan is to release these point releases every three months or so until the 2.0 codebase is online. If we find any serious bugs, though, we'll be sure to get fixes into your hands as fast as we can.
+It's been three months *to the day* since [the last point release of MooTools](/blog/2009/06/19/mootools-123-released/) and we're excited about all the goodness packed into this release. At this point, the 1.2 codebase has a very stable API, and our current plan is to release these point releases every three months or so until the 2.0 codebase is online. If we find any serious bugs, though, we'll be sure to get fixes into your hands as fast as we can.
 
 <!--more-->
 

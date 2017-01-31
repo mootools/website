@@ -10,4 +10,4 @@ Today we enabled Bountysource for [MooTools Core](https://www.bountysource.com/#
 
 It works as follows: there is an issue on GitHub. You, or anyone else, can create a bounty to back the issue. Then some developer (either a MooTools Team Member or some other contributor) fixes the issue. Once it gets merged and he or she can collect the bounty!
 
-We think this could help to prioritize issues and to increase community contributions. After all, who doesn't like to get some pocket money to buy a beer or [MooTools t-shirt](http://mootools.net/merch)!
+We think this could help to prioritize issues and to increase community contributions. After all, who doesn't like to get some pocket money to buy a beer or [MooTools t-shirt](/merch)!

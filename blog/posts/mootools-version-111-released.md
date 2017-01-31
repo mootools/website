@@ -16,4 +16,4 @@ This is a recommended update for all of you using MooTools 1.1.
 
 If you want to, you can see [the changelog in details](http://dev.mootools.net/wiki/changelog).
 
-So, go ahead and [give it a try](http://mootools.net/download)!
+So, go ahead and [give it a try](/download)!

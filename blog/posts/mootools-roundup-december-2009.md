@@ -17,10 +17,10 @@ The real strength of MooTools, however, is you -- the community.  Here are a few
 
 <h3 style="clear: both;">PassShark</h3>
 <p>
-<a href="http://mootools.net/forge/p/passshark"><img src="/uploads/RoundupDecemberPassShark.png" alt="PassShark" style="float:right;margin:0 0 15px 15px" /></a>
+<a href="/forge/p/passshark"><img src="/uploads/RoundupDecemberPassShark.png" alt="PassShark" style="float:right;margin:0 0 15px 15px" /></a>
 Created by MooTools contributors Luis Merino <code>(<a href="http://twitter.com/rendez">@Rendez</a>)</code> and Nathan Querido <code>(<a href="http://twitter.com/nfq">@nfq</a>)</code>,  PassShark duplicates the iPhone's method of password masking.  A great method for making your passworld fields a bit easier to use.
 <ul>
-<li><a href="http://mootools.net/forge/p/passshark">PassShark on the Forge</a></li>
+<li><a href="/forge/p/passshark">PassShark on the Forge</a></li>
 <li><a href="http://www.queridodesign.net/blog/passshark">Blog-Entry</a></li>
 </ul></p>
 
@@ -46,17 +46,17 @@ Notimoo is a simple Mac Growl clone made with MooTools.  At only 4KB Notimoo is 
 <a href="http://mcarthurgfx.com/blog/article/mgfx-tabs-1-1-on-github"><img src="/uploads/RoundupDecemberTabs.png" alt="MGFX.Tabs 1.1" style="float:right;margin:0 0 15px 15px" /></a>
 Sean McArthur has recently updated his popular Tabs class by making it more efficient and more flexible.
 <ul>
-<li><a href="http://mootools.net/forge/p/mgfx_tabs">MGFX.Tabs 1.1 on the Forge</a></li>
+<li><a href="/forge/p/mgfx_tabs">MGFX.Tabs 1.1 on the Forge</a></li>
 <li><a href="http://mcarthurgfx.com/blog/article/mgfx-tabs-1-1-on-github">Blog Post and Demo</a></li>
 </ul>
 </p>
 
 <h3 style="clear: both;">Fx.TransMorph</h3>
 <p>
-<a href="http://mootools.net/forge/p/fx_transmorph"><img src="/uploads/RoundupDecemberFxTransMorph.png" alt="Fx.TransMorph" style="float:right;margin:0 0 15px 15px" /></a>
+<a href="/forge/p/fx_transmorph"><img src="/uploads/RoundupDecemberFxTransMorph.png" alt="Fx.TransMorph" style="float:right;margin:0 0 15px 15px" /></a>
 This Plugin by Lim Chee Aun (<a href="http://twitter.com/cheeaun">@cheeaun</a>) allows a different transition for every property that is being animated.
 <ul><li>
-<a href="http://mootools.net/forge/p/fx_transmorph">Fx.TransMorph on the Forge</a>
+<a href="/forge/p/fx_transmorph">Fx.TransMorph on the Forge</a>
 </li></ul>
 </p>
 

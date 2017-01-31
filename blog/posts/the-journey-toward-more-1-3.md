@@ -40,7 +40,7 @@ Now off for a chocolate milk!
 [1]: http://www.aryweb.nl/
 [2]: http://tim.wienk.name/
 [3]: http://www.getwindmill.com/
-[4]: http://mootools.net/blog/2010/09/15/mootools-core-1-2-5/
+[4]: /blog/2010/09/15/mootools-core-1-2-5/
 [5]: http://github.com/blog/712-pull-requests-2-0
 [6]: http://github.com/mootools/
 [7]: irc://irc.freenode.net/#mootools

@@ -134,11 +134,11 @@ After literally hundreds of bug fixes, plenty of new features and even a few new
 
 ### Get it while it's hot!
 
-* [Download MooTools Core 1.3](http://mootools.net/download); [Build MooTools Core 1.3](http://mootools.net/core/)
-* [Build MooTools More 1.3RC](http://mootools.net/more-rc/)
+* [Download MooTools Core 1.3](/download); [Build MooTools Core 1.3](/core/)
+* [Build MooTools More 1.3RC](/more-rc/)
 * [Update from 1.2 to 1.3](http://github.com/mootools/mootools-core/wiki/Update-from-1.2-to-1.3) with 1.2 compatibility.
 * [Upgrade from 1.2 to 1.3](http://github.com/mootools/mootools-core/wiki/Upgrade-from-1.2-to-1.3) and drop 1.2 compatibility.
 * Fork / clone [MooTools 1.3 from GitHub](http://github.com/mootools/mootools-core/tree/1.3), and build it yourself with [Packager](http://github.com/kamicane/packager).
 * [Read the commit logs](http://github.com/mootools/mootools-core/commits/1.3) to see precisely what has changed.
-* [Browse the Documentation for Core & More.](http://mootools.net/docs)
+* [Browse the Documentation for Core & More.](/docs)
 * Please report any bugs you can find on [Lighthouse](https://mootools.lighthouseapp.com/projects/2706-mootools/tickets), our bug tracker.

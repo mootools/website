@@ -22,8 +22,8 @@ MooTools Core 1.3 includes our new selector engine *Slick*. One of Slick’s com
 
 We append an event pseudo, `:keys` to the existing event name, to get custom events. This doesn’t only work for Element events, but for the Class event system, the Events mixin, as well. Currently we’ve implemented the pseudo events `:once` for both Events as Element.Event and `:keys` and `:relay` for Element.Event.
 
-[Events.Pseudos]: http://mootools.net/docs/more/Class/Events.Pseudos
-[Element.Event.Pseudos]: http://mootools.net/docs/more/Element/Element.Event.Pseudos 
+[Events.Pseudos]: /docs/more/Class/Events.Pseudos
+[Element.Event.Pseudos]: /docs/more/Element/Element.Event.Pseudos
 
 ### Locale,  localizzazione,  Lokalisierung, localización, локализация
 
@@ -78,9 +78,9 @@ However, the real <span class="cpojer">cpower</span> of the new Locale is its in
 
 Another awesome thing is the new [Locale.Set.From][] function which right now allows you to create Locale Sets from a JSON string. The plan is to extend this in the future to support other data formats. This function will make it easier to share translations between server and client side: you can do a [Request][] to your server, and pass the `responseText` to `Locale.Set.From` right away.
 
-[Locale]: http://mootools.net/docs/more/Locale/Locale
-[Locale.Set.From]: http://mootools.net/docs/more/Locale/Locale.Set.From 
-[Request]: http://mootools.net/docs/core/Request/Request
+[Locale]: /docs/more/Locale/Locale
+[Locale.Set.From]: /docs/more/Locale/Locale.Set.From
+[Request]: /docs/core/Request/Request
 
 #### Number.format
 
@@ -88,11 +88,11 @@ Because Localization is more than just converting strings to other languages, we
 
 	(101).formatCurrency(); // € 101,00
 
-[Number.Format]: http://mootools.net/docs/more/Types/Number.Format
+[Number.Format]: /docs/more/Types/Number.Format
 
 ### HtmlTable
 
-HtmlTable has received a lot of attention. Its API is a little more useful now, but there are numerous features added including the ability to select multiple rows with shift and ctrl, keyboard support, and more robust sortability controls. 
+HtmlTable has received a lot of attention. Its API is a little more useful now, but there are numerous features added including the ability to select multiple rows with shift and ctrl, keyboard support, and more robust sortability controls.
 
 ### Notable changes in 1.3
 
@@ -119,9 +119,9 @@ HtmlTable has received a lot of attention. Its API is a little more useful now, 
 
 Like Core and Slick we have moved More to use our new [Specs Runner][]. We tried to cover as much as possible in the Specs. However, More contains a lot of UI components that are very difficult to test with the Specs. Therefore we have new UI tests, which are basically HTML pages with JavaScript and CSS. You can run the tests with [mootools-test-runner][] (Python + Django) or [mootools-ui-runner][] (PHP)
 
-[Specs Runner]: http://github.com/mootools/mootools-runner 
+[Specs Runner]: http://github.com/mootools/mootools-runner
 [mootools-test-runner]: http://github.com/anutron/mootools-test-runner
-[mootools-ui-runner]: http://github.com/arian/mootools-ui-runner 
+[mootools-ui-runner]: http://github.com/arian/mootools-ui-runner
 
 ### MooTools 1.2.5.1
 
@@ -141,10 +141,9 @@ Together with this 1.3 release we also release MooTools More 1.2.5.1, which is a
 
 ### Get It NAOW, with a smile!
 
-- [MooTools More 1.3](http://www.mootools.net/more)
-- [MooTools More 1.2.5.1](http://www.mootools.net/more125)
+- [MooTools More 1.3](/more)
+- [MooTools More 1.2.5.1](/more125)
 - Fork / clone [MooTools More from github](http://github.com/mootools/mootools-more)
 - [See changelog](http://github.com/mootools/mootools-more)
-- Browse the Documentation [1.3](http://mootools.net/docs/more) and [1.2](http://mootools.net/docs/more125)
+- Browse the Documentation [1.3](/docs/more) and [1.2](/docs/more125)
 - Please report any bugs you can find on [Lighthouse](http://mootools.lighthouseapp.com/projects/24057-mootoolsmore), our bug tracker.
-

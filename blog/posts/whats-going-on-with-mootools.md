@@ -16,7 +16,7 @@ Recently, a few users have been concerned that newcomers to MooTools might not e
 
 Along with the 1.2 release, we've changed up the site and moved away from SVN development.  We've also removed Trac and the official forum in exchange for GitHub, Lighthouse, Google Groups, and other MooTools user maintained forum solutions. There is a ton of reasoning behind all the outsourcing and changes (including the simpler site, removal of the forums, switch to git development, etc) and if you like, you can read more about them...
 
-- <a href="http://mootools.net/blog/2008/06/12/mootools-12-its-official ">here</a>
+- <a href="/blog/2008/06/12/mootools-12-its-official ">here</a>
 - <a href="http://groups.google.com/group/mootools-users/msg/b867e6b569d73a05">here</a> (sorry I can't count!)
 - <a href="http://github.com/mootools/mootools-core/wikis/why-no-official-forum">and here</a>
 
