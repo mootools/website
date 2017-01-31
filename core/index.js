@@ -14,18 +14,21 @@ var hash = require('../middleware/buildHash')(project);
 var pkgProject = require('../package.json')._projects[project];
 var versions = pkgProject.versions;
 var suffixes = {
+	beforeCompat: ['', '-yui-compressed'],
 	old: ['', '-yui-compressed', '-nocompat', '-nocompat-yui-compressed'],
 	new: ['', '.min', '-nocompat', '-nocompat.min'],
 	names: ['compat', 'compat compressed', 'nocompat', 'nocompat compressed']
 }
 
-function isModernSuffix(ver){
+function getSuffix(ver) {
 	var xyz = ver.split('.').map(Number);
-	return xyz[0] > 0 && xyz[1] > 4 && xyz[2] > 1; // > 1.5.1
+	if (xyz[0] > 0 && (xyz[1] > 4 && xyz[2] > 1 || xyz[1] > 5)) return 'new'; // > 1.5.1
+	if (xyz[0] > 0 && xyz[1] > 2 && xyz[2] >= 0) return 'old'; // > 1.3.0 && < 1.5.1
+	else return 'beforeCompat'; // < 1.3.0
 }
 
 var links = versions.slice(1).map(function(version){
-	var suffix = suffixes[isModernSuffix(version) ? 'new' : 'old'];
+	var suffix = suffixes[getSuffix(version)];
 	return {
 		version: version,
 		files: suffix.map(function(key, i){
