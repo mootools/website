@@ -63,4 +63,4 @@ var myDraggable = $(element).makeDraggable({
 });
 ```
 
-Here is the [documentation for Drag.Move.js](http://mootools.net/docs/more/Drag/Drag.Move).
+Here is the [documentation for Drag.Move.js](/docs/more/Drag/Drag.Move).
