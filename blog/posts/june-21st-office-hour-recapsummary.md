@@ -6,7 +6,7 @@ tags: "events"
 permalink: "2011/06/27/june-21st-office-hour-recapsummary/"
 
 ---
-As [suggested by our community](http://mootools.net/blog/2011/06/20/reminder-next-office-hour-is-tomorrow-june-21st/#comment-2020), we’re going to release a recap, or summary, of the IRC Office Hour after every session. We want to encourage you to join us on Tuesday’s at 11am EST in the [#mootools IRC channel](irc://irc.freenode.net/mootools), but if need be let this be your medium to discuss your perspective and your own ideas (you can also discuss in the [Google Group](https://groups.google.com/forum/#!forum/mootools-users)).
+As [suggested by our community](/blog/2011/06/20/reminder-next-office-hour-is-tomorrow-june-21st/#comment-2020), we’re going to release a recap, or summary, of the IRC Office Hour after every session. We want to encourage you to join us on Tuesday’s at 11am EST in the [#mootools IRC channel](irc://irc.freenode.net/mootools), but if need be let this be your medium to discuss your perspective and your own ideas (you can also discuss in the [Google Group](https://groups.google.com/forum/#!forum/mootools-users)).
 ### Topics Covered
 
 * MooTools 2.0 Community “Wish List”
@@ -36,7 +36,7 @@ Analytics will also play a major role as we’d like to improve feedback. We’d
 
 While you are in the documentation, we are also adding inlined [jsfiddle](http://jsfiddle.net/) so that you can run the examples/demos and modify them on the fly. This also means that you can contribute your own examples/demos. 
 
-Of course, the above is a lot of work and we welcome your participation. [Darren Waddell](http://mootools.net/developers) has stepped up and already started working on this. Take a look at his repository ([fakedarren/mootools-docs](https://github.com/fakedarren/mootools-docs)) and **please fork**. User, kpobococ, is already working with Darren thanks to the office hour.
+Of course, the above is a lot of work and we welcome your participation. [Darren Waddell](/developers) has stepped up and already started working on this. Take a look at his repository ([fakedarren/mootools-docs](https://github.com/fakedarren/mootools-docs)) and **please fork**. User, kpobococ, is already working with Darren thanks to the office hour.
 #### Flex box module
 
 A user had a question about the “wrapping” of the UI so that it extends to the complete window. It’s not built-in to MooTools, but we gave him a few suggestions on how to accomplish this. Ryan Florence mentioned his [mootools-wallpaper](https://github.com/rpflorence/mootools-wallpaper) and a [jsfiddle example](http://jsfiddle.net/rpflorence/A7VNN/embedded/result,resources,js,html,css/).

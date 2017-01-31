@@ -21,6 +21,6 @@ If you're in the Bay Area or London, it is imperative that you attend at least o
 
 If you have something insightful and MooTools-related to share, and think you can spin it into a fifteen minute presentation, please let us know.
 
-Right now, we don't have any formal communication set up, but it shouldn't be to hard to get in touch with either Darren (London) or myself (Bay Area).  Contact information can be found on [the developers page](http://mootools.net/developers).
+Right now, we don't have any formal communication set up, but it shouldn't be to hard to get in touch with either Darren (London) or myself (Bay Area).  Contact information can be found on [the developers page](/developers).
 
 Thanks for using MooTools, and we hope to see you there!

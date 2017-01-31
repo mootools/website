@@ -10,7 +10,7 @@ The first beta for MooTools 1.2 is finally here!
 
 After **months** in the making, we can confidently say that MooTools 1.2 is now feature complete.  However, there are still some bugs left to squash.
 
-Head over to [MooTools download page](http://mootools.net/download/tags/1-2b1) to start playing with it right away.
+Head over to [MooTools download page](/download/tags/1-2b1) to start playing with it right away.
 
 <!--more-->
 

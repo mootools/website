@@ -37,14 +37,14 @@ Also note that there is not a compatibility layer yet written for this release. 
 <h3>Enough! Give It To Me!!!</h3>
 Ok, ok, you want links? Here you are:
 <ul>
-    <li><a href="http://www.mootools.net/docs_rc1/">The Docs for MooTools More RC1</a></li>
-    <li><a href="http://www.mootools.net/more_rc1">Download MooTools More RC1</a></li>
+    <li><a href="/docs_rc1/">The Docs for MooTools More RC1</a></li>
+    <li><a href="/more_rc1">Download MooTools More RC1</a></li>
 </ul>
 <h3>How You Can Help</h3>
 There are several things you can do to pitch in. First, you can run the tests in all the browsers you have access to. There are two types of tests:
 <ul>
-    <li><a href="http://www.mootools.net/libs/mootools/more/Specs/">The Specs Tests</a></li>
-    <li><a href="http://www.mootools.net/libs/mootools/more/Tests/">The User Tests</a></li>
+    <li><a href="/libs/mootools/more/Specs/">The Specs Tests</a></li>
+    <li><a href="/libs/mootools/more/Tests/">The User Tests</a></li>
 </ul>
 Running through these in your browsers and reporting anything that seems wonky will help us tremendously. If you know a language that hasn't yet had the translation written for Date or FormValidator, you can, as mentioned previously, <a href="http://groups.google.com/group/mootools-lang">jump into the MooTools-Lang group and help out with that</a>.
 <h3>More to Come</h3>

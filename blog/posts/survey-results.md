@@ -6,7 +6,7 @@ tags: "all"
 permalink: "2011/01/31/survey-results/"
 
 ---
-Last month we held the [MooTools User's Survey](http://mootools.net/blog/2010/12/05/mootools-survey) and we would like to thank you all for participating and sharing your ideas. We received more than 700 submissions!  Here is a summary of the results and our thoughts about them.
+Last month we held the [MooTools User's Survey](/blog/2010/12/05/mootools-survey) and we would like to thank you all for participating and sharing your ideas. We received more than 700 submissions!  Here is a summary of the results and our thoughts about them.
 
 ### Core
 
@@ -22,7 +22,7 @@ The Forge is pretty popular, about 65% of respondents use the Forge to a find pl
 
 ### API Documentation
 
-A very important part of MooTools is the online API documentation. Most of you think they are pretty good, but are also put off by the lacks of examples. We’ve heard you and that’s why we responded with our [fancy new demos](http://mootools.net/demos) which we [released](http://mootools.net/blog/2011/01/04/new-demos) a few weeks ago! Our plan is to add new demos which we will use as additions to the docs. You will find links from the docs to the demos, which you can play with thanks to the [jsfiddle](http://jsfiddle.net) integration. We don’t have demos of each part of Core or More yet, so if you want to help, you can fork the [repository](http://github.com/mootools/mootools-demos) and add new ones, or just ping us ([@astolwijk](http://www.twitter.com/astolwijk) or [@fakedarren](http://www.twitter.com/fakedarren)) with new jsfiddles. Another popular idea that we particularly liked is the addition of a comment system to the API documentation.
+A very important part of MooTools is the online API documentation. Most of you think they are pretty good, but are also put off by the lacks of examples. We’ve heard you and that’s why we responded with our [fancy new demos](/demos) which we [released](/blog/2011/01/04/new-demos) a few weeks ago! Our plan is to add new demos which we will use as additions to the docs. You will find links from the docs to the demos, which you can play with thanks to the [jsfiddle](http://jsfiddle.net) integration. We don’t have demos of each part of Core or More yet, so if you want to help, you can fork the [repository](http://github.com/mootools/mootools-demos) and add new ones, or just ping us ([@astolwijk](http://www.twitter.com/astolwijk) or [@fakedarren](http://www.twitter.com/fakedarren)) with new jsfiddles. Another popular idea that we particularly liked is the addition of a comment system to the API documentation.
 
 I’d like to point out that you can easily start hacking on the docs if you feel so inclined. Just make sure you have a github account, fork [mootools-core](http://www.github.com/mootools/mootools-core) or [mootools-more](http://www.github.com/mootools/mootools-more), browse to the Docs folder and select a .md file. Github has awesome online editing features, so you can work without knowing anything about GIT! If you modify a file we will see it via the network view and will include your fix into the main repository.
 

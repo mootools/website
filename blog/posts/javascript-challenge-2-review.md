@@ -6,7 +6,7 @@ tags: "all,challenges"
 permalink: "2012/08/22/javascript-challenge-2-review/"
 
 ---
-The <a href="http://mootools.net/blog/2012/08/01/javascript-challenge-2/">second JavaScript challenge</a> was loads of fun! It seems the topic of game development creates interesting challenges and invited participation. Once again, there were many excellent entries but the following entries showcase something specific we want to point out...
+The <a href="/blog/2012/08/01/javascript-challenge-2/">second JavaScript challenge</a> was loads of fun! It seems the topic of game development creates interesting challenges and invited participation. Once again, there were many excellent entries but the following entries showcase something specific we want to point out...
 
 <!--more-->
 

@@ -36,10 +36,10 @@ These issues will be fixed subsequently prior to release of the next maintenance
 
 ### Get it!
 
-* [Download MooTools Core 1.4.2](http://mootools.net/download); [Build MooTools Core 1.4.2](http://mootools.net/core/)
+* [Download MooTools Core 1.4.2](/download); [Build MooTools Core 1.4.2](/core/)
 * Fork / clone [MooTools Core 1.4.2 from GitHub](http://github.com/mootools/mootools-core/tree/1.4.2), and build it yourself with [Packager](http://github.com/kamicane/packager).
 * [Google CDN](http://code.google.com/apis/ajaxlibs/documentation/index.html#mootools) (will be updated soon)
-* [Browse the Documentation for Core & More.](http://mootools.net/docs)
+* [Browse the Documentation for Core & More.](/docs)
 
 ### Contribute
 

@@ -32,7 +32,7 @@ Third, as some of you might already know, MooTools post-processes every node res
 
 In an effort to test the true efficiency of our CSS selectors engines, I have made a modification to <a href="http://code.google.com/p/slickspeed">SlickSpeed</a>, so that it runs every test only once, and a couple of modifications to the MooTools code. This special testing version of MooTools no longer "extends" the resulting nodes (I did that by simply adding a method that passes an optional parameter to the default function getElements, as I cannot pass parameters using SlickSpeed), and it uses <a href="http://webkit.org/blog/156/queryselector-and-queryselectorall/">querySelectorAll</a> where available, just like Sizzle does. This way we can have a <strong>true comparison between engines</strong>, instead of <strong>frameworks and engines</strong>.
 
-<a href="http://mootools.net/mootools_vs_sizzle">Feel free to test my results</a> in every browser available to you. As you can see, <strong>the Sizzle engine is slower in many browsers</strong>.
+<a href="/mootools_vs_sizzle">Feel free to test my results</a> in every browser available to you. As you can see, <strong>the Sizzle engine is slower in many browsers</strong>.
 
 Even assuming Sizzle were faster than MooTools in every test, it would be unwise to adopt it.
 

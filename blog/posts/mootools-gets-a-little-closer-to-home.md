@@ -6,9 +6,9 @@ tags: "all"
 permalink: "2011/04/01/mootools-gets-a-little-closer-to-home/"
 
 ---
-A few months back we [sent out a survey](http://mootools.net/blog/2010/12/05/mootools-survey) asking you where you'd like for the development team to focus its energies. Since then we've [worked on demos](http://mootools.net/blog/2011/01/04/new-demos/) and [released a new version of the framework](http://mootools.net/blog/2011/02/25/mootools-core-more-1-3-1/) with new features based on that valuable feedback. Getting direct input from everyone who uses MooTools helps us as developers stay on target for the things you need.
+A few months back we [sent out a survey](/blog/2010/12/05/mootools-survey) asking you where you'd like for the development team to focus its energies. Since then we've [worked on demos](/blog/2011/01/04/new-demos/) and [released a new version of the framework](/blog/2011/02/25/mootools-core-more-1-3-1/) with new features based on that valuable feedback. Getting direct input from everyone who uses MooTools helps us as developers stay on target for the things you need.
 
-One of the items that came up several times in the survey was a desire for more support for internationalization. MooTools More already ships with a [system for localizing plugins](http://mootools.net/docs/more/Locale/Locale), but this functionality isn't baked deep into the framework. Several comments in the survey implied a desire to see this functionality available throughout MooTools Core. One respondent wrote, "It is difficult to understand MooTools as my English is not great. My website has many visitors from where I live and they need all to understand it. Thank you."
+One of the items that came up several times in the survey was a desire for more support for internationalization. MooTools More already ships with a [system for localizing plugins](/docs/more/Locale/Locale), but this functionality isn't baked deep into the framework. Several comments in the survey implied a desire to see this functionality available throughout MooTools Core. One respondent wrote, "It is difficult to understand MooTools as my English is not great. My website has many visitors from where I live and they need all to understand it. Thank you."
 
 You asked for a more culturally sensitive framework and we listened. Given that the MooTools development team is based all over the world from Italy to Austria to The Netherlands to Germany to Sweden we can understand the value of having MooTools available in your native tongue.
 
@@ -19,7 +19,7 @@ You asked for a more culturally sensitive framework and we listened. Given that 
 For the past few weeks we've been hard at work localizing all of MooTools. That's right, you will be able to download MooTools Core and MooTools More in any of the several languages we support. We're are not entirely ready yet and don't have full coverage for each API, but nevertheless wanted to give you a preview of what we're working on.
 We were able to do this because MooTools' modularity and JavaScript's flexibility which makes it easy to add and change methods on the fly.
 
-To get started with using the translated API, you need to look at [Github](https://github.com/fakedarren/mootools-locale) for now, since we're still early in development. However we will provide [a download page](http://mootools.net/download) in the coming weeks so you can easily select your language and download the required components.
+To get started with using the translated API, you need to look at [Github](https://github.com/fakedarren/mootools-locale) for now, since we're still early in development. However we will provide [a download page](/download) in the coming weeks so you can easily select your language and download the required components.
 
 Here's a quick example of the Italian translation in action:
 

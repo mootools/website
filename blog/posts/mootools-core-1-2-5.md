@@ -15,7 +15,7 @@ Today we're releasing MooTools Core 1.2.5, which can be considered the last vers
 
 Or, if you prefer, you can have a look at the actual [code diff](http://github.com/mootools/mootools-core/compare/631d0674...1.2.5).
 
-[Documentation](http://mootools.net/docs/core) has been updated accordingly and many new [Specs](http://github.com/mootools/mootools-core-specs/tree/master/1.2/) have been added. 
+[Documentation](/docs/core) has been updated accordingly and many new [Specs](http://github.com/mootools/mootools-core-specs/tree/master/1.2/) have been added. 
 
 As usual, you can [quickly download it](/download) or [build your own version](/core).
 

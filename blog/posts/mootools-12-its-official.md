@@ -32,8 +32,8 @@ The 1.11 docs have been moved to http://docs111.mootools.net.  Conversely, the 1
 
 Don't let the version number fool you.  1.2 is not merely a minor revision of 1.11.  As those of you who have been reading the blog will be aware, 1.2 has a completely updated API and is not compatible with 1.11 code.  You can, however, utilize the compatibility layer that has been built to make the transition to 1.2 easier.
 
-* [Core Compatibility File](http://mootools.net/js/mootools-compat-core.js)
-* [Plugin Compatibility File](http://mootools.net/js/mootools-compat-more.js)
+* [Core Compatibility File](/js/mootools-compat-core.js)
+* [Plugin Compatibility File](/js/mootools-compat-more.js)
 
 Since most of the changes between 1.2 and 1.11 have been documented in [earlier posts](http://blog.mootools.net/2007/11/14/mootools-1-2-beta-1) to this blog, I won't go into the details here.
 
@@ -92,8 +92,8 @@ One last note is that we've added two new members to the MooTools production tea
 
 ##### Compatibility
 
-* [Core Compatibility File](http://mootools.net/js/mootools-compat-core.js)
-* [Plugin Compatibility File](http://mootools.net/js/mootools-compat-more.js)
+* [Core Compatibility File](/js/mootools-compat-core.js)
+* [Plugin Compatibility File](/js/mootools-compat-more.js)
 
 ##### Git Repositories
 

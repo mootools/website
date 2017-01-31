@@ -6,7 +6,7 @@ tags: "all"
 permalink: "2013/02/19/mootools-1-2-6-released/"
 
 ---
-This is a new maintenance release for the old 1.2 series. The new ECMAScript 6 specification has a proposal for [String.prototype.contains](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/contains) that unfortunately [conflicts](https://github.com/mootools/mootools-core/issues/2402) with the [MooTools implementation of contains](http://mootools.net/docs/core/Types/String#String:contains).
+This is a new maintenance release for the old 1.2 series. The new ECMAScript 6 specification has a proposal for [String.prototype.contains](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/contains) that unfortunately [conflicts](https://github.com/mootools/mootools-core/issues/2402) with the [MooTools implementation of contains](/docs/core/Types/String#String:contains).
 
 Firefox 18 already ships this new version of contains. This is not a problem for MooTools 1.3.x and onward, but this breaks MooTools 1.2.5, especially the code inside the MooTools framework that utilized this method, like selectors.
 

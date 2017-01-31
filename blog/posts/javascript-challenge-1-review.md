@@ -6,7 +6,7 @@ tags: "all,challenges"
 permalink: "2012/08/08/javascript-challenge-1-review/"
 
 ---
-The <a href="http://mootools.net/blog/2012/07/25/javascript-challenge-1/">first JavaScript challenge</a> was a huge success, with many excellent entries. While there are many excellent entries, we found the following few taught us interesting and helpful lessons...
+The <a href="/blog/2012/07/25/javascript-challenge-1/">first JavaScript challenge</a> was a huge success, with many excellent entries. While there are many excellent entries, we found the following few taught us interesting and helpful lessons...
 
 <!--more-->
 
@@ -36,7 +36,7 @@ If nothing else, this example’s code is beautifully formatted. It also showcas
 
 Pete - <a href="http://jsfiddle.net/tq6Zf/">http://jsfiddle.net/tq6Zf/</a>
 
-This guy earns serious points for posting a <a href="http://jquery.com/">jQuery</a> solution on a <a href="http://mootools.net/">MooTools</a> blog. :)
+This guy earns serious points for posting a <a href="http://jquery.com/">jQuery</a> solution on a <a href="/">MooTools</a> blog. :)
 
 The purpose of Challenge #1 was to introduce the challenges and exercise your logical brain; using as little “framework” code as possible. We would like to thank everyone that participated - it was fun to see so much conversation and collaboration around a fun JavaScript challenge.
 

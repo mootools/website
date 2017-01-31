@@ -134,6 +134,6 @@ In this way, we can think of our Swiff objects as wrappers around the functions 
 
 #### Go Have Fun!
 
-This article, of course, has only covered the basics, which means there's still a lot for you to learn.  The best way to master Swiff is to go get yourself the latest copy of the [1.2 beta](http://mootools.net/download/tags/1-2b2) and have yourself a Swiff party.  
+This article, of course, has only covered the basics, which means there's still a lot for you to learn.  The best way to master Swiff is to go get yourself the latest copy of the [1.2 beta](/download/tags/1-2b2) and have yourself a Swiff party.  
 
 Good luck, and have fun reading the ActionScript documentation!

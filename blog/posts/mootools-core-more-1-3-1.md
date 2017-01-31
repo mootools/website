@@ -13,20 +13,20 @@ The MooTools team is very happy to announce a simultaneous update of both Core a
 * Updated Slick to 1.1.5 and improved the speed of our Slick selector engine
 * Added delegation support for `submit`, `focus`, `blur`, `reset`, `change` and `select` events in MooTools More
 * If available the native JSON methods are now used in JSON.decode and JSON.encode
-* Multiple Pseudos click:relay(a):once [(demo)](http://mootools.net/demos/?demo=Element.Event.Pseudos)
-* Two new [pseudo events](http://mootools.net/docs/more/Class/Events.Pseudos#Pseudos:throttle): `:throttle` and `:pause`
+* Multiple Pseudos click:relay(a):once [(demo)](/demos/?demo=Element.Event.Pseudos)
+* Two new [pseudo events](/docs/more/Class/Events.Pseudos#Pseudos:throttle): `:throttle` and `:pause`
 * Added String.truncate to String.Extras in More
 * More than two hundred changes to increase the stability of both [Core](https://github.com/mootools/mootools-core/compare/1.3...1.3.1) & [More](https://github.com/mootools/mootools-more/compare/1.3.0.1...1.3.1.1)
 
 I am also pleased to announce our newest addition to the MooTools More team, [Jacob Thornton](http://twitter.com/#!/fat), who is a great developer, currently working for Twitter. He has put a substantial amount of work into making MooTools More even better.
 
-Be sure to check out the updated demos in our new [demos section](http://mootools.net/demos/).
+Be sure to check out the updated demos in our new [demos section](/demos/).
 
 ### Get it!
 
-* [Download MooTools Core 1.3.1](http://mootools.net/download); [Build MooTools Core 1.3.1](http://mootools.net/core/)
-* [Build MooTools More 1.3.1.1](http://mootools.net/more/)
+* [Download MooTools Core 1.3.1](/download); [Build MooTools Core 1.3.1](/core/)
+* [Build MooTools More 1.3.1.1](/more/)
 * Fork / clone [MooTools 1.3.1 from GitHub](http://github.com/mootools/mootools-core/tree/1.3.1), and build it yourself with [Packager](http://github.com/kamicane/packager).
 * [Read the commit logs](http://github.com/mootools/mootools-core/commits/1.3.1) to see precisely what has changed.
-* [Browse the Documentation for Core & More.](http://mootools.net/docs)
+* [Browse the Documentation for Core & More.](/docs)
 * Please report any bugs you can find on [Lighthouse](https://mootools.lighthouseapp.com/projects/2706-mootools/tickets), our bug tracker.

@@ -36,6 +36,6 @@ This is mostly a bug fix release.
 * Mask:
   * Added options for the IframeShim for Mask
 
-[Download it with the MooTools More builder](http://mootools.net/more).
+[Download it with the MooTools More builder](/more).
 
 As usual, if you find any issues, [file a ticket at lighthouse](https://mootools.lighthouseapp.com/projects/24057/). There are already [tickets open for 1.2.4.4](https://mootools.lighthouseapp.com/projects/24057-mootoolsmore/milestones/60506-1244) that we are not including fixes for in this release. Look for a release for these things in the next few weeks.

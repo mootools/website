@@ -13,7 +13,7 @@ This week we get graphical! Many people are exposed to some form of <a href="htt
 The challenge for this week is to design a <a href="http://en.wikipedia.org/wiki/Turtle_graphics">turtle drawing</a> program that accepts any form of user input in order to move, rotate and style a “pen” across a canvas. It should resemble the functionality demonstrated in the following diagram...
 
 <div style="padding-bottom: 1em">
-<img src="http://mootools.net/blog/wp-content/uploads/2012/08/post4.png" alt="" width="400" height="370" class="alignnone size-full wp-image-1737" />
+<img src="/blog/wp-content/uploads/2012/08/post4.png" alt="" width="400" height="370" class="alignnone size-full wp-image-1737" />
 </div>
 
 The important things we are looking for are the ability to change direction and then to move forward in a straight line. You can do this with HTML elements (and some interesting CSS) but we encourage the use of SVG or canvas in your solutions as they are more suited to the task.
@@ -28,4 +28,4 @@ Good luck!
 
 <strong>EDIT [2012/08/15]</strong>: We are closing comments and reviewing submissions. We will follow this post up with a review of our favourites and what they teach us about the task and JavaScript development in general.
 
-<strong>EDIT [2012/08/22]</strong>: We have posted the <a href="http://mootools.net/blog/2012/08/22/javascript-challenge-3-review/">review post</a> to for these submissions.
+<strong>EDIT [2012/08/22]</strong>: We have posted the <a href="/blog/2012/08/22/javascript-challenge-3-review/">review post</a> to for these submissions.

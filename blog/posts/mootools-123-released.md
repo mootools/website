@@ -6,7 +6,7 @@ tags: "releases"
 permalink: "2009/06/19/mootools-123-released/"
 
 ---
-Today we give you what will likely be the final release of the MooTools Core before the jump to 2.0.  While <a href="http://mootools.net/download">MooTools 1.2.3</a> is primarily a bug-fixing release, MooTools 1.2.3 also introduces an important new feature:  Framework compatibility mode.
+Today we give you what will likely be the final release of the MooTools Core before the jump to 2.0.  While <a href="/download">MooTools 1.2.3</a> is primarily a bug-fixing release, MooTools 1.2.3 also introduces an important new feature:  Framework compatibility mode.
 
 The value in making this change is allowing developers to use more than one framework within a page (which is NOT something we recommend or endorse, but we recognize this is not always under the developer's control).  Not relying on the dollar function prevents the need for *jQuery.noConflict()* when using jQuery and MooTools together, for example.  <em>If no other framework is detected, however, *$* will be assigned to MooTools.</em>  This means that all of your current MooTools code WILL NOT break. It does, however, mean that if you want to use MooTools and jQuery together (without using jQuery's *noConflict* mode), instead of using $ in your MooTools code, you'll have to use document.id().  
 

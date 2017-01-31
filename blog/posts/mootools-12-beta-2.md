@@ -55,6 +55,6 @@ Other notable changes since 1.2 beta1 include a fully redesigned dimension syste
 If you're not familiar with the changes in 1.2 beta1, you can read more about it in the previous [article](http://blog.mootools.net/2007/11/14/mootools-1-2-beta-1).
 
 
-I think this pretty much sums it up: have fun with the [1.2 beta 2 release](http://mootools.net/download/tags/1.2b2).
+I think this pretty much sums it up: have fun with the [1.2 beta 2 release](/download/tags/1.2b2).
 
 P.S. This is very likely to be the last beta for 1.2.

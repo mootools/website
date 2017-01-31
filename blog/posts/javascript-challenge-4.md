@@ -14,7 +14,7 @@ This operating system had just such software, in a number of different variation
 
 Refer to the following diagram...
 
-<div style="padding-bottom: 1em"><img src="http://mootools.net/blog/wp-content/uploads/2012/08/8746c5e9fa690a0f8bec719949631537fd6d_1stars_med_362x272.jpeg" alt="" width="362" height="272" class="alignnone size-full wp-image-1778" /></div>
+<div style="padding-bottom: 1em"><img src="/blog/wp-content/uploads/2012/08/8746c5e9fa690a0f8bec719949631537fd6d_1stars_med_362x272.jpeg" alt="" width="362" height="272" class="alignnone size-full wp-image-1778" /></div>
 
 ...not very helpful.
 

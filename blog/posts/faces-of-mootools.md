@@ -8,7 +8,7 @@ permalink: "2009/05/29/faces-of-mootools/"
 ---
 <img src="http://davidwalsh.name/dw-content/chris-small.jpg" alt="Christoph Pojer" style="margin:0 0 20px 20px;float:right;" />
 
-Last week we announced that <a href="http://mootools.net/blog/2009/05/20/mootools-merchandise-available/">MooTools merchandise was available for purchase</a>.  We've seen a great response to the announcement and we've received a solid amount of orders.  Thank you for your continued support!  Now it's time for us to show you our appreciation.
+Last week we announced that <a href="/blog/2009/05/20/mootools-merchandise-available/">MooTools merchandise was available for purchase</a>.  We've seen a great response to the announcement and we've received a solid amount of orders.  Thank you for your continued support!  Now it's time for us to show you our appreciation.
 
 The MooTools team would like to announce Faces of Moo.  Faces of Moo is where we post photos of you and fellow community members wearing your MooTools shirts, hats, and hoodies.  What better way to strengthen the MooTools community than by showing its talented members wearing their Moo colors?
 
