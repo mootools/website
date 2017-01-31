@@ -59,16 +59,6 @@ div
 			a(href='/more/docs') MooTools More
 
 script.
-	// kissmetrics
-	if ("/" == document.location.pathname.toLowerCase())
-		KM.record("Viewed Home");
-	if ("/more" == document.location.pathname.toLowerCase())
-		KM.record("Viewed More Builder");
-	if ("/core" == document.location.pathname.toLowerCase())
-		KM.record("Viewed Core Builder");
-	if ("/get" == document.location.pathname.toLowerCase())
-		KM.record("Downloaded Build");
-
 	// analytics
 	if (document.domain && typeof document.domain == 'string' && document.domain.indexOf('mootools.net') > -1){
 		ga('create', 'UA-112611-7', 'auto');
