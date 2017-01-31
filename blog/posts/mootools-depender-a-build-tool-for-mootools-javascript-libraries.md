@@ -37,8 +37,8 @@ The server side applications are [available on github](http://github.com/anutron
 
 Libraries that you download with Depender will all have a standard header that looks something like this:
 
-        //MooTools, <http://mootools.net>, My Object Oriented (JavaScript) Tools. Copyright (c) 2006-2009 Valerio Proietti, <https://github.com/kamicane>, MIT Style License.
-        //MooTools More, </more>. Copyright (c) 2006-2009 Aaron Newton <http://clientcide.com/>, Valerio Proietti <https://github.com/kamicane> & the MooTools team </developers>, MIT Style License.
+        //MooTools, <https://mootools.net>, My Object Oriented (JavaScript) Tools. Copyright (c) 2006-2009 Valerio Proietti, <https://github.com/kamicane>, MIT Style License.
+        //MooTools More, <https://mootools.net/more>. Copyright (c) 2006-2009 Aaron Newton <http://clientcide.com/>, Valerio Proietti <https://github.com/kamicane> & the MooTools team <https://mootools.net/developers>, MIT Style License.
         //Contents: Core, Browser, Array, Function, Number, String, Hash, Event, Class, Class.Extras, Element, Element.Event, Element.Style, Element.Dimensions, Selectors, DomReady, JSON, Cookie, Swiff, Fx, Fx.CSS, Fx.Tween, Fx.Morph, Fx.Transitions, Request, Request.HTML, Request.JSON, More, Element.Shortcuts, Element.Measure, Fx.Reveal
         //This lib: http://clientcide.com/js/build.php?requireLibs=mootools-core&require=Fx.Reveal&compression=none
 

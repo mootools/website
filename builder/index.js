@@ -10,7 +10,7 @@ var projectPath = require('../lib/projectPath');
 var bodyParser = require('body-parser');
 var pkgProjects = require('../package.json')._projects;
 var builderHash = require('../lib/BuilderHash')(require('../config/databases.json'));
-var copyright = '/* MooTools: the javascript framework. license: MIT-style license. copyright: Copyright (c) 2006-' + new Date().getFullYear() + ' [Valerio Proietti](http://mootools.net/).*/ ';
+var copyright = '/* MooTools: the javascript framework. license: MIT-style license. copyright: Copyright (c) 2006-' + new Date().getFullYear() + ' [Valerio Proietti](https://mootools.net/).*/ ';
 
 function uglify(source){
 	var uglified = UglifyJS.minify(source, {
@@ -81,7 +81,7 @@ function processPost(req, res, next){
 		if (minified) data = uglify(data);
 
 		data = copyright + '\n' +
-			(results[1] ? '/*!\nWeb Build: http://mootools.net/' + project_ + '/builder/' + results[1].hash + '\n*/\n' : '') +
+			(results[1] ? '/*!\nWeb Build: https://mootools.net/' + project_ + '/builder/' + results[1].hash + '\n*/\n' : '') +
 			data;
 
 		res.setHeader('Content-Type', 'application/javascript');
