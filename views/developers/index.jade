@@ -14,9 +14,12 @@ mixin content(result)
 		p.small Location: #{result.Location}
 
 		p.small 
-			| Web: 
-			for webResult in result.Web
-				a(href=webResult,target='_blank') #{webResult.split('http://')[1]}
+			if result.Web !== undefined
+				| Web: 
+				for webResult in result.Web
+					a(href=webResult,target='_blank') #{webResult.replace(/^https?:\/\//, '')}
+			else
+				| No website defined
 				
 			mixin linkExist(result, 'Twitter')
 			mixin linkExist(result, 'GitHub')
