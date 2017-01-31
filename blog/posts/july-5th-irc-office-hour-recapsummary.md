@@ -15,7 +15,7 @@ This recap includes:
 
 <!--more-->
 
-Last week we had a small conversation of the [experimental branch that Valerio has for MooTools 2.0](http://github.com/kamicane/mootools-core/tree/define-2). The conversation covered most of the comments in [last week’s post comments](http://mootools.net/blog/2011/07/04/june-28th-irc-office-hour-recapsummary/#comments). Instead of going over them again, please take a look at last week’s post. 
+Last week we had a small conversation of the [experimental branch that Valerio has for MooTools 2.0](http://github.com/kamicane/mootools-core/tree/define-2). The conversation covered most of the comments in [last week’s post comments](/blog/2011/07/04/june-28th-irc-office-hour-recapsummary/#comments). Instead of going over them again, please take a look at last week’s post. 
 
 ### Compare 1.3.x and Experimental 2.y.x Code Diffs
 
@@ -31,16 +31,16 @@ The files included in the repo are meant to compare Core code, Plugin code, and 
 
 * **Database.js** (by [Daniel Buchner](http://github.com/csuwldcat)). You can find the original Database.js in the repo as well as in his [csuwldcat/mootools-htmlx](https://github.com/csuwldcat/mootools-htmlx).
 
-* **ScrollSpy.js** (by [David Walsh](https://github.com/darkwing)). You can find the original ScrollSpy.js in the [MooTools Forge](http://mootools.net/forge/p/scrollspy).
+* **ScrollSpy.js** (by [David Walsh](https://github.com/darkwing)). You can find the original ScrollSpy.js in the [MooTools Forge](/forge/p/scrollspy).
 
 **Application Code**
 
-* **Examples/001.js** and **Examples/002.js** are examples from the [Request.js](http://mootools.net/docs/core/Request/Request) documentation. 
+* **Examples/001.js** and **Examples/002.js** are examples from the [Request.js](/docs/core/Request/Request) documentation. 
 
 #### Caveats
 **The examples are not all encompassing of user behavior and usage.** I did select the scripts, but I tried to be fair. You can fork the repository and add your files to the [1.3.x branch](https://github.com/ibolmo/mootools-1-vs-2) (the base branch) and send me a [pull request](https://github.com/ibolmo/mootools-1-vs-2/pulls) and I’ll try to port your code. Please be considerate, and send me at most one file with recommended maximum of 500 lines.
 
-**The code will change as 2.0 is further defined**. The 2.0 API is not final. Valerio is kicking butt everyday on his experimental branch. This compare 1.3.x vs. 2.y.x repo. is meant to assuage some of the concerns from the [previous blog post](http://mootools.net/blog/2011/07/04/june-28th-irc-office-hour-recapsummary/) about Valerio’s experimental 2.0 branch. 
+**The code will change as 2.0 is further defined**. The 2.0 API is not final. Valerio is kicking butt everyday on his experimental branch. This compare 1.3.x vs. 2.y.x repo. is meant to assuage some of the concerns from the [previous blog post](/blog/2011/07/04/june-28th-irc-office-hour-recapsummary/) about Valerio’s experimental 2.0 branch. 
 
 **This repo is not a definitive guide to 2.0**. We’re still working on that definitive guide for 2.0, but since the API is not strictly defined it’s premature to give you this. For now, leave your comments or join us tomorrow with your questions. 
 

@@ -12,7 +12,7 @@ function getData(req, res, next){
 	});
 }
 
-var blogURL = 'http://mootools.net/blog';
+var blogURL = '/blog';
 var feed = {
     title: 'MooTools',
     description: 'MooTools blog',

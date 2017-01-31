@@ -56,7 +56,7 @@ It is important to note that the event callback of the `clickme` event checks if
 
 	clickme.fireEvent('click', [{stop: function(){}}, 'MooTools'], 500);
 
-What am I doing here? The second argument of the `fireEvent` accepts a single argument or an array of arguments. In this case, I pass an array of arguments, which contains an Object as the first item in the array. The Object helps get rid of the `if (event && event.stop)` condition in the former example because it mimics the Event object. In the forge there is a more sophisticated [Event.Mock](http://mootools.net/forge/p/event_mock).
+What am I doing here? The second argument of the `fireEvent` accepts a single argument or an array of arguments. In this case, I pass an array of arguments, which contains an Object as the first item in the array. The Object helps get rid of the `if (event && event.stop)` condition in the former example because it mimics the Event object. In the forge there is a more sophisticated [Event.Mock](/forge/p/event_mock).
 
 Additionally, I've passed a third argument to `fireEvent`, `500`. This third argument is used to delay the execution of the event callback.
 
@@ -220,14 +220,14 @@ Also have a look at [Company](http://code.keetology.com/company/) by Keeto or th
 
 
 
-[document.id]: http://mootools.net/docs/core/Element/Element#Window:document-id
-[Element:addEvent]: http://mootools.net/docs/core/Element/Element.Event#Element:addEvent
-[Event]: http://mootools.net/docs/core/Types/Event
-[Element.Delegation]: http://mootools.net/docs/more/Element/Element.Delegation
-[Events]: http://mootools.net/docs/core/Class/Class.Extras#Events
-[Fx]: http://mootools.net/docs/core/Fx/Fx
-[Request]: http://mootools.net/docs/core/Request/Request
-[Options]: http://mootools.net/docs/core/Class/Class.Extras#Options
-[Events.Pseudos]: http://mootools.net/docs/more/Class/Events.Pseudos
-[Element.Event.Pseudos]: http://mootools.net/docs/more/Element/Element.Event.Pseudos
-[:keys]: http://mootools.net/docs/more/Element/Element.Event.Pseudos.Keys
+[document.id]: /docs/core/Element/Element#Window:document-id
+[Element:addEvent]: /docs/core/Element/Element.Event#Element:addEvent
+[Event]: /docs/core/Types/Event
+[Element.Delegation]: /docs/more/Element/Element.Delegation
+[Events]: /docs/core/Class/Class.Extras#Events
+[Fx]: /docs/core/Fx/Fx
+[Request]: /docs/core/Request/Request
+[Options]: /docs/core/Class/Class.Extras#Options
+[Events.Pseudos]: /docs/more/Class/Events.Pseudos
+[Element.Event.Pseudos]: /docs/more/Element/Element.Event.Pseudos
+[:keys]: /docs/more/Element/Element.Event.Pseudos.Keys

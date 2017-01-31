@@ -14,7 +14,7 @@ At the same time the MooTools Core developers were building MooTools 1.3. I clos
 
 Because MooTools 1.3, at that time, was fully under construction, there were many loose ends that were easy to fix. I got invited to talk to the MooTools devs on IRC, and got involved more and more. So I started working on MooTools More 1.3, which was something else that was not updated for the new 1.3 release. This was a great way to learn how the internals of MooTools work: we had to look into MooTools Core to know how to effectively update the More code, or even fix things in MooTools Core, but at the same time it wasn't too difficult yet.
 
-Later that year I went to the MooTools Hackathon in London, where we finalized the MooTools Core 1.3 and More 1.3 releases which were released later that year. I also got a nice place on the [MooTools developers](http://mootools.net/developers) page!
+Later that year I went to the MooTools Hackathon in London, where we finalized the MooTools Core 1.3 and More 1.3 releases which were released later that year. I also got a nice place on the [MooTools developers](/developers) page!
 
 So how does my nice story tell you how to contribute? Basically what I did is look if something was blocking the release for MooTools 1.3, went ahead and fixed that, just by spamming the MooTools devs with new pull requests. 
 

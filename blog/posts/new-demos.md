@@ -6,9 +6,9 @@ tags: "all"
 permalink: "2011/01/04/new-demos/"
 
 ---
-We've been beavering away here in MooTools Towers looking though our <a href="http://mootools.net/blog/2010/12/05/mootools-survey/">recent survey</a> results (more feedback coming soon) and one of the things that was obvious you guys and gals wanted was new demos.
+We've been beavering away here in MooTools Towers looking though our <a href="/blog/2010/12/05/mootools-survey/">recent survey</a> results (more feedback coming soon) and one of the things that was obvious you guys and gals wanted was new demos.
 
-So! Check out <a href="http://mootools.net/demos">our new demos</a>. We hope you like them!
+So! Check out <a href="/demos">our new demos</a>. We hope you like them!
 
 We're also delighted to be able to include full <a href="http://jsfiddle.net">jsFiddle</a> support, so you can easily view, edit and generally play with our new demos easily!
 

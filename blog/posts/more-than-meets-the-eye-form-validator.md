@@ -6,7 +6,7 @@ tags: "features,tips"
 permalink: "2010/04/30/more-than-meets-the-eye-form-validator/"
 
 ---
-Continuing with my "More than Meets the Eye" series, today I want to talk to you about the [MooTools More `Form.Validator`](http://mootools.net/docs/more/Forms/Form.Validator). There was a comment left on my [last post in this series (about `Form.Request`)](http://mootools.net/blog/2010/03/04/more-than-meets-the-eye/) specifically requesting that I cover this relatively complex plugin that's useful for telling users about the validity of data they enter into forms before they send them.
+Continuing with my "More than Meets the Eye" series, today I want to talk to you about the [MooTools More `Form.Validator`](/docs/more/Forms/Form.Validator). There was a comment left on my [last post in this series (about `Form.Request`)](/blog/2010/03/04/more-than-meets-the-eye/) specifically requesting that I cover this relatively complex plugin that's useful for telling users about the validity of data they enter into forms before they send them.
 
 ### Getting Started with Validators
 
@@ -33,7 +33,7 @@ The first two arguments are the important ones here; the key of your validator a
 
 The alerts aren't pretty, but you can see how our validator is now applied when you submit the form.
 
-Form.Validator ships with [several validators listed in the documentation](http://mootools.net/docs/more/Forms/Form.Validator#Validators). These include simple stuff like `required` that just validates that the user put something - anything - in the input. But there are also validators for email addresses, only letters, dates, urls, etc. The key is you can write your own - you don't need to wait for us to release something for you to make use of it. There are an extended list of validators in [`Form.Validator.Extras`](http://mootools.net/docs/more/Forms/Form.Validator.Extras) that include some edge cases. Things like validating that two inputs have the same value (like an email verification for example). 
+Form.Validator ships with [several validators listed in the documentation](/docs/more/Forms/Form.Validator#Validators). These include simple stuff like `required` that just validates that the user put something - anything - in the input. But there are also validators for email addresses, only letters, dates, urls, etc. The key is you can write your own - you don't need to wait for us to release something for you to make use of it. There are an extended list of validators in [`Form.Validator.Extras`](/docs/more/Forms/Form.Validator.Extras) that include some edge cases. Things like validating that two inputs have the same value (like an email verification for example). 
 
 ### Using Validators with Arguments
 
@@ -82,7 +82,7 @@ The base `Form.Validator` class comes with a plethora of options and events. You
 
 ### Form.Validator.Inline - the "Pretty" One
 
-Now that we've covered the basics of how `Form.Validator` works, let's consider the fact that our examples so far have been rather ugly (who wants alert messages?). MooTools More ships with a default implementation that smoothly displays messages inline, right after the input: [`Form.Validator.Inline`](http://mootools.net/docs/more/Forms/Form.Validator.Inline). This class is the "pretty" version of `Form.Validator` but don't think of it as the only game in town. You can easily implement your own "pretty" version without a lot of effort. If you want to put errors in a popup or fade them in over the entire screen or play a sound it doesn't matter. The base `Form.Validator` class is there for you.
+Now that we've covered the basics of how `Form.Validator` works, let's consider the fact that our examples so far have been rather ugly (who wants alert messages?). MooTools More ships with a default implementation that smoothly displays messages inline, right after the input: [`Form.Validator.Inline`](/docs/more/Forms/Form.Validator.Inline). This class is the "pretty" version of `Form.Validator` but don't think of it as the only game in town. You can easily implement your own "pretty" version without a lot of effort. If you want to put errors in a popup or fade them in over the entire screen or play a sound it doesn't matter. The base `Form.Validator` class is there for you.
 
 Looking at the `Form.Validator.Inline` implementation, you'll find all the same options and methods from `Form.Validator` along with a few extras that control how your messages appear. For instance, by default, the validation rules show up immediately after the input. This requires a bit of forethought in how you structure your HTML. If your input is inline with something else (like a submit button), validation errors are going to change that when they appear (because they are divs, which by default are block level elements).
 
@@ -106,6 +106,6 @@ If you want you can [check out the source on github](http://github.com/anutron/c
 
 Overall the purpose of `Form.Validator` is not to be the only solution for displaying validation messages to your users, but rather a flexible solution for client side form validation on which to build. You can extend it and manipulate it to display messages in any way you choose - and you should!. The default "pretty" implementation - `Form.Validator.Inline` - is just one way to use the class. In my opinion `Form.Validator` is one of the classes in MooTools More that shows off the power of MooTools' object oriented design, allowing for a great deal of flexibility and reuse.
 
-Thanks to [Lloyd for suggesting this edition's topic](http://mootools.net/blog/2010/03/04/more-than-meets-the-eye/#comment-908). If there's a plugin in MooTools More you'd like me to focus on next time, by all means, make a suggestion in the comments.
+Thanks to [Lloyd for suggesting this edition's topic](/blog/2010/03/04/more-than-meets-the-eye/#comment-908). If there's a plugin in MooTools More you'd like me to focus on next time, by all means, make a suggestion in the comments.
 
 *Aaron Newton is a contributor to MooTools and the principal developer of MooTools More. He is the author of the book __MooTools Essentials__ as well as the [Mootorial](http://mootorial.com) online MooTools tutorial. He posts (rarely these days) at his blog [Clientcide.com](http://clientcide.com) and (much more often) on Twitter as [anutron](http://twitter.com/anutron). He works for [Cloudera](http://www.cloudera.com), (which is hiring, by the way).*

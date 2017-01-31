@@ -76,7 +76,7 @@ Notice that Fx.Typewriter overwrites the `start` method of Fx.  The Fx start met
 
 ### Fx.Text
 
-There's a very creative effect called [Fx.Text on the forge](http://mootools.net/forge/p/fx_text).  It's an animated text replacement effect.  I think it's really cool and does a great job of extending Fx.
+There's a very creative effect called [Fx.Text on the forge](/forge/p/fx_text).  It's an animated text replacement effect.  I think it's really cool and does a great job of extending Fx.
 
 ### Fx.Cornify
 
@@ -170,4 +170,4 @@ window.addEvent('domready',function(){
 });
 // --></script>
 
-*Ryan Florence is a MooTools enthusiast and contributor.  He maintains his JavaScript focused [blog](http://ryanflorence.com), [MooDocs.net](http://moodocs.net), and [moo4q](http://moo4q.com).  Follow him on [twitter](http://twitter.com/ryanflorence) or checkout his plugins on the [Forge](http://mootools.net/forge/profile/rpflo).*
+*Ryan Florence is a MooTools enthusiast and contributor.  He maintains his JavaScript focused [blog](http://ryanflorence.com), [MooDocs.net](http://moodocs.net), and [moo4q](http://moo4q.com).  Follow him on [twitter](http://twitter.com/ryanflorence) or checkout his plugins on the [Forge](/forge/profile/rpflo).*

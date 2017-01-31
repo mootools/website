@@ -12,7 +12,7 @@ The other day I was playing <a href="http://en.wikipedia.org/wiki/Fez_(video_gam
 
 This week’s challenge will be to create a memory game using shapes, colours, numbers or anything really, so long as it involves memory. Refer to the following diagram...
 
-<div style="padding-bottom: 1em"><img src="http://mootools.net/blog/wp-content/uploads/2012/08/post6.png" alt="" width="350" height="350" class="alignnone size-full wp-image-1798" /></div>
+<div style="padding-bottom: 1em"><img src="/blog/wp-content/uploads/2012/08/post6.png" alt="" width="350" height="350" class="alignnone size-full wp-image-1798" /></div>
 
 The basic idea is that your game should present a series of colours, shapes, numbers, etc. for the user to then repeat. If they get the sequence right, the next level starts, which increases in difficulty.
 

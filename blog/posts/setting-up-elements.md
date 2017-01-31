@@ -106,17 +106,17 @@ This all sounds great, I'm sure. Now when you're writing your own classes and [p
 
 _Sean McArthur is a software developer at Blazonco.com who is madly in love with MooTools. Most of his contributions involve sharing tips and information about MooTools (and programming in general) at his [blog][13] and on [Twitter][14]._
 
-[1]: http://mootools.net/blog/2010/03/19/a-better-way-to-use-elements/
-[2]: http://mootools.net/docs/core/Element/Element#Element:get
-[3]: http://mootools.net/docs/core/Element/Element#Element:set
-[4]: http://mootools.net/docs/core/Element/Element#Element:getProperty
-[5]: http://mootools.net/docs/core/Element/Element#Element:setProperty
-[6]: http://mootools.net/docs/core/Element/Element.Style#Element:getStyle
-[7]: http://mootools.net/docs/core/Element/Element.Style#Element:setStyle
-[8]: http://mootools.net/docs/core/Element/Element#Element:store
-[9]: http://mootools.net/docs/core/Element/Element#Element:retrieve
-[10]: http://mootools.net/docs/core/Element/Element#Element:erase
-[11]: http://mootools.net/docs/core/Element/Element#Element:eliminate
-[12]: http://mootools.net/forge
+[1]: /blog/2010/03/19/a-better-way-to-use-elements/
+[2]: /docs/core/Element/Element#Element:get
+[3]: /docs/core/Element/Element#Element:set
+[4]: /docs/core/Element/Element#Element:getProperty
+[5]: /docs/core/Element/Element#Element:setProperty
+[6]: /docs/core/Element/Element.Style#Element:getStyle
+[7]: /docs/core/Element/Element.Style#Element:setStyle
+[8]: /docs/core/Element/Element#Element:store
+[9]: /docs/core/Element/Element#Element:retrieve
+[10]: /docs/core/Element/Element#Element:erase
+[11]: /docs/core/Element/Element#Element:eliminate
+[12]: /forge
 [13]: http://seanmonstar.com
 [14]: http://twitter.com/seanmonstar

@@ -6,7 +6,7 @@ tags: "all"
 permalink: "2012/08/13/optimizing-mootools-builds-sans-internet-explorer/"
 
 ---
-Since the very beginning of MooTools you can only pick the right components that you need with the MooTools [Download](http://mootools.net/core/) Builder, to ensure there are no useless bytes going through the wires. But this means you still download browser-specific code. What if you could optimize the code further by removing unnecessary browser-specific code?
+Since the very beginning of MooTools you can only pick the right components that you need with the MooTools [Download](/core/) Builder, to ensure there are no useless bytes going through the wires. But this means you still download browser-specific code. What if you could optimize the code further by removing unnecessary browser-specific code?
 
 The good news is, you can optimize MooTools builds to remove specific (IE) code! [Packager](http://github.com/kamicane/packager) has been used to concatenate builds since MooTools 1.3. Removing certain code blocks, like MooTools 1.2. compatibility or specific IE code is one of the features of Packager. Lets see how it works. We begin with downloading Packager.
 

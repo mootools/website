@@ -6,7 +6,7 @@ tags: "news"
 permalink: "2009/11/02/upgrade-mootools/"
 
 ---
-<p>You've probably noticed a flurry of MooTools 1.2 updates recently, including updates to both MooTools Core and More.  We're happy to give them to you and hope you continue to upgrade your existing MooTools 1.2.x builds. We would like to bring to you attention an upgrade to the <a href="http://mootools.net/download/version/1.1.2">MooTools 1.1.2 build</a> and <a href="http://mootools.net/download">MooTools 1.2.4 build</a> which should be considered a mandatory upgrade for developers still using MooTools 1.1 and MooTools &lt; 1.2.4.</p>
+<p>You've probably noticed a flurry of MooTools 1.2 updates recently, including updates to both MooTools Core and More.  We're happy to give them to you and hope you continue to upgrade your existing MooTools 1.2.x builds. We would like to bring to you attention an upgrade to the <a href="/download/version/1.1.2">MooTools 1.1.2 build</a> and <a href="/download">MooTools 1.2.4 build</a> which should be considered a mandatory upgrade for developers still using MooTools 1.1 and MooTools &lt; 1.2.4.</p>
 
 <!--more-->
 
@@ -32,10 +32,10 @@ We have overhauled our browser detection to be based on the user agent string. T
 
 <h3>"Where Can I Download Upgrades?"</h3>
 <p>
-You may download the updated MooTools 1.1.2 build on the <a href="http://mootools.net/download/version/1.1.2">MooTools 1.1.2 download page</a>.  You may also grab <a href="http://github.com/mootools/mootools-core/tree/1.1.2">MooTools 1.1.2 from GitHub</a>.
+You may download the updated MooTools 1.1.2 build on the <a href="/download/version/1.1.2">MooTools 1.1.2 download page</a>.  You may also grab <a href="http://github.com/mootools/mootools-core/tree/1.1.2">MooTools 1.1.2 from GitHub</a>.
 </p>
 <p>
-You may download the updated MooTools 1.2.4 build on the <a href="http://mootools.net/download">MooTools 1.2.4 download page</a>.  You may also grab <a href="http://github.com/mootools/mootools-core/tree/1.2.4">MooTools 1.2.4 from GitHub</a>.
+You may download the updated MooTools 1.2.4 build on the <a href="/download">MooTools 1.2.4 download page</a>.  You may also grab <a href="http://github.com/mootools/mootools-core/tree/1.2.4">MooTools 1.2.4 from GitHub</a>.
 </p>
 
 <p>Thank you for upgrading.  We look forward to continued success with the MooTools javascript framework!</p>

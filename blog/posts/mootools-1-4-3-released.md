@@ -55,7 +55,7 @@ These fixes and improvements would not have happened if you didn't submit an iss
 
 ### Get it!
 
-* [Download MooTools Core 1.4.3](http://mootools.net/download); [Build MooTools Core 1.4.3](http://mootools.net/core/)
+* [Download MooTools Core 1.4.3](/download); [Build MooTools Core 1.4.3](/core/)
 * Fork / clone [MooTools Core 1.4.3 from GitHub](http://github.com/mootools/mootools-core/tree/1.4.3), and build it yourself with [Packager](http://github.com/kamicane/packager).
 * [Google CDN](http://code.google.com//ajaxlibs/documentation/index.html#mootools) (will be updated soon)
-* [Browse the Documentation for Core & More.](http://mootools.net/docs)
+* [Browse the Documentation for Core & More.](/docs)
