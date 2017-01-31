@@ -142,7 +142,7 @@ The html template for all frameworks is the same Andrew Dupont used in his DOM S
 His test was flawed though, as every framework was just included in the same page. This created prototypes conflict, so speed results were unreliable.
 
 In the demo I tried to include the latest development version of the frameworks where possible.
-Currently in the demo: [mootools](http://mootools.net), [prototype](http://prototypejs.org), [jquery](http://jquery.com), [ext](http://extjs.com/), [cssQuery](http://dean.edwards.name/my/cssQuery/) and [dojo](http://dojotoolkit.org/).
+Currently in the demo: [mootools](https://mootools.net), [prototype](http://prototypejs.org), [jquery](http://jquery.com), [ext](http://extjs.com/), [cssQuery](http://dean.edwards.name/my/cssQuery/) and [dojo](http://dojotoolkit.org/).
 
 So welcome to the battle of the frameworks, and may the best win. Meet [SlickSpeed](/slickspeed).
 
