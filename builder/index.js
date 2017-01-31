@@ -10,7 +10,7 @@ var projectPath = require('../lib/projectPath');
 var bodyParser = require('body-parser');
 var pkgProjects = require('../package.json')._projects;
 var builderHash = require('../lib/BuilderHash')(require('../config/databases.json'));
-var copyright = '/* MooTools: the javascript framework. license: MIT-style license. copyright: Copyright (c) 2006-' + new Date().getFullYear() + ' [Valerio Proietti](http://mad4milk.net/).*/ ';
+var copyright = '/* MooTools: the javascript framework. license: MIT-style license. copyright: Copyright (c) 2006-' + new Date().getFullYear() + ' [Valerio Proietti](http://mootools.net/).*/ ';
 
 function uglify(source){
 	var uglified = UglifyJS.minify(source, {

@@ -18,7 +18,7 @@ We have revised the whole base of our Core framework to speed up MooTools, provi
 
 ### Slick
 
-MooTools Core 1.3 includes Slick, our new standalone selector engine. Slick is a new official MooTools project developed by [Thomas Aylott](http://subtlegradient.com/), [Fabio Costa](http://github.com/fabiomcosta) and [Valerio Proietti](http://mad4milk.net) with help from a vast assortment of JavaScript heroes, villains, trolls and kings.
+MooTools Core 1.3 includes Slick, our new standalone selector engine. Slick is a new official MooTools project developed by [Thomas Aylott](http://subtlegradient.com/), [Fabio Costa](http://github.com/fabiomcosta) and [Valerio Proietti](https://github.com/kamicane) with help from a vast assortment of JavaScript heroes, villains, trolls and kings.
 
 Even if you can't use MooTools Core in a project, you can still use Slick! It's standalone, so instead of Slick requiring anything in MooTools, Core now heavily relies on everything that is Slick.
 

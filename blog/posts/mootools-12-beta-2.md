@@ -18,7 +18,7 @@ A lot of the new 1.2 features have now been refined. An example that I'd like to
 
 Let's see a basic example of an accessor. I want to work with the href attribute of an element:
 
-    $(element).set('href', 'http://mad4milk.net'); //setter
+    $(element).set('href', 'https://github.com/kamicane'); //setter
     $(element).get('href'); //getter
     
 Pretty easy, and pretty basic too. Now, Let's do something slightly more complex: I want to set the default morph options for an element:
@@ -32,7 +32,7 @@ After I set the morph "special attribute", every time I call the morph method on
 In addition, the set method now accepts any Object containing any of the settable properties: lets have an example:
 
     $(element).set({
-        href: 'http://mad4milk.net',
+        href: 'https://github.com/kamicane',
         text: 'mad4milk website',
         morph: {duration: 200, transition: 'quad:out'},
         events: {
