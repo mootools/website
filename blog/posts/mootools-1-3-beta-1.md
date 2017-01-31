@@ -37,7 +37,7 @@ If you dislike php, worry not! There is also a Django builder, called Depender, 
 
 The most notable new feature in 1.3 is *Slick*. *Slick* is our new, shiny, super fast, exhaustively tested, pure-javascript selector engine. There will probably be a dedicated *Slick* post in the following days (or months, given our relaxed release cycles), but here's a few Slick-facts for those who haven't checked it out already:
 
- - *Slick* is a MooTools-family project by MooTools developers [Thomas Aylott](http://subtlegradient.com/), [Fabio Costa](http://www.meiocodigo.com/) and [yours truly](http://mad4milk.net). It can be [forked from github](http://github.com/mootools/slick), free of charge!
+ - *Slick* is a MooTools-family project by MooTools developers [Thomas Aylott](http://subtlegradient.com/), [Fabio Costa](http://www.meiocodigo.com/) and [yours truly](https://github.com/kamicane). It can be [forked from github](http://github.com/mootools/slick), free of charge!
  - *Slick* is an incredibly advanced evolution of our previous selector engine.
  - *Slick* is written using only pure-javascript, none of the MooTools apis are required. It can be used in any project or framework, and it does not require MooTools to function (though the MooTools DOM components do require *Slick*).
  - *Slick* is speedy, blows away the 1.2 selector engine by 50%, at least. We will give you detailed data in the post dedicated to *Slick*.

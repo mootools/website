@@ -2,7 +2,6 @@
     "Developers": [{
         "Name": "Valerio Proietti",
         "Nick": "(kamicane)",
-        "Web": ["http://mad4milk.net"],
         "Twitter": "http://twitter.com/kamicane",
         "GitHub": "http://github.com/kamicane",
         "img": "../images/avatars/Valerio.png",
@@ -18,7 +17,7 @@
     }, {
         "Name": "Aaron Newton",
         "Nick": "(anutron)",
-        "Web": ["http://clientcide.com", "http://iminta.com"],
+        "Web": ["http://www.clientcide.com"],
         "Twitter": "http://twitter.com/anutron",
         "GitHub": "http://github.com/anutron",
         "img": "../images/avatars/aaron.png",
@@ -26,7 +25,7 @@
     }, {
         "Name": "Jan Kassens",
         "Nick": "(kassens)",
-        "Web": ["http://mootools.kassens.net"],
+        "Web": ["https://kassens.net"],
         "Twitter": "http://twitter.com/kassens",
         "GitHub": "http://github.com/kassens",
         "img": "../images/avatars/jan.png",
@@ -34,14 +33,13 @@
     }, {
         "Name": "Olmo Maldonado",
         "Nick": "(ibolmo)",
-        "Web": [""],
         "GitHub": "http://github.com/ibolmo",
         "img": "../images/avatars/olmo.png",
         "Location": "Los Angeles, CA, USA"
     }, {
         "Name": "David Walsh",
         "Nick": "(davidwalsh)",
-        "Web": ["http://davidwalsh.name"],
+        "Web": ["https://davidwalsh.name"],
         "Twitter": "http://twitter.com/davidwalshblog",
         "GitHub": "http://github.com/darkwing",
         "img": "../images/avatars/david.png",
@@ -65,7 +63,6 @@
     }, {
         "Name": "Cristian Carlesso",
         "Nick": "(kentaromiura)",
-        "Web": ["http://mykenta.blogspot.com"],
         "Twitter": "http://twitter.com/kentaromiura",
         "GitHub": "http://github.com/kentaromiura",
         "img": "../images/avatars/cristian.jpg",
@@ -73,7 +70,6 @@
     }, {
         "Name": "Fábio Miranda Costa",
         "Nick": "(fabiomcosta)",
-        "Web": ["http://meiocodigo.com", "http://solucione.info"],
         "Twitter": "http://twitter.com/fabiomiranda",
         "GitHub": "http://github.com/fabiomcosta",
         "img": "../images/avatars/fabio.jpg",
@@ -81,7 +77,7 @@
     }, {
         "Name": "Darren Waddell",
         "Nick": "(fakedarren)",
-        "Web": ["http://blog.fakedarren.com"],
+        "Web": ["http://fakedarren.com"],
         "Twitter": "http://twitter.com/fakedarren",
         "GitHub": "http://github.com/fakedarren",
         "img": "../images/avatars/fakedarren.png",
@@ -89,7 +85,7 @@
     }, {
         "Name": "Sebastian Markbåge",
         "Nick": "(sebmarkbage)",
-        "Web": ["http://calyptus.eu"],
+        "Web": ["http://blog.calyptus.eu"],
         "Twitter": "http://twitter.com/sebmarkbage",
         "GitHub": "http://github.com/calyptus",
         "img": "../images/avatars/sebastian.png",
@@ -97,7 +93,7 @@
     }, {
         "Name": "Tim Wienk",
         "Nick": "(Timmeh)",
-        "Web": ["http://tim.wienk.name"],
+        "Web": ["https://tim.wienk.name"],
         "Twitter": "http://twitter.com/timwienk",
         "GitHub": "http://github.com/timwienk",
         "img": "../images/avatars/tim.png",
@@ -130,7 +126,6 @@
     "Alumni": [{
         "Name": "Yaroslaff Fedin",
         "Nick": "(inviz)",
-        "Web": ["http://inviz.ru"],
         "Twitter": "http://twitter.com/inviz",
         "GitHub": "http://github.com/inviz",
         "img": "../images/avatars/yaroslaff.png",
@@ -145,7 +140,6 @@
     }, {
         "Name": "Jacob Thornton",
         "Nick": "(jacobthornton)",
-        "Web": ["http://hellomynameisjacob.com"],
         "Twitter": "http://twitter.com/fat",
         "GitHub": "http://github.com/jacobthornton",
         "img": "../images/avatars/jacob.png",
@@ -159,7 +153,6 @@
     }, {
         "Name": "Michelle Steigerwalt",
         "Nick": "(Yuffster)",
-        "Web": ["http://msteigerwalt.com"],
         "Twitter": "http://twitter.com/Yuffster",
         "GitHub": "http://github.com/Yuffster",
         "img": "../images/avatars/michelle.png",

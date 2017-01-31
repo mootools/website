@@ -1,7 +1,7 @@
 var books = [
 	{
 		"title": "Pro JavaScript with MooTools",
-		"description": "Ready to take your MooTools knowledge to a new level? Then <a href=\"http://www.amazon.com/Pro-JavaScript-MooTools-Mark-Obcena/dp/1430230541/\">grab a copy</a> of <a href=\"http://projswithmootools.com/\">Pro JavaScript with MooTools</a> by <a href=\"http://keetology.com\">Mark Obcena</a>, with a Foreword by MooTools Founder and Lead Developer <a href=\"http://mad4milk.net\">Valerio Proietti</a>.</p><p>Geared towards intermediate and advanced users, \"Pro JavaScript with MooTools\" explores advanced features of the JavaScript language as well as the internals of MooTools 1.3.",
+		"description": "Ready to take your MooTools knowledge to a new level? Then <a href=\"http://www.amazon.com/Pro-JavaScript-MooTools-Mark-Obcena/dp/1430230541/\">grab a copy</a> of <a href=\"http://projswithmootools.com/\">Pro JavaScript with MooTools</a> by <a href=\"http://keetology.com\">Mark Obcena</a>, with a Foreword by MooTools Founder and Lead Developer <a href=\"https://github.com/kamicane\">Valerio Proietti</a>.</p><p>Geared towards intermediate and advanced users, \"Pro JavaScript with MooTools\" explores advanced features of the JavaScript language as well as the internals of MooTools 1.3.",
 		"cover": "/images/books/pro_javascript_with_mootools.jpg",
 		"alt_tag": "Pro JavaScript with MooTools by Mark Obcena",
 		"buy_link": "http://www.amazon.com/Pro-JavaScript-MooTools-Mark-Obcena/dp/1430230541/"
