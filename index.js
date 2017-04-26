@@ -116,7 +116,6 @@ require('./core')(app);
 require('./more')(app);
 require('./blog')(app);
 require('./books')(app);
-require('./builder')(app);
 require('./developers')(app);
 
 // redirect old docs path
@@ -139,10 +138,9 @@ app.get(/^\/plugins/, function(req, res){
 	res.redirect(301, req.path.replace('/plugins', '/forge'));
 });
 
-// redirect old download paths
-app.get(/^\/download/i, function(req, res){
-	res.redirect(301, '/core');
-});
+// download source files
+app.get(/download\/get/, require('./builder/download'));
+app.post('/builder', require('./builder'));
 
 // handle 404 errors
 app.get('*', function(req, res, next){

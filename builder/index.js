@@ -91,9 +91,4 @@ function processPost(req, res, next){
 	});
 }
 
-module.exports = function(app){
-	app.use(bodyParser.urlencoded({
-		extended: true
-	}));
-	app.post('/builder', processPost);
-};
+module.exports = processPost;
