@@ -40,7 +40,7 @@
     "needle": "~0.6.3",
     "nib": "0.9",
     "prime": "0.1",
-    "request": "2.22",
+    "request": "2.88",
     "semver": "*",
     "serve-favicon": "^2.1.5",
     "slugify": "0.1",
