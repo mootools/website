@@ -14,7 +14,7 @@ To install everything you need to clone the repository and submodules (for the d
 
 ```
 
-### Notes:
+### Notes:points
 
 - Some dependencies use native C code which requires some compiler.
   - For **Mac** users this means that Xcode (Command Line Tools) should be installed.
