@@ -2,11 +2,11 @@ extends ../layouts/home
 
 mixin linkExist(result, type)
 	if result[type] !== undefined
-		| , follow on #{type}: <a href="#{result[type]}">#{result[type].split("http://")[1]}</a>
+		| , follow on #{type}: <a href="#{result[type]}">#{result[type].split("https://")[1]}</a>
 
 mixin content(result)
 	section
-		h3 #{result.Name} 
+		h3 !{result.Name} 
 		p.inline #{result.Nick}
 		
 		img(src=result.img)
