@@ -122,6 +122,14 @@
         "GitHub": "https://github.com/w00fz",
         "img": "../images/avatars/djamil.png",
         "Location": "Torino, Italia"
+    }, {
+        "Name": "Sérgio Crisóstomo",
+        "Nick": "(sergiocrisostomo)",
+        "Web": ["https://sergiofrilans.se"],
+        "Twitter": "https://twitter.com/sergiofrilans",
+        "GitHub": "https://github.com/SergioCrisostomo",
+        "img": "../images/avatars/sergio.png",
+        "Location": "Sweden"
     }],
     "Alumni": [{
         "Name": "Yaroslaff Fedin",
