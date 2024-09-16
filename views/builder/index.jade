@@ -18,10 +18,12 @@ block main
 
 					label
 						input(type="checkbox", name="minified", value="1")
+						span
 						| Download minified source code
 
 					label
 						input(type="checkbox", name="compat", value="1")
+						span
 						| Download with compat layer
 
 					if project != 'Core'
@@ -56,7 +58,9 @@ block main
 					- var hashRequested = hashDependencies.indexOf(file) != -1;
 					tr
 						td
-							input(type="checkbox", value=file, name="modules[]", data-provides="#{yaml.prov}", data-requires="#{yaml.req}", checked=hashRequested, class=hashRequested ? "activeChoice" : "")
+							label
+								input(type="checkbox", value=file, name="modules[]", data-provides="#{yaml.prov}", data-requires="#{yaml.req}", checked=hashRequested, class=hashRequested ? "activeChoice" : "")
+								span
 						td #{module}
 						td #{yaml.prov}
 						td #{yaml.desc}
@@ -66,10 +70,12 @@ block main
 			.save
 				label
 					input(type="checkbox", name="minified", value="1")
+					span
 					| Download minified source code
 
 				label
 					input(type="checkbox", name="compat", value="1")
+					span
 					| Download with compat layer
 
 				if project != 'Core'
