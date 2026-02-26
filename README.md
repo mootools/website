@@ -61,3 +61,7 @@ We have a [Trello board](https://trello.com/b/84PZ53Pr/development) that you can
 
 this command should update the `package.json` configuration fields. After that
 doing as `node build/all` will clone the repository and build docs etc.
+
+## How To Contribute
+1. [Fork the repo](https://help.github.com/articles/fork-a-repo/)
+2. [Submit a Pull Request](https://help.github.com/articles/using-pull-requests/)
